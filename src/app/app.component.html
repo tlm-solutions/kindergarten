@@ -1,0 +1,35 @@
+<aside>
+  <nav>
+    <a class="brand" routerLink="/dashboard" routerLinkActive="active">Kindergarten</a>
+
+    <ul>
+      <li>
+        <a routerLink="/region" routerLinkActive="active">
+          <app-region-icon class="icon"/>
+          Regions
+        </a>
+      </li>
+      <li>
+        <a routerLink="/station" routerLinkActive="active">
+          <app-station-icon class="icon"/>
+          Stations
+        </a>
+      </li>
+      <li>
+        <a routerLink="/user" routerLinkActive="active">
+          <app-user-icon class="icon"/>
+          Users
+        </a>
+      </li>
+    </ul>
+
+    <a class="profile" routerLink="/profile" routerLinkActive="active">
+      <app-profile-icon class="icon"/>
+      Profile
+    </a>
+  </nav>
+</aside>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

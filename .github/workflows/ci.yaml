@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, angular ]
+    tags: [ 'v*' ]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install
+      - run: pnpm run lint:ci
+
+#  test:
+#    runs-on: ubuntu-latest
+#
+#    strategy:
+#      matrix:
+#        node: [ 16, 18 ]
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: pnpm/action-setup@v2.2.4
+#
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: ${{ matrix.node }}
+#          cache: 'pnpm'
+#
+#      - run: pnpm install
+#      - run: pnpm run test:ci
+
+  build:
+    needs: [ lint ] # , test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install
+      - run: pnpm run build:ci
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: windshield
+          path: dist

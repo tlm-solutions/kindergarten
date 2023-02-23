@@ -1,0 +1,67 @@
+@import "vars";
+
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100%;
+
+  aside {
+    background: $dark;
+    padding: 0.5rem 0.5rem;
+
+    nav {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      row-gap: 1rem;
+      height: 100%;
+
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: 0.6rem;
+        text-decoration: none;
+        padding: 0.3rem 0.4rem;
+        color: $light;
+        border-radius: 0.3rem;
+        transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+
+        .icon {
+          fill: $light;
+        }
+
+        &:hover {
+          background: $background;
+        }
+
+        &.active {
+          background-color: $primary;
+          color: $dark;
+
+          .icon {
+            fill: $dark;
+          }
+        }
+
+        &.brand {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        &.profile {
+          align-self: flex-end;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  main {
+    overflow-y: auto;
+  }
+}

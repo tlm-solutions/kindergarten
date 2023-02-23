@@ -1,0 +1,10 @@
+@import "vars";
+
+:host {
+  fill: $light;
+
+  svg {
+    aspect-ratio: 1/1;
+    height: 1em;
+  }
+}

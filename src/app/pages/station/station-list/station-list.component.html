@@ -1,0 +1,26 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Lat</th>
+    <th>Lon</th>
+    <th>Region</th>
+    <th>Owner</th>
+    <th>Approved</th>
+    <th>Deactivated</th>
+    <th>Public</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let station of (stations | async)?.elements; trackBy trackBy">
+    <td>{{station.name}}</td>
+    <td>{{station.lat}}</td>
+    <td>{{station.lon}}</td>
+    <td>{{station.region}}</td>
+    <td>{{station.owner}}</td>
+    <td>{{station.approved}}</td>
+    <td>{{station.deactivated}}</td>
+    <td>{{station.public}}</td>
+  </tr>
+  </tbody>
+</table>
