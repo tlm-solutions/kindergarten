@@ -2,8 +2,11 @@ import {map, Observable} from "rxjs";
 import {DataService} from "./data.service";
 import {HttpClient} from "@angular/common/http";
 import {BASE_PATH, PaginationResponse} from "./data.domain";
+import {Injectable} from "@angular/core";
 
-export abstract class AbstractDataService<DtoWithId, DtoWithoutId, Id> implements DataService<DtoWithId, DtoWithoutId, Id> {
+@Injectable()
+export abstract class AbstractDataService<DtoWithId extends DtoSmall, DtoSmall extends { id: Id }, DtoWithoutId, Id>
+  implements DataService<DtoWithId, DtoSmall, DtoWithoutId, Id> {
 
   constructor(
     private readonly http: HttpClient,
@@ -11,8 +14,13 @@ export abstract class AbstractDataService<DtoWithId, DtoWithoutId, Id> implement
   ) {
   }
 
-  public findAll(offset: number, limit: number): Observable<PaginationResponse<DtoWithId>> {
-    return this.http.get<PaginationResponse<DtoWithId>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}});
+  public findAll(): Observable<DtoSmall[]> {
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`)
+      .pipe(map(data => data.elements));
+  }
+
+  public findPage(offset: number, limit: number): Observable<PaginationResponse<DtoSmall>> {
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}});
   }
 
   public findById(id: Id): Observable<DtoWithId> {

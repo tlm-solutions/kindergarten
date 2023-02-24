@@ -6,7 +6,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {StationIconComponent} from "./icons/station-icon/station-icon.component";
 import {UserIconComponent} from "./icons/user-icon/user-icon.component";
 import {ProfileIconComponent} from "./icons/profile-icon/profile-icon.component";
-import { StatisticCardComponent } from './ui/statistic-card/statistic-card.component';
+import {RegionIconComponent} from "./icons/region-icon/region-icon.component";
+import {TrackIconComponent} from "./icons/track-icon/track-icon.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { StatisticCardComponent } from './ui/statistic-card/statistic-card.compo
     StationIconComponent,
     UserIconComponent,
     ProfileIconComponent,
+    RegionIconComponent,
+    TrackIconComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

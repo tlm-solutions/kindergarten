@@ -1,0 +1,17 @@
+@import "vars";
+
+:host {
+  display: block;
+  background-color: $dark;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td, th {
+      padding: 0.3rem 0.4rem;
+    }
+  }
+}

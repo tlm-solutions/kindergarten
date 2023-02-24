@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+import {Component, ElementRef, HostListener, Input} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
@@ -12,13 +12,13 @@ import {RouterLink} from "@angular/router";
 export class StatisticCardComponent {
 
   @Input()
-  public name?: string;
+  public name?: string | null;
 
   @Input()
-  public link?: string;
+  public link?: string | null;
 
   @Input()
-  public value?: string;
+  public value?: string | null;
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,

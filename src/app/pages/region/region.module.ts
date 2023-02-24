@@ -3,11 +3,13 @@ import {CommonModule} from '@angular/common';
 import {RegionRoutingModule} from './region-routing.module';
 import {RegionComponent} from './region.component';
 import {RegionIconComponent} from "../../icons/region-icon/region-icon.component";
+import { RegionListComponent } from './region-list/region-list.component';
 
 
 @NgModule({
   declarations: [
-    RegionComponent
+    RegionComponent,
+    RegionListComponent
   ],
   imports: [
     CommonModule,

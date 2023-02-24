@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, Input} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-card',
@@ -9,5 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-
+  @Input()
+  public header?: string;
 }

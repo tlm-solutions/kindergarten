@@ -1,19 +1,15 @@
 <h1>Dashboard</h1>
 
 <div class="overview">
-  <app-statistic-card value="10" name="Regions" link="/region">
+  <app-statistic-card [value]="regionCount | async" name="Regions" link="/region">
     <app-region-icon/>
   </app-statistic-card>
 
-  <app-statistic-card value="34" name="Stations" link="/station">
+  <app-statistic-card [value]="stationCount | async" name="Stations" link="/station">
     <app-station-icon/>
   </app-statistic-card>
 
-  <app-statistic-card value="546" name="Users" link="/user">
+  <app-statistic-card [value]="userCount | async" name="Users" link="/user">
     <app-user-icon/>
-  </app-statistic-card>
-
-  <app-statistic-card value="34" name="Stations" link="/station">
-    <app-station-icon/>
   </app-statistic-card>
 </div>
