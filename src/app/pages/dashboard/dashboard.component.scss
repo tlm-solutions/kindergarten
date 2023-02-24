@@ -3,6 +3,24 @@
 :host {
   display: flex;
   flex-direction: column;
+  row-gap: 1rem;
   max-width: $content-width;
   margin: 0 auto;
+  padding: 2rem 0;
+
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  section {
+    background-color: $dark;
+    border-radius: 0.7rem;
+    border: 0.1rem solid $gray;
+
+    h1 {
+      color: #fb8217;
+    }
+  }
 }

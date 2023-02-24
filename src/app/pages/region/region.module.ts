@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
 import {RegionRoutingModule} from './region-routing.module';
 import {RegionComponent} from './region.component';
-import {AppModule} from "../../app.module";
+import {RegionIconComponent} from "../../icons/region-icon/region-icon.component";
 
 
 @NgModule({
@@ -13,7 +12,7 @@ import {AppModule} from "../../app.module";
   imports: [
     CommonModule,
     RegionRoutingModule,
-    AppModule
+    RegionIconComponent,
   ]
 })
 export class RegionModule {

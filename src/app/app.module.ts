@@ -5,13 +5,12 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {StationIconComponent} from "./icons/station-icon/station-icon.component";
 import {UserIconComponent} from "./icons/user-icon/user-icon.component";
-import {RegionIconComponent} from './icons/region-icon/region-icon.component';
 import {ProfileIconComponent} from "./icons/profile-icon/profile-icon.component";
+import { StatisticCardComponent } from './ui/statistic-card/statistic-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegionIconComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +21,6 @@ import {ProfileIconComponent} from "./icons/profile-icon/profile-icon.component"
     ProfileIconComponent,
   ],
   providers: [],
-  exports: [
-    RegionIconComponent
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
