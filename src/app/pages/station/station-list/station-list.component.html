@@ -1,3 +1,5 @@
+<h1>Stations</h1>
+
 <table>
   <thead>
   <tr>
@@ -9,18 +11,24 @@
     <th>Approved</th>
     <th>Deactivated</th>
     <th>Public</th>
+    <th>Details</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let station of (stations | async)?.elements; trackBy trackBy">
+  <tr *ngFor="let station of (stations | async); trackBy trackBy">
     <td>{{station.name}}</td>
     <td>{{station.lat}}</td>
     <td>{{station.lon}}</td>
     <td>{{station.region}}</td>
-    <td>{{station.owner}}</td>
+    <td>
+      <a [routerLink]="'/user/' + station.owner">
+        {{station.owner}}
+      </a>
+    </td>
     <td>{{station.approved}}</td>
     <td>{{station.deactivated}}</td>
     <td>{{station.public}}</td>
+    <td><a [routerLink]="station.id">Details</a></td>
   </tr>
   </tbody>
 </table>

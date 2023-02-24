@@ -1,9 +1,11 @@
 import {Observable} from "rxjs";
 import {PaginationResponse} from "./data.domain";
 
-export interface DataService<DtoWithId, DtoWithoutId, Id> {
+export interface DataService<DtoWithId extends DtoSmall, DtoSmall extends { id: Id }, DtoWithoutId, Id> {
 
-  findAll(offset: number, limit: number): Observable<PaginationResponse<DtoWithId>>;
+  findAll(): Observable<DtoSmall[]>;
+
+  findPage(offset: number, limit: number): Observable<PaginationResponse<DtoSmall>>;
 
   findById(id: Id): Observable<DtoWithId>;
 

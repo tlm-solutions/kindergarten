@@ -1,0 +1,47 @@
+<label>
+  Offset:
+  <input type="number" (change)="updateOffset($event.target)">
+</label>
+
+<label>
+  Limit:
+  <input type="number" (change)="updateLimit($event.target)">
+</label>
+
+<h1>Tracks ({{count|async}})</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Start</th>
+    <th>Ende</th>
+    <th>Line</th>
+    <th>Run</th>
+    <th>GpsFile</th>
+    <th>Region</th>
+    <th>Owner</th>
+    <th>Finish</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let track of (tracks | async); trackBy trackBy">
+    <td>{{track.start_time | date:'short':'GMT'}}</td>
+    <td>{{track.end_time | date:'short':'GMT'}}</td>
+    <td>{{track.line}}</td>
+    <td>{{track.run}}</td>
+    <td>{{track.gps_file}}</td>
+    <td>
+      <a [routerLink]="'/region/' + track.region">
+        {{(findSmallRegion(track.region) | async)?.name}}
+      </a>
+    </td>
+    <td>
+      <a [routerLink]="'/user/' + track.owner">
+        {{track.owner}}
+      </a>
+    </td>
+    <td>{{track.finished}}</td>
+    <td><a [routerLink]="track.id.toString()">Details</a></td>
+  </tr>
+  </tbody>
+</table>

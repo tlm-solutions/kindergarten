@@ -1,0 +1,27 @@
+<h1>Stations</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Transport Company</th>
+    <th>Regional Company</th>
+    <th>Frequency</th>
+    <th>R09 Type</th>
+    <th>Encoding</th>
+    <th>Deactivated</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let region of (regions | async); trackBy trackBy">
+    <td>{{region.name}}</td>
+    <td>{{region.transport_company}}</td>
+    <td>{{region.regional_company}}</td>
+    <td>{{region.frequency}}</td>
+    <td>{{region.r09_type}}</td>
+    <td>{{region.encoding}}</td>
+    <td>{{region.deactivated}}</td>
+    <td><a [routerLink]="region.id.toString()">Details</a></td>
+  </tr>
+  </tbody>
+</table>

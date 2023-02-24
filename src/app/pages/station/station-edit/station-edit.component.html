@@ -1,0 +1,69 @@
+<form [formGroup]="form">
+
+  <label>
+    Name
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Lat
+    <input type="text" formControlName="lat">
+  </label>
+
+  <label>
+    Lon
+    <input type="text" formControlName="lon">
+  </label>
+
+  <label>
+    Approved
+    <input type="checkbox" formControlName="approved">
+  </label>
+
+  <label>
+    Deactivated
+    <input type="checkbox" formControlName="deactiavted">
+  </label>
+
+  <label>
+    Public
+    <input type="checkbox" formControlName="public">
+  </label>
+
+  <label>
+    Radio
+    <input type="text" formControlName="radio">
+  </label>
+
+  <label>
+    Architecture
+    <input type="text" formControlName="architecture">
+  </label>
+
+  <label>
+    Device
+    <input type="text" formControlName="device">
+  </label>
+
+  <label>
+    Elevation
+    <input type="text" formControlName="elevation">
+  </label>
+
+  <label>
+    Antenna
+    <input type="text" formControlName="antenna">
+  </label>
+
+  <label>
+    Telegram Decoder Version
+    <input type="text" formControlName="telegram_decoder_version">
+  </label>
+
+  <label>
+    Notes
+    <textarea formControlName="notes"></textarea>
+  </label>
+
+  <input type="submit" value="Save">
+</form>

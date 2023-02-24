@@ -1,0 +1,91 @@
+<ng-container *ngIf="station | async as station; else loading">
+  <app-card header="General" class="general">
+    <table>
+      <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{station.name}}</td>
+      </tr>
+      <tr>
+        <td>Owner</td>
+        <td>
+          <ng-container *ngIf="owner | async as owner; else ownerLoading">
+            <a [routerLink]="'/user/' + owner.id">{{owner.name}}</a>
+          </ng-container>
+          <ng-template #ownerLoading>
+            Loading...
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <td>Approved</td>
+        <td>{{station.approved}}</td>
+      </tr>
+      <tr>
+        <td>Deactivated</td>
+        <td>{{station.deactivated}}</td>
+      </tr>
+      <tr>
+        <td>Public</td>
+        <td>{{station.public}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </app-card>
+
+  <app-card header="Location" class="location">
+    <table>
+      <tbody>
+      <tr>
+      <tr>
+        <td>Region</td>
+        <td>{{station.region}}</td>
+      </tr>
+      <tr>
+        <td>Lat</td>
+        <td>{{station.lat}}</td>
+      </tr>
+      <tr>
+        <td>Lon</td>
+        <td>{{station.lon}}</td>
+      </tr>
+      <tr>
+        <td>Elevation</td>
+        <td>{{station.elevation}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>MAP</p>
+  </app-card>
+  <app-card header="Hardware" class="hardware">
+    <table>
+      <tr>
+        <td>Radio</td>
+        <td>{{station.radio ?? "Unknown"}}</td>
+      </tr>
+      <tr>
+        <td>Architecture</td>
+        <td>{{station.architecture ?? "Unknown"}}</td>
+      </tr>
+      <tr>
+        <td>Device</td>
+        <td>{{station.device ?? "Unknown"}}</td>
+      </tr>
+      <tr>
+        <td>Antenna</td>
+        <td>{{station.antenna ?? "Unknown"}}</td>
+      </tr>
+      <tr>
+        <td>Telegram Decoder Version</td>
+        <td>{{station.telegram_decoder_version ?? "Unknown"}}</td>
+      </tr>
+    </table>
+  </app-card>
+
+  <app-map class="map" [lat]="station.lat" [lon]="station.lon"></app-map>
+</ng-container>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
