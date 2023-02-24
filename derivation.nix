@@ -1,12 +1,12 @@
 { pkgs, lib, config, domain, mkYarnPackage, yarn }:
 mkYarnPackage {
-    name = "kindergarten-compressed";
+    name = "kindergarten";
     src = ./.;
     packageJson = ./package.json;
     yarnLock = ./yarn.lock;
     
     buildInputs = [ yarn ];
-    patchPhase = ''
+    postPatch = ''
       substituteInPlace src/app/data/base/data.domain.ts \
         --replace 'staging.dvb.solutions' '${domain}'
     '';
@@ -28,5 +28,5 @@ mkYarnPackage {
       cp -r ./deps/kindergarten/dist/* $out/bin
     '';
 
-    distPhase = "true";
+    doDist = false;
 }
