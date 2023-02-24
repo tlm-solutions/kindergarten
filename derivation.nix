@@ -12,7 +12,6 @@ mkYarnPackage {
     '';
 
     buildPhase = ''
-      export NG_CLI_ANALYTICS=ci
       cp -r $node_modules ./node_modules
       chmod -R +w ./
 
