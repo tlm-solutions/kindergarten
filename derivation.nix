@@ -19,6 +19,10 @@ mkYarnPackage {
       rm ./deps/kindergarten/node_modules
       mkdir ./deps/kindergarten/node_modules
       cp -r $FILE/ ./deps/kindergarten/
+      cp -r ./node_modules/leaflet ./deps/kindergarten/node_modules/
+
+      find | grep leaflet.css
+      ls deps/kindergarten/
 
       yarn build
     '';
