@@ -4,6 +4,7 @@ import {RegionRoutingModule} from './region-routing.module';
 import {RegionComponent} from './region.component';
 import {RegionIconComponent} from "../../icons/region-icon/region-icon.component";
 import { RegionListComponent } from './region-list/region-list.component';
+import {CardComponent} from "../../ui/card/card.component";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { RegionListComponent } from './region-list/region-list.component';
     CommonModule,
     RegionRoutingModule,
     RegionIconComponent,
+    CardComponent,
   ]
 })
 export class RegionModule {
