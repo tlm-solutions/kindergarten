@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {map, share, Subscription, switchMap, tap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Antenna, Architecture, Device, Radio, StationId, StationWithoutId} from "../../../data/station/station.domain";
+import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
 import {RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
 
@@ -90,5 +90,6 @@ export class StationEditComponent implements OnInit, OnDestroy {
         tap(console.log),
         switchMap(() => this.router.navigate(['..'])),
       )
-      .subscribe()  }
+      .subscribe()
+  }
 }

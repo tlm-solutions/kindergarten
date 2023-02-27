@@ -1,4 +1,4 @@
-@import "src/scss/global/vars";
+@import "vars";
 
 :host {
   display: flex;
@@ -8,7 +8,7 @@
   transition: 150ms transform ease-in-out;
   background: radial-gradient(
       150rem circle at var(--xPos) var(--yPos),
-      rgba($primary, 0.4),
+      rgba(251, 203, 4, 0.4),
       transparent 15%
   );
 
@@ -24,7 +24,7 @@
     border-radius: inherit;
     background: radial-gradient(
         60rem circle at var(--xPos) var(--yPos),
-        rgba($primary, 0.1),
+        rgba(251, 203, 4, 0.2),
         transparent 35%
     );
     opacity: 0;
@@ -45,7 +45,7 @@
     justify-content: space-between;
     padding: 1rem;
     cursor: pointer;
-    background-color: $secondary;
+    background-color: $background-light;
     border-radius: inherit;
     height: calc(100% - 0.15rem);
     width: calc(100% - 0.15rem);
@@ -55,20 +55,18 @@
     .wrapper {
       display: flex;
       flex-direction: column;
-    }
 
-    .value {
-      grid-area: value;
-      font-weight: bold;
-      font-size: 1.6rem;
-    }
+      .value {
+        font-weight: bold;
+        font-size: $font-size;
+      }
 
-    .name {
-      grid-area: name;
+      .name {
+        font-size: $font-size-small;
+      }
     }
 
     .icon {
-      grid-area: icon;
       height: 100%;
       aspect-ratio: 1/1;
     }

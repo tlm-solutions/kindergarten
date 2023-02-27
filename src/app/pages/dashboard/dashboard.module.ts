@@ -6,19 +6,21 @@ import {StatisticCardComponent} from "../../core/components/statistic-card/stati
 import {UserIconComponent} from "../../core/icons/user-icon/user-icon.component";
 import {StationIconComponent} from "../../core/icons/station-icon/station-icon.component";
 import {RegionIconComponent} from "../../core/icons/region-icon/region-icon.component";
+import {TrackIconComponent} from "../../core/icons/track-icon/track-icon.component";
 
 @NgModule({
   declarations: [
     DashboardComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    UserIconComponent,
-    StationIconComponent,
-    StatisticCardComponent,
-    RegionIconComponent
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        UserIconComponent,
+        StationIconComponent,
+        StatisticCardComponent,
+        RegionIconComponent,
+        TrackIconComponent
+    ]
 })
 export class DashboardModule {
 }

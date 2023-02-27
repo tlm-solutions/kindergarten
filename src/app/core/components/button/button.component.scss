@@ -1,5 +1,5 @@
 @use "sass:list";
-@import "src/scss/global/vars";
+@import "vars";
 
 $flavors: (
   good: ($good, $good-dark),
