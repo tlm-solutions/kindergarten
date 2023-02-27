@@ -3,10 +3,10 @@ export type RegionId = number;
 export interface RegionWithoutId {
   name: string;
   transport_company: string;
-  regional_company: string;
-  frequency: string;
-  r09_type: number,
-  encoding: Encoding,
+  regional_company: string | null;
+  frequency: string | null;
+  r09_type: number | null,
+  encoding: Encoding | null,
   deactivated: boolean,
 }
 

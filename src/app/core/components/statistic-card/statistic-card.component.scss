@@ -1,0 +1,76 @@
+@import "src/scss/global/vars";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  transition: 150ms transform ease-in-out;
+  background: radial-gradient(
+      150rem circle at var(--xPos) var(--yPos),
+      rgba($primary, 0.4),
+      transparent 15%
+  );
+
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        60rem circle at var(--xPos) var(--yPos),
+        rgba($primary, 0.1),
+        transparent 35%
+    );
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: scale(0.97);
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: $secondary;
+    border-radius: inherit;
+    height: calc(100% - 0.15rem);
+    width: calc(100% - 0.15rem);
+    text-decoration: none;
+    color: inherit;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .value {
+      grid-area: value;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    .name {
+      grid-area: name;
+    }
+
+    .icon {
+      grid-area: icon;
+      height: 100%;
+      aspect-ratio: 1/1;
+    }
+  }
+}

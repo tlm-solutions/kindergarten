@@ -1,7 +1,7 @@
 import {Observable} from "rxjs";
-import {PaginationResponse} from "./data.domain";
+import {IdHolder, PaginationResponse} from "./data.domain";
 
-export interface DataService<DtoWithId extends DtoSmall, DtoSmall extends { id: Id }, DtoWithoutId, Id> {
+export interface DataService<DtoWithId extends DtoSmall, DtoSmall extends IdHolder<Id>, DtoWithoutId, Id> {
 
   findAll(): Observable<DtoSmall[]>;
 

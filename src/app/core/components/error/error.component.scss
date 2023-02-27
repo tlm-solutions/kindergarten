@@ -1,0 +1,6 @@
+@import "src/scss/global/vars";
+
+:host {
+  font-size: $font-size-small;
+  color: $danger;
+}

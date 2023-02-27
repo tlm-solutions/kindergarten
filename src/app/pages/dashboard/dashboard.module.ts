@@ -2,12 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './dashboard.component';
-import {CardComponent} from "../../ui/card/card.component";
-import {UserIconComponent} from "../../icons/user-icon/user-icon.component";
-import {StationIconComponent} from "../../icons/station-icon/station-icon.component";
-import {StatisticCardComponent} from "../../ui/statistic-card/statistic-card.component";
-import {RegionIconComponent} from "../../icons/region-icon/region-icon.component";
-
+import {StatisticCardComponent} from "../../core/components/statistic-card/statistic-card.component";
+import {UserIconComponent} from "../../core/icons/user-icon/user-icon.component";
+import {StationIconComponent} from "../../core/icons/station-icon/station-icon.component";
+import {RegionIconComponent} from "../../core/icons/region-icon/region-icon.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +14,6 @@ import {RegionIconComponent} from "../../icons/region-icon/region-icon.component
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    CardComponent,
     UserIconComponent,
     StationIconComponent,
     StatisticCardComponent,

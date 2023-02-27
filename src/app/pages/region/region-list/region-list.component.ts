@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RegionService} from "../../../data/region/region.service";
 import {RegionId, RegionWithId} from "../../../data/region/region.domain";
+import {map} from "rxjs";
 
 @Component({
   selector: 'app-region-list',
@@ -11,6 +12,7 @@ import {RegionId, RegionWithId} from "../../../data/region/region.domain";
 export class RegionListComponent {
 
   protected readonly regions = this.regionService.findAll();
+  protected readonly regionCount = this.regions.pipe(map(regions => regions.length));
 
   constructor(
     private readonly regionService: RegionService,

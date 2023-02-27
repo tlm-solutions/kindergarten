@@ -9,3 +9,7 @@ export interface Pagination {
   offset: number;
   limit: number;
 }
+
+export interface IdHolder<T> {
+  id: T;
+}

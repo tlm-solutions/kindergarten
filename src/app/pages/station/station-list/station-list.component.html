@@ -1,34 +1,41 @@
-<h1>Stations</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Lat</th>
-    <th>Lon</th>
-    <th>Region</th>
-    <th>Owner</th>
-    <th>Approved</th>
-    <th>Deactivated</th>
-    <th>Public</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let station of (stations | async); trackBy trackBy">
-    <td>{{station.name}}</td>
-    <td>{{station.lat}}</td>
-    <td>{{station.lon}}</td>
-    <td>{{station.region}}</td>
-    <td>
-      <a [routerLink]="'/user/' + station.owner">
-        {{station.owner}}
-      </a>
-    </td>
-    <td>{{station.approved}}</td>
-    <td>{{station.deactivated}}</td>
-    <td>{{station.public}}</td>
-    <td><a [routerLink]="station.id">Details</a></td>
-  </tr>
-  </tbody>
-</table>
+<section>
+  <h1>Stations ({{stationCount | async}})</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Region</th>
+      <th>Owner</th>
+      <th>Approved</th>
+      <th>Deactivated</th>
+      <th>Public</th>
+      <th>Details</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let station of (stations | async); trackBy trackBy">
+      <td>{{station.name}}</td>
+      <td>{{station.lat}}</td>
+      <td>{{station.lon}}</td>
+      <td>{{station.region}}</td>
+      <td>
+        <a [routerLink]="'/user/' + station.owner">
+          Redacted
+        </a>
+      </td>
+      <td>{{station.approved}}</td>
+      <td>{{station.deactivated}}</td>
+      <td>{{station.public}}</td>
+      <td>
+        <app-button [link]="station.id">Details</app-button>
+      </td>
+      <td>
+        <app-button [link]="station.id + '/edit'">Edit</app-button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>

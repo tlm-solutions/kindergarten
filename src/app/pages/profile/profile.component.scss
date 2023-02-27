@@ -1,8 +1,6 @@
 @import "vars";
 
 :host {
-  display: flex;
-  flex-direction: column;
-  max-width: $content-width;
-  margin: 0 auto;
+  display: block;
+  padding: 1rem;
 }

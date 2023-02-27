@@ -1,0 +1,85 @@
+@import "vars";
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+
+a:not(.not) {
+  border-bottom: 0.15rem solid $primary;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+
+  svg {
+    transition: fill 150ms ease-in-out;
+  }
+
+  &:hover {
+    background-color: $primary;
+    color: $secondary;
+
+    svg {
+      fill: $secondary;
+    }
+  }
+}
+
+section {
+  padding: 1rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $background-dark;
+  background-color: $background-light;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, .section {
+  margin: 0 0 1rem;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  &:not(.not) {
+    $border: 0.125rem;
+
+    border: $border solid $background-dark;
+    padding: 1rem;
+    border-radius: 0.4rem;
+
+    > label {
+      position: absolute;
+      top: 0;
+      transform: translateY(calc(-50% - $border));
+      background: $background-light;
+      padding: 0 0.3rem;
+    }
+  }
+
+  > label {
+    font-weight: $font-weight-bold;
+  }
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 0.5rem;
+  border-left: 0.15rem solid $text;
+}
+
+ul, ol {
+  &:not(.not) {
+    margin: 0;
+    padding-left: 1rem;
+  }
+}

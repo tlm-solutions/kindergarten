@@ -1,5 +1,6 @@
 <ng-container *ngIf="station | async as station; else loading">
-  <app-card header="General" class="general">
+  <section class="general">
+    <h1>General</h1>
     <table>
       <tbody>
       <tr>
@@ -31,9 +32,10 @@
       </tr>
       </tbody>
     </table>
-  </app-card>
+  </section>
 
-  <app-card header="Location" class="location">
+  <section class="location">
+    <h1>Location</h1>
     <table>
       <tbody>
       <tr>
@@ -57,8 +59,9 @@
     </table>
 
     <p>MAP</p>
-  </app-card>
-  <app-card header="Hardware" class="hardware">
+  </section>
+  <section class="hardware">
+    <h1>Hardware</h1>
     <table>
       <tr>
         <td>Radio</td>
@@ -81,7 +84,7 @@
         <td>{{station.telegram_decoder_version ?? "Unknown"}}</td>
       </tr>
     </table>
-  </app-card>
+  </section>
 
   <app-map class="map" [lat]="station.lat" [lon]="station.lon"></app-map>
 </ng-container>

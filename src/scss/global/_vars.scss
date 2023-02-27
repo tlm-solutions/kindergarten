@@ -1,0 +1,37 @@
+$primary: var(--color-primary);
+$primary-dark: var(--color-primary-dark);
+
+$secondary: var(--color-secondary);
+$secondary-light: var(--color-secondary-light);
+$secondary-dark: var(--color-secondary-dark);
+
+$ternary: var(--color-ternary);
+$ternary-light: var(--color-ternary-light);
+$ternary-dark: var(--color-ternary-dark);
+
+$gray: var(--gray);
+
+$good: var(--color-good);
+$good-dark: var(--color-good-dark);
+
+$danger: var(--color-danger);
+$danger-dark: var(--color-danger-dark);
+
+$font-family: var(--font-family);
+$font-size: var(--font-size);
+$font-size-small: var(--font-size-small);
+$font-weight: var(--font-weight);
+$font-weight-bold: var(--font-weight-bold);
+
+$page-width: var(--page-width);
+
+$background: var(--color-background);
+$background-light: var(--color-background-light);
+$background-dark: var(--color-background-dark);
+$text: var(--color-text);
+$text-dark: var(--color-text-dark);
+$text-inverted: var(--color-text-inverted);
+$text-inverted-dark: var(--color-text-inverted-dark);
+
+$page-padding-tb: 1rem;
+$page-padding-lr: max(0.5rem, 2vw);

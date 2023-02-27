@@ -1,0 +1,49 @@
+@import "vars";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+
+  .icon {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    fill: $primary;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .icon, h1 {
+      align-self: center;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      flex-direction: column;
+
+      &, .controls {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .controls {
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+  }
+}

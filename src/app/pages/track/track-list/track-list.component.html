@@ -1,14 +1,15 @@
-<label>
-  Offset:
-  <input type="number" (change)="updateOffset($event.target)">
-</label>
+<section>
 
-<label>
-  Limit:
-  <input type="number" (change)="updateLimit($event.target)">
-</label>
+  <h1>Tracks ({{count | async}})</h1>
+  <label>
+    Offset:
+    <input type="number" (change)="updateOffset($event.target)">
+  </label>
 
-<h1>Tracks ({{count|async}})</h1>
+  <label>
+    Limit:
+    <input type="number" (change)="updateLimit($event.target)">
+  </label>
 
 <table>
   <thead>
@@ -45,3 +46,4 @@
   </tr>
   </tbody>
 </table>
+</section>

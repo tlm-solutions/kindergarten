@@ -1,39 +1,19 @@
-@import "vars";
-
 :host {
-  display: flex;
-  background-color: $dark;
+  display: block;
   padding: 1rem;
 
   form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
-    label {
-      display: flex;
-      flex-direction: column;
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
 
-      &:has(input[type=checkbox]) {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-shrink: 1;
-      }
-
-      input, textarea {
-        width: 100%;
-        outline: none;
-        border: none;
-        background-color: $background;
-        color: $light;
-      }
-
-      input[type=checkbox ] {
-        width: unset;
-      }
-
-      textarea {
-        resize: vertical;
+      h1 {
+        grid-column: 1/3;
       }
     }
   }

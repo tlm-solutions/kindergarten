@@ -1,0 +1,60 @@
+@use "sass:list";
+@import "vars";
+
+$flavors: (
+  success: ($good, $good-dark),
+  error: ($danger, $danger-dark)
+);
+
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: $primary;
+  border-radius: 0.3rem;
+  width: 20rem;
+  overflow: hidden;
+  padding: 0.6rem 0.8rem;
+  column-gap: 0.6rem;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: $secondary;
+  }
+
+  p {
+    margin: 0;
+    flex: 1;
+    color: $secondary;
+    line-height: 1.2;
+  }
+
+  .duration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.3rem;
+    background-color: $primary-dark;
+    transition: width 500ms linear;
+    width: 100%;
+  }
+
+  @each $name, $colors in $flavors {
+    &.#{$name} {
+      background-color: list.nth($colors, 1);
+
+      svg {
+        fill: $text-inverted;
+      }
+
+      p {
+        color: $text-inverted;
+      }
+
+      .duration {
+        background-color: list.nth($colors, 2);
+      }
+    }
+  }
+}

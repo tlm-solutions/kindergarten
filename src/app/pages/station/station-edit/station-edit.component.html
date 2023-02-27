@@ -1,69 +1,49 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="save(); $event.preventDefault()">
 
-  <label>
-    Name
-    <input type="text" formControlName="name">
-  </label>
+  <section>
+    <h1>General</h1>
+    <app-text-field label="Name" formControlName="name">
+      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">Name is required!</app-error>
+    </app-text-field>
+    <label>
+      Approved
+      <input type="checkbox" formControlName="approved">
+    </label>
 
-  <label>
-    Lat
-    <input type="text" formControlName="lat">
-  </label>
+    <label>
+      Deactivated
+      <input type="checkbox" formControlName="deactivated">
+    </label>
 
-  <label>
-    Lon
-    <input type="text" formControlName="lon">
-  </label>
+    <label>
+      Public
+      <input type="checkbox" formControlName="public">
+    </label>
 
-  <label>
-    Approved
-    <input type="checkbox" formControlName="approved">
-  </label>
+<!--    <app-text-field label="Notes" formControlName="notes" type="multiline"/>-->
+  </section>
 
-  <label>
-    Deactivated
-    <input type="checkbox" formControlName="deactiavted">
-  </label>
+  <section>
+    <h1>Location</h1>
+    <app-text-field label="Latitude" formControlName="lat" type="number">
+      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']">Latitude is required!</app-error>
+    </app-text-field>
+    <app-text-field label="Longitude" formControlName="lon" type="number">
+      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']">Longitude is required!</app-error>
+    </app-text-field>
+    <app-text-field label="Elevation" formControlName="elevation" type="number"/>
+  </section>
 
-  <label>
-    Public
-    <input type="checkbox" formControlName="public">
-  </label>
+  <section>
+    <h1>Hardware</h1>
 
-  <label>
-    Radio
-    <input type="text" formControlName="radio">
-  </label>
+    <app-text-field label="Radio" formControlName="radio"/>
+    <app-text-field label="Architecture" formControlName="architecture"/>
+    <app-text-field label="Device" formControlName="device"/>
+    <app-text-field label="Antenna" formControlName="antenna"/>
 
-  <label>
-    Architecture
-    <input type="text" formControlName="architecture">
-  </label>
+    <app-text-field label="Telegram Decoder Version" formControlName="telegram_decoder_version"/>
+  </section>
 
-  <label>
-    Device
-    <input type="text" formControlName="device">
-  </label>
-
-  <label>
-    Elevation
-    <input type="text" formControlName="elevation">
-  </label>
-
-  <label>
-    Antenna
-    <input type="text" formControlName="antenna">
-  </label>
-
-  <label>
-    Telegram Decoder Version
-    <input type="text" formControlName="telegram_decoder_version">
-  </label>
-
-  <label>
-    Notes
-    <textarea formControlName="notes"></textarea>
-  </label>
-
-  <input type="submit" value="Save">
+  <app-button label="Save"/>
 </form>

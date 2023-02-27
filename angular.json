@@ -35,13 +35,18 @@
               }
             ],
             "styles": [
+              "node_modules/@fontsource/dm-sans/400.css",
+              "node_modules/@fontsource/dm-sans/400-italic.css",
+              "node_modules/@fontsource/dm-sans/700.css",
+              "node_modules/@fontsource/dm-sans/700-italic.css",
+              "node_modules/@angular/cdk/overlay-prebuilt.css",
               "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/scss"
+                "src/scss/global"
               ]
             }
           },
@@ -109,6 +114,11 @@
               }
             ],
             "styles": [
+              "node_modules/@fontsource/dm-sans/400.css",
+              "node_modules/@fontsource/dm-sans/400-italic.css",
+              "node_modules/@fontsource/dm-sans/700.css",
+              "node_modules/@fontsource/dm-sans/700-italic.css",
+              "node_modules/@angular/cdk/overlay-prebuilt.css",
               "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ],
