@@ -34,11 +34,11 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
   }
 
   public findPage(offset: number, limit: number): Observable<PaginationResponse<DtoSmall>> {
-    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}});
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}, withCredentials: true});
   }
 
   public findById(id: Id): Observable<DtoWithId> {
-    return this.http.get<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`);
+    return this.http.get<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, {withCredentials: true});
   }
 
   public findSmallById(id: Id): Observable<DtoSmall | undefined> {
@@ -50,15 +50,15 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
   }
 
   public save(dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto);
+    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto, {withCredentials: true});
   }
 
   public update(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto);
+    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true});
   }
 
   public patch(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.patch<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto)
+    return this.http.patch<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true})
       .pipe(tap(dto => {
         const items = this.cache.value;
         const item = items.find(item => item.id === id);
@@ -73,7 +73,7 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
   }
 
   public delete(id: Id): Observable<Id> {
-    return this.http.delete(`${BASE_PATH}/${this.name}/${id}`)
+    return this.http.delete(`${BASE_PATH}/${this.name}/${id}`, {withCredentials: true})
       .pipe(map(() => {
         this.cache.next(this.cache.value.filter(item => item.id === id));
         return id;
@@ -89,7 +89,7 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
       return;
     }
 
-    this.updateSubscription = this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`)
+    this.updateSubscription = this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {withCredentials: true})
       .subscribe(data => {
         this.lastUpdate = Date.now();
         this.cache.next(data.elements);

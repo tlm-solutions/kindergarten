@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:ssl": "ng serve --ssl --host local.dvb.solutions",
     "build": "ng build --output-path=./dist",
     "build:ci": "ng build --output-path=./dist",
     "watch": "ng build --watch --configuration development",
@@ -28,7 +29,6 @@
     "leaflet": "^1.9.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
-    "yarn": "^1.22.19",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import {RegionId} from "../region/region.domain";
 import {UserId} from "../user/user.domain";
 
-export type TrackId = number
+export type TrackId = string;
 
 export interface TrackWithoutId {
   start_time: string,

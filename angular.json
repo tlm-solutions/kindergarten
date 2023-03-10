@@ -87,7 +87,11 @@
               "browserTarget": "kindergarten:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "sslCert": "G:\\Work\\tools\\scripts\\local_dvb_solutions.cer",
+            "sslKey": "G:\\Work\\tools\\scripts\\local_dvb_solutions.key"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

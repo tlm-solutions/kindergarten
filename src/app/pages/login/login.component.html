@@ -5,6 +5,8 @@
   <app-tlms-icon class="icon"></app-tlms-icon>
   <h1>Kindergarten Login</h1>
 
+  <span class="error" *ngIf="(loading | async) === false && (wrongCredentials | async)">Wrong credentials</span>
+
   <form [formGroup]="form" (submit)="login(); $event.preventDefault()">
     <app-text-field label="E-Mail" formControlName="email">
       <app-error *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']">
@@ -20,7 +22,7 @@
 
     <div class="controls">
       <a routerLink="/dashboard">Dashboard</a>
-      <app-button label="Login" class="submit"/>
+      <app-button label="Login" class="submit" [disabled]="loading | async"/>
     </div>
   </form>
 </section>

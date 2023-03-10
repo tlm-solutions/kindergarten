@@ -3,7 +3,8 @@
 
 $flavors: (
   good: ($good, $good-dark),
-  danger: ($danger, $danger-dark)
+  danger: ($danger, $danger-dark),
+  disabled: ($gray, $text-dark),
 );
 
 :host {

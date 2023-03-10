@@ -15,32 +15,35 @@ export abstract class AbstractDataService<DtoWithId extends DtoSmall, DtoSmall e
   }
 
   public findAll(): Observable<DtoSmall[]> {
-    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`)
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {withCredentials: true})
       .pipe(map(data => data.elements));
   }
 
   public findPage(offset: number, limit: number): Observable<PaginationResponse<DtoSmall>> {
-    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}});
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {
+      withCredentials: true,
+      params: {offset, limit}
+    });
   }
 
   public findById(id: Id): Observable<DtoWithId> {
-    return this.http.get<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`);
+    return this.http.get<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, {withCredentials: true});
   }
 
   public save(dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto);
+    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto, {withCredentials: true});
   }
 
   public update(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto);
+    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true});
   }
 
   public patch(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.patch<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto);
+    return this.http.patch<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true});
   }
 
   public delete(id: Id): Observable<Id> {
-    return this.http.delete(`${BASE_PATH}/${this.name}/${id}`)
+    return this.http.delete(`${BASE_PATH}/${this.name}/${id}`, {withCredentials: true})
       .pipe(map(() => id));
   }
 }

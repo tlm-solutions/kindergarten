@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../data/auth/auth.service";
 import {Router} from "@angular/router";
-import {EMPTY, switchMap} from "rxjs";
+import {BehaviorSubject, EMPTY, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,9 @@ export class LoginComponent {
     password: new FormControl<string>('', {nonNullable: true, validators: [Validators.required]}),
   });
 
+  protected readonly wrongCredentials = new BehaviorSubject<boolean>(false);
+  protected readonly loading = new BehaviorSubject<boolean>(false);
+
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router,
@@ -23,11 +26,12 @@ export class LoginComponent {
   }
 
   protected login(): void {
-    if (!this.form.valid) {
+    if (this.loading.value || !this.form.valid) {
       return;
     }
 
     const {email, password} = this.form.getRawValue();
+    this.loading.next(true);
 
     this.authService.login(email, password)
       .pipe(
@@ -37,8 +41,13 @@ export class LoginComponent {
           }
 
           return EMPTY;
-        })
+        }),
       )
-      .subscribe();
+      .subscribe({
+        error: () => {
+          this.wrongCredentials.next(true)
+          this.loading.next(false);
+        },
+      });
   }
 }
