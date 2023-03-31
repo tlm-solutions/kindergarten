@@ -9,6 +9,10 @@
       <th>Frequency</th>
       <th>R09 Type</th>
       <th>Encoding</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Zoom</th>
+      <th>Work in Progress</th>
       <th>Deactivated</th>
     </tr>
     </thead>
@@ -20,8 +24,12 @@
       <td>{{region.frequency}}</td>
       <td>{{region.r09_type}}</td>
       <td>{{region.encoding}}</td>
+      <td>{{region.lat}}°</td>
+      <td>{{region.lon}}°</td>
+      <td>{{region.zoom}}°</td>
+      <td>{{region.work_in_progress}}</td>
       <td>{{region.deactivated}}</td>
-      <td><a [routerLink]="region.id.toString()">Details</a></td>
+      <td><app-button [link]="region.id.toString()">Details</app-button></td>
     </tr>
     </tbody>
   </table>

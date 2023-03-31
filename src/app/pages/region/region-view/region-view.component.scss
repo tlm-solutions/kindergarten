@@ -1,0 +1,26 @@
+:host {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: min-content min-content min-content;
+  padding: 1rem;
+  gap: 1rem;
+  grid-template-areas: "general map";
+
+  .general {
+    grid-area: general;
+  }
+
+  .map {
+    grid-area: map;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td:last-of-type {
+      text-align: right;
+    }
+  }
+}

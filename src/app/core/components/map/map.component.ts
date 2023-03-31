@@ -19,13 +19,15 @@ export class MapComponent implements AfterViewInit {
   public lat?: number;
   @Input()
   public lon?: number;
+  @Input()
+  public zoom?: number;
 
   private initMap(): void {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.map = map(this.mapEle!.nativeElement!, {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       center: [this.lat!, this.lon!],
-      zoom: 12
+      zoom: this.zoom ?? 12,
     });
 
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
