@@ -1,0 +1,29 @@
+<section>
+  <h1>Users ({{userCount | async}})</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Email Setting</th>
+      <th>Deactivated</th>
+      <th>Details</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of (users | async); trackBy trackBy">
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.email_setting}}</td>
+      <td>{{user.deactivated}}</td>
+      <td>
+        <app-button [link]="user.id">Details</app-button>
+      </td>
+      <td>
+        <app-button [link]="user.id + '/edit'">Edit</app-button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>

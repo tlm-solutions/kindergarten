@@ -1,0 +1,29 @@
+<ng-container *ngIf="user | async as user; else loading">
+  <section class="general">
+    <h1>General</h1>
+    <table>
+      <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{user.name}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{user.email}}</td>
+      </tr>
+      <tr>
+        <td>Email Setting</td>
+        <td>{{user.email_setting}}</td>
+      </tr>
+      <tr>
+        <td>Deactivated</td>
+        <td>{{user.deactivated}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</ng-container>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
