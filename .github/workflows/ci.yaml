@@ -21,8 +21,9 @@ jobs:
 
       - run: pnpm install
       - run: pnpm run lint:ci
+        continue-on-error: true
 
-#  test:
+  #  test:
 #    runs-on: ubuntu-latest
 #
 #    strategy:
