@@ -1,8 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {StationService} from "../../../data/station/station.service";
-import {map, share, switchMap} from "rxjs";
+import {map, Observable, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
+import {RegionId, RegionWithId} from "../../../data/region/region.domain";
+import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {RegionService} from "../../../data/region/region.service";
 
 @Component({
   selector: 'app-station-view',
@@ -18,15 +21,19 @@ export class StationViewComponent {
     share(),
   );
 
-  protected readonly owner = this.station.pipe(
-    switchMap(user => this.userService.findById(user.owner)),
-    share(),
-  );
-
   constructor(
     private readonly route: ActivatedRoute,
     private readonly stationService: StationService,
+    private readonly regionService: RegionService,
     private readonly userService: UserService
   ) {
+  }
+
+  protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
+    return this.regionService.findSmallById(id);
+  }
+
+  protected getUser(id: UserId): Observable<UserWithId | undefined> {
+    return this.userService.findSmallById(id);
   }
 }

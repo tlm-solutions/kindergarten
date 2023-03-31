@@ -18,12 +18,16 @@
     <tbody>
     <tr *ngFor="let station of (stations | async); trackBy trackBy">
       <td>{{station.name}}</td>
-      <td>{{station.lat}}</td>
-      <td>{{station.lon}}</td>
-      <td>{{station.region}}</td>
+      <td>{{station.lat}}°</td>
+      <td>{{station.lon}}°</td>
+      <td>
+        <a [routerLink]="'/region/' + station.region">
+          {{ (getRegion(station.region) | async)?.name }}
+        </a>
+      </td>
       <td>
         <a [routerLink]="'/user/' + station.owner">
-          Redacted
+          {{ (getUser(station.owner) | async)?.name }}
         </a>
       </td>
       <td>{{station.approved}}</td>

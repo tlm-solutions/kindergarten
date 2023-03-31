@@ -10,12 +10,9 @@
       <tr>
         <td>Owner</td>
         <td>
-          <ng-container *ngIf="owner | async as owner; else ownerLoading">
-            <a [routerLink]="'/user/' + owner.id">{{owner.name}}</a>
-          </ng-container>
-          <ng-template #ownerLoading>
-            Loading...
-          </ng-template>
+          <a [routerLink]="'/user/' + station.owner">
+            {{ (getUser(station.owner) | async)?.name }}
+          </a>
         </td>
       </tr>
       <tr>
@@ -41,15 +38,19 @@
       <tr>
       <tr>
         <td>Region</td>
-        <td>{{station.region}}</td>
+        <td>
+          <a [routerLink]="'/region/' + station.region">
+            {{ (getRegion(station.region) | async)?.name }}
+          </a>
+        </td>
       </tr>
       <tr>
         <td>Lat</td>
-        <td>{{station.lat}}</td>
+        <td>{{station.lat}}°</td>
       </tr>
       <tr>
         <td>Lon</td>
-        <td>{{station.lon}}</td>
+        <td>{{station.lon}}°</td>
       </tr>
       <tr>
         <td>Elevation</td>
@@ -57,8 +58,6 @@
       </tr>
       </tbody>
     </table>
-
-    <p>MAP</p>
   </section>
   <section class="hardware">
     <h1>Hardware</h1>
