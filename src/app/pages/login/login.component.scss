@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
+    min-width: min(22rem, 80vw);
 
     .icon, h1 {
       align-self: center;

@@ -9,10 +9,12 @@
 
   --color-secondary: #13161c;
   --color-secondary-light: #20242f;
+  --color-secondary-lighter: #2b303f;
   --color-secondary-dark: #0c1016;
 
   --color-ternary: #fafafa;
   --color-ternary-light: #fff;
+  --color-ternary-lighter: #fff;
   --color-ternary-dark: #f0f0f0;
 
   --gray: #bebebe;
@@ -34,6 +36,7 @@
   // theme specific colors
   --color-background: var(--color-ternary);
   --color-background-light: var(--color-ternary-light);
+  --color-background-lighter: var(--color-ternary-lighter);
   --color-background-dark: var(--color-ternary-dark);
   --color-text: var(--color-secondary);
   --color-text-dark: var(--color-secondary-dark);
@@ -46,6 +49,7 @@
     --gray: #4d4d4d;
     --color-background: var(--color-secondary);
     --color-background-light: var(--color-secondary-light);
+    --color-background-lighter: var(--color-secondary-lighter);
     --color-background-dark: var(--color-secondary-dark);
     --color-text: var(--color-ternary);
     --color-text-dark: var(--color-ternary-dark);

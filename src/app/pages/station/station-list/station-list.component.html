@@ -1,5 +1,5 @@
+<h1>Stations</h1>
 <section>
-  <h1>Stations ({{stationCount | async}})</h1>
   <table>
     <thead>
     <tr>
@@ -33,12 +33,8 @@
       <td>{{station.approved}}</td>
       <td>{{station.deactivated}}</td>
       <td>{{station.public}}</td>
-      <td>
-        <app-button [link]="station.id">Details</app-button>
-      </td>
-      <td>
-        <app-button [link]="station.id + '/edit'">Edit</app-button>
-      </td>
+      <td><a [routerLink]="station.id">Details</a></td>
+      <td><a [routerLink]="station.id + '/edit'">Edit</a></td>
     </tr>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
+<h1>Regions</h1>
 <section>
-  <h1>Regions ({{regionCount | async}})</h1>
   <table>
     <thead>
     <tr>
@@ -29,7 +29,7 @@
       <td>{{region.zoom}}°</td>
       <td>{{region.work_in_progress}}</td>
       <td>{{region.deactivated}}</td>
-      <td><app-button [link]="region.id.toString()">Details</app-button></td>
+      <td><a [routerLink]="region.id.toString()">Details</a></td>
     </tr>
     </tbody>
   </table>

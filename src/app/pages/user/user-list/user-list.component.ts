@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {map} from "rxjs";
 import {UserService} from "../../../data/user/user.service";
 import {UserId, UserWithId} from "../../../data/user/user.domain";
 
@@ -11,7 +10,6 @@ import {UserId, UserWithId} from "../../../data/user/user.domain";
 export class UserListComponent {
 
   protected readonly users = this.userService.findAll();
-  protected readonly userCount = this.users.pipe(map(users => users.length));
 
   constructor(
     private readonly userService: UserService,

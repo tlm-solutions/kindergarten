@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {StationId, StationWithId} from "../../../data/station/station.domain";
 import {StationService} from "../../../data/station/station.service";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {UserService} from "../../../data/user/user.service";
 import {UserId, UserWithId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
@@ -16,7 +16,6 @@ import {RegionId, RegionWithId} from "../../../data/region/region.domain";
 export class StationListComponent {
 
   protected readonly stations = this.stationService.findAll();
-  protected readonly stationCount = this.stations.pipe(map(stations => stations.length));
 
   constructor(
     private readonly stationService: StationService,

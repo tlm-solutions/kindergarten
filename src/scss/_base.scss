@@ -27,7 +27,7 @@ a:not(.not) {
 section {
   padding: 1rem;
   border-radius: 0.4rem;
-  border: 0.1rem solid $background-dark;
+  border: 0.1rem solid $background-lighter;
   background-color: $background-light;
 
   .header {
@@ -81,5 +81,15 @@ ul, ol {
   &:not(.not) {
     margin: 0;
     padding-left: 1rem;
+  }
+}
+
+table {
+  th, td {
+    padding: 0.4rem;
+  }
+
+  td {
+    border-top: 0.1rem solid $background-lighter;
   }
 }

@@ -18,7 +18,6 @@ export class TrackListComponent {
     share(),
   );
 
-  protected readonly count = this.trackPages.pipe(map(({count}) => count));
   protected readonly tracks = this.trackPages.pipe(map(({elements}) => elements));
 
   constructor(

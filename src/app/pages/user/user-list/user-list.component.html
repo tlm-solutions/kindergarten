@@ -1,5 +1,5 @@
+<h1>Users</h1>
 <section>
-  <h1>Users ({{userCount | async}})</h1>
   <table>
     <thead>
     <tr>
@@ -17,12 +17,8 @@
       <td>{{user.email}}</td>
       <td>{{user.email_setting}}</td>
       <td>{{user.deactivated}}</td>
-      <td>
-        <app-button [link]="user.id">Details</app-button>
-      </td>
-      <td>
-        <app-button [link]="user.id + '/edit'">Edit</app-button>
-      </td>
+      <td><a [routerLink]="user.id">Details</a></td>
+      <td><a [routerLink]="user.id + '/edit'">Edit</a></td>
     </tr>
     </tbody>
   </table>
