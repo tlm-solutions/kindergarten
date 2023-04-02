@@ -1,6 +1,14 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {map, Map, marker, tileLayer} from 'leaflet';
+import Map from "ol/Map";
+import View from "ol/View";
+import TileLayer from "ol/layer/Tile";
+import OSM from "ol/source/OSM";
+import {Feature} from "ol";
+import {Point} from "ol/geom";
+import {Icon, Style} from "ol/style";
+import VectorSource from "ol/source/Vector";
+import VectorLayer from "ol/layer/Vector";
 
 @Component({
   selector: 'app-map',
@@ -10,6 +18,7 @@ import {map, Map, marker, tileLayer} from 'leaflet';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements AfterViewInit {
+
   private map?: Map;
 
   @ViewChild('map')
@@ -23,22 +32,51 @@ export class MapComponent implements AfterViewInit {
   public zoom?: number;
 
   private initMap(): void {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    this.map = map(this.mapEle!.nativeElement!, {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      center: [this.lat!, this.lon!],
-      zoom: this.zoom ?? 12,
+    const tileLayer = new TileLayer({source: new OSM()});
+
+    const iconFeature = new Feature({
+      geometry: new Point([this.lon ?? 0, this.lat ?? 0]),
     });
 
-    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      className: 'map-tiles',
-    }).addTo(this.map);
+    const iconStyle = new Style({
+      image: new Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'assets/icons/marker.svg',
+      }),
+    });
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    marker([this.lat!, this.lon!]).addTo(this.map);
+    iconFeature.setStyle(iconStyle);
+
+    this.map = new Map({
+      view: new View({
+        center: [this.lon ?? 0, this.lat ?? 0],
+        zoom: this.zoom ?? 12
+      }),
+      layers: [
+        tileLayer,
+        new VectorLayer({source: new VectorSource({features: [iconFeature]})})
+      ],
+      target: this.mapEle?.nativeElement,
+    });
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      tileLayer.on('prerender', event => {
+        if (event.context) {
+          const context = event.context as CanvasRenderingContext2D;
+          context.filter = 'brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7)';
+          context.globalCompositeOperation = 'source-over';
+        }
+      });
+
+      tileLayer.on('postrender', event => {
+        if (event.context) {
+          const context = event.context as CanvasRenderingContext2D;
+          context.filter = 'none';
+        }
+      });
+    }
   }
 
   ngAfterViewInit(): void {
