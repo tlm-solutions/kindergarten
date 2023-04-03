@@ -10,39 +10,41 @@
     <input type="number" (change)="updateLimit($event.target)" value="10">
   </label>
 
-<table>
-  <thead>
-  <tr>
-    <th>Start</th>
-    <th>Ende</th>
-    <th>Line</th>
-    <th>Run</th>
-    <th>GpsFile</th>
-    <th>Region</th>
-    <th>Owner</th>
-    <th>Finish</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let track of (tracks | async); trackBy trackBy">
-    <td>{{track.start_time | date:'short':'GMT'}}</td>
-    <td>{{track.end_time | date:'short':'GMT'}}</td>
-    <td>{{track.line}}</td>
-    <td>{{track.run}}</td>
-    <td>{{track.gps_file}}</td>
-    <td>
-      <a [routerLink]="'/region/' + track.region">
-        {{(findSmallRegion(track.region) | async)?.name}}
-      </a>
-    </td>
-    <td>
-      <a [routerLink]="'/user/' + track.owner">
-        {{track.owner}}
-      </a>
-    </td>
-    <td>{{track.finished}}</td>
-    <td><a [routerLink]="track.id.toString()">Details</a></td>
-  </tr>
-  </tbody>
-</table>
+  <table>
+    <thead>
+    <tr>
+      <th>Start</th>
+      <th>Ende</th>
+      <td>Duration</td>
+      <th>Line</th>
+      <th>Run</th>
+      <th>Region</th>
+      <th>Owner</th>
+      <th>Finished</th>
+      <th>Correlated</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let track of (tracks | async); trackBy trackBy">
+      <td>{{track.start_time | date:'short':'GMT'}}</td>
+      <td>{{track.end_time | date:'short':'GMT'}}</td>
+      <td>{{duration(track.start_time, track.end_time)}}</td>
+      <td>{{track.line}}</td>
+      <td>{{track.run}}</td>
+      <td>
+        <a [routerLink]="'/region/' + track.region">
+          {{ (getRegion(track.region) | async)?.name }}
+        </a>
+      </td>
+      <td>
+        <a [routerLink]="'/user/' + track.owner">
+          {{ (getUser(track.owner) | async)?.name }}
+        </a>
+      </td>
+      <td>{{track.finished}}</td>
+      <td>{{track.correlated}}</td>
+      <td><a [routerLink]="track.id.toString()">Details</a></td>
+    </tr>
+    </tbody>
+  </table>
 </section>

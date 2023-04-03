@@ -2,21 +2,13 @@
   display: grid;
   width: 100%;
   grid-template-columns: 2fr 5fr;
-  grid-template-rows: min-content;
+  grid-template-rows: min-content min-content min-content;
   padding: 1rem;
   gap: 1rem;
-  grid-template-areas: "general map" "location map" "hardware map";
+  grid-template-areas: "general map";
 
   .general {
     grid-area: general;
-  }
-
-  .location {
-    grid-area: location;
-  }
-
-  .hardware {
-    grid-area: hardware;
   }
 
   .map {

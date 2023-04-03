@@ -1,0 +1,63 @@
+<ng-container *ngIf="track | async as track; else loading">
+  <section class="general">
+    <h1>General</h1>
+    <table>
+      <tbody>
+      <tr>
+        <td>Start</td>
+        <td>{{track.start_time | date:'short':'GMT'}}</td>
+      </tr>
+      <tr>
+        <td>End</td>
+        <td>{{track.end_time | date:'short':'GMT'}}</td>
+      </tr>
+      <tr>
+        <td>Duration</td>
+        <td>{{duration(track.start_time, track.end_time)}}</td>
+      </tr>
+      <tr>
+        <td>Line</td>
+        <td>{{track.line}}</td>
+      </tr>
+      <tr>
+        <td>Run</td>
+        <td>{{track.run}}</td>
+      </tr>
+      <tr>
+        <td>Region</td>
+        <td>
+          <a [routerLink]="'/region/' + track.region">
+            {{ (getRegion(track.region) | async)?.name }}
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Owner</td>
+        <td>
+          <a [routerLink]="'/user/' + track.owner">
+            {{ (getUser(track.owner) | async)?.name }}
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Finished</td>
+        <td>{{track.finished}}</td>
+      </tr>
+      <tr>
+        <td>Correlated</td>
+        <td>{{track.correlated}}</td>
+      </tr>
+      <tr>
+        <td>Data points</td>
+        <td>{{track.gps.length}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <app-map class="map"></app-map>
+</ng-container>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

@@ -1,28 +1,27 @@
 import {Component} from '@angular/core';
-import {BehaviorSubject, map, Observable, share, switchMap} from "rxjs";
+import {map, Observable, share, switchMap} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 import {TrackService} from "../../../data/track/track.service";
-import {TrackId, TrackWithId} from "../../../data/track/track.domain";
 import {RegionId, RegionWithId} from "../../../data/region/region.domain";
-import {RegionService} from "../../../data/region/region.service";
 import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
 
 @Component({
-  selector: 'app-track-list',
-  templateUrl: './track-list.component.html',
-  styleUrls: ['./track-list.component.scss']
+  selector: 'app-track-view',
+  templateUrl: './track-view.component.html',
+  styleUrls: ['./track-view.component.scss']
 })
-export class TrackListComponent {
+export class TrackViewComponent {
 
-  private readonly pagination = new BehaviorSubject({offset: 0, limit: 10});
-  private readonly trackPages = this.pagination.pipe(
-    switchMap(({offset, limit}) => this.trackService.findPage(offset, limit)),
+  protected readonly track = this.route.params.pipe(
+    map(({id}) => id),
+    switchMap(id => this.trackService.findById(id)),
     share(),
   );
 
-  protected readonly tracks = this.trackPages.pipe(map(({elements}) => elements));
-
   constructor(
+    private readonly route: ActivatedRoute,
     private readonly trackService: TrackService,
     private readonly regionService: RegionService,
     private readonly userService: UserService,
@@ -37,17 +36,6 @@ export class TrackListComponent {
     return this.userService.findSmallById(id);
   }
 
-  protected trackBy(idx: number, element: TrackWithId): TrackId {
-    return element.id;
-  }
-
-  updateOffset(target: EventTarget | null) {
-    this.pagination.next({limit: this.pagination.value.limit, offset: parseInt((target as HTMLInputElement).value)});
-  }
-
-  updateLimit(target: EventTarget | null) {
-    this.pagination.next({offset: this.pagination.value.offset, limit: parseInt((target as HTMLInputElement).value)});
-  }
   protected duration(start: string, end: string): string {
     return formatDuration(Date.parse(end) - Date.parse(start));
   }
