@@ -1,4 +1,7 @@
-<a *ngIf="link; else withoutLink" [routerLink]="disabled ? undefined : link" class="not">
+<a *ngIf="link; else withoutLink"
+   [routerLink]="disabled ? undefined : link"
+   [queryParams]="disabled ? undefined : query"
+   class="not">
   <ng-container *ngTemplateOutlet="tmpl"></ng-container>
   {{label}}
 </a>

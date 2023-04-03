@@ -12,7 +12,7 @@ import {RegionService} from "../../../data/region/region.service";
 })
 export class TrackListComponent {
 
-  private readonly pagination = new BehaviorSubject({offset: 0, limit: 0});
+  private readonly pagination = new BehaviorSubject({offset: 0, limit: 10});
   private readonly trackPages = this.pagination.pipe(
     switchMap(({offset, limit}) => this.trackService.findPage(offset, limit)),
     share(),

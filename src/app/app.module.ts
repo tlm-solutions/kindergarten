@@ -10,14 +10,14 @@ import {RegionIconComponent} from "./core/icons/region-icon/region-icon.componen
 import {TrackIconComponent} from "./core/icons/track-icon/track-icon.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NotificationModule} from "./core/notification/notification.module";
-import {HeaderComponent} from './layout/header/header.component';
+import {SidebarComponent} from './layout/sidebar/sidebar.component';
 import {ButtonComponent} from "./core/components/button/button.component";
 import {DashboardIconComponent} from "./core/icons/dashboard-icon/dashboard-icon.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
