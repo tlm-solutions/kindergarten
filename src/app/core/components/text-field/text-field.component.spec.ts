@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TextFieldComponent } from './text-field.component';
+import {TextFieldComponent} from './text-field.component';
 
 describe('TextFieldComponent', () => {
   let component: TextFieldComponent;
@@ -8,9 +8,9 @@ describe('TextFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextFieldComponent ]
+      declarations: [TextFieldComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TextFieldComponent);
     component = fixture.componentInstance;

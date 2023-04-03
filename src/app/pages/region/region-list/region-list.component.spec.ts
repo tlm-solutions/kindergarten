@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegionListComponent } from './region-list.component';
+import {RegionListComponent} from './region-list.component';
 
 describe('RegionListComponent', () => {
   let component: RegionListComponent;
@@ -8,9 +8,9 @@ describe('RegionListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegionListComponent ]
+      declarations: [RegionListComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegionListComponent);
     component = fixture.componentInstance;

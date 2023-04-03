@@ -12,15 +12,15 @@ import {TrackIconComponent} from "../../core/icons/track-icon/track-icon.compone
   declarations: [
     DashboardComponent
   ],
-    imports: [
-        CommonModule,
-        DashboardRoutingModule,
-        UserIconComponent,
-        StationIconComponent,
-        StatisticCardComponent,
-        RegionIconComponent,
-        TrackIconComponent
-    ]
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    UserIconComponent,
+    StationIconComponent,
+    StatisticCardComponent,
+    RegionIconComponent,
+    TrackIconComponent
+  ]
 })
 export class DashboardModule {
 }

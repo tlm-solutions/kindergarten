@@ -17,7 +17,7 @@ export interface StationWithoutId {
   elevation: number | null,
   antenna: Antenna | null,
   telegram_decoder_version: number[] | null,
-  notes: string|null,
+  notes: string | null,
 }
 
 export type StationWithId = { id: StationId } & StationWithoutId;

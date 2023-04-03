@@ -29,6 +29,14 @@ export class TrackListComponent {
   ) {
   }
 
+  updateOffset(target: EventTarget | null) {
+    this.pagination.next({limit: this.pagination.value.limit, offset: parseInt((target as HTMLInputElement).value)});
+  }
+
+  updateLimit(target: EventTarget | null) {
+    this.pagination.next({offset: this.pagination.value.offset, limit: parseInt((target as HTMLInputElement).value)});
+  }
+
   protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
     return this.regionService.findSmallById(id);
   }
@@ -41,13 +49,6 @@ export class TrackListComponent {
     return element.id;
   }
 
-  updateOffset(target: EventTarget | null) {
-    this.pagination.next({limit: this.pagination.value.limit, offset: parseInt((target as HTMLInputElement).value)});
-  }
-
-  updateLimit(target: EventTarget | null) {
-    this.pagination.next({offset: this.pagination.value.offset, limit: parseInt((target as HTMLInputElement).value)});
-  }
   protected duration(start: string, end: string): string {
     return formatDuration(Date.parse(end) - Date.parse(start));
   }

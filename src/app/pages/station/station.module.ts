@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StationRoutingModule} from './station-routing.module';
 import {StationComponent} from './station.component';
-import {CdkTableModule} from "@angular/cdk/table";
 import {StationListComponent} from './station-list/station-list.component';
 import {StationEditComponent} from './station-edit/station-edit.component';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -23,7 +22,6 @@ import {StationIconComponent} from "../../core/icons/station-icon/station-icon.c
   imports: [
     CommonModule,
     StationRoutingModule,
-    CdkTableModule,
     StationIconComponent,
     ReactiveFormsModule,
     MapComponent,

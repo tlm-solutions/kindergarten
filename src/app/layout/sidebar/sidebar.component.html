@@ -1,33 +1,33 @@
 <nav>
   <ul class="not">
     <li>
-      <a routerLink="/dashboard" routerLinkActive="active" class="not">
+      <a class="not" routerLink="/dashboard" routerLinkActive="active">
         <app-dashboard-icon class="icon"/>
       </a>
     </li>
     <li>
-      <a routerLink="/region" routerLinkActive="active" class="not">
+      <a class="not" routerLink="/region" routerLinkActive="active">
         <app-region-icon class="icon"/>
       </a>
     </li>
     <li>
-      <a routerLink="/station" routerLinkActive="active" class="not">
+      <a class="not" routerLink="/station" routerLinkActive="active">
         <app-station-icon class="icon"/>
       </a>
     </li>
     <li>
-      <a routerLink="/user" routerLinkActive="active" class="not">
+      <a class="not" routerLink="/user" routerLinkActive="active">
         <app-user-icon class="icon"/>
       </a>
     </li>
     <li>
-      <a routerLink="/track" routerLinkActive="active" class="not">
+      <a class="not" routerLink="/track" routerLinkActive="active">
         <app-track-icon class="icon"/>
       </a>
     </li>
   </ul>
 
-  <app-button label="Login" link="/login" [query]="{next}"></app-button>
+  <app-button [query]="{next}" label="Login" link="/login"></app-button>
 
   <!--  <a routerLink="/profile" routerLinkActive="active" class="profile not">-->
   <!--    <app-profile-icon class="icon"/>-->

@@ -1,48 +1,51 @@
-<form [formGroup]="form" (submit)="save(); $event.preventDefault()">
+<form (submit)="save(); $event.preventDefault()" [formGroup]="form">
 
   <section>
     <h1>General</h1>
-    <app-text-field label="Name" formControlName="name">
-      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">Name is required!</app-error>
+    <app-text-field formControlName="name" label="Name">
+      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">Name is required!
+      </app-error>
     </app-text-field>
     <label>
       Approved
-      <input type="checkbox" formControlName="approved">
+      <input formControlName="approved" type="checkbox">
     </label>
 
     <label>
       Deactivated
-      <input type="checkbox" formControlName="deactivated">
+      <input formControlName="deactivated" type="checkbox">
     </label>
 
     <label>
       Public
-      <input type="checkbox" formControlName="public">
+      <input formControlName="public" type="checkbox">
     </label>
 
-<!--    <app-text-field label="Notes" formControlName="notes" type="multiline"/>-->
+    <!--    <app-text-field label="Notes" formControlName="notes" type="multiline"/>-->
   </section>
 
   <section>
     <h1>Location</h1>
-    <app-text-field label="Latitude" formControlName="lat" type="number">
-      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']">Latitude is required!</app-error>
+    <app-text-field formControlName="lat" label="Latitude" type="number">
+      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']">Latitude is required!
+      </app-error>
     </app-text-field>
-    <app-text-field label="Longitude" formControlName="lon" type="number">
-      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']">Longitude is required!</app-error>
+    <app-text-field formControlName="lon" label="Longitude" type="number">
+      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']">Longitude is required!
+      </app-error>
     </app-text-field>
-    <app-text-field label="Elevation" formControlName="elevation" type="number"/>
+    <app-text-field formControlName="elevation" label="Elevation" type="number"/>
   </section>
 
   <section>
     <h1>Hardware</h1>
 
-    <app-text-field label="Radio" formControlName="radio"/>
-    <app-text-field label="Architecture" formControlName="architecture"/>
-    <app-text-field label="Device" formControlName="device"/>
-    <app-text-field label="Antenna" formControlName="antenna"/>
+    <app-text-field formControlName="radio" label="Radio"/>
+    <app-text-field formControlName="architecture" label="Architecture"/>
+    <app-text-field formControlName="device" label="Device"/>
+    <app-text-field formControlName="antenna" label="Antenna"/>
 
-    <app-text-field label="Telegram Decoder Version" formControlName="telegram_decoder_version"/>
+    <app-text-field formControlName="telegram_decoder_version" label="Telegram Decoder Version"/>
   </section>
 
   <app-button label="Save"/>

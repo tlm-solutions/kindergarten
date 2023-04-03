@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TrackIconComponent } from './track-icon.component';
+import {TrackIconComponent} from './track-icon.component';
 
 describe('TrackIconComponent', () => {
   let component: TrackIconComponent;
@@ -8,9 +8,9 @@ describe('TrackIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ TrackIconComponent ]
+      imports: [TrackIconComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TrackIconComponent);
     component = fixture.componentInstance;

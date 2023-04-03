@@ -14,11 +14,6 @@ import {UserId} from "../../../data/user/user.domain";
 })
 export class StationEditComponent implements OnInit, OnDestroy {
 
-  private readonly stationId = this.route.params.pipe(map(({id}) => id));
-  private readonly station = this.stationId.pipe(switchMap(id => this.stationService.findById(id)), share());
-
-  private stationsSubscription: Subscription | undefined;
-
   protected readonly form = new FormGroup({
     id: new FormControl<StationId | null>(null),
     name: new FormControl<string | null>(null, [Validators.required]),
@@ -37,6 +32,9 @@ export class StationEditComponent implements OnInit, OnDestroy {
     telegram_decoder_version: new FormControl<number[] | null>(null),
     // notes: new FormControl<string|null>(null),
   });
+  private readonly stationId = this.route.params.pipe(map(({id}) => id));
+  private readonly station = this.stationId.pipe(switchMap(id => this.stationService.findById(id)), share());
+  private stationsSubscription: Subscription | undefined;
 
   constructor(
     private readonly route: ActivatedRoute,

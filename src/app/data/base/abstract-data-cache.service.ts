@@ -7,7 +7,9 @@ import {DataCacheService} from "./data-cache.service";
 const MAX_CACHE_AGE = 1000 * 60 * 5;
 
 @Injectable()
-export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSmall extends { id: Id }, DtoWithoutId, Id>
+export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSmall extends {
+  id: Id
+}, DtoWithoutId, Id>
   implements DataCacheService<DtoWithId, DtoSmall, DtoWithoutId, Id>, OnDestroy {
 
   private readonly cache = new BehaviorSubject<DtoSmall[]>([]);
@@ -34,7 +36,10 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
   }
 
   public findPage(offset: number, limit: number): Observable<PaginationResponse<DtoSmall>> {
-    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {params: {offset, limit}, withCredentials: true});
+    return this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {
+      params: {offset, limit},
+      withCredentials: true
+    });
   }
 
   public findById(id: Id): Observable<DtoWithId> {

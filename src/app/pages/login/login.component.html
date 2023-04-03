@@ -5,16 +5,16 @@
   <app-tlms-icon class="icon"></app-tlms-icon>
   <h1>Kindergarten Login</h1>
 
-  <span class="error" *ngIf="(loading | async) === false && (wrongCredentials | async)">Wrong credentials</span>
+  <span *ngIf="(loading | async) === false && (wrongCredentials | async)" class="error">Wrong credentials</span>
 
-  <form [formGroup]="form" (submit)="login(); $event.preventDefault()">
-    <app-text-field label="E-Mail" formControlName="email">
+  <form (submit)="login(); $event.preventDefault()" [formGroup]="form">
+    <app-text-field formControlName="email" label="E-Mail">
       <app-error *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']">
         E-Mail is required!
       </app-error>
     </app-text-field>
 
-    <app-text-field label="Password" type="password" formControlName="password">
+    <app-text-field formControlName="password" label="Password" type="password">
       <app-error *ngIf="form.controls.password.touched && form.controls.password.errors?.['required']">
         Password is required!
       </app-error>
@@ -22,7 +22,7 @@
 
     <div class="controls">
       <a routerLink="/dashboard">Dashboard</a>
-      <app-button label="Login" class="submit" [disabled]="loading | async"/>
+      <app-button [disabled]="loading | async" class="submit" label="Login"/>
     </div>
   </form>
 </section>
@@ -34,12 +34,12 @@
     Enhancing openness and promoting access to Dresden public infrastructure data since 2022.
     <br>
     <br>
-    <a href="https://github.com/tlm-solutions?type=source" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+    <a href="https://github.com/tlm-solutions?type=source" rel="nofollow noopener noreferrer" target="_blank">GitHub</a>
     -
-    <a href="https://matrix.to/#/#dump-dvb:matrix.org" target="_blank" rel="nofollow noopener noreferrer">Matrix</a>
+    <a href="https://matrix.to/#/#dump-dvb:matrix.org" rel="nofollow noopener noreferrer" target="_blank">Matrix</a>
     -
-    <a href="https://map.dvb.solutions/" target="_blank" rel="nofollow noopener noreferrer">Live Map</a>
+    <a href="https://map.dvb.solutions/" rel="nofollow noopener noreferrer" target="_blank">Live Map</a>
     -
-    <a href="https://docs.dvb.solutions/" target="_blank" rel="nofollow noopener noreferrer">Documentation</a>
+    <a href="https://docs.dvb.solutions/" rel="nofollow noopener noreferrer" target="_blank">Documentation</a>
   </p>
 </footer>

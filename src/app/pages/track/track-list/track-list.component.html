@@ -2,12 +2,12 @@
 <section>
   <label>
     Offset:
-    <input type="number" (change)="updateOffset($event.target)">
+    <input (change)="updateOffset($event.target)" type="number">
   </label>
 
   <label>
     Limit:
-    <input type="number" (change)="updateLimit($event.target)" value="10">
+    <input (change)="updateLimit($event.target)" type="number" value="10">
   </label>
 
   <table>

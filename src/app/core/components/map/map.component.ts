@@ -19,17 +19,19 @@ import VectorLayer from "ol/layer/Vector";
 })
 export class MapComponent implements AfterViewInit {
 
-  private map?: Map;
-
-  @ViewChild('map')
-  private mapEle?: ElementRef<HTMLDivElement>;
-
   @Input()
   public lat?: number;
   @Input()
   public lon?: number;
   @Input()
   public zoom?: number;
+  private map?: Map;
+  @ViewChild('map')
+  private mapEle?: ElementRef<HTMLDivElement>;
+
+  ngAfterViewInit(): void {
+    this.initMap();
+  }
 
   private initMap(): void {
     const tileLayer = new TileLayer({source: new OSM()});
@@ -77,9 +79,5 @@ export class MapComponent implements AfterViewInit {
         }
       });
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.initMap();
   }
 }
