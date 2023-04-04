@@ -6,7 +6,7 @@ import {RegionId, RegionWithId} from "../../../data/region/region.domain";
   selector: 'app-region-list',
   templateUrl: './region-list.component.html',
   styleUrls: ['./region-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegionListComponent {
 

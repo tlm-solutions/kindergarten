@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {map, share, Subscription, switchMap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
@@ -11,7 +11,8 @@ import {NotificationService} from "../../../core/notification/notification.servi
 @Component({
   selector: 'app-station-sidebar',
   templateUrl: './station-edit.component.html',
-  styleUrls: ['./station-edit.component.scss']
+  styleUrls: ['./station-edit.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StationEditComponent implements OnInit, OnDestroy {
 

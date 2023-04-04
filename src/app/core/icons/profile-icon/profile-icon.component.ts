@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import {CommonModule} from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './profile-icon.component.svg',
-  styleUrls: ['./profile-icon.component.scss']
+  styleUrls: ['./profile-icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileIconComponent {
 

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import Map from "ol/Map";
 import View from "ol/View";
@@ -17,7 +17,8 @@ import Icon from "ol/style/Icon";
   standalone: true,
   imports: [CommonModule],
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapComponent implements AfterViewInit {
 

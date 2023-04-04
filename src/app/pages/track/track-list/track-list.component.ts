@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {BehaviorSubject, map, Observable, share, switchMap} from "rxjs";
 import {TrackService} from "../../../data/track/track.service";
 import {TrackId, TrackWithId} from "../../../data/track/track.domain";
@@ -10,7 +10,8 @@ import {UserService} from "../../../data/user/user.service";
 @Component({
   selector: 'app-track-list',
   templateUrl: './track-list.component.html',
-  styleUrls: ['./track-list.component.scss']
+  styleUrls: ['./track-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TrackListComponent {
 

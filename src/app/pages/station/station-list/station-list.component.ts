@@ -11,7 +11,7 @@ import {RegionId, RegionWithId} from "../../../data/region/region.domain";
   selector: 'app-station-list',
   templateUrl: './station-list.component.html',
   styleUrls: ['./station-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StationListComponent {
 

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {map, share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RegionService} from "../../../data/region/region.service";
@@ -9,7 +9,8 @@ import {NotificationService} from "../../../core/notification/notification.servi
 @Component({
   selector: 'app-region-edit',
   templateUrl: './region-edit.component.html',
-  styleUrls: ['./region-edit.component.scss']
+  styleUrls: ['./region-edit.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegionEditComponent implements OnInit, OnDestroy {
 

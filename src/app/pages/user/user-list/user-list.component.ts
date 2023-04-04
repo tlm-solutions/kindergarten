@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {UserService} from "../../../data/user/user.service";
 import {UserId, UserWithId} from "../../../data/user/user.domain";
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent {
 

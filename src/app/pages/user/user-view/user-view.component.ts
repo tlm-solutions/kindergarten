@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
@@ -6,7 +6,8 @@ import {UserService} from "../../../data/user/user.service";
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
-  styleUrls: ['./user-view.component.scss']
+  styleUrls: ['./user-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserViewComponent {
 

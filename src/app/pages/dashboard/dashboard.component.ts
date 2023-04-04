@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {StationService} from "../../data/station/station.service";
 import {map} from "rxjs";
 import {UserService} from "../../data/user/user.service";
@@ -8,7 +8,8 @@ import {TrackService} from "../../data/track/track.service";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
 
