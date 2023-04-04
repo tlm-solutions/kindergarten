@@ -4,11 +4,13 @@ import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
-import {Feature} from "ol";
-import {Point} from "ol/geom";
-import {Icon, Style} from "ol/style";
+import Feature from "ol/Feature";
+import Point from "ol/geom/Point";
+import Style from "ol/style/Style";
 import VectorSource from "ol/source/Vector";
 import VectorLayer from "ol/layer/Vector";
+import BaseLayer from "ol/layer/Base";
+import Icon from "ol/style/Icon";
 
 @Component({
   selector: 'app-map',
@@ -37,15 +39,18 @@ export class MapComponent implements AfterViewInit {
   }
 
   private initMap(): void {
+    const layers: BaseLayer[] = [this.createOsmLightDarkLayer()];
+
+    if (this.marker) {
+      layers.push(this.createSingleMarkerLayer());
+    }
+
     this.map = new Map({
       view: new View({
         center: [this.lon, this.lat],
         zoom: this.zoom
       }),
-      layers: [
-        this.createOsmLightDarkLayer(),
-        this.createSingleMarkerLayer(),
-      ],
+      layers,
       target: this.mapEle?.nativeElement,
     });
   }
