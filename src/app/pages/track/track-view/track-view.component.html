@@ -55,7 +55,14 @@
     </table>
   </section>
 
-  <app-map class="map"></app-map>
+  <app-map
+    *ngIf="(getRegion(track.region) | async) as region"
+    [lat]="region.lat"
+    [lon]="region.lon"
+    [zoom]="region.zoom"
+    [marker]="false"
+    class="map"
+  />
 </ng-container>
 
 <ng-template #loading>

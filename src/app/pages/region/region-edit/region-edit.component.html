@@ -1,0 +1,26 @@
+<form (submit)="save(); $event.preventDefault()" [formGroup]="form">
+  <section class="general">
+    <h1>General</h1>
+    <app-text-field formControlName="name" label="Name"/>
+    <app-text-field formControlName="transport_company" label="Transport Company"/>
+    <app-text-field formControlName="regional_company" label="Regional Company"/>
+    <app-text-field formControlName="frequency" label="Frequency" type="number"/>
+    <app-text-field formControlName="r09_type" label="R09 Type" type="number"/>
+    <app-text-field formControlName="encoding" label="Encoding" type="number"/>
+    <app-text-field formControlName="lat" label="Lat" type="number"/>
+    <app-text-field formControlName="lon" label="Lon" type="number"/>
+    <app-text-field formControlName="zoom" label="Zoom" type="number"/>
+
+    <label>
+      Work in Progress
+      <input type="checkbox" formControlName="work_in_progress">
+    </label>
+
+    <label>
+      Deactivated
+      <input type="checkbox" formControlName="deactivated">
+    </label>
+  </section>
+
+  <app-button label="Save"/>
+</form>

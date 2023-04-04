@@ -84,8 +84,8 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "sslCert": "G:\\Work\\tools\\scripts\\local_dvb_solutions.cer",
-            "sslKey": "G:\\Work\\tools\\scripts\\local_dvb_solutions.key"
+            "sslCert": "/home/marcel/IdeaProjects/scripts/local_dvb_solutions.cer",
+            "sslKey": "/home/marcel/IdeaProjects/scripts/local_dvb_solutions.key"
           }
         },
         "extract-i18n": {

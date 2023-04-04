@@ -85,7 +85,18 @@
     </table>
   </section>
 
-  <app-map [lat]="station.lat" [lon]="station.lon" class="map"></app-map>
+  <div class="buttons">
+    <app-button link="edit">Edit</app-button>
+    <app-button link="..">Back to List</app-button>
+  </div>
+
+  <app-map
+    [lat]="station.lat"
+    [lon]="station.lon"
+    [zoom]="(getRegion(station.region) | async)?.zoom ?? 11"
+    [marker]="true"
+    class="map"
+  />
 </ng-container>
 
 <ng-template #loading>

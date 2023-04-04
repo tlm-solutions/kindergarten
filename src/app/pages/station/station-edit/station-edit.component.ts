@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {map, share, Subscription, switchMap, tap} from "rxjs";
+import {map, share, Subscription, switchMap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
 import {RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
+import {NotificationService} from "../../../core/notification/notification.service";
 
 @Component({
   selector: 'app-station-sidebar',
@@ -19,8 +20,8 @@ export class StationEditComponent implements OnInit, OnDestroy {
     name: new FormControl<string | null>(null, [Validators.required]),
     lat: new FormControl<number | null>(null, [Validators.required]),
     lon: new FormControl<number | null>(null, [Validators.required]),
-    region: new FormControl<RegionId | null>(null),
-    owner: new FormControl<UserId | null>(null),
+    region: new FormControl<RegionId | null>(null, [Validators.required]),
+    owner: new FormControl<UserId | null>(null, [Validators.required]),
     approved: new FormControl<boolean | null>(null, [Validators.required]),
     deactivated: new FormControl<boolean | null>(null, [Validators.required]),
     public: new FormControl<boolean | null>(null, [Validators.required]),
@@ -30,16 +31,18 @@ export class StationEditComponent implements OnInit, OnDestroy {
     elevation: new FormControl<number | null>(null),
     antenna: new FormControl<Antenna | null>(null),
     telegram_decoder_version: new FormControl<number[] | null>(null),
-    // notes: new FormControl<string|null>(null),
+    notes: new FormControl<string | null>(null),
   });
+
   private readonly stationId = this.route.params.pipe(map(({id}) => id));
   private readonly station = this.stationId.pipe(switchMap(id => this.stationService.findById(id)), share());
   private stationsSubscription: Subscription | undefined;
 
   constructor(
+    private readonly router: Router,
     private readonly route: ActivatedRoute,
     private readonly stationService: StationService,
-    private readonly router: Router,
+    private readonly notificationService: NotificationService,
   ) {
   }
 
@@ -61,7 +64,7 @@ export class StationEditComponent implements OnInit, OnDestroy {
         elevation: station.elevation,
         telegram_decoder_version: station.telegram_decoder_version,
         antenna: station.antenna,
-        // notes:station.notes,
+        notes: station.notes,
       });
     })
   }
@@ -82,12 +85,32 @@ export class StationEditComponent implements OnInit, OnDestroy {
       throw new Error("station id is null??");
     }
 
-    // @ts-ignore
-    this.stationService.update(id, station)
-      .pipe(
-        tap(console.log),
-        switchMap(() => this.router.navigate(['..'])),
-      )
-      .subscribe()
+    this.stationService.update(id, {
+      /* eslint-disable @typescript-eslint/no-non-null-assertion */
+      antenna: station.antenna,
+      approved: station.approved!,
+      architecture: station.architecture,
+      deactivated: station.deactivated!,
+      device: station.device,
+      elevation: station.elevation,
+      lat: station.lat!,
+      lon: station.lon!,
+      name: station.name!,
+      notes: station.notes,
+      owner: station.owner!,
+      public: station.public!,
+      radio: station.radio,
+      region: station.region!,
+      telegram_decoder_version: station.telegram_decoder_version,
+      /* eslint-enable @typescript-eslint/no-non-null-assertion */
+    })
+      .pipe(switchMap(station => this.router.navigate(['..']).then(() => station)))
+      .subscribe({
+        next: station => this.notificationService.success(`Station ${station.name} was successfully updated.`),
+        error: err => {
+          console.error(err);
+          this.notificationService.error(`Failed to update station ${station.name}: ${err}`)
+        }
+      });
   }
 }

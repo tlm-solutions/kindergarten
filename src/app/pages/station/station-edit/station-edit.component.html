@@ -6,6 +6,7 @@
       <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">Name is required!
       </app-error>
     </app-text-field>
+
     <label>
       Approved
       <input formControlName="approved" type="checkbox">
@@ -21,7 +22,7 @@
       <input formControlName="public" type="checkbox">
     </label>
 
-    <!--    <app-text-field label="Notes" formControlName="notes" type="multiline"/>-->
+    <app-text-field label="Notes" formControlName="notes" type="multiline"/>
   </section>
 
   <section>

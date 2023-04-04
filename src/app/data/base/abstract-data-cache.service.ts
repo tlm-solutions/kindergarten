@@ -55,11 +55,27 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
   }
 
   public save(dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto, {withCredentials: true});
+    return this.http.post<DtoWithId>(`${BASE_PATH}/${this.name}`, dto, {withCredentials: true})
+      .pipe(tap(dto => {
+        const items = this.cache.value;
+        items.push(dto);
+        this.cache.next(items);
+      }))
   }
 
   public update(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {
-    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true});
+    return this.http.put<DtoWithId>(`${BASE_PATH}/${this.name}/${id}`, dto, {withCredentials: true})
+      .pipe(tap(dto => {
+        const items = this.cache.value;
+        const item = items.find(item => item.id === id);
+        if (item) {
+          for (const key in item) {
+            item[key] = dto[key];
+          }
+
+          this.cache.next(items)
+        }
+      }));
   }
 
   public patch(id: Id, dto: DtoWithoutId): Observable<DtoWithId> {

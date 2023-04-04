@@ -4,8 +4,11 @@
   grid-template-columns: 2fr 5fr;
   grid-template-rows: min-content;
   padding: 1rem;
-  gap: 1rem;
-  grid-template-areas: "general map" "location map" "hardware map";
+  grid-template-areas: "general map" "location map" "hardware map" "buttons map";
+
+  &, .buttons {
+    gap: 1rem;
+  }
 
   .general {
     grid-area: general;
@@ -17,6 +20,12 @@
 
   .hardware {
     grid-area: hardware;
+  }
+
+  .buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .map {

@@ -20,11 +20,14 @@ import VectorLayer from "ol/layer/Vector";
 export class MapComponent implements AfterViewInit {
 
   @Input()
-  public lat?: number;
+  public lat = 0;
   @Input()
-  public lon?: number;
+  public lon = 0;
   @Input()
-  public zoom?: number;
+  public zoom = 0;
+  @Input()
+  public marker = false;
+
   private map?: Map;
   @ViewChild('map')
   private mapEle?: ElementRef<HTMLDivElement>;
@@ -34,34 +37,21 @@ export class MapComponent implements AfterViewInit {
   }
 
   private initMap(): void {
-    const tileLayer = new TileLayer({source: new OSM()});
-
-    const iconFeature = new Feature({
-      geometry: new Point([this.lon ?? 0, this.lat ?? 0]),
-    });
-
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'assets/icons/marker.svg',
-      }),
-    });
-
-    iconFeature.setStyle(iconStyle);
-
     this.map = new Map({
       view: new View({
-        center: [this.lon ?? 0, this.lat ?? 0],
-        zoom: this.zoom ?? 12
+        center: [this.lon, this.lat],
+        zoom: this.zoom
       }),
       layers: [
-        tileLayer,
-        new VectorLayer({source: new VectorSource({features: [iconFeature]})})
+        this.createOsmLightDarkLayer(),
+        this.createSingleMarkerLayer(),
       ],
       target: this.mapEle?.nativeElement,
     });
+  }
+
+  private createOsmLightDarkLayer() {
+    const tileLayer = new TileLayer({source: new OSM()});
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       tileLayer.on('prerender', event => {
@@ -79,5 +69,26 @@ export class MapComponent implements AfterViewInit {
         }
       });
     }
+
+    return tileLayer;
+  }
+
+  private createSingleMarkerLayer() {
+    const iconFeature = new Feature({
+      geometry: new Point([this.lon, this.lat]),
+    });
+
+    const iconStyle = new Style({
+      image: new Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'assets/icons/marker.svg',
+      }),
+    });
+
+    iconFeature.setStyle(iconStyle);
+
+    return new VectorLayer({source: new VectorSource({features: [iconFeature]})})
   }
 }
