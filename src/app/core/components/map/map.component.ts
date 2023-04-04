@@ -26,8 +26,15 @@ const MARKER_STYLE = new Style({
 
 const LINE_STYLE = new Style({
   stroke: new Stroke({
-    color: '#fbcb04',
-    width: 3
+    color: '#ba82e3',
+    width: 5
+  })
+});
+
+const SElECTED_LINE_STYLE = new Style({
+  stroke: new Stroke({
+    color: '#9e32ef',
+    width: 5
   })
 });
 
@@ -50,7 +57,9 @@ export class MapComponent implements AfterViewInit {
   @Input()
   public marker = false;
   @Input()
-  public line: Coordinate[] = [];
+  public lines: Coordinate[][] = [];
+  @Input()
+  public highlightedLines: Coordinate[][] = [];
 
   private map?: Map;
   @ViewChild('map')
@@ -66,12 +75,20 @@ export class MapComponent implements AfterViewInit {
     const features: Feature[] = [];
 
     if (this.marker) features.push(this.createSingleMarkerLayer());
-    if (this.line) {
-      const feature = new Feature(new LineString(this.line));
+
+    this.lines.forEach(line => {
+      const feature = new Feature(new LineString(line));
       feature.setStyle(LINE_STYLE);
 
       features.push(feature);
-    }
+    });
+
+    this.highlightedLines.forEach(line => {
+      const feature = new Feature(new LineString(line));
+      feature.setStyle(SElECTED_LINE_STYLE);
+
+      features.push(feature);
+    });
 
     if (features.length) {
       const layer = new VectorLayer({

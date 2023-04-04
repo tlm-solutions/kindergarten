@@ -22,7 +22,7 @@ export type TrackWithoutId = TrackSmallWithoutId & {
 export interface GpsEntry {
   lat: number;
   lon: number;
-  time: number;
+  time: string;
 }
 
 export type TrackSmallWithId = { id: TrackId } & TrackSmallWithoutId;

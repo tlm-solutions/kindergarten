@@ -15,6 +15,7 @@ export class ButtonComponent {
 
   @Input() public label?: string;
   @Input() public link?: string;
+  @Input() public externalLink?: string;
   @Input() public query?: Record<string, string | undefined>;
   @Input() public flavor?: ButtonFlavor;
   @Input() @HostBinding("class.disabled") public disabled?: boolean | null;

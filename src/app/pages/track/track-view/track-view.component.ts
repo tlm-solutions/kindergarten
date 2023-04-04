@@ -43,8 +43,29 @@ export class TrackViewComponent {
     return formatDuration(Date.parse(end) - Date.parse(start));
   }
 
-  protected convertToCoords(gps: GpsEntry[]): Coordinate[] {
-    return gps.map(gps => [gps.lon, gps.lat]);
+  protected convertToCoords(gps: GpsEntry[], start: string, end: string): Coordinate[] {
+    const startTime = Date.parse(start);
+    const endTime = Date.parse(end);
+
+    return gps.filter(gps => {
+      const gpsTime = Date.parse(gps.time);
+      return startTime <= gpsTime && gpsTime <= endTime
+    })
+      .map(gps => [gps.lon, gps.lat]);
+  }
+
+  protected convertToCoordsBefore(gps: GpsEntry[], time: string) {
+    const parsedTime = Date.parse(time);
+
+    return gps.filter(gps => Date.parse(gps.time) <= parsedTime)
+      .map(gps => [gps.lon, gps.lat]);
+  }
+
+  protected convertToCoordsAfter(gps: GpsEntry[], time: string) {
+    const parsedTime = Date.parse(time);
+
+    return gps.filter(gps => parsedTime <= Date.parse(gps.time))
+      .map(gps => [gps.lon, gps.lat]);
   }
 }
 

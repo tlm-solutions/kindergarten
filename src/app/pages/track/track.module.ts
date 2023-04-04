@@ -6,6 +6,7 @@ import {TrackComponent} from './track.component';
 import {TrackListComponent} from './track-list/track-list.component';
 import {TrackViewComponent} from './track-view/track-view.component';
 import {MapComponent} from "../../core/components/map/map.component";
+import {ButtonComponent} from "../../core/components/button/button.component";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MapComponent} from "../../core/components/map/map.component";
   imports: [
     CommonModule,
     TrackRoutingModule,
-    MapComponent
+    MapComponent,
+    ButtonComponent
   ]
 })
 export class TrackModule {

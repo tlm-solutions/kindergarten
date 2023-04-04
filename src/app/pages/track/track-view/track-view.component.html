@@ -55,12 +55,20 @@
     </table>
   </section>
 
+  <div class="buttons">
+    <app-button link="edit">Edit/Cut</app-button>
+    <app-button externalLink="https://http.cat/301<">Cat</app-button>
+    <app-button>Recorrelate</app-button>
+    <app-button flavor="danger">Delete</app-button>
+  </div>
+
   <app-map
     *ngIf="(getRegion(track.region) | async) as region"
     [lat]="region.lat"
     [lon]="region.lon"
     [zoom]="region.zoom"
-    [line]="convertToCoords(track.gps)"
+    [highlightedLines]="[convertToCoords(track.gps, track.start_time, track.end_time)]"
+    [lines]="[convertToCoordsBefore(track.gps, track.start_time),convertToCoordsAfter(track.gps, track.end_time)]"
     class="map"
   />
 </ng-container>
