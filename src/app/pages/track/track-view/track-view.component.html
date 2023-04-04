@@ -60,7 +60,7 @@
     [lat]="region.lat"
     [lon]="region.lon"
     [zoom]="region.zoom"
-    [marker]="false"
+    [line]="convertToCoords(track.gps)"
     class="map"
   />
 </ng-container>

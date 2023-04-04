@@ -6,6 +6,8 @@ import {RegionId, RegionWithId} from "../../../data/region/region.domain";
 import {UserId, UserWithId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
+import {GpsEntry} from "../../../data/track/track.domain";
+import {Coordinate} from "ol/coordinate";
 
 @Component({
   selector: 'app-track-view',
@@ -39,6 +41,10 @@ export class TrackViewComponent {
 
   protected duration(start: string, end: string): string {
     return formatDuration(Date.parse(end) - Date.parse(start));
+  }
+
+  protected convertToCoords(gps: GpsEntry[]): Coordinate[] {
+    return gps.map(gps => [gps.lon, gps.lat]);
   }
 }
 

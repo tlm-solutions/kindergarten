@@ -7,10 +7,29 @@ import OSM from "ol/source/OSM";
 import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
 import Style from "ol/style/Style";
-import VectorSource from "ol/source/Vector";
-import VectorLayer from "ol/layer/Vector";
 import BaseLayer from "ol/layer/Base";
 import Icon from "ol/style/Icon";
+import VectorLayer from "ol/layer/Vector";
+import VectorSource from "ol/source/Vector";
+import LineString from "ol/geom/LineString";
+import {Coordinate} from "ol/coordinate";
+import Stroke from "ol/style/Stroke";
+
+const MARKER_STYLE = new Style({
+  image: new Icon({
+    anchor: [0.5, 46],
+    anchorXUnits: 'fraction',
+    anchorYUnits: 'pixels',
+    src: 'assets/icons/marker.svg',
+  }),
+});
+
+const LINE_STYLE = new Style({
+  stroke: new Stroke({
+    color: '#fbcb04',
+    width: 3
+  })
+});
 
 @Component({
   selector: 'app-map',
@@ -30,6 +49,8 @@ export class MapComponent implements AfterViewInit {
   public zoom = 0;
   @Input()
   public marker = false;
+  @Input()
+  public line: Coordinate[] = [];
 
   private map?: Map;
   @ViewChild('map')
@@ -42,8 +63,22 @@ export class MapComponent implements AfterViewInit {
   private initMap(): void {
     const layers: BaseLayer[] = [this.createOsmLightDarkLayer()];
 
-    if (this.marker) {
-      layers.push(this.createSingleMarkerLayer());
+    const features: Feature[] = [];
+
+    if (this.marker) features.push(this.createSingleMarkerLayer());
+    if (this.line) {
+      const feature = new Feature(new LineString(this.line));
+      feature.setStyle(LINE_STYLE);
+
+      features.push(feature);
+    }
+
+    if (features.length) {
+      const layer = new VectorLayer({
+        source: new VectorSource({features})
+      })
+
+      layers.push(layer);
     }
 
     this.map = new Map({
@@ -79,22 +114,13 @@ export class MapComponent implements AfterViewInit {
     return tileLayer;
   }
 
-  private createSingleMarkerLayer() {
+  private createSingleMarkerLayer(): Feature<Point> {
     const iconFeature = new Feature({
       geometry: new Point([this.lon, this.lat]),
     });
 
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'assets/icons/marker.svg',
-      }),
-    });
+    iconFeature.setStyle(MARKER_STYLE);
 
-    iconFeature.setStyle(iconStyle);
-
-    return new VectorLayer({source: new VectorSource({features: [iconFeature]})})
+    return iconFeature;
   }
 }
