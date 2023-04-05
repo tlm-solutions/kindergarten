@@ -32,8 +32,5 @@ export interface Correlation {
   id: number;
   lat: number;
   lon: number;
-  region: RegionId;
   reporting_point: number;
-  run_owner: UserId,
-  trekkie_id: TrackId,
 }
