@@ -3,9 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {TrackComponent} from './track.component';
 import {TrackListComponent} from "./track-list/track-list.component";
 import {TrackViewComponent} from "./track-view/track-view.component";
+import {AUTH_CAN_ACTIVATE} from "../../data/auth/auth.guard";
 
 const routes: Routes = [{
-  path: '', component: TrackComponent, children: [
+  path: '', component: TrackComponent, canActivate: [AUTH_CAN_ACTIVATE], children: [
     {path: '', component: TrackListComponent},
     {path: ':id', component: TrackViewComponent},
   ]

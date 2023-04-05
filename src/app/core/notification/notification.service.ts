@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from "@angular/core";
-import {interval, Subscription} from "rxjs";
+import {BehaviorSubject, interval, Observable, Subscription} from "rxjs";
 import {DEFAULT_NOTIFICATION_DURATION, Notification, NotificationFlavor} from "./notification.domain";
 
 @Injectable({
@@ -7,20 +7,20 @@ import {DEFAULT_NOTIFICATION_DURATION, Notification, NotificationFlavor} from ".
 })
 export class NotificationService implements OnDestroy {
 
-  private notifications0: Notification[];
+  private notifications = new BehaviorSubject<Notification[]>([]);
   private intervall: Subscription | null;
 
   constructor() {
-    this.notifications0 = [];
     this.intervall = null;
   }
 
-  public get notifications() {
-    return this.notifications0;
+  public getNotifications(): Observable<Notification[]> {
+    return this.notifications.asObservable();
   }
 
   public ngOnDestroy(): void {
     this.intervall?.unsubscribe();
+    this.notifications.complete();
   }
 
   public success(text: string): void {
@@ -41,7 +41,11 @@ export class NotificationService implements OnDestroy {
   public notify(text: string, flavor: NotificationFlavor) {
     const initialDuration = DEFAULT_NOTIFICATION_DURATION * 2;
     const notification = {id: Date.now(), text, flavor, remainingDuration: initialDuration, initialDuration};
-    this.notifications0.push(notification);
+
+    const notifications = this.notifications.value;
+    notifications.push(notification);
+    this.notifications.next(notifications);
+
     setTimeout(() => notification.remainingDuration--, 1);
     this.checkIntervall();
   }
@@ -53,9 +57,10 @@ export class NotificationService implements OnDestroy {
 
     this.intervall = interval(500)
       .subscribe(() => {
-        this.notifications0 = this.notifications0.filter(notification => notification.remainingDuration-- > 0);
+        const notifications = this.notifications.value.filter(notification => notification.remainingDuration-- > 0);
+        this.notifications.next(notifications);
 
-        if (!this.notifications0.length) {
+        if (!notifications.length) {
           this.intervall?.unsubscribe();
           this.intervall = null;
         }

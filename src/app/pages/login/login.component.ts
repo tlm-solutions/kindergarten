@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../data/auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BehaviorSubject, EMPTY, switchMap} from "rxjs";
+import {NotificationService} from "../../core/notification/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent {
     private readonly authService: AuthService,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
+    private readonly notificationService: NotificationService,
   ) {
   }
 
@@ -39,7 +41,9 @@ export class LoginComponent {
       .pipe(
         switchMap(response => {
           if (response.success) {
-            return this.router.navigate([this.route.snapshot.queryParams['next']] ?? ['dashboard']);
+            this.notificationService.success(`Successfully logged in as ${response.name}.`)
+            const next = this.route.snapshot.queryParams['next'] ?? 'dashboard';
+            return this.router.navigateByUrl(this.router.parseUrl(`/${next}`));
           }
 
           return EMPTY;

@@ -23,12 +23,19 @@ export class TrackViewComponent {
     share(),
   );
 
+  protected readonly correlation = this.route.params.pipe(
+    map(({id}) => id),
+    switchMap(id => this.trackService.getCorrelation(id)),
+    share(),
+  );
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly trackService: TrackService,
     private readonly regionService: RegionService,
     private readonly userService: UserService,
   ) {
+    this.correlation.subscribe(console.log);
   }
 
   protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {

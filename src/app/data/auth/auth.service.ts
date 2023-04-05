@@ -1,6 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, Subscription, tap} from "rxjs";
 import {AuthResponse, LoginResponse} from "./auth.data";
 import {BASE_PATH} from "../base/data.domain";
 import {UserWithId} from "../user/user.domain";
@@ -36,6 +36,12 @@ export class AuthService implements OnDestroy {
 
   public ngOnDestroy(): void {
     this.updateSubscription?.unsubscribe();
+    this.user.complete();
+    this.roles.complete();
+  }
+
+  public isUpdateInProgress(): boolean {
+    return !!this.updateSubscription;
   }
 
   public getUser(): Observable<UserWithId | null> {
@@ -55,12 +61,18 @@ export class AuthService implements OnDestroy {
   }
 
   public login(email: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${BASE_PATH}/auth/login`, {email, password}, {withCredentials: true});
+    return this.http.post<LoginResponse>(`${BASE_PATH}/auth/login`, {email, password}, {withCredentials: true})
+      .pipe(tap(() => this.invalidateCache()));
   }
 
-  // TODO:
-  public logout(): Observable<any> {
-    return this.http.post(`${BASE_PATH}/auth/logout`, {withCredentials: true});
+  // TODO: fix type
+  public logout(): Observable<unknown> {
+    return this.http.post(`${BASE_PATH}/auth/logout`, {withCredentials: true})
+      .pipe(tap(() => this.invalidateCache()));
+  }
+
+  public invalidateCache(): void {
+    this.lastUpdate = 0;
   }
 
   private forceUpdateCache(): void {

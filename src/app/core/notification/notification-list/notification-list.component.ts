@@ -1,6 +1,5 @@
-import {Component} from "@angular/core";
+import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {NotificationService} from "../notification.service";
-import {Notification} from "../notification.domain";
 import {IdHolder} from "../../../data/base/data.domain";
 import {fadeAnimation} from "../../animation/fade.animation";
 
@@ -9,16 +8,15 @@ import {fadeAnimation} from "../../animation/fade.animation";
   templateUrl: "./notification-list.component.html",
   styleUrls: ["./notification-list.component.scss"],
   animations: [fadeAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotificationListComponent {
+
+  protected notifications = this.notificationService.getNotifications();
 
   constructor(
     private readonly notificationService: NotificationService,
   ) {
-  }
-
-  protected get notifications(): Notification[] {
-    return this.notificationService.notifications;
   }
 
   protected trackBy<T>(index: number, {id}: IdHolder<T>): T {

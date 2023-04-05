@@ -29,6 +29,11 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
 
   public ngOnDestroy(): void {
     this.updateSubscription?.unsubscribe();
+    this.cache.complete();
+  }
+
+  public isUpdateInProgress(): boolean {
+    return !!this.updateSubscription;
   }
 
   public findAll(): Observable<DtoSmall[]> {

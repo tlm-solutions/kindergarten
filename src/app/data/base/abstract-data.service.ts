@@ -11,7 +11,7 @@ export abstract class AbstractDataService<DtoWithId extends DtoSmall, DtoSmall e
   protected readonly http = inject(HttpClient);
 
   protected constructor(
-    private readonly name: string,
+    protected readonly name: string,
   ) {
   }
 

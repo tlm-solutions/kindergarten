@@ -30,7 +30,10 @@
   <input type="color" [formControl]="color">
   <br>
 
-  <app-button [query]="{next}" label="Login" link="/login"></app-button>
+  <app-button [query]="{next}" label="Login" link="/login" *ngIf="authState | async; else logoutBtn"/>
+  <ng-template #logoutBtn>
+    <app-button label="Logout" (click)="logout()"/>
+  </ng-template>
 
   <!--  <a routerLink="/profile" routerLinkActive="active" class="profile not">-->
   <!--    <app-profile-icon class="icon"/>-->
