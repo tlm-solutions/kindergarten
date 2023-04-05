@@ -2,14 +2,15 @@ import {map, Observable} from "rxjs";
 import {DataService} from "./data.service";
 import {HttpClient} from "@angular/common/http";
 import {BASE_PATH, PaginationResponse} from "./data.domain";
-import {Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 
 @Injectable()
 export abstract class AbstractDataService<DtoWithId extends DtoSmall, DtoSmall extends { id: Id }, DtoWithoutId, Id>
   implements DataService<DtoWithId, DtoSmall, DtoWithoutId, Id> {
 
-  constructor(
-    private readonly http: HttpClient,
+  protected readonly http = inject(HttpClient);
+
+  protected constructor(
     private readonly name: string,
   ) {
   }

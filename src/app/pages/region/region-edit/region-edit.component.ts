@@ -78,8 +78,6 @@ export class RegionEditComponent implements OnInit, OnDestroy {
       throw new Error("region id is null??");
     }
 
-    console.log(region);
-
     this.regionService.update(id, {
       /* eslint-disable @typescript-eslint/no-non-null-assertion */
       deactivated: region.deactivated!,

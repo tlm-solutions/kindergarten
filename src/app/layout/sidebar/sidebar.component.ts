@@ -19,7 +19,6 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.color.valueChanges.subscribe(color => {
       const s = document.body.style;
-      console.log(color);
       s.setProperty('--color-primary', color);
     })
   }

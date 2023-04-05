@@ -1,8 +1,9 @@
 import {BehaviorSubject, map, Observable, Subscription, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {BASE_PATH, PaginationResponse} from "./data.domain";
-import {Injectable, OnDestroy} from "@angular/core";
+import {inject, Injectable, OnDestroy} from "@angular/core";
 import {DataCacheService} from "./data-cache.service";
+import {NotificationService} from "../../core/notification/notification.service";
 
 const MAX_CACHE_AGE = 1000 * 60 * 5;
 
@@ -12,14 +13,17 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
 }, DtoWithoutId, Id>
   implements DataCacheService<DtoWithId, DtoSmall, DtoWithoutId, Id>, OnDestroy {
 
+  protected readonly http = inject(HttpClient);
+  protected readonly notificationService = inject(NotificationService);
+
   private readonly cache = new BehaviorSubject<DtoSmall[]>([]);
   private lastUpdate = 0;
 
   private updateSubscription: Subscription | undefined;
 
-  constructor(
-    private readonly http: HttpClient,
+  protected constructor(
     private readonly name: string,
+    private readonly displayName: string,
   ) {
   }
 
@@ -111,10 +115,25 @@ export abstract class AbstractDataCacheService<DtoWithId extends DtoSmall, DtoSm
     }
 
     this.updateSubscription = this.http.get<PaginationResponse<DtoSmall>>(`${BASE_PATH}/${this.name}`, {withCredentials: true})
-      .subscribe(data => {
-        this.lastUpdate = Date.now();
-        this.cache.next(data.elements);
-        this.updateSubscription = undefined;
+      .subscribe({
+        next: data => {
+          this.lastUpdate = Date.now();
+          this.cache.next(data.elements);
+          this.updateSubscription = undefined;
+        },
+        error: err => {
+          // user is not logged in
+          if (err.status == 401) {
+            this.lastUpdate = Date.now();
+            this.notificationService.error("You need to be logged in.");
+          } else {
+            this.notificationService.error(`Unable to update ${this.displayName} cache. See browser console for details.`);
+            console.error(`Error while updating ${this.displayName} cache: `, err);
+          }
+
+          this.cache.next([]);
+          this.updateSubscription = undefined;
+        }
       });
   }
 }
