@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {map, share, Subscription, switchMap} from "rxjs";
+import {share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RegionService} from "../../../data/region/region.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -30,8 +30,7 @@ export class RegionEditComponent implements OnInit, OnDestroy {
   });
 
   private readonly region = this.route.params.pipe(
-    map(({id}) => id),
-    switchMap(id => this.regionService.findById(id)),
+    switchMap(({id}) => this.regionService.get(id)),
     share(),
   );
   private regionSubscription: Subscription | undefined;
@@ -78,7 +77,7 @@ export class RegionEditComponent implements OnInit, OnDestroy {
       throw new Error("region id is null??");
     }
 
-    this.regionService.update(id, {
+    this.regionService.set(id, {
       /* eslint-disable @typescript-eslint/no-non-null-assertion */
       deactivated: region.deactivated!,
       encoding: region.encoding,

@@ -2,13 +2,13 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {BehaviorSubject, Observable, Subscription, tap} from "rxjs";
 import {AuthResponse, LoginResponse} from "./auth.data";
-import {BASE_PATH} from "../base/data.domain";
-import {UserWithId} from "../user/user.domain";
 import {NotificationService} from "../../core/notification/notification.service";
 import {RegionService} from "../region/region.service";
 import {StationService} from "../station/station.service";
 import {TrackService} from "../track/track.service";
 import {UserService} from "../user/user.service";
+import {User} from "../user/user.domain";
+import {BASE_PATH} from "../api.domain";
 
 const MAX_CACHE_AGE = 1000 * 60 * 5;
 
@@ -17,7 +17,7 @@ const MAX_CACHE_AGE = 1000 * 60 * 5;
 })
 export class AuthService implements OnDestroy {
 
-  private readonly user = new BehaviorSubject<UserWithId | null>(null);
+  private readonly user = new BehaviorSubject<User | null>(null);
   private readonly roles = new BehaviorSubject<Record<string, unknown> | null>(null);
 
   private lastUpdate = 0;
@@ -44,7 +44,7 @@ export class AuthService implements OnDestroy {
     return !!this.updateSubscription;
   }
 
-  public getUser(): Observable<UserWithId | null> {
+  public getUser(): Observable<User | null> {
     if (this.lastUpdate < (Date.now() - MAX_CACHE_AGE)) {
       this.forceUpdateCache();
     }

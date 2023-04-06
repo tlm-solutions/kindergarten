@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {NotificationService} from "../notification.service";
-import {IdHolder} from "../../../data/base/data.domain";
 import {fadeAnimation} from "../../animation/fade.animation";
+import {IdHolder} from "../../../data/api.domain";
 
 @Component({
   selector: "app-notification-list",

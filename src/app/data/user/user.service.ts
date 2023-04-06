@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
-import {UserId, UserWithId, UserWithoutId} from "./user.domain";
-import {AbstractDataCacheService} from "../base/abstract-data-cache.service";
+import {User, UserId} from "./user.domain";
+import {AbstractCachedCrudService} from "../crud/cached-crud.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends AbstractDataCacheService<UserWithId, UserWithId, UserWithoutId, UserId> {
+export class UserService extends AbstractCachedCrudService<User, UserId> {
 
   constructor() {
-    super("user", "User");
+    super("user", "user", "users");
   }
 }

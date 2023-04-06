@@ -1,8 +1,9 @@
 import {UserId} from "../user/user.domain";
+import {IdHolder} from "../api.domain";
 
 export type StationId = string;
 
-export interface StationWithoutId {
+export interface Station extends IdHolder<StationId> {
   name: string,
   lat: number,
   lon: number,
@@ -19,8 +20,6 @@ export interface StationWithoutId {
   telegram_decoder_version: number[] | null,
   notes: string | null,
 }
-
-export type StationWithId = { id: StationId } & StationWithoutId;
 
 export enum Device {
   Other = 0,

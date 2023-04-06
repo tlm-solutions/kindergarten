@@ -1,0 +1,33 @@
+<form (submit)="save(); $event.preventDefault()" [formGroup]="form">
+  <section>
+    <h1>General</h1>
+    <app-text-field formControlName="start_time" label="Start" type="datetime-local"/>
+    <app-text-field formControlName="end_time" label="End" type="datetime-local"/>
+    <app-text-field formControlName="line" label="Line" type="number"/>
+    <app-text-field formControlName="run" label="Run" type="number"/>
+    <app-text-field
+      formControlName="region"
+      label="Region"
+      [get]="getRegion"
+      [search]="searchRegion()"
+    />
+
+    <label>
+      Finished
+      <input type="checkbox" formControlName="finished">
+    </label>
+
+    <label>
+      Correlated
+      <input type="checkbox" formControlName="correlated">
+    </label>
+  </section>
+
+  <app-button label="Save"/>
+</form>
+
+<ng-container *ngIf="(form.valueChanges | async) as form">
+  <ng-container *ngIf="(getCachedRegion(form.region) | async) as region">
+    <app-map [lat]="region.lat" [lon]="region.lon" [zoom]="region.zoom"></app-map>
+  </ng-container>
+</ng-container>

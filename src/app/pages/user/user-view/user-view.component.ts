@@ -13,7 +13,7 @@ export class UserViewComponent {
 
   protected readonly user = this.route.params.pipe(
     map(({id}) => id),
-    switchMap(id => this.userService.findById(id)),
+    switchMap(id => this.userService.get(id)),
     share(),
   );
 

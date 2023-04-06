@@ -13,7 +13,7 @@ export class RegionViewComponent {
 
   protected readonly region = this.route.params.pipe(
     map(({id}) => id),
-    switchMap(id => this.regionService.findById(id)),
+    switchMap(id => this.regionService.get(id)),
     share(),
   );
 

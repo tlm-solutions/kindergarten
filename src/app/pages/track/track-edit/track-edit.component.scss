@@ -1,0 +1,30 @@
+:host {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 5fr;
+  padding: 1rem;
+  grid-template-areas: "form map";
+
+  &, form {
+    gap: 1rem;
+  }
+
+  form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map {
+    grid-area: map;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td:last-of-type {
+      text-align: right;
+    }
+  }
+}

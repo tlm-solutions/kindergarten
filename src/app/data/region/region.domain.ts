@@ -1,6 +1,8 @@
+import {IdHolder} from "../api.domain";
+
 export type RegionId = number;
 
-export interface RegionWithoutId {
+export interface Region extends IdHolder<RegionId> {
   name: string;
   transport_company: string;
   regional_company: string | null;
@@ -13,8 +15,6 @@ export interface RegionWithoutId {
   work_in_progress: boolean;
   deactivated: boolean,
 }
-
-export type RegionWithId = { id: RegionId } & RegionWithoutId;
 
 export enum Encoding {
   Other = 0,

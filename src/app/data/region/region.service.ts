@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
-import {RegionId, RegionWithId, RegionWithoutId} from "./region.domain";
-import {AbstractDataCacheService} from "../base/abstract-data-cache.service";
+import {Region, RegionId} from "./region.domain";
+import {AbstractCachedCrudService} from "../crud/cached-crud.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegionService extends AbstractDataCacheService<RegionWithId, RegionWithId, RegionWithoutId, RegionId> {
+export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
 
   constructor() {
-    super("region", "Region");
+    super("region", "region", "regions");
   }
 }

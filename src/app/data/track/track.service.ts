@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
-import {AbstractDataService} from "../base/abstract-data.service";
-import {Correlation, TrackId, TrackSmallWithId, TrackWithId, TrackWithoutId} from "./track.domain";
+import {Correlation, Track, TrackId} from "./track.domain";
 import {Observable} from "rxjs";
-import {BASE_PATH} from "../base/data.domain";
+import {AbstractCrudService} from "../crud/crud.service";
+import {BASE_PATH} from "../api.domain";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TrackService extends AbstractDataService<TrackWithId, TrackSmallWithId, TrackWithoutId, TrackId> {
+export class TrackService extends AbstractCrudService<Track, TrackId> {
 
   constructor() {
-    super("trekkie");
+    super("trekkie", "track", "tracks");
   }
 
   public getCorrelation(id: TrackId): Observable<Correlation[]> {
-    return this.http.get<Correlation[]>(`${BASE_PATH}/${this.name}/${id}/correlate`, {withCredentials: true})
+    return this.http.get<Correlation[]>(`${BASE_PATH}/${this.api_name}/${id}/correlate`, {withCredentials: true})
   }
 }

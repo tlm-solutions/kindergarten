@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {map, share, Subscription, switchMap} from "rxjs";
+import {share, Subscription, switchMap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
@@ -35,8 +35,11 @@ export class StationEditComponent implements OnInit, OnDestroy {
     notes: new FormControl<string | null>(null),
   });
 
-  private readonly stationId = this.route.params.pipe(map(({id}) => id));
-  private readonly station = this.stationId.pipe(switchMap(id => this.stationService.findById(id)), share());
+  private readonly station = this.route.params.pipe(
+    switchMap(({id}) => this.stationService.get(id)),
+    share()
+  );
+
   private stationsSubscription: Subscription | undefined;
 
   constructor(
@@ -86,7 +89,7 @@ export class StationEditComponent implements OnInit, OnDestroy {
       throw new Error("station id is null??");
     }
 
-    this.stationService.update(id, {
+    this.stationService.set(id, {
       /* eslint-disable @typescript-eslint/no-non-null-assertion */
       antenna: station.antenna,
       approved: station.approved!,
@@ -105,7 +108,7 @@ export class StationEditComponent implements OnInit, OnDestroy {
       telegram_decoder_version: station.telegram_decoder_version,
       /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
-      .pipe(switchMap(station => this.router.navigate(['..']).then(() => station)))
+      .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
       .subscribe({
         next: station => this.notificationService.success(`Station ${station.name} was successfully updated.`),
         error: err => {

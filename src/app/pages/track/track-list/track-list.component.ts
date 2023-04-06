@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {BehaviorSubject, map, Observable, share, switchMap} from "rxjs";
 import {TrackService} from "../../../data/track/track.service";
-import {TrackId, TrackWithId} from "../../../data/track/track.domain";
-import {RegionId, RegionWithId} from "../../../data/region/region.domain";
+import {Region, RegionId} from "../../../data/region/region.domain";
 import {RegionService} from "../../../data/region/region.service";
-import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {User, UserId} from "../../../data/user/user.domain";
 import {UserService} from "../../../data/user/user.service";
+import {IdHolder} from "../../../data/api.domain";
 
 @Component({
   selector: 'app-track-list',
@@ -17,7 +17,7 @@ export class TrackListComponent {
 
   private readonly pagination = new BehaviorSubject({offset: 0, limit: 10});
   private readonly trackPages = this.pagination.pipe(
-    switchMap(({offset, limit}) => this.trackService.findPage(offset, limit)),
+    switchMap(({offset, limit}) => this.trackService.getPage(offset, limit)),
     share(),
   );
 
@@ -38,16 +38,16 @@ export class TrackListComponent {
     this.pagination.next({offset: this.pagination.value.offset, limit: parseInt((target as HTMLInputElement).value)});
   }
 
-  protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
-    return this.regionService.findSmallById(id);
+  protected getRegion(id: RegionId): Observable<Region | undefined> {
+    return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<UserWithId | undefined> {
-    return this.userService.findSmallById(id);
+  protected getUser(id: UserId): Observable<User | undefined> {
+    return this.userService.getCached(id);
   }
 
-  protected trackBy(idx: number, element: TrackWithId): TrackId {
-    return element.id;
+  protected trackBy<T>(_: number, {id}: IdHolder<T>): T {
+    return id;
   }
 
   protected duration(start: string, end: string): string {

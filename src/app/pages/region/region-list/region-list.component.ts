@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RegionService} from "../../../data/region/region.service";
-import {RegionId, RegionWithId} from "../../../data/region/region.domain";
+import {IdHolder} from "../../../data/api.domain";
 
 @Component({
   selector: 'app-region-list',
@@ -17,7 +17,7 @@ export class RegionListComponent {
   ) {
   }
 
-  protected trackBy(idx: number, element: RegionWithId): RegionId {
-    return element.id;
+  protected trackBy<T>(_: number, {id}: IdHolder<T>): T {
+    return id;
   }
 }

@@ -1,10 +1,10 @@
+import {IdHolder} from "../api.domain";
+
 export type UserId = string;
 
-export interface UserWithoutId {
+export interface User extends IdHolder<UserId> {
   name: string;
   email: string;
   email_setting: number;
   deactivated: boolean;
 }
-
-export type UserWithId = { id: UserId } & UserWithoutId;

@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, Observable, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {TrackService} from "../../../data/track/track.service";
-import {RegionId, RegionWithId} from "../../../data/region/region.domain";
-import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {Region, RegionId} from "../../../data/region/region.domain";
+import {User, UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
 import {GpsEntry} from "../../../data/track/track.domain";
@@ -19,7 +19,7 @@ export class TrackViewComponent {
 
   protected readonly track = this.route.params.pipe(
     map(({id}) => id),
-    switchMap(id => this.trackService.findById(id)),
+    switchMap(id => this.trackService.get(id)),
     share(),
   );
 
@@ -38,12 +38,12 @@ export class TrackViewComponent {
     this.correlation.subscribe(console.log);
   }
 
-  protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
-    return this.regionService.findSmallById(id);
+  protected getRegion(id: RegionId): Observable<Region | undefined> {
+    return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<UserWithId | undefined> {
-    return this.userService.findSmallById(id);
+  protected getUser(id: UserId): Observable<User | undefined> {
+    return this.userService.getCached(id);
   }
 
   protected duration(start: string, end: string): string {

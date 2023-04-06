@@ -1,4 +1,4 @@
-import {UserWithId} from "../user/user.domain";
+import {User} from "../user/user.domain";
 
 export interface LoginResponse {
   success: boolean;
@@ -8,6 +8,6 @@ export interface LoginResponse {
 }
 
 export interface AuthResponse {
-  user: UserWithId,
+  user: User,
   roles: Record<string, undefined>,
 }

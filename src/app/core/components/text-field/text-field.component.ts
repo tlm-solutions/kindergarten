@@ -13,14 +13,14 @@ import {ControlValueAccessor, DefaultValueAccessor, NG_VALUE_ACCESSOR, ReactiveF
 import {distinctUntilChanged, filter, map, mergeMap, Observable, Subject, Subscription, tap} from "rxjs";
 import {CdkTextareaAutosize, TextFieldModule} from "@angular/cdk/text-field";
 import {CommonModule} from "@angular/common";
-import {IdHolder} from "../../../data/base/data.domain";
+import {IdHolder, NameHolder} from "../../../data/api.domain";
 // see https://github.com/angular/angular/blob/master/packages/forms/src/directives/default_value_accessor.ts
 
-export type FieldType = "text" | "multiline" | "number" | "date" | "password";
+export type FieldType = "text" | "multiline" | "number" | "date" | "password" | "datetime-local";
 export type SearchFn = (value: string) => Observable<SearchResult>;
-export type GetFn = (value: string) => Observable<Entity>;
+export type GetFn = (value: string) => Observable<Entity | undefined>;
 export type CreateFn = (value: string) => Observable<Entity>;
-export type Entity = IdHolder<any> & { name: string };
+export type Entity = IdHolder<any> & NameHolder;
 
 type OnChangeFn = (_: any) => void;
 type OnTouchedFn = () => void;
@@ -128,11 +128,11 @@ export class TextFieldComponent implements ControlValueAccessor, OnInit, AfterVi
 
   /* -- implementation: ControlValueAccessor - delegate to Angular Implementation -- */
 
-  public writeValue(value: any): void {
+  public writeValue(value: never): void {
     if (this.get && value) {
       this.get(value)
         .subscribe({
-          next: entity => this.writeValue0(entity.name || value),
+          next: entity => this.writeValue0(entity?.name ?? value),
           error: console.error,
         });
       return;
@@ -264,6 +264,7 @@ export class TextFieldComponent implements ControlValueAccessor, OnInit, AfterVi
         this.textareaAutoResize.reset();
         this.textareaAutoResize.resizeToFitContent();
       }
-    } else this.missedValue = value;
+    }
+    else this.missedValue = value;
   }
 }

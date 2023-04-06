@@ -1,4 +1,4 @@
-import {IdHolder} from "../../data/base/data.domain";
+import {IdHolder} from "../../data/api.domain";
 
 export type NotificationFlavor = "info" | "success" | "error";
 

@@ -1,9 +1,10 @@
 import {RegionId} from "../region/region.domain";
 import {UserId} from "../user/user.domain";
+import {IdHolder} from "../api.domain";
 
 export type TrackId = string;
 
-export interface TrackSmallWithoutId {
+export interface Track extends IdHolder<TrackId> {
   start_time: string,
   end_time: string,
   line: number,
@@ -15,18 +16,11 @@ export interface TrackSmallWithoutId {
   gps: GpsEntry[]
 }
 
-export type TrackWithoutId = TrackSmallWithoutId & {
-  gps: GpsEntry[]
-}
-
 export interface GpsEntry {
   lat: number;
   lon: number;
   time: string;
 }
-
-export type TrackSmallWithId = { id: TrackId } & TrackSmallWithoutId;
-export type TrackWithId = { id: TrackId } & TrackWithoutId;
 
 export interface Correlation {
   id: number;

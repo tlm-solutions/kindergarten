@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {UserService} from "../../../data/user/user.service";
-import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {IdHolder} from "../../../data/api.domain";
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +17,7 @@ export class UserListComponent {
   ) {
   }
 
-  protected trackBy(idx: number, element: UserWithId): UserId {
-    return element.id;
+  protected trackBy<T>(_: number, {id}: IdHolder<T>): T {
+    return id;
   }
 }

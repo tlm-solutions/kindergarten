@@ -3,8 +3,8 @@ import {StationService} from "../../../data/station/station.service";
 import {map, Observable, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
-import {RegionId, RegionWithId} from "../../../data/region/region.domain";
-import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {Region, RegionId} from "../../../data/region/region.domain";
+import {User, UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 
 @Component({
@@ -17,7 +17,7 @@ export class StationViewComponent {
 
   protected readonly station = this.route.params.pipe(
     map(({id}) => id),
-    switchMap(id => this.stationService.findById(id)),
+    switchMap(id => this.stationService.get(id)),
     share(),
   );
 
@@ -29,11 +29,11 @@ export class StationViewComponent {
   ) {
   }
 
-  protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
-    return this.regionService.findSmallById(id);
+  protected getRegion(id: RegionId): Observable<Region | undefined> {
+    return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<UserWithId | undefined> {
-    return this.userService.findSmallById(id);
+  protected getUser(id: UserId): Observable<User | undefined> {
+    return this.userService.getCached(id);
   }
 }

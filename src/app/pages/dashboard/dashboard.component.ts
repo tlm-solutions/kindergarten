@@ -19,7 +19,7 @@ export class DashboardComponent {
     .pipe(map(users => String(users.length)));
   protected readonly regionCount = this.regionService.findAll()
     .pipe(map(region => String(region.length)));
-  protected readonly trackCount = this.trackService.findPage(0, 0)
+  protected readonly trackCount = this.trackService.getPage(0, 0)
     .pipe(map(data => String(data.count)));
 
   constructor(

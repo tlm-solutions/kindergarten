@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {StationId, StationWithId} from "../../../data/station/station.domain";
 import {StationService} from "../../../data/station/station.service";
 import {Observable} from "rxjs";
 import {UserService} from "../../../data/user/user.service";
-import {UserId, UserWithId} from "../../../data/user/user.domain";
+import {User, UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
-import {RegionId, RegionWithId} from "../../../data/region/region.domain";
+import {Region, RegionId} from "../../../data/region/region.domain";
+import {IdHolder} from "../../../data/api.domain";
 
 @Component({
   selector: 'app-station-list',
@@ -24,15 +24,15 @@ export class StationListComponent {
   ) {
   }
 
-  protected trackBy(idx: number, element: StationWithId): StationId {
-    return element.id;
+  protected trackBy<T>(_: number, {id}: IdHolder<T>): T {
+    return id;
   }
 
-  protected getRegion(id: RegionId): Observable<RegionWithId | undefined> {
-    return this.regionService.findSmallById(id);
+  protected getRegion(id: RegionId): Observable<Region | undefined> {
+    return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<UserWithId | undefined> {
-    return this.userService.findSmallById(id);
+  protected getUser(id: UserId): Observable<User | undefined> {
+    return this.userService.getCached(id);
   }
 }
