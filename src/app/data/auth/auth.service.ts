@@ -65,9 +65,8 @@ export class AuthService implements OnDestroy {
       .pipe(tap(() => this.invalidateCache()));
   }
 
-  // TODO: fix type
-  public logout(): Observable<unknown> {
-    return this.http.post(`${BASE_PATH}/auth/logout`, {withCredentials: true})
+  public logout(): Observable<void> {
+    return this.http.post<void>(`${BASE_PATH}/auth/logout`, undefined, {withCredentials: true})
       .pipe(tap(() => this.invalidateCache()));
   }
 
@@ -99,7 +98,8 @@ export class AuthService implements OnDestroy {
           // user is not logged in
           if (err.status == 401) {
             this.lastUpdate = Date.now();
-          } else {
+          }
+          else {
             this.notificationService.error(`Unable to retrieve login state. See browser console for details.`);
             console.error("Error while retrieving login state: ", err);
           }

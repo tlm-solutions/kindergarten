@@ -2,7 +2,7 @@ import {CrudService} from "./crud.service.interface";
 import {BASE_PATH, IdHolder, WithoutId} from "../api.domain";
 import {HttpClient} from "@angular/common/http";
 import {inject} from "@angular/core";
-import {catchError, mergeMap, Observable, of, retry} from "rxjs";
+import {catchError, Observable, retry} from "rxjs";
 import {handleHttpError, toPascalCase} from "../api.utils";
 import {NotificationService} from "../../core/notification/notification.service";
 import {PaginationResponse} from "./crud.domain";
@@ -50,7 +50,7 @@ export abstract class AbstractCrudService<D extends IdHolder<I>, I> implements C
   }
 
   public delete(id: I): Observable<void> {
-    return this.http.delete<D>(`${BASE_PATH}/${this.api_name}/${id}`, {withCredentials: true})
-      .pipe(retry(2), mergeMap(() => of(void 0)), catchError(handleHttpError(`delete${this.pascalName}`)));
+    return this.http.delete<void>(`${BASE_PATH}/${this.api_name}/${id}`, {withCredentials: true})
+      .pipe(retry(2), catchError(handleHttpError(`delete${this.pascalName}`)));
   }
 }
