@@ -1,36 +1,10 @@
-<label [class.hasOptions]="search && focus && (searchResult?.length || createAvailable)">
+<label>
   <span>{{label}}</span>
 
-  <textarea (blur)="onBlur()"
-            (focus)="onFocus()"
-            (keydown)="onKeydown($event)"
-            *ngIf="type === 'multiline'; else singleLine"
-            cdkTextareaAutosize
-            ngDefaultControl>
-  </textarea>
-
-  <ng-template #singleLine>
-    <input (blur)="onBlur()"
-           (focus)="onFocus()"
-           (keydown)="onKeydown($event)"
-           [type]="type"
-           ngDefaultControl>
+  <textarea *ngIf="type === 'multiline'; else normal" cdkTextareaAutosize [cdkAutosizeMinRows]="3"></textarea>
+  <ng-template #normal>
+    <input [type]="type" ngDefaultControl>
   </ng-template>
 
   <ng-content select="app-error"></ng-content>
-
-  <ul *ngIf="search && focus && (searchResult?.length || createAvailable)">
-    <li (click)="selectResult($event, i)"
-        (mouseenter)="hoverResult(i)"
-        *ngFor="let result of searchResult; let i = index; trackBy trackBy"
-        [class.selected]="selectedResult === i">
-      {{result.name}}
-    </li>
-    <li (click)="selectResult($event, searchResult?.length ?? 0)"
-        (mouseenter)="hoverResult(searchResult?.length ?? 0)"
-        *ngIf="createAvailable && valueToCreate"
-        [class.selected]="selectedResult === (searchResult?.length ?? 0)">
-      Create new...
-    </li>
-  </ul>
 </label>

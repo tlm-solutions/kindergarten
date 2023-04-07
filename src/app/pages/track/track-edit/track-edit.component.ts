@@ -1,12 +1,11 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {map, Observable, share, Subscription, switchMap} from "rxjs";
+import {Observable, share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NotificationService} from "../../../core/notification/notification.service";
 import {TrackService} from "../../../data/track/track.service";
 import {toLocalIsoStringWithoutZone} from "../../../core/utils";
 import {RegionService} from "../../../data/region/region.service";
-import {GetFn, SearchResult} from "../../../core/components/text-field/text-field.component";
 import {Region} from "../../../data/region/region.domain";
 
 @Component({
@@ -36,15 +35,15 @@ export class TrackEditComponent implements OnInit, OnDestroy {
 
   private trackSubscription: Subscription | undefined;
 
-  protected readonly getRegion: GetFn = id => this.regionService.getCached(Number(id));
-
-  protected searchRegion(): (term: string) => Observable<SearchResult> {
-    return term => this.regionService.searchCached(term)
-      .pipe(map(result => ({
-        exact: result.find(d => d.name.toLowerCase().trim() === term.toLowerCase()),
-        result,
-      })));
-  }
+  // protected readonly getRegion: GetFn = id => this.regionService.getCached(Number(id));
+  //
+  // protected searchRegion(): (term: string) => Observable<SearchResult> {
+  //   return term => this.regionService.searchCached(term)
+  //     .pipe(map(result => ({
+  //       exact: result.find(d => d.name.toLowerCase().trim() === term.toLowerCase()),
+  //       result,
+  //     })));
+  // }
 
   constructor(
     private readonly router: Router,
@@ -60,13 +59,13 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       this.form.setValue({
         id: track.id,
         correlated: track.correlated,
-        end_time: toLocalIsoStringWithoutZone(new Date(track.end_time + 'Z')),
+        end_time: toLocalIsoStringWithoutZone(new Date(track.end_time)),
         finished: track.finished,
         line: String(track.line),
         owner: String(track.owner),
         region: String(track.region),
         run: String(track.run),
-        start_time: toLocalIsoStringWithoutZone(new Date(track.start_time + 'Z')),
+        start_time: toLocalIsoStringWithoutZone(new Date(track.start_time)),
       });
     })
   }
@@ -90,14 +89,14 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     this.trackService.set(id, {
       /* eslint-disable @typescript-eslint/no-non-null-assertion */
       correlated: track.correlated!,
-      end_time: new Date(track.end_time!).toISOString().substring(0, 19),
+      end_time: new Date(track.end_time!).toISOString(),
       finished: track.finished!,
       gps: [],
       line: Number(track.line!),
       owner: track.owner!,
       region: Number(track.region!),
       run: Number(track.run!),
-      start_time: new Date(track.start_time!).toISOString().substring(0, 19),
+      start_time: new Date(track.start_time!).toISOString(),
       /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))

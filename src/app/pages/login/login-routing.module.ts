@@ -14,9 +14,7 @@ const FN: CanActivateFn = route => {
     .pipe(
       skip(authService.isUpdateInProgress() ? 1 : 0),
       map(user => {
-        console.log(user);
         const id = user?.id;
-        console.log(id);
 
         if (id === undefined || id === null) {
           return true;

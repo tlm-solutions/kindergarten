@@ -4,61 +4,25 @@
   label {
     display: flex;
     flex-direction: column;
-    position: relative;
-
-    span {
-      font-size: $font-size-small;
-    }
 
     input, textarea {
-      background: $background;
-      border: 0.125rem solid transparent;
       outline: none;
-      border-radius: 0.3rem;
+      background-color: $background;
+      border: 0.1rem solid $background;
       padding: 0.4rem;
-      transition: border-color 150ms ease-in-out;
-      width: 100%;
+      border-radius: 0.4rem;
+
+      transition: 150ms ease-in-out background-color, 150ms ease-in-out border-color;
     }
 
     textarea {
       resize: none;
     }
 
-    input:focus, textarea:focus {
-      border-color: $primary-dark;
-    }
-
-    &.hasOptions {
+    &:hover {
       input, textarea {
-        border-bottom-width: 0;
-        padding-bottom: 0.4rem + 0.125rem;
-        border-radius: 0.3rem 0.3rem 0 0;
-      }
-    }
-
-    ul {
-      position: absolute;
-      top: 100%;
-      width: 100%;
-      margin: 0;
-      max-height: 20rem;
-      overflow-y: auto;
-      background-color: $background;
-      border: 0.125rem solid $primary-dark;
-      border-top: none;
-      list-style-type: none;
-      padding: 0;
-      border-radius: 0 0 0.3rem 0.3rem;
-      z-index: 10;
-
-      li {
-        padding: 0.4rem;
-        transition: 100ms background-color ease-in-out;
-        cursor: pointer;
-
-        &.selected {
-          background-color: $background-light;
-        }
+        background-color: $background-lighter;
+        border-color: $background-lighter;
       }
     }
   }
@@ -70,6 +34,12 @@
           border-color: $danger-dark;
         }
       }
+    }
+  }
+
+  &:focus-within label {
+    input, textarea {
+      border-color: $primary;
     }
   }
 }
