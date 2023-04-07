@@ -5,7 +5,7 @@ import {map, skip} from "rxjs";
 import {NotificationService} from "../../core/notification/notification.service";
 
 export const AUTH_CAN_ACTIVATE: CanActivateFn = (_, state) => {
-  console.log("Checking can activate, because of auth status.");
+  console.debug("Checking can activate, because of auth status.");
 
   const authService = inject(AuthService);
   const router = inject(Router);

@@ -15,7 +15,7 @@ import {IdHolder} from "../../../data/api.domain";
 })
 export class TrackListComponent {
 
-  private readonly pagination = new BehaviorSubject({offset: 0, limit: 10});
+  private readonly pagination = new BehaviorSubject({offset: 0, limit: 15});
   private readonly trackPages = this.pagination.pipe(
     switchMap(({offset, limit}) => this.trackService.getPage(offset, limit)),
     share(),

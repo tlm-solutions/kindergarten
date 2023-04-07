@@ -82,14 +82,14 @@ export class RegionEditComponent implements OnInit, OnDestroy {
       deactivated: region.deactivated!,
       encoding: region.encoding,
       frequency: region.frequency,
-      lat: parseFloat(String(region.lat!)),
-      lon: parseFloat(String(region.lon!)),
+      lat: region.lat!,
+      lon: region.lon!,
       name: region.name!,
-      r09_type: region.r09_type ? parseInt(String(region.r09_type)) : null,
+      r09_type: region.r09_type,
       regional_company: region.regional_company,
       transport_company: region.transport_company!,
       work_in_progress: region.work_in_progress!,
-      zoom: parseFloat(String(region.zoom!)),
+      zoom: region.zoom!,
       /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(region => this.router.navigate(['..'], {relativeTo: this.route}).then(() => region)))

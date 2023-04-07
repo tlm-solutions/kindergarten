@@ -33,9 +33,11 @@ export class TextFieldComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    if (this.input?.nativeElement) {
+    const field = this.type === 'multiline' ? this.textarea : this.input;
+
+    if (field) {
       if (this.cachedValue) this.setValue(this.cachedValue);
-      if (this.cachedDisabledState) this.renderer2.setProperty(this.input.nativeElement, "disabled", this.cachedDisabledState);
+      if (this.cachedDisabledState) this.renderer2.setProperty(field.nativeElement, "disabled", this.cachedDisabledState);
     }
   }
 
@@ -48,13 +50,16 @@ export class TextFieldComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   public writeValue(value: string | number | Date | null | undefined): void {
-    if (!this.input) this.cachedValue = value;
+    const field = this.type === 'multiline' ? this.textarea : this.input;
+
+    if (!field) this.cachedValue = value;
     else this.setValue(value);
   }
 
   public setDisabledState(disabled: boolean) {
-    if (!this.input) this.cachedDisabledState = disabled;
-    else this.renderer2.setProperty(this.input.nativeElement, "disabled", disabled);
+    const field = this.type === 'multiline' ? this.textarea : this.input;
+    if (!field) this.cachedDisabledState = disabled;
+    else this.renderer2.setProperty(field.nativeElement, "disabled", disabled);
   }
 
   protected onBlur(): void {
