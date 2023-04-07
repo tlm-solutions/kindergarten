@@ -11,6 +11,7 @@ import {TextFieldComponent} from "../../core/components/text-field/text-field.co
 import {ButtonComponent} from "../../core/components/button/button.component";
 import {ErrorComponent} from "../../core/components/error/error.component";
 import {StationIconComponent} from "../../core/icons/station-icon/station-icon.component";
+import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {StationIconComponent} from "../../core/icons/station-icon/station-icon.c
     TextFieldComponent,
     ButtonComponent,
     ErrorComponent,
+    CheckboxComponent,
   ]
 })
 export class StationModule {

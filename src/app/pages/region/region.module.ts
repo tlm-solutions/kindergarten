@@ -10,6 +10,7 @@ import {MapComponent} from "../../core/components/map/map.component";
 import { RegionEditComponent } from './region-edit/region-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
+import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {TextFieldComponent} from "../../core/components/text-field/text-field.co
     FormsModule,
     TextFieldComponent,
     ReactiveFormsModule,
+    CheckboxComponent,
   ]
 })
 export class RegionModule {

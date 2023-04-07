@@ -7,20 +7,9 @@
       </app-error>
     </app-text-field>
 
-    <label>
-      Approved
-      <input formControlName="approved" type="checkbox">
-    </label>
-
-    <label>
-      Deactivated
-      <input formControlName="deactivated" type="checkbox">
-    </label>
-
-    <label>
-      Public
-      <input formControlName="public" type="checkbox">
-    </label>
+    <app-checkbox label="Approved" formControlName="approved"/>
+    <app-checkbox label="Deactivated" formControlName="deactivated"/>
+    <app-checkbox label="Public" formControlName="public"/>
 
     <app-text-field label="Notes" formControlName="notes" type="multiline"/>
   </section>

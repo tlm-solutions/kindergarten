@@ -13,7 +13,7 @@ import {NotificationModule} from "./core/notification/notification.module";
 import {SidebarComponent} from './layout/sidebar/sidebar.component';
 import {ButtonComponent} from "./core/components/button/button.component";
 import {DashboardIconComponent} from "./core/icons/dashboard-icon/dashboard-icon.component";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,7 +33,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NotificationModule,
     ButtonComponent,
     DashboardIconComponent,
-    FormsModule,
     ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]

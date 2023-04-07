@@ -5,17 +5,10 @@
     <app-text-field formControlName="end_time" label="End" type="datetime-local"/>
     <app-text-field formControlName="line" label="Line" type="number"/>
     <app-text-field formControlName="run" label="Run" type="number"/>
-    <app-text-field formControlName="region" label="Region"/>
+    <app-text-field formControlName="region" label="Region" type="number"/>
 
-    <label>
-      Finished
-      <input type="checkbox" formControlName="finished">
-    </label>
-
-    <label>
-      Correlated
-      <input type="checkbox" formControlName="correlated">
-    </label>
+    <app-checkbox label="Finished" formControlName="finished"/>
+    <app-checkbox label="Correlated" formControlName="correlated"/>
   </section>
 
   <app-button label="Save"/>

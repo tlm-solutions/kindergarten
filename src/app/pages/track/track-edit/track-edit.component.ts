@@ -1,10 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Observable, share, Subscription, switchMap} from "rxjs";
+import {Observable, of, share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NotificationService} from "../../../core/notification/notification.service";
 import {TrackService} from "../../../data/track/track.service";
-import {toLocalIsoStringWithoutZone} from "../../../core/utils";
 import {RegionService} from "../../../data/region/region.service";
 import {Region} from "../../../data/region/region.domain";
 
@@ -18,11 +17,11 @@ export class TrackEditComponent implements OnInit, OnDestroy {
 
   protected readonly form = new FormGroup({
     id: new FormControl<string | null>(null),
-    start_time: new FormControl<string | null>(null, [Validators.required]),
-    end_time: new FormControl<string | null>(null, [Validators.required]),
-    line: new FormControl<string | null>(null, [Validators.required]),
-    run: new FormControl<string | null>(null, [Validators.required]),
-    region: new FormControl<string | null>(null, [Validators.required]),
+    start_time: new FormControl<Date | null>(null, [Validators.required]),
+    end_time: new FormControl<Date | null>(null, [Validators.required]),
+    line: new FormControl<number | null>(null, [Validators.required]),
+    run: new FormControl<number | null>(null, [Validators.required]),
+    region: new FormControl<number | null>(null, [Validators.required]),
     owner: new FormControl<string | null>(null, [Validators.required]),
     finished: new FormControl<boolean | null>(null, [Validators.required]),
     correlated: new FormControl<boolean | null>(null, [Validators.required]),
@@ -59,13 +58,13 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       this.form.setValue({
         id: track.id,
         correlated: track.correlated,
-        end_time: toLocalIsoStringWithoutZone(new Date(track.end_time)),
+        end_time: new Date(track.end_time),
         finished: track.finished,
-        line: String(track.line),
-        owner: String(track.owner),
-        region: String(track.region),
-        run: String(track.run),
-        start_time: toLocalIsoStringWithoutZone(new Date(track.start_time)),
+        line: track.line,
+        owner: track.owner,
+        region: track.region,
+        run: track.run,
+        start_time: new Date(track.start_time),
       });
     })
   }
@@ -89,14 +88,14 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     this.trackService.set(id, {
       /* eslint-disable @typescript-eslint/no-non-null-assertion */
       correlated: track.correlated!,
-      end_time: new Date(track.end_time!).toISOString(),
+      end_time: track.end_time!.toISOString(),
       finished: track.finished!,
       gps: [],
-      line: Number(track.line!),
+      line: track.line!,
       owner: track.owner!,
-      region: Number(track.region!),
-      run: Number(track.run!),
-      start_time: new Date(track.start_time!).toISOString(),
+      region: track.region!,
+      run: track.run!,
+      start_time: track.start_time!.toISOString(),
       /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
@@ -109,7 +108,7 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       });
   }
 
-  protected getCachedRegion(id: string | undefined | null): Observable<Region | undefined> {
-    return this.regionService.getCached(Number(id));
+  protected getCachedRegion(id: number | undefined | null): Observable<Region | undefined> {
+    return id ? this.regionService.getCached(id) : of(undefined);
   }
 }

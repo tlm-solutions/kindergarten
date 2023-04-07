@@ -4,10 +4,12 @@
 
   form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 5fr;
+    grid-template-areas: "general map" "buttons map";
     gap: 1rem;
 
     section {
+      grid-area: general;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
@@ -15,6 +17,16 @@
       h1 {
         grid-column: 1/3;
       }
+    }
+
+    .buttons {
+      grid-area: buttons;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .map {
+      grid-area: map;
     }
   }
 }

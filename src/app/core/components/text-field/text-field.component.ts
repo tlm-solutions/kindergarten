@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, Input, ViewChild,} from "@angular/core";
-import {ControlValueAccessor, DefaultValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
+import {AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild,} from "@angular/core";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldModule} from "@angular/cdk/text-field";
 import {CommonModule} from "@angular/common";
 
@@ -19,39 +19,83 @@ export class TextFieldComponent implements ControlValueAccessor, AfterViewInit {
   @Input() public label: string | undefined;
   @Input() public type: FieldType = "text";
 
-  @ViewChild(DefaultValueAccessor) private delegate: ControlValueAccessor | undefined;
-
-  private cachedOnChangeFn: (() => void) | undefined;
-  private cachedOnTouchedFn: (() => void) | undefined;
-  private cachedValue: unknown | undefined;
+  protected onChangeFn: ((checked: string | number | Date | null | undefined) => void) | undefined;
+  protected onTouchedFn: (() => void) | undefined;
+  private cachedValue: string | number | Date | null | undefined;
   private cachedDisabledState: boolean | undefined;
 
+  @ViewChild('textarea') private textarea: ElementRef<HTMLTextAreaElement> | undefined;
+  @ViewChild('input') private input: ElementRef<HTMLInputElement> | undefined;
+
+  constructor(
+    private readonly renderer2: Renderer2,
+  ) {
+  }
+
   public ngAfterViewInit(): void {
-    if (this.delegate) {
-      if (this.cachedOnChangeFn !== undefined) this.delegate.registerOnChange(this.cachedOnChangeFn);
-      if (this.cachedOnTouchedFn !== undefined) this.delegate.registerOnTouched(this.cachedOnTouchedFn);
-      if (this.cachedValue !== undefined) this.delegate.writeValue(this.cachedValue);
-      if (this.cachedDisabledState !== undefined) this.delegate.setDisabledState?.(this.cachedDisabledState);
+    if (this.input?.nativeElement) {
+      if (this.cachedValue) this.setValue(this.cachedValue);
+      if (this.cachedDisabledState) this.renderer2.setProperty(this.input.nativeElement, "disabled", this.cachedDisabledState);
     }
   }
 
-  public registerOnChange(fn: () => void): void {
-    if (!this.delegate) this.cachedOnChangeFn = fn;
-    else this.delegate.registerOnChange(fn);
+  public registerOnChange(fn: (checked: string | number | Date | null | undefined) => void): void {
+    this.onChangeFn = fn;
   }
 
   public registerOnTouched(fn: () => void): void {
-    if (!this.delegate) this.cachedOnTouchedFn = fn;
-    else this.delegate.registerOnTouched(fn);
+    this.onTouchedFn = fn;
   }
 
-  public writeValue(value: unknown): void {
-    if (!this.delegate) this.cachedValue = value;
-    else this.delegate.writeValue(value);
+  public writeValue(value: string | number | Date | null | undefined): void {
+    if (!this.input) this.cachedValue = value;
+    else this.setValue(value);
   }
 
   public setDisabledState(disabled: boolean) {
-    if (!this.delegate) this.cachedDisabledState = disabled;
-    else this.delegate.setDisabledState?.(disabled);
+    if (!this.input) this.cachedDisabledState = disabled;
+    else this.renderer2.setProperty(this.input.nativeElement, "disabled", disabled);
+  }
+
+  protected onBlur(): void {
+    this.onTouchedFn?.();
+  }
+
+  protected onChange(): void {
+    this.onChangeFn?.(this.getValue());
+  }
+
+  private getValue(): string | number | Date | null | undefined {
+    switch (this.type) {
+      case "multiline":
+        return this.textarea?.nativeElement?.value;
+      case "text":
+      case "password":
+        return this.input?.nativeElement?.value;
+      case "number":
+        return this.input?.nativeElement.valueAsNumber;
+      case "date":
+      case "datetime-local":
+        return this.input?.nativeElement.valueAsDate;
+    }
+  }
+
+  private setValue(value: string | number | Date | null | undefined) {
+    switch (this.type) {
+      case "multiline":
+        this.renderer2.setProperty(this.textarea?.nativeElement, "value", value);
+        break;
+      case "text":
+      case "password":
+        this.renderer2.setProperty(this.input?.nativeElement, "value", value);
+        break;
+      case "number":
+        this.renderer2.setProperty(this.input?.nativeElement, "valueAsNumber", value);
+        break;
+      case "date":
+      case "datetime-local":
+        this.renderer2.setProperty(this.input?.nativeElement, "valueAsDate", value);
+        break;
+    }
   }
 }

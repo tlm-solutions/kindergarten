@@ -10,6 +10,7 @@ import {ButtonComponent} from "../../core/components/button/button.component";
 import { TrackEditComponent } from './track-edit/track-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
+import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {TextFieldComponent} from "../../core/components/text-field/text-field.co
     ButtonComponent,
     FormsModule,
     ReactiveFormsModule,
-    TextFieldComponent
+    TextFieldComponent,
+    CheckboxComponent
   ]
 })
 export class TrackModule {

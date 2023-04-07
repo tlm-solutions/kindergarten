@@ -11,16 +11,13 @@
     <app-text-field formControlName="lon" label="Lon" type="number"/>
     <app-text-field formControlName="zoom" label="Zoom" type="number"/>
 
-    <label>
-      Work in Progress
-      <input type="checkbox" formControlName="work_in_progress">
-    </label>
-
-    <label>
-      Deactivated
-      <input type="checkbox" formControlName="deactivated">
-    </label>
+    <app-checkbox label="Work in Progress" formControlName="work_in_progress"/>
+    <app-checkbox label="Deactivated" formControlName="deactivated"/>
   </section>
 
-  <app-button label="Save"/>
+  <div class="buttons">
+    <app-button label="Save"/>
+  </div>
+
+  <app-map class="map"></app-map>
 </form>
