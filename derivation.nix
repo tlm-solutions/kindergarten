@@ -5,7 +5,7 @@ mkYarnPackage {
 
     buildInputs = [ yarn ];
     postPatch = ''
-      substituteInPlace src/app/data/base/data.domain.ts \
+      substituteInPlace src/app/data/api.domain.ts \
         --replace 'staging.dvb.solutions' '${domain}'
     '';
 
