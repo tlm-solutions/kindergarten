@@ -1,4 +1,13 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import Map from "ol/Map";
 import View from "ol/View";
@@ -46,7 +55,7 @@ const SElECTED_LINE_STYLE = new Style({
   styleUrls: ['./map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements OnChanges, AfterViewInit {
 
   @Input()
   public lat = 0;
@@ -61,9 +70,55 @@ export class MapComponent implements AfterViewInit {
   @Input()
   public highlightedLines: Coordinate[][] = [];
 
+  private view?: View;
+  private features: Feature[] = [];
+
   private map?: Map;
   @ViewChild('map')
   private mapEle?: ElementRef<HTMLDivElement>;
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["lat"]) {
+      const lat = changes["lat"].currentValue;
+      this.view?.setCenter([this.lon, lat]);
+
+      const markerFeature = this.features.find(feature => feature.get("name") === "marker");
+      markerFeature?.setGeometry(new Point([this.lon, lat]));
+    }
+
+    if (changes["lon"]) {
+      const lon = changes["lon"].currentValue;
+      this.view?.setCenter([lon, this.lat]);
+
+      const markerFeature = this.features.find(feature => feature.get("name") === "marker");
+      markerFeature?.setGeometry(new Point([lon, this.lat]));
+    }
+
+    if (changes["zoom"]) {
+      const zoom = changes["zoom"].currentValue;
+      this.view?.setZoom(zoom);
+    }
+
+    if (changes["marker"]) {
+      const marker = changes["marker"];
+
+      if (marker.previousValue && !marker.currentValue) {
+        const idx = this.features.findIndex(feature => feature.get('name') === "marker");
+        this.features.splice(idx, 1);
+      }
+      else if (!marker.previousValue && marker.currentValue) {
+        this.features.push(this.createSingleMarkerLayer());
+      }
+    }
+
+    if (changes["lines"]) {
+      const lines = changes["lines"].currentValue;
+    }
+
+    if (changes["highlightedLines"]) {
+      const highlightedLines = changes["highlightedLines"].currentValue;
+    }
+  }
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -72,34 +127,32 @@ export class MapComponent implements AfterViewInit {
   private initMap(): void {
     const layers: BaseLayer[] = [this.createOsmLightDarkLayer()];
 
-    const features: Feature[] = [];
-
-    if (this.marker) features.push(this.createSingleMarkerLayer());
+    if (this.marker) this.features.push(this.createSingleMarkerLayer());
 
     this.lines.forEach(line => {
       const feature = new Feature(new LineString(line));
       feature.setStyle(LINE_STYLE);
 
-      features.push(feature);
+      this.features.push(feature);
     });
 
     this.highlightedLines.forEach(line => {
       const feature = new Feature(new LineString(line));
       feature.setStyle(SElECTED_LINE_STYLE);
 
-      features.push(feature);
+      this.features.push(feature);
     });
 
-    if (features.length) {
+    if (this.features.length) {
       const layer = new VectorLayer({
-        source: new VectorSource({features})
+        source: new VectorSource({features: this.features})
       })
 
       layers.push(layer);
     }
 
     this.map = new Map({
-      view: new View({
+      view: this.view = new View({
         center: [this.lon, this.lat],
         zoom: this.zoom
       }),
@@ -133,6 +186,7 @@ export class MapComponent implements AfterViewInit {
 
   private createSingleMarkerLayer(): Feature<Point> {
     const iconFeature = new Feature({
+      name: 'marker',
       geometry: new Point([this.lon, this.lat]),
     });
 

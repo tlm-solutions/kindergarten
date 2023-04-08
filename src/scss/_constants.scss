@@ -57,3 +57,14 @@
     --color-text-inverted-dark: var(--color-ternary-dark);
   }
 }
+
+:root {
+  // ol specific colors
+  --ol-background-color: var(--color-background);
+  --ol-accent-background-color: var(--color-background-light);
+  --ol-subtle-background-color: var(--text-color);
+  --ol-partial-background-color: rgba(44, 44, 44, 0.75);
+  --ol-foreground-color: var(--color-text);
+  --ol-subtle-foreground-color: var(--color-back);
+  --ol-brand-color: var(--color-primary);
+}

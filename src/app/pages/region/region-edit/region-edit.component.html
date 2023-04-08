@@ -19,5 +19,12 @@
     <app-button label="Save"/>
   </div>
 
-  <app-map class="map"></app-map>
+  <app-map
+    class="map"
+    *ngIf="(form.valueChanges | async) as value"
+    [lat]="value.lat ?? 0"
+    [lon]="value.lon ?? 0"
+    [zoom]="value.zoom ?? 0"
+    [marker]="true"
+  />
 </form>

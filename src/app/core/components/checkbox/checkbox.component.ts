@@ -50,11 +50,8 @@ export class CheckboxComponent implements ControlValueAccessor, AfterViewInit {
     else this.renderer2.setProperty(this.input.nativeElement, "disabled", disabled);
   }
 
-  protected onBlur():void {
-    this.onTouchedFn?.();
-  }
-
-  protected onChange(): void {
+  protected onInput(): void {
     this.onChangeFn?.(this.input?.nativeElement?.checked);
+    this.onTouchedFn?.();
   }
 }

@@ -4,11 +4,11 @@
   <textarea *ngIf="type === 'multiline'; else normal"
             #textarea
             (blur)="onBlur()"
-            (change)="onChange()"
+            (input)="onInput()"
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="3"></textarea>
   <ng-template #normal>
-    <input [type]="type" #input (blur)="onBlur()" (change)="onChange()">
+    <input [type]="type" #input (blur)="onBlur()" (input)="onInput()">
   </ng-template>
 
   <ng-content select="app-error"></ng-content>
