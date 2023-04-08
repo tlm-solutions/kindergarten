@@ -109,6 +109,6 @@ export class TrackEditComponent implements OnInit, OnDestroy {
   }
 
   protected getCachedRegion(id: number | undefined | null): Observable<Region | undefined> {
-    return id ? this.regionService.getCached(id) : of(undefined);
+    return id !== undefined && id != null ? this.regionService.getCached(id) : of(undefined);
   }
 }

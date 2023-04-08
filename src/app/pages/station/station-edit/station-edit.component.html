@@ -25,6 +25,7 @@
       </app-error>
     </app-text-field>
     <app-text-field formControlName="elevation" label="Elevation" type="number"/>
+    <app-text-field formControlName="region" label="Region" type="number"/>
   </section>
 
   <section>
@@ -38,5 +39,19 @@
     <app-text-field formControlName="telegram_decoder_version" label="Telegram Decoder Version"/>
   </section>
 
-  <app-button label="Save"/>
+  <div class="buttons">
+    <app-button label="Save"/>
+  </div>
 </form>
+
+{{getRegion()|async}}
+{{getRegion() | async|json}}
+
+<app-map
+  class="map"
+  *ngIf="(getRegion() | async) as region"
+  [lat]="(form.controls.lat.valueChanges | async) ?? 0"
+  [lon]="(form.controls.lon.valueChanges | async) ?? 0"
+  [zoom]="region.zoom"
+  [marker]="true"
+/>

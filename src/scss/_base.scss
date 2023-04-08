@@ -26,7 +26,7 @@ a:not(.not) {
 
 section {
   padding: 1rem;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
   border: 0.1rem solid $background-lighter;
   background-color: $background-light;
 
@@ -55,7 +55,7 @@ fieldset {
 
     border: $border solid $background-dark;
     padding: 1rem;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
 
     > label {
       position: absolute;

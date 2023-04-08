@@ -1,15 +1,16 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {share, Subscription, switchMap} from "rxjs";
+import {Observable, of, share, Subscription, switchMap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
-import {RegionId} from "../../../data/region/region.domain";
+import {Region, RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
 import {NotificationService} from "../../../core/notification/notification.service";
+import {RegionService} from "../../../data/region/region.service";
 
 @Component({
-  selector: 'app-station-sidebar',
+  selector: 'app-station-edit',
   templateUrl: './station-edit.component.html',
   styleUrls: ['./station-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,6 +48,7 @@ export class StationEditComponent implements OnInit, OnDestroy {
     private readonly route: ActivatedRoute,
     private readonly stationService: StationService,
     private readonly notificationService: NotificationService,
+    private readonly regionService: RegionService,
   ) {
   }
 
@@ -116,5 +118,11 @@ export class StationEditComponent implements OnInit, OnDestroy {
           this.notificationService.error(`Failed to update station ${station.name}: ${err}`)
         }
       });
+  }
+
+  protected getRegion(): Observable<Region | undefined> {
+    return this.form.controls.region.valueChanges.pipe(
+      switchMap(id => id !== undefined && id !== null ? this.regionService.getCached(id) : of(undefined))
+    );
   }
 }

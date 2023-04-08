@@ -1,20 +1,26 @@
 :host {
-  display: block;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 5fr;
   padding: 1rem;
+  grid-template-areas: "form map";
+
+  &, form, .buttons {
+    gap: 0.5rem;
+  }
 
   form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+  }
 
-    section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-      h1 {
-        grid-column: 1/3;
-      }
-    }
+  .map {
+    grid-area: map;
   }
 }

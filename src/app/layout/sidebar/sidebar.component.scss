@@ -3,37 +3,28 @@
 nav {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 
   ul {
-    flex-grow: 1;
-
-    a {
-      display: flex;
-      transition: background-color 150ms ease-in-out;
-      aspect-ratio: 1 / 1;
-      justify-content: center;
-      align-items: center;
-
-      .icon {
-        padding: 30%;
-        display: block;
-        width: 100%;
-        height: 100%;
-        transition: fill 150ms ease-in-out;
-      }
-
-      &:hover, &.active {
-        background-color: $primary;
-
-        .icon {
-          fill: $secondary;
-        }
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
   }
 
-  .profile {
-    justify-content: flex-end;
+  a {
+    display: block;
+    padding: 1rem;
+    transition: 150ms ease-in-out background-color;
+
+    .icon {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &:hover, &.active {
+      background-color: $primary;
+    }
   }
 }
