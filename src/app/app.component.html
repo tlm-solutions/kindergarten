@@ -2,8 +2,8 @@
   <app-sidebar></app-sidebar>
 </aside>
 
-<main>
-  <router-outlet></router-outlet>
-
-  <app-notification-list></app-notification-list>
+<main [@routing]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <router-outlet #outlet="outlet"></router-outlet>
 </main>
+
+<app-notification-list></app-notification-list>
