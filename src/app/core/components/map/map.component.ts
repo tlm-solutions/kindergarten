@@ -40,7 +40,7 @@ const LINE_STYLE = new Style({
   })
 });
 
-const SElECTED_LINE_STYLE = new Style({
+const HIGHLIGHTED_LINE_STYLE = new Style({
   stroke: new Stroke({
     color: '#9e32ef',
     width: 5
@@ -113,10 +113,24 @@ export class MapComponent implements OnChanges, AfterViewInit {
 
     if (changes["lines"]) {
       const lines = changes["lines"].currentValue;
+
+      let idx;
+      while ((idx = this.features.findIndex(feature => feature.get('name').startsWith('line'))) !== -1) {
+        this.features.splice(idx, 1);
+      }
+
+      this.features.push(...this.createLines("line", lines, LINE_STYLE));
     }
 
     if (changes["highlightedLines"]) {
       const highlightedLines = changes["highlightedLines"].currentValue;
+
+      let idx;
+      while ((idx = this.features.findIndex(feature => feature.get('name').startsWith('highlightedLine'))) !== -1) {
+        this.features.splice(idx, 1);
+      }
+
+      this.features.push(...this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
     }
   }
 
@@ -128,20 +142,8 @@ export class MapComponent implements OnChanges, AfterViewInit {
     const layers: BaseLayer[] = [this.createOsmLightDarkLayer()];
 
     if (this.marker) this.features.push(this.createSingleMarkerLayer());
-
-    this.lines.forEach(line => {
-      const feature = new Feature(new LineString(line));
-      feature.setStyle(LINE_STYLE);
-
-      this.features.push(feature);
-    });
-
-    this.highlightedLines.forEach(line => {
-      const feature = new Feature(new LineString(line));
-      feature.setStyle(SElECTED_LINE_STYLE);
-
-      this.features.push(feature);
-    });
+    this.features.push(...this.createLines("line", this.lines, LINE_STYLE));
+    this.features.push(...this.createLines("highlightedLine", this.highlightedLines, HIGHLIGHTED_LINE_STYLE));
 
     if (this.features.length) {
       const layer = new VectorLayer({
@@ -193,5 +195,14 @@ export class MapComponent implements OnChanges, AfterViewInit {
     iconFeature.setStyle(MARKER_STYLE);
 
     return iconFeature;
+  }
+
+  private createLines(name: string, lines: Coordinate[][], style: Style): Feature<LineString>[] {
+    return lines.map((line, idx) => {
+      const feature = new Feature({name: `${name}-${idx}`, geometry: new LineString(line)});
+      feature.setStyle(style);
+
+      return feature;
+    });
   }
 }
