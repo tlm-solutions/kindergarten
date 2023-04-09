@@ -25,6 +25,9 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     owner: new FormControl<string | null>(null, [Validators.required]),
     finished: new FormControl<boolean | null>(null, [Validators.required]),
     correlated: new FormControl<boolean | null>(null, [Validators.required]),
+
+    skip: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
+    drop: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
   });
 
   private readonly track = this.route.params.pipe(
@@ -57,6 +60,8 @@ export class TrackEditComponent implements OnInit, OnDestroy {
         region: track.region,
         run: track.run,
         start_time: new Date(track.start_time),
+        skip: track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.start_time)),
+        drop: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.end_time)),
       });
     })
 

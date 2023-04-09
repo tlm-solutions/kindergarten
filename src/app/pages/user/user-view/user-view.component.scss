@@ -1,13 +1,21 @@
 :host {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content min-content;
+  grid-template-columns: 2fr 5fr;
   padding: 1rem;
-  gap: 1rem;
-  grid-template-areas: "general";
+  grid-template-areas: "general map" "buttons map";
+
+  &,.buttons {
+    gap: 1rem;
+  }
 
   .general {
     grid-area: general;
+  }
+
+  .buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: flex-end;
   }
 }

@@ -5,7 +5,7 @@
   padding: 1rem;
   grid-template-areas: "form map";
 
-  &, form {
+  &, form, .buttons {
     gap: 1rem;
   }
 
@@ -23,5 +23,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
   }
 }

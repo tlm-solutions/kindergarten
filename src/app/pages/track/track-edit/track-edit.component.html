@@ -11,7 +11,16 @@
     <app-checkbox label="Correlated" formControlName="correlated"/>
   </section>
 
-  <app-button label="Save"/>
+  <section>
+    <h1>Cut</h1>
+    <app-text-field formControlName="skip" label="Skip Front" type="number"/>
+    <app-text-field formControlName="drop" label="Drop End" type="number"/>
+  </section>
+
+  <div class="buttons">
+    <app-button label="Save"/>
+    <app-button label="Cancel" flavor="danger" link=".."/>
+  </div>
 </form>
 
 <app-map
