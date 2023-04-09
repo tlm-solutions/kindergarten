@@ -1,6 +1,6 @@
 import {BASE_PATH, IdHolder, NameHolder, WithoutId} from "../api.domain";
 import {AbstractCrudService} from "./crud.service";
-import {BehaviorSubject, catchError, map, Observable, Subscription, tap} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, of, Subscription, tap} from "rxjs";
 import {handleHttpError} from "../api.utils";
 import {SmallCachedCrudService} from "./small-cached-crud.service.interface";
 import {PaginationResponse} from "./crud.domain";
@@ -31,7 +31,11 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
     return this.cache.asObservable();
   }
 
-  public getCached(id: I): Observable<S | undefined> {
+  public getCached(id: I | undefined | null): Observable<S | undefined> {
+    if (id === undefined || id === null) {
+      return of(undefined);
+    }
+
     if (this.cacheExpire < Date.now() && !this.cacheUpdateSubscription) {
       this.updateCache();
     }

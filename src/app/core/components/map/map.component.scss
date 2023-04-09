@@ -4,13 +4,8 @@
   display: flex;
   width: 100%;
   height: 100%;
+  border: 0.1rem solid $background-lighter;
   background-color: $background-light;
   border-radius: 0.5rem;
   overflow: hidden;
-}
-
-.map {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
 }

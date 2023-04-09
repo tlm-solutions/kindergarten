@@ -14,8 +14,8 @@
   <app-button label="Save"/>
 </form>
 
-<ng-container *ngIf="(form.valueChanges | async) as form">
-  <ng-container *ngIf="(getCachedRegion(form.region) | async) as region">
-    <app-map [lat]="region.lat" [lon]="region.lon" [zoom]="region.zoom"></app-map>
-  </ng-container>
-</ng-container>
+<app-map
+  [lines]="(lines | async)!"
+  [highlightedLines]="(highlightedLines | async)!"
+  [putLinesInCenter]="true"
+/>
