@@ -68,6 +68,7 @@ export class TextFieldComponent implements ControlValueAccessor, AfterViewInit {
 
   protected onInput(): void {
     this.onChangeFn?.(this.getValue());
+    this.onTouchedFn?.();
   }
 
   private getValue(): string | number | Date | null | undefined {

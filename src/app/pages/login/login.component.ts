@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../data/auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {BehaviorSubject, EMPTY, switchMap} from "rxjs";
+import {BehaviorSubject, EMPTY, switchMap, take} from "rxjs";
 import {NotificationService} from "../../core/notification/notification.service";
 
 @Component({
@@ -11,7 +11,7 @@ import {NotificationService} from "../../core/notification/notification.service"
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
 
   protected readonly form = new FormGroup({
     email: new FormControl<string>('', {nonNullable: true, validators: [Validators.required]}),
@@ -28,6 +28,11 @@ export class LoginComponent {
     private readonly notificationService: NotificationService,
   ) {
   }
+
+  public ngOnDestroy():void {
+    this.wrongCredentials.complete();
+    this.loading.complete();
+}
 
   protected login(): void {
     if (this.loading.value || !this.form.valid) {
@@ -48,6 +53,7 @@ export class LoginComponent {
 
           return EMPTY;
         }),
+        take(1),
       )
       .subscribe({
         error: () => {

@@ -14,6 +14,6 @@ export class TrackService extends AbstractCrudService<Track, TrackId> {
   }
 
   public getCorrelation(id: TrackId): Observable<Correlation[]> {
-    return this.http.get<Correlation[]>(`${BASE_PATH}/${this.api_name}/${id}/correlate`, {withCredentials: true})
+    return this.http.get<Correlation[]>(`${BASE_PATH}/${this.apiName}/${id}/correlate`, {withCredentials: true})
   }
 }

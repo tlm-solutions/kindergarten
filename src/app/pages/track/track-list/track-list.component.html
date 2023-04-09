@@ -3,6 +3,8 @@
   <form [formGroup]="form">
     <app-text-field label="Ofset" formControlName="offset" type="number"/>
     <app-text-field label="Limit" formControlName="limit" type="number"/>
+    <app-button (click)="prev()">Previous Page</app-button>
+    <app-button (click)="next()">Next Page</app-button>
   </form>
 
   <table>
@@ -10,7 +12,7 @@
     <tr>
       <th>Start</th>
       <th>Ende</th>
-      <td>Duration</td>
+      <th>Duration</th>
       <th>Line</th>
       <th>Run</th>
       <th>Region</th>

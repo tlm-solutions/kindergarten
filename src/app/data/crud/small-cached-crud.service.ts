@@ -4,14 +4,24 @@ import {BehaviorSubject, catchError, map, Observable, Subscription, tap} from "r
 import {handleHttpError} from "../api.utils";
 import {SmallCachedCrudService} from "./small-cached-crud.service.interface";
 import {PaginationResponse} from "./crud.domain";
+import {Injectable, OnDestroy} from "@angular/core";
 
 const MAX_AGE = 5;
 
-export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdHolder<I> & NameHolder), I> extends AbstractCrudService<D, I> implements SmallCachedCrudService<D, S, I> {
+@Injectable()
+export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdHolder<I> & NameHolder), I> extends AbstractCrudService<D, I> implements SmallCachedCrudService<D, S, I>, OnDestroy {
 
   private readonly cache = new BehaviorSubject<S[]>([]);
   private cacheUpdateSubscription: Subscription | undefined;
   private cacheExpire = 0;
+
+  constructor(apiName: string, name: string, pluralName: string) {
+    super(apiName, name, pluralName);
+  }
+
+  public ngOnDestroy(): void {
+    this.cache.complete();
+  }
 
   public findAll(): Observable<S[]> {
     if (this.cacheExpire < Date.now() && !this.cacheUpdateSubscription) {
@@ -45,7 +55,7 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
   }
 
   protected updateCache() {
-    this.cacheUpdateSubscription = this.http.get<PaginationResponse<S>>(`${BASE_PATH}/${this.api_name}`)
+    this.cacheUpdateSubscription = this.http.get<PaginationResponse<S>>(`${BASE_PATH}/${this.apiName}`)
       .pipe(
         catchError(handleHttpError(`update${this.pascalName}Cache`)),
         map(response => {
