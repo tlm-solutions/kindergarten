@@ -26,8 +26,8 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     finished: new FormControl<boolean | null>(null, [Validators.required]),
     correlated: new FormControl<boolean | null>(null, [Validators.required]),
 
-    skip: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
-    drop: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
+    trim_start: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
+    trim_end: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
   });
 
   private readonly track = this.route.params.pipe(
@@ -60,10 +60,18 @@ export class TrackEditComponent implements OnInit, OnDestroy {
         region: track.region,
         run: track.run,
         start_time: new Date(track.start_time),
-        skip: track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.start_time)),
-        drop: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.end_time)),
+        trim_start: track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.start_time)),
+        trim_end: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.end_time)),
       });
     })
+
+    combineLatest([this.form.controls.trim_start.valueChanges, this.track]).subscribe(([start, track]) => {
+      this.form.controls.start_time.setValue(new Date(track.gps[(start ?? 0) - 1].time));
+    });
+
+    combineLatest([this.form.controls.trim_end.valueChanges, this.track]).subscribe(([end, track]) => {
+      this.form.controls.end_time.setValue(new Date(track.gps[track.gps.length - (end ?? 0) - 1].time));
+    });
 
     combineLatest([this.form.controls.start_time.valueChanges, this.form.controls.end_time.valueChanges, this.track])
       .pipe(filter(([start, end]) => !!start && !!end), map(([start, end, track]) => ({
@@ -74,6 +82,11 @@ export class TrackEditComponent implements OnInit, OnDestroy {
         track
       })))
       .subscribe(({start, end, track}) => {
+        this.form.patchValue({
+          trim_start: track.gps.findIndex(entry => Date.parse(entry.time) > start),
+          trim_end: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > end)
+        }, {emitEvent: false});
+
         this.highlightedLines.next([this.convertToCoords(track.gps, start, end)]);
         this.lines.next([
           this.convertToCoordsBefore(track.gps, start),
