@@ -6,6 +6,7 @@ import {RegionService} from "../../../data/region/region.service";
 import {User, UserId} from "../../../data/user/user.domain";
 import {UserService} from "../../../data/user/user.service";
 import {IdHolder} from "../../../data/api.domain";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-track-list',
@@ -21,6 +22,10 @@ export class TrackListComponent {
     share(),
   );
 
+  protected readonly form = new FormGroup({
+    offset: new FormControl<number>(0, {nonNullable: true, validators: Validators.min(0)}),
+    limit: new FormControl<number>(15, {nonNullable: true, validators: Validators.min(1)}),
+  });
   protected readonly tracks = this.trackPages.pipe(map(({elements}) => elements));
 
   constructor(
@@ -28,14 +33,12 @@ export class TrackListComponent {
     private readonly regionService: RegionService,
     private readonly userService: UserService,
   ) {
-  }
-
-  updateOffset(target: EventTarget | null) {
-    this.pagination.next({limit: this.pagination.value.limit, offset: parseInt((target as HTMLInputElement).value)});
-  }
-
-  updateLimit(target: EventTarget | null) {
-    this.pagination.next({offset: this.pagination.value.offset, limit: parseInt((target as HTMLInputElement).value)});
+    this.form.valueChanges.subscribe(({offset, limit}) => {
+      this.pagination.next({
+        offset: offset ?? 0,
+        limit: limit ?? 15
+      })
+    });
   }
 
   protected getRegion(id: RegionId): Observable<Region | undefined> {

@@ -85,11 +85,18 @@ ul, ol {
 }
 
 table {
+  width: 100%;
+  border-collapse: collapse;
+
   th, td {
     padding: 0.4rem;
   }
 
   td {
     border-top: 0.1rem solid $background-lighter;
+
+    &:last-of-type {
+      text-align: right;
+    }
   }
 }

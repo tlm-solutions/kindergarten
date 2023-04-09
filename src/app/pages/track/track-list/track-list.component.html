@@ -1,14 +1,9 @@
 <h1>Tracks</h1>
 <section>
-  <label>
-    Offset:
-    <input (change)="updateOffset($event.target)" type="number">
-  </label>
-
-  <label>
-    Limit:
-    <input (change)="updateLimit($event.target)" type="number" value="15">
-  </label>
+  <form [formGroup]="form">
+    <app-text-field label="Ofset" formControlName="offset" type="number"/>
+    <app-text-field label="Limit" formControlName="limit" type="number"/>
+  </form>
 
   <table>
     <thead>

@@ -10,13 +10,4 @@
   .general {
     grid-area: general;
   }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-
-    td:last-of-type {
-      text-align: right;
-    }
-  }
 }

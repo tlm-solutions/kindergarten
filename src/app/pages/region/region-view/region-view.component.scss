@@ -22,13 +22,4 @@
   .map {
     grid-area: map;
   }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-
-    td:last-of-type {
-      text-align: right;
-    }
-  }
 }

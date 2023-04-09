@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfileComponent} from './profile.component';
 import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.component";
+import {ButtonComponent} from "../../core/components/button/button.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.c
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    ProfileIconComponent
+    ProfileIconComponent,
+    ButtonComponent
   ]
 })
 export class ProfileModule {

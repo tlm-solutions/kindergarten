@@ -36,7 +36,7 @@ export class TextFieldComponent implements ControlValueAccessor, AfterViewInit {
     const field = this.type === 'multiline' ? this.textarea : this.input;
 
     if (field) {
-      if (this.cachedValue) this.setValue(this.cachedValue);
+      if (this.cachedValue !== undefined && this.cachedDisabledState !== null) this.setValue(this.cachedValue);
       if (this.cachedDisabledState) this.renderer2.setProperty(field.nativeElement, "disabled", this.cachedDisabledState);
     }
   }
