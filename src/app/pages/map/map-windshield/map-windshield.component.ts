@@ -3,7 +3,7 @@ import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
 import {ActivatedRoute} from "@angular/router";
-import {filter, map, Subscription, switchMap} from "rxjs";
+import {filter, interval, map, Subscription, switchMap} from "rxjs";
 import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
@@ -25,6 +25,8 @@ function loadImage(src: string): HTMLImageElement {
 
 const IMG = loadImage("/assets/icons/vehicle/unknown.svg");
 
+const MAX_VEHICLE_AGE = 4 * 60;
+
 @Component({
   selector: 'app-map-windshield',
   templateUrl: './map-windshield.component.html',
@@ -37,6 +39,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
   private readonly vehicles = new VectorSource();
 
   private subscription: Subscription | undefined;
+  private subscriptionB: Subscription | undefined;
+  private subscriptionC: Subscription | undefined;
 
   constructor(
     private readonly hostElement: ElementRef<HTMLElement>,
@@ -72,7 +76,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         this.map.addInteraction(new Link());
       });
 
-    this.networkService.sub()
+    this.subscriptionB = this.networkService.sub()
       .subscribe(data => {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);
@@ -80,7 +84,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         if (vehicle) {
           vehicle.setGeometry(new Point([data.lon, data.lat]));
         } else {
-          const feature = new Feature({geometry: new Point([data.lon, data.lat])});
+          const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
           feature.setId(id);
           feature.setStyle(new Style({
             image: new Icon({
@@ -97,11 +101,21 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
           this.vehicles.addFeature(feature)
         }
-
       });
+
+    this.subscriptionC = interval(1000)
+      .subscribe(() => {
+        const last = (Date.now() / 1000) - MAX_VEHICLE_AGE;
+
+        const toRemove = this.vehicles.getFeatures()
+          .filter(feature => feature.get("last") < last);
+        toRemove.forEach(feature => this.vehicles.removeFeature(feature));
+      })
   }
 
   public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.subscriptionB?.unsubscribe();
+    this.subscriptionC?.unsubscribe();
   }
 }
