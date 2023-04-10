@@ -14,6 +14,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
     data: {sidebar: false}
   },
+  { path: 'map', loadChildren: () => import('./pages/map/map.module').then(m => m.MapModule) },
 ];
 
 @NgModule({

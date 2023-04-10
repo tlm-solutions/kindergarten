@@ -12,6 +12,7 @@ import {UserIconComponent} from "./core/icons/user-icon/user-icon.component";
 import {TrackIconComponent} from "./core/icons/track-icon/track-icon.component";
 import {ProfileIconComponent} from "./core/icons/profile-icon/profile-icon.component";
 import {NotificationModule} from "./core/notification/notification.module";
+import {MapIconComponent} from "./core/icons/map-icon/map-icon.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {NotificationModule} from "./core/notification/notification.module";
     TrackIconComponent,
     ProfileIconComponent,
     NotificationModule,
+    MapIconComponent,
   ],
   bootstrap: [AppComponent]
 })

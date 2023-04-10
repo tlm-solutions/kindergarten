@@ -1,4 +1,4 @@
-export const BASE_PATH = "https://datacare.staging.dvb.solutions";
+export const BASE_PATH = "https://datacare.staging.dvb.solutions/v1";
 
 export interface IdHolder<I> {
   id: I;
