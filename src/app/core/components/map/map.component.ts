@@ -10,7 +10,6 @@ import {
 import {CommonModule} from '@angular/common';
 import Map from "ol/Map";
 import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
@@ -22,6 +21,7 @@ import VectorSource from "ol/source/Vector";
 import LineString from "ol/geom/LineString";
 import {Coordinate} from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
+import WebGLTileLayer from "ol/layer/WebGLTile";
 
 const MARKER_STYLE = new Style({
   image: new Icon({
@@ -113,8 +113,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
         if (feature) {
           this.features.removeFeature(feature);
         }
-      }
-      else if (!marker.previousValue && marker.currentValue) {
+      } else if (!marker.previousValue && marker.currentValue) {
         this.features.addFeature(this.createSingleMarkerLayer());
         update = true;
       }
@@ -145,7 +144,12 @@ export class MapComponent implements OnChanges, AfterViewInit {
     }
 
     if (update && this.putLinesInCenter) {
-      this.map?.getView().fit(this.features.getExtent(), {padding: [20, 20, 20, 20]});
+      setTimeout(() => {
+        const extent = this.features.getExtent();
+        if (extent.length !== 0) {
+          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20]})
+        }
+      });
     }
   }
 
@@ -154,7 +158,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
   }
 
   private initMap(): void {
-    const layers: BaseLayer[] = [this.createOsmLightDarkLayer()];
+    const layers: BaseLayer[] = [new WebGLTileLayer({source: new OSM()})];
 
     const layer = new VectorLayer({source: this.features});
 
@@ -168,29 +172,6 @@ export class MapComponent implements OnChanges, AfterViewInit {
       layers,
       target: this.hostElement.nativeElement,
     });
-  }
-
-  private createOsmLightDarkLayer() {
-    const tileLayer = new TileLayer({source: new OSM()});
-
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      tileLayer.on('prerender', event => {
-        if (event.context) {
-          const context = event.context as CanvasRenderingContext2D;
-          context.filter = 'brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7)';
-          context.globalCompositeOperation = 'source-over';
-        }
-      });
-
-      tileLayer.on('postrender', event => {
-        if (event.context) {
-          const context = event.context as CanvasRenderingContext2D;
-          context.filter = 'none';
-        }
-      });
-    }
-
-    return tileLayer;
   }
 
   private createSingleMarkerLayer(): Feature<Point> {

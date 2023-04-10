@@ -5,7 +5,6 @@ import Style from "ol/style/Style";
 import Icon from "ol/style/Icon";
 import Fill from "ol/style/Fill";
 import {Coordinate} from "ol/coordinate";
-import VectorContext from "ol/render/VectorContext";
 import {loadImage} from "./utils";
 import {Vehicle} from "../map-windshield.component";
 
@@ -49,7 +48,7 @@ export class UnknownVehicle implements Vehicle<Point> {
     this.last0 = last;
   }
 
-  public update(ctx: VectorContext): void {
+  public update(): void {
     if (!this.changed) {
       return;
     }

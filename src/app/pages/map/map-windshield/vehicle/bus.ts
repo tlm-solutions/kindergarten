@@ -67,7 +67,7 @@ export class BusVehicle implements Vehicle<Point> {
     this.style.setImage(getImage(IMGS, delay, -7*60, 7*60));
   }
 
-  public update(ctx: VectorContext): void {
+  public update(): void {
     if (!this.changed) {
       return;
     }

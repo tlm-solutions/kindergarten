@@ -9,13 +9,20 @@ import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
 import VectorSource from "ol/source/Vector";
-import VectorLayer from "ol/layer/Vector";
 import Geometry from "ol/geom/Geometry";
 import Feature from "ol/Feature";
 import {Coordinate} from "ol/coordinate";
-import VectorContext from "ol/render/VectorContext";
 import RenderEvent from "ol/render/Event";
-import {getVectorContext} from "ol/render";
+import Layer from "ol/layer/Layer";
+import WebGLVectorLayerRenderer from "ol/renderer/webgl/VectorLayer";
+import WebGLTileLayer from "ol/layer/WebGLTile";
+import VectorLayer from "ol/layer/Vector";
+
+class WebGLLayer extends Layer {
+  override createRenderer(): WebGLVectorLayerRenderer {
+    return new WebGLVectorLayerRenderer(this, {});
+  }
+}
 
 export interface Vehicle<T extends Geometry> {
   id: string;
@@ -24,7 +31,7 @@ export interface Vehicle<T extends Geometry> {
 
   move(coordinate: Coordinate, delay: number, last: number): void;
 
-  update(ctx: VectorContext): void;
+  update(): void;
 }
 
 @Component({
@@ -49,7 +56,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.map.setTarget(this.hostElement.nativeElement);
-    this.map.addLayer(this.createOsmLightDarkLayer());
+    this.map.addLayer(new WebGLTileLayer({source: new OSM()}));
     const vectorLayer = new VectorLayer({source: this.features});
     this.map.addLayer(vectorLayer);
 
@@ -85,37 +92,11 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  private createOsmLightDarkLayer() {
-    const tileLayer = new TileLayer({source: new OSM()});
-
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      tileLayer.on('prerender', event => {
-        if (event.context) {
-          const context = event.context as CanvasRenderingContext2D;
-          context.filter = 'brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7)';
-          context.globalCompositeOperation = 'source-over';
-        }
-      });
-
-      tileLayer.on('postrender', event => {
-        if (event.context) {
-          const context = event.context as CanvasRenderingContext2D;
-          context.filter = 'none';
-        }
-      });
-    }
-
-    return tileLayer;
-  }
-
   private render(event: RenderEvent): void {
     // this.removeOldVehicles();
 
-    const ctx = getVectorContext(event);
-    const frameState = event.frameState;
-
     for (const vehicle of this.networkService.getVehiclesNow()) {
-      vehicle.update(ctx);
+      vehicle.update();
     }
 
     this.map?.render();
