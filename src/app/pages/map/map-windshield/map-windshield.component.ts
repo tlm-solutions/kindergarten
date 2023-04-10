@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import Map from "ol/Map";
 import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import {ActivatedRoute} from "@angular/router";
 import {filter, map, Subscription, switchMap} from "rxjs";
@@ -9,30 +8,22 @@ import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
 import VectorSource from "ol/source/Vector";
-import Geometry from "ol/geom/Geometry";
-import Feature from "ol/Feature";
-import {Coordinate} from "ol/coordinate";
-import RenderEvent from "ol/render/Event";
-import Layer from "ol/layer/Layer";
-import WebGLVectorLayerRenderer from "ol/renderer/webgl/VectorLayer";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 import VectorLayer from "ol/layer/Vector";
+import Feature from "ol/Feature";
+import Point from "ol/geom/Point";
+import Style from "ol/style/Style";
+import Icon from "ol/style/Icon";
+import Text from "ol/style/Text";
+import Fill from "ol/style/Fill";
 
-class WebGLLayer extends Layer {
-  override createRenderer(): WebGLVectorLayerRenderer {
-    return new WebGLVectorLayerRenderer(this, {});
-  }
+function loadImage(src: string): HTMLImageElement {
+  const img = new Image();
+  img.src = src;
+  return img;
 }
 
-export interface Vehicle<T extends Geometry> {
-  id: string;
-  last: number;
-  feature: Feature<T>;
-
-  move(coordinate: Coordinate, delay: number, last: number): void;
-
-  update(): void;
-}
+const IMG = loadImage("/assets/icons/vehicle/unknown.svg");
 
 @Component({
   selector: 'app-map-windshield',
@@ -42,7 +33,8 @@ export interface Vehicle<T extends Geometry> {
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   private readonly map = new Map({view: new View({center: [0, 0], zoom: 0})});
-  private readonly features = new VectorSource();
+
+  private readonly vehicles = new VectorSource();
 
   private subscription: Subscription | undefined;
 
@@ -57,10 +49,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.map.setTarget(this.hostElement.nativeElement);
     this.map.addLayer(new WebGLTileLayer({source: new OSM()}));
-    const vectorLayer = new VectorLayer({source: this.features});
+    const vectorLayer = new VectorLayer({source: this.vehicles});
     this.map.addLayer(vectorLayer);
-
-    vectorLayer.on("postrender", event => this.render(event));
 
     this.subscription = this.route.params
       .pipe(
@@ -82,23 +72,36 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         this.map.addInteraction(new Link());
       });
 
-    this.networkService.sub();
+    this.networkService.sub()
+      .subscribe(data => {
+        const id = `${data.line}_${data.run}`;
+        const vehicle = this.vehicles.getFeatureById(id);
 
-    this.networkService.getVehicles()
-      .subscribe(vehicle => this.features.addFeature(vehicle.feature))
+        if (vehicle) {
+          vehicle.setGeometry(new Point([data.lon, data.lat]));
+        } else {
+          const feature = new Feature({geometry: new Point([data.lon, data.lat])});
+          feature.setId(id);
+          feature.setStyle(new Style({
+            image: new Icon({
+              imgSize: [40, 40],
+              img: IMG,
+            }),
+            text: new Text({
+              offsetY: -10,
+              text: id,
+              font: 'DM Sans',
+              fill: new Fill({color: "#000"}),
+            }),
+          }));
+
+          this.vehicles.addFeature(feature)
+        }
+
+      });
   }
 
   public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
-  }
-
-  private render(event: RenderEvent): void {
-    // this.removeOldVehicles();
-
-    for (const vehicle of this.networkService.getVehiclesNow()) {
-      vehicle.update();
-    }
-
-    this.map?.render();
   }
 }
