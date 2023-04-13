@@ -10,3 +10,10 @@
     gap: 0.5rem;
   }
 }
+
+
+@media (screen and max-width: $bp-mobile) {
+  :host .overview {
+    grid-template-columns: 1fr;
+  }
+}

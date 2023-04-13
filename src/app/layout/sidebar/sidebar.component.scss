@@ -1,5 +1,9 @@
 @import "vars";
 
+.background {
+  display: none;
+}
+
 nav {
   display: flex;
   flex-direction: column;
@@ -26,5 +30,23 @@ nav {
     &:hover, &.active {
       background-color: $primary;
     }
+  }
+}
+
+@media (screen and max-width: $bp-mobile) {
+  .background {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.25);
+  }
+
+  nav {
+    z-index: 100;
+    position: relative;
+    background-color: $background;
   }
 }

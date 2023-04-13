@@ -13,11 +13,14 @@ import {TrackIconComponent} from "./core/icons/track-icon/track-icon.component";
 import {ProfileIconComponent} from "./core/icons/profile-icon/profile-icon.component";
 import {NotificationModule} from "./core/notification/notification.module";
 import {MapIconComponent} from "./core/icons/map-icon/map-icon.component";
+import {HeaderComponent} from './layout/header/header.component';
+import {MenuIconComponent} from "./core/icons/menu-icon/menu-icon.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import {MapIconComponent} from "./core/icons/map-icon/map-icon.component";
     ProfileIconComponent,
     NotificationModule,
     MapIconComponent,
+    MenuIconComponent,
   ],
   bootstrap: [AppComponent]
 })

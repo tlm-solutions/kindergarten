@@ -1,11 +1,39 @@
 @import "vars";
 
 :host {
-  display: flex;
+  display: grid;
+  grid-template-areas: "sidebar header" "sidebar main";
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content 1fr;
   height: 100vh;
+  width: 100vw;
+
+  aside {
+    grid-area: sidebar;
+  }
+
+  header {
+    grid-area: header;
+  }
 
   main {
+    grid-area: main;
     overflow-y: auto;
-    flex-grow: 1;
+  }
+}
+
+@media (screen and max-width: $bp-mobile) {
+  :host {
+    grid-template-areas: "header" "main";
+    grid-template-columns:  1fr;
+
+    aside {
+      position: absolute;
+      height: 100vh;
+
+      &:not(.shown) {
+        display: none;
+      }
+    }
   }
 }

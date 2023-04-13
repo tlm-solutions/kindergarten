@@ -1,6 +1,10 @@
-<aside *ngIf="sidebar | async">
+<aside *ngIf="(layout | async)?.sidebar" [class.shown]="sidebar | async">
   <app-sidebar></app-sidebar>
 </aside>
+
+<header *ngIf="(layout | async)?.header">
+  <app-header></app-header>
+</header>
 
 <main [@routing]="outlet.isActivated ? outlet.activatedRoute : ''">
   <router-outlet #outlet="outlet"></router-outlet>
