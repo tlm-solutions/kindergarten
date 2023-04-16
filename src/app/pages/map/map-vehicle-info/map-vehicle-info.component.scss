@@ -1,0 +1,12 @@
+@import "vars";
+
+:host {
+  display: block;
+  background: $background;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+td:first-child {
+  font-weight: bold;
+}

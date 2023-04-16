@@ -1,0 +1,22 @@
+<ng-container *ngIf="(vehicle | async) as vehicle">
+  <table>
+    <tbody>
+    <tr>
+      <td>Line</td>
+      <td>{{vehicle.line}}</td>
+    </tr>
+    <tr>
+      <td>Run</td>
+      <td>{{vehicle.run}}</td>
+    </tr>
+    <tr>
+      <td>Delay</td>
+      <td>{{duration(vehicle.delayed * 1000)}}</td>
+    </tr>
+    <tr>
+      <td>Last Seen</td>
+      <td>{{relativeTime(vehicle.time)}}</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
