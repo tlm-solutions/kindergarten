@@ -1,10 +1,12 @@
-<aside *ngIf="(layout | async)?.sidebar" [class.shown]="sidebar | async">
-  <app-sidebar></app-sidebar>
-</aside>
+<ng-container *ngIf="(layout | async) as layout">
+  <aside *ngIf="layout.sidebar" [class.shown]="sidebar | async">
+    <app-sidebar></app-sidebar>
+  </aside>
 
-<header *ngIf="(layout | async)?.header">
-  <app-header></app-header>
-</header>
+  <header *ngIf="layout.header">
+    <app-header></app-header>
+  </header>
+</ng-container>
 
 <main [@routing]="outlet.isActivated ? outlet.activatedRoute : ''">
   <router-outlet #outlet="outlet"></router-outlet>
