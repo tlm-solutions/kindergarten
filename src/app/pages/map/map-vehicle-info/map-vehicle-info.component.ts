@@ -25,7 +25,7 @@ export class MapVehicleInfoComponent {
     return formatRelativeTime(Number(time));
   }
 
-  protected duration(time: number|string): string{
+  protected duration(time: number | string): string {
     console.log(time);
     return formatDuration(Number(time));
   }

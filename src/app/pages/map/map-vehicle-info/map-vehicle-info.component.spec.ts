@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapVehicleInfoComponent } from './map-vehicle-info.component';
+import {MapVehicleInfoComponent} from './map-vehicle-info.component';
 
 describe('MapVehicleInfComponent', () => {
   let component: MapVehicleInfoComponent;
@@ -8,9 +8,9 @@ describe('MapVehicleInfComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapVehicleInfoComponent ]
+      declarations: [MapVehicleInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MapVehicleInfoComponent);
     component = fixture.componentInstance;
