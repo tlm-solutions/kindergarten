@@ -8,7 +8,7 @@ import {StationService} from "../station/station.service";
 import {TrackService} from "../track/track.service";
 import {UserService} from "../user/user.service";
 import {User} from "../user/user.domain";
-import {BASE_PATH} from "../api.domain";
+import {DATACARE_BASE_PATH} from "../api.domain";
 
 const MAX_CACHE_AGE = 1000 * 60 * 5;
 
@@ -61,12 +61,12 @@ export class AuthService implements OnDestroy {
   }
 
   public login(email: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${BASE_PATH}/auth/login`, {email, password}, {withCredentials: true})
+    return this.http.post<LoginResponse>(`${DATACARE_BASE_PATH}/auth/login`, {email, password}, {withCredentials: true})
       .pipe(tap(() => this.invalidateCache()));
   }
 
   public logout(): Observable<void> {
-    return this.http.post<void>(`${BASE_PATH}/auth/logout`, undefined, {withCredentials: true})
+    return this.http.post<void>(`${DATACARE_BASE_PATH}/auth/logout`, undefined, {withCredentials: true})
       .pipe(tap(() => this.invalidateCache()));
   }
 
@@ -79,7 +79,7 @@ export class AuthService implements OnDestroy {
       return;
     }
 
-    this.updateSubscription = this.http.get<AuthResponse>(`${BASE_PATH}/auth`, {withCredentials: true})
+    this.updateSubscription = this.http.get<AuthResponse>(`${DATACARE_BASE_PATH}/auth`, {withCredentials: true})
       .subscribe({
         next: response => {
           this.lastUpdate = Date.now();
@@ -98,8 +98,7 @@ export class AuthService implements OnDestroy {
           // user is not logged in
           if (err.status == 401) {
             this.lastUpdate = Date.now();
-          }
-          else {
+          } else {
             this.notificationService.error(`Unable to retrieve login state. See browser console for details.`);
             console.error("Error while retrieving login state: ", err);
           }

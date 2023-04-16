@@ -97,8 +97,8 @@
   <app-map
     [lat]="station.lat"
     [lon]="station.lon"
-    [zoom]="(getRegion(station.region) | async)?.zoom ?? 11"
     [marker]="true"
+    [zoom]="(getRegion(station.region) | async)?.zoom ?? 11"
     class="map"
   />
 </ng-container>

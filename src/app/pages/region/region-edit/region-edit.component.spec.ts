@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegionEditComponent } from './region-edit.component';
+import {RegionEditComponent} from './region-edit.component';
 
 describe('RegionEditComponent', () => {
   let component: RegionEditComponent;
@@ -8,9 +8,9 @@ describe('RegionEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegionEditComponent ]
+      declarations: [RegionEditComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegionEditComponent);
     component = fixture.componentInstance;

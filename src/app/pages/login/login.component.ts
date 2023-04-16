@@ -29,10 +29,10 @@ export class LoginComponent implements OnDestroy {
   ) {
   }
 
-  public ngOnDestroy():void {
+  public ngOnDestroy(): void {
     this.wrongCredentials.complete();
     this.loading.complete();
-}
+  }
 
   protected login(): void {
     if (this.loading.value || !this.form.valid) {

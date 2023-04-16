@@ -1,4 +1,4 @@
-import {BASE_PATH, IdHolder, NameHolder, WithoutId} from "../api.domain";
+import {DATACARE_BASE_PATH, IdHolder, NameHolder, WithoutId} from "../api.domain";
 import {AbstractCrudService} from "./crud.service";
 import {BehaviorSubject, catchError, map, Observable, of, Subscription, tap} from "rxjs";
 import {handleHttpError} from "../api.utils";
@@ -58,33 +58,6 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
     this.cacheExpire = 0;
   }
 
-  protected updateCache() {
-    this.cacheUpdateSubscription = this.http.get<PaginationResponse<S>>(`${BASE_PATH}/${this.apiName}`)
-      .pipe(
-        catchError(handleHttpError(`update${this.pascalName}Cache`)),
-        map(response => {
-          if (response.elements.length === response.count) {
-            return response.elements
-          }
-
-          const message = `Only received ${response.elements.length} of ${response.count} ${this.pluralName}, expected to receive all.`;
-          console.error(message);
-          throw new Error(message);
-        }),
-      )
-      .subscribe({
-        next: items => {
-          this.cache.next(items);
-          this.cacheExpire = Date.now() + MAX_AGE * 60 * 1000;
-          this.cacheUpdateSubscription = undefined;
-          console.info(`Updated ${this.name} cache, loaded ${items.length} ${this.pluralName} with a lifetime of ${MAX_AGE} min.`);
-        },
-        error: () => {
-          this.notificationService.error(`The ${this.pluralName} cache could not be updated. See browser console for more details.`);
-        }
-      })
-  }
-
   public override get(id: I): Observable<D> {
     return super.get(id).pipe(tap(dto => {
       const items = this.cache.value;
@@ -139,5 +112,32 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
     return super.delete(id).pipe(tap(() => {
       this.cache.next(this.cache.value.filter(item => item.id === id));
     }));
+  }
+
+  protected updateCache() {
+    this.cacheUpdateSubscription = this.http.get<PaginationResponse<S>>(`${DATACARE_BASE_PATH}/${this.apiName}`)
+      .pipe(
+        catchError(handleHttpError(`update${this.pascalName}Cache`)),
+        map(response => {
+          if (response.elements.length === response.count) {
+            return response.elements
+          }
+
+          const message = `Only received ${response.elements.length} of ${response.count} ${this.pluralName}, expected to receive all.`;
+          console.error(message);
+          throw new Error(message);
+        }),
+      )
+      .subscribe({
+        next: items => {
+          this.cache.next(items);
+          this.cacheExpire = Date.now() + MAX_AGE * 60 * 1000;
+          this.cacheUpdateSubscription = undefined;
+          console.info(`Updated ${this.name} cache, loaded ${items.length} ${this.pluralName} with a lifetime of ${MAX_AGE} min.`);
+        },
+        error: () => {
+          this.notificationService.error(`The ${this.pluralName} cache could not be updated. See browser console for more details.`);
+        }
+      })
   }
 }

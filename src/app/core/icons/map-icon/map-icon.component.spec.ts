@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapIconComponent } from './map-icon.component';
+import {MapIconComponent} from './map-icon.component';
 
 describe('MapIconComponent', () => {
   let component: MapIconComponent;
@@ -8,9 +8,9 @@ describe('MapIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapIconComponent ]
+      declarations: [MapIconComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MapIconComponent);
     component = fixture.componentInstance;

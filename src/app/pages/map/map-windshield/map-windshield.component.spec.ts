@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapWindshieldComponent } from './map-windshield.component';
+import {MapWindshieldComponent} from './map-windshield.component';
 
 describe('MapWindshieldComponent', () => {
   let component: MapWindshieldComponent;
@@ -8,9 +8,9 @@ describe('MapWindshieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapWindshieldComponent ]
+      declarations: [MapWindshieldComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MapWindshieldComponent);
     component = fixture.componentInstance;

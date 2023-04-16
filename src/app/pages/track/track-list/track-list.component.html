@@ -1,7 +1,7 @@
 <section>
   <form [formGroup]="form">
-    <app-text-field label="Ofset" formControlName="offset" type="number"/>
-    <app-text-field label="Limit" formControlName="limit" type="number"/>
+    <app-text-field formControlName="offset" label="Ofset" type="number"/>
+    <app-text-field formControlName="limit" label="Limit" type="number"/>
     <app-button (click)="prev()">Previous Page</app-button>
     <app-button (click)="next()">Next Page</app-button>
   </form>

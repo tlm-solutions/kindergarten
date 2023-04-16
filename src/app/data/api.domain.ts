@@ -1,4 +1,9 @@
-export const BASE_PATH = "https://datacare.staging.dvb.solutions/v1";
+function buildBasePath(service: string, version: number): string {
+  return `https://${service}.staging.dvb.solutions/v${version}`;
+}
+
+export const DATACARE_BASE_PATH = buildBasePath("datacare", 1);
+export const LIZARD_BASE_PATH = buildBasePath("lizard", 1);
 
 export interface IdHolder<I> {
   id: I;

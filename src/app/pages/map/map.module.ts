@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { MapRoutingModule } from './map-routing.module';
-import { MapComponent } from './map.component';
-import { MapWindshieldComponent } from './map-windshield/map-windshield.component';
+import {MapRoutingModule} from './map-routing.module';
+import {MapComponent} from './map.component';
+import {MapWindshieldComponent} from './map-windshield/map-windshield.component';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import { MapWindshieldComponent } from './map-windshield/map-windshield.componen
     MapRoutingModule
   ]
 })
-export class MapModule { }
+export class MapModule {
+}

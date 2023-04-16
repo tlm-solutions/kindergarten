@@ -16,17 +16,16 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class TrackListComponent implements OnInit, OnDestroy {
 
-  private readonly pagination = new BehaviorSubject({offset: 0, limit: 14});
   protected readonly page = new BehaviorSubject<number>(1);
-  private readonly trackPages = this.pagination.pipe(
-    switchMap(({offset, limit}) => this.trackService.getPage(offset, limit)),
-    share(),
-  );
-
   protected readonly form = new FormGroup({
     offset: new FormControl<number>(0, {nonNullable: true, validators: Validators.min(0)}),
     limit: new FormControl<number>(14, {nonNullable: true, validators: Validators.min(1)}),
   });
+  private readonly pagination = new BehaviorSubject({offset: 0, limit: 14});
+  private readonly trackPages = this.pagination.pipe(
+    switchMap(({offset, limit}) => this.trackService.getPage(offset, limit)),
+    share(),
+  );
   protected readonly tracks = this.trackPages.pipe(map(({elements}) => elements));
   private subscription: Subscription | undefined;
 
@@ -54,6 +53,14 @@ export class TrackListComponent implements OnInit, OnDestroy {
     this.pagination.complete();
   }
 
+  public prev(): void {
+    this.form.controls.offset.setValue(this.form.controls.offset.value - this.form.controls.limit.value);
+  }
+
+  public next(): void {
+    this.form.controls.offset.setValue(this.form.controls.offset.value + this.form.controls.limit.value);
+  }
+
   protected getRegion(id: RegionId): Observable<Region | undefined> {
     return this.regionService.getCached(id);
   }
@@ -68,14 +75,6 @@ export class TrackListComponent implements OnInit, OnDestroy {
 
   protected duration(start: string, end: string): string {
     return formatDuration(Date.parse(end) - Date.parse(start));
-  }
-
-  public prev(): void {
-    this.form.controls.offset.setValue(this.form.controls.offset.value - this.form.controls.limit.value);
-  }
-
-  public next(): void {
-    this.form.controls.offset.setValue(this.form.controls.offset.value + this.form.controls.limit.value);
   }
 }
 

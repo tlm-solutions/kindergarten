@@ -7,11 +7,11 @@
       </app-error>
     </app-text-field>
 
-    <app-checkbox label="Approved" formControlName="approved"/>
-    <app-checkbox label="Deactivated" formControlName="deactivated"/>
-    <app-checkbox label="Public" formControlName="public"/>
+    <app-checkbox formControlName="approved" label="Approved"/>
+    <app-checkbox formControlName="deactivated" label="Deactivated"/>
+    <app-checkbox formControlName="public" label="Public"/>
 
-    <app-text-field label="Notes" formControlName="notes" type="multiline"/>
+    <app-text-field formControlName="notes" label="Notes" type="multiline"/>
   </section>
 
   <section>
@@ -41,7 +41,7 @@
 
   <div class="buttons">
     <app-button label="Save"/>
-    <app-button label="Cancel" flavor="danger" link=".."/>
+    <app-button flavor="danger" label="Cancel" link=".."/>
   </div>
 </form>
 
@@ -49,10 +49,10 @@
 {{getRegion() | async|json}}
 
 <app-map
-  class="map"
   *ngIf="(getRegion() | async) as region"
   [lat]="(form.controls.lat.valueChanges | async) ?? 0"
   [lon]="(form.controls.lon.valueChanges | async) ?? 0"
-  [zoom]="region.zoom"
   [marker]="true"
+  [zoom]="region.zoom"
+  class="map"
 />

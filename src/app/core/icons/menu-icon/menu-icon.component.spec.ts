@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MenuIconComponent } from './menu-icon.component';
+import {MenuIconComponent} from './menu-icon.component';
 
 describe('MenuIconComponent', () => {
   let component: MenuIconComponent;
@@ -8,9 +8,9 @@ describe('MenuIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuIconComponent ]
+      declarations: [MenuIconComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MenuIconComponent);
     component = fixture.componentInstance;

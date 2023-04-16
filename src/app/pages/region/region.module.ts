@@ -7,7 +7,7 @@ import {RegionIconComponent} from "../../core/icons/region-icon/region-icon.comp
 import {ButtonComponent} from "../../core/components/button/button.component";
 import {RegionViewComponent} from './region-view/region-view.component';
 import {MapComponent} from "../../core/components/map/map.component";
-import { RegionEditComponent } from './region-edit/region-edit.component';
+import {RegionEditComponent} from './region-edit/region-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";

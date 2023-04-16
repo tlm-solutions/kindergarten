@@ -7,8 +7,8 @@
     <app-text-field formControlName="run" label="Run" type="number"/>
     <app-text-field formControlName="region" label="Region" type="number"/>
 
-    <app-checkbox label="Finished" formControlName="finished"/>
-    <app-checkbox label="Correlated" formControlName="correlated"/>
+    <app-checkbox formControlName="finished" label="Finished"/>
+    <app-checkbox formControlName="correlated" label="Correlated"/>
   </section>
 
   <section>
@@ -19,12 +19,12 @@
 
   <div class="buttons">
     <app-button label="Save"/>
-    <app-button label="Cancel" flavor="danger" link=".."/>
+    <app-button flavor="danger" label="Cancel" link=".."/>
   </div>
 </form>
 
 <app-map
-  [lines]="(lines | async)!"
   [highlightedLines]="(highlightedLines | async)!"
+  [lines]="(lines | async)!"
   [putLinesInCenter]="true"
 />

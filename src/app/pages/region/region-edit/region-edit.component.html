@@ -11,21 +11,21 @@
     <app-text-field formControlName="lon" label="Lon" type="number"/>
     <app-text-field formControlName="zoom" label="Zoom" type="number"/>
 
-    <app-checkbox label="Work in Progress" formControlName="work_in_progress"/>
-    <app-checkbox label="Deactivated" formControlName="deactivated"/>
+    <app-checkbox formControlName="work_in_progress" label="Work in Progress"/>
+    <app-checkbox formControlName="deactivated" label="Deactivated"/>
   </section>
 
   <div class="buttons">
     <app-button label="Save"/>
-    <app-button label="Cancel" flavor="danger" link=".."/>
+    <app-button flavor="danger" label="Cancel" link=".."/>
   </div>
 
   <app-map
-    class="map"
     *ngIf="(form.valueChanges | async) as value"
     [lat]="value.lat ?? 0"
     [lon]="value.lon ?? 0"
-    [zoom]="value.zoom ?? 0"
     [marker]="true"
+    [zoom]="value.zoom ?? 0"
+    class="map"
   />
 </form>

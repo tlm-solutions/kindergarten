@@ -1,14 +1,14 @@
 <label>
   <span>{{label}}</span>
 
-  <textarea *ngIf="type === 'multiline'; else normal"
-            #textarea
+  <textarea #textarea
             (blur)="onBlur()"
             (input)="onInput()"
-            cdkTextareaAutosize
-            [cdkAutosizeMinRows]="3"></textarea>
+            *ngIf="type === 'multiline'; else normal"
+            [cdkAutosizeMinRows]="3"
+            cdkTextareaAutosize></textarea>
   <ng-template #normal>
-    <input [type]="type" #input (blur)="onBlur()" (input)="onInput()">
+    <input #input (blur)="onBlur()" (input)="onInput()" [type]="type">
   </ng-template>
 
   <ng-content select="app-error"></ng-content>

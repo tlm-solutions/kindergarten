@@ -29,15 +29,12 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     trim_start: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
     trim_end: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
   });
-
+  protected readonly lines = new BehaviorSubject<Coordinate[][]>([]);
+  protected readonly highlightedLines = new BehaviorSubject<Coordinate[][]>([]);
   private readonly track = this.route.params.pipe(
     switchMap(({id}) => this.trackService.get(id)),
     share()
   );
-
-  protected readonly lines = new BehaviorSubject<Coordinate[][]>([]);
-  protected readonly highlightedLines = new BehaviorSubject<Coordinate[][]>([]);
-
   private trackSubscription: Subscription | undefined;
 
   constructor(
@@ -95,24 +92,6 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       });
   }
 
-  private convertToCoords(gps: GpsEntry[], start: number, end: number): Coordinate[] {
-    return gps.filter(gps => {
-      const gpsTime = Date.parse(gps.time);
-      return start <= gpsTime && gpsTime <= end
-    })
-      .map(gps => [gps.lon, gps.lat]);
-  }
-
-  private convertToCoordsBefore(gps: GpsEntry[], time: number) {
-    return gps.filter(gps => Date.parse(gps.time) <= time)
-      .map(gps => [gps.lon, gps.lat]);
-  }
-
-  private convertToCoordsAfter(gps: GpsEntry[], time: number) {
-    return gps.filter(gps => time <= Date.parse(gps.time))
-      .map(gps => [gps.lon, gps.lat]);
-  }
-
   public ngOnDestroy(): void {
     this.trackSubscription?.unsubscribe();
   }
@@ -150,5 +129,23 @@ export class TrackEditComponent implements OnInit, OnDestroy {
           this.notificationService.error(`Failed to update track: ${err}`)
         }
       });
+  }
+
+  private convertToCoords(gps: GpsEntry[], start: number, end: number): Coordinate[] {
+    return gps.filter(gps => {
+      const gpsTime = Date.parse(gps.time);
+      return start <= gpsTime && gpsTime <= end
+    })
+      .map(gps => [gps.lon, gps.lat]);
+  }
+
+  private convertToCoordsBefore(gps: GpsEntry[], time: number) {
+    return gps.filter(gps => Date.parse(gps.time) <= time)
+      .map(gps => [gps.lon, gps.lat]);
+  }
+
+  private convertToCoordsAfter(gps: GpsEntry[], time: number) {
+    return gps.filter(gps => time <= Date.parse(gps.time))
+      .map(gps => [gps.lon, gps.lat]);
   }
 }

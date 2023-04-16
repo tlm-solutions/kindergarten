@@ -1,5 +1,5 @@
 import {CrudService} from "./crud.service.interface";
-import {BASE_PATH, IdHolder, WithoutId} from "../api.domain";
+import {DATACARE_BASE_PATH, IdHolder, WithoutId} from "../api.domain";
 import {HttpClient} from "@angular/common/http";
 import {inject} from "@angular/core";
 import {catchError, Observable, retry} from "rxjs";
@@ -22,7 +22,7 @@ export abstract class AbstractCrudService<D extends IdHolder<I>, I> implements C
   }
 
   public getPage(offset: number, limit: number): Observable<PaginationResponse<D>> {
-    return this.http.get<PaginationResponse<D>>(`${BASE_PATH}/${this.apiName}`, {
+    return this.http.get<PaginationResponse<D>>(`${DATACARE_BASE_PATH}/${this.apiName}`, {
       withCredentials: true,
       params: {offset, limit}
     })
@@ -30,27 +30,27 @@ export abstract class AbstractCrudService<D extends IdHolder<I>, I> implements C
   }
 
   public get(id: I): Observable<D> {
-    return this.http.get<D>(`${BASE_PATH}/${this.apiName}/${id}`, {withCredentials: true})
+    return this.http.get<D>(`${DATACARE_BASE_PATH}/${this.apiName}/${id}`, {withCredentials: true})
       .pipe(retry(2), catchError(handleHttpError(`get${this.pascalName}`)));
   }
 
   public add(dto: WithoutId<D>): Observable<D> {
-    return this.http.post<D>(`${BASE_PATH}/${this.apiName}`, dto, {withCredentials: true})
+    return this.http.post<D>(`${DATACARE_BASE_PATH}/${this.apiName}`, dto, {withCredentials: true})
       .pipe(catchError(handleHttpError(`add${this.pascalName}`)));
   }
 
   public set(id: I, dto: WithoutId<D>): Observable<D> {
-    return this.http.put<D>(`${BASE_PATH}/${this.apiName}/${id}`, dto, {withCredentials: true})
+    return this.http.put<D>(`${DATACARE_BASE_PATH}/${this.apiName}/${id}`, dto, {withCredentials: true})
       .pipe(retry(2), catchError(handleHttpError(`set${this.pascalName}`)));
   }
 
   public update(id: I, dto: Partial<WithoutId<D>>): Observable<D> {
-    return this.http.patch<D>(`${BASE_PATH}/${this.apiName}/${id}`, dto, {withCredentials: true})
+    return this.http.patch<D>(`${DATACARE_BASE_PATH}/${this.apiName}/${id}`, dto, {withCredentials: true})
       .pipe(retry(2), catchError(handleHttpError(`update${this.pascalName}`)));
   }
 
   public delete(id: I): Observable<void> {
-    return this.http.delete<void>(`${BASE_PATH}/${this.apiName}/${id}`, {withCredentials: true})
+    return this.http.delete<void>(`${DATACARE_BASE_PATH}/${this.apiName}/${id}`, {withCredentials: true})
       .pipe(retry(2), catchError(handleHttpError(`delete${this.pascalName}`)));
   }
 }

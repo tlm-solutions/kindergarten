@@ -33,7 +33,7 @@
 </section>
 
 <div class="buttons">
-  <app-button label="Logout" (click)="logout()" *ngIf="authState | async; else loginBtn"/>
+  <app-button (click)="logout()" *ngIf="authState | async; else loginBtn" label="Logout"/>
   <ng-template #loginBtn>
     <app-button [query]="{next}" label="Login" link="/login"/>
   </ng-template>
