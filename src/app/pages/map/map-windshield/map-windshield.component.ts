@@ -27,7 +27,7 @@ function loadImage(src: string): HTMLImageElement {
 
 const IMG = loadImage("/assets/icons/vehicle/unknown.svg");
 
-const MAX_VEHICLE_AGE = 4 * 60;
+const MAX_VEHICLE_AGE = 1000 * 60 * 5;
 
 @Component({
   selector: 'app-map-windshield',
@@ -149,10 +149,11 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
     this.subscriptionC = interval(1000)
       .subscribe(() => {
-        const last = (Date.now() / 1000) - MAX_VEHICLE_AGE;
+        const last = Date.now() - MAX_VEHICLE_AGE;
 
         const toRemove = this.vehicles.getFeatures()
           .filter(feature => feature.get("last") < last);
+
         toRemove.forEach(feature => {
           if (popup.get("feature_id") === feature.getId()) {
             popup.setPosition(undefined);
