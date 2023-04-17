@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-
 import {TrackService} from './track.service';
 
 describe('TrackService', () => {

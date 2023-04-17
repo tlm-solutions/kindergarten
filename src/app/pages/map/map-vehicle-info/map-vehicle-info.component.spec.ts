@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {MapVehicleInfoComponent} from './map-vehicle-info.component';
 
 describe('MapVehicleInfComponent', () => {

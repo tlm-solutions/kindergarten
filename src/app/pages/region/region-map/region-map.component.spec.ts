@@ -1,17 +1,17 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {DashboardIconComponent} from './dashboard-icon.component';
+import {RegionMapComponent} from './region-map.component';
 
-describe('DashboardIconComponent', () => {
-  let component: DashboardIconComponent;
-  let fixture: ComponentFixture<DashboardIconComponent>;
+describe('RegionMapComponent', () => {
+  let component: RegionMapComponent;
+  let fixture: ComponentFixture<RegionMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardIconComponent]
+      declarations: [RegionMapComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardIconComponent);
+    fixture = TestBed.createComponent(RegionMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

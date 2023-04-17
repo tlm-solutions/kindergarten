@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {RegionEditComponent} from './region-edit.component';
 
 describe('RegionEditComponent', () => {

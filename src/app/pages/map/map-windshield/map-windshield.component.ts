@@ -3,7 +3,7 @@ import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
 import {ActivatedRoute, Router} from "@angular/router";
-import {concat, filter, from, interval, map, Subscription, switchMap} from "rxjs";
+import {concat, filter, from, interval, map, Subject, switchMap, takeUntil} from "rxjs";
 import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
@@ -40,9 +40,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   private readonly vehicles = new VectorSource();
 
-  private subscription: Subscription | undefined;
-  private subscriptionB: Subscription | undefined;
-  private subscriptionC: Subscription | undefined;
+  private readonly destroy = new Subject<void>();
 
   constructor(
     private readonly hostElement: ElementRef<HTMLElement>,
@@ -98,11 +96,12 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.subscription = regionId.pipe(
+    regionId.pipe(
       switchMap(regionId => this.regionService.getCached(regionId)),
       filter(region => !!region),
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       map(region => region!),
+      takeUntil(this.destroy)
     )
       .subscribe(region => {
         const view = this.map.getView();
@@ -111,10 +110,11 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         this.map.addInteraction(new Link());
       });
 
-    this.subscriptionB = concat(
+    concat(
       this.networkService.sync(0).pipe(switchMap(data => from(data))),
       this.networkService.sub(),
     )
+      .pipe(takeUntil(this.destroy))
       .subscribe(data => {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);
@@ -147,7 +147,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.subscriptionC = interval(1000)
+    interval(1000)
+      .pipe(takeUntil(this.destroy))
       .subscribe(() => {
         const last = Date.now() - MAX_VEHICLE_AGE;
 
@@ -165,8 +166,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-    this.subscriptionB?.unsubscribe();
-    this.subscriptionC?.unsubscribe();
+    this.destroy.next();
+    this.destroy.complete();
   }
 }

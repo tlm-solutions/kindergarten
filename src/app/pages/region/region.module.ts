@@ -11,13 +11,15 @@ import {RegionEditComponent} from './region-edit/region-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
+import {RegionMapComponent} from './region-map/region-map.component';
 
 @NgModule({
   declarations: [
     RegionComponent,
     RegionListComponent,
     RegionViewComponent,
-    RegionEditComponent
+    RegionEditComponent,
+    RegionMapComponent
   ],
   imports: [
     CommonModule,

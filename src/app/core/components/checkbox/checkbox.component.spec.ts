@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {CheckboxComponent} from './checkbox.component';
 
 describe('CheckboxComponent', () => {

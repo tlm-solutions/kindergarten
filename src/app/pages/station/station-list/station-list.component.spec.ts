@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {StationListComponent} from './station-list.component';
 
 describe('StationListComponent', () => {

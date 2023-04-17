@@ -55,16 +55,15 @@
     <app-button link="edit">Edit</app-button>
     <app-button link="..">Back to List</app-button>
   </div>
-
-  <app-map
-    [lat]="region.lat"
-    [lon]="region.lon"
-    [marker]="true"
-    [zoom]="region.zoom"
-    class="map"
-  />
 </ng-container>
 
 <ng-template #loading>
   Loading...
 </ng-template>
+
+<ng-container *ngIf="reportingPoints | async as reportingPoints">
+  <app-region-map
+    [markers]="reportingPoints"
+    class="map"
+  />
+</ng-container>

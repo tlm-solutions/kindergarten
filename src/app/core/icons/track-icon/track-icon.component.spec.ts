@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {TrackIconComponent} from './track-icon.component';
 
 describe('TrackIconComponent', () => {

@@ -11,9 +11,16 @@ import {RegionService} from "../../../data/region/region.service";
 })
 export class RegionViewComponent {
 
-  protected readonly region = this.route.params.pipe(
-    map(({id}) => id),
+  private readonly regionId = this.route.params.pipe(map(({id}) => id));
+
+  protected readonly region = this.regionId.pipe(
     switchMap(id => this.regionService.get(id)),
+    share(),
+  );
+
+  protected readonly reportingPoints = this.regionId.pipe(
+    switchMap(id => this.regionService.getReportingPoints(id)),
+    map(reportingPoints => reportingPoints.map(reportingPoint => [reportingPoint.lon, reportingPoint.lat])),
     share(),
   );
 

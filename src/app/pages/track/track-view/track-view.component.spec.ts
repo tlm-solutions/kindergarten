@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {TrackViewComponent} from './track-view.component';
 
 describe('TrackViewComponent', () => {

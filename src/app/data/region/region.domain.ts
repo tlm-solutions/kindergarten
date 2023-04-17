@@ -16,6 +16,15 @@ export interface Region extends IdHolder<RegionId> {
   deactivated: boolean,
 }
 
+export interface ReportingPoint {
+  id: number;
+  region: RegionId;
+  reporting_point: number;
+  lat: number;
+  lon: number;
+  ground_truth: boolean;
+}
+
 export enum Encoding {
   Other = 0,
   OnOffKeying = 1,

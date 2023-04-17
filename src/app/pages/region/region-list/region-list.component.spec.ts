@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {RegionListComponent} from './region-list.component';
 
 describe('RegionListComponent', () => {
