@@ -30,3 +30,14 @@ export enum Encoding {
   OnOffKeying = 1,
   Nemo = 2,
 }
+
+export enum Type {
+  BUS = "bus",
+  TRAM = "tram",
+}
+
+export interface Line {
+  name: string;
+  type: Type;
+  description: string | undefined;
+}

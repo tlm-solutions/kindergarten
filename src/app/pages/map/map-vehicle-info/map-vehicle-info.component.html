@@ -1,10 +1,22 @@
 <ng-container *ngIf="(vehicle | async) as vehicle">
   <table>
     <tbody>
-    <tr>
-      <td>Line</td>
-      <td>{{vehicle.line}}</td>
-    </tr>
+    <ng-container *ngIf="lookupLine(vehicle.line) as line; else rawLine">
+      <tr>
+        <td>Line</td>
+        <td>{{line.name}}</td>
+      </tr>
+      <tr *ngIf="line.description">
+        <td>Description</td>
+        <td>{{line.description}}</td>
+      </tr>
+    </ng-container>
+    <ng-template #rawLine>
+      <tr>
+        <td>Raw Line</td>
+        <td>{{vehicle.line}}</td>
+      </tr>
+    </ng-template>
     <tr>
       <td>Run</td>
       <td>{{vehicle.run}}</td>

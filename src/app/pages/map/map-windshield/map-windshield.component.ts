@@ -18,11 +18,54 @@ import Text from "ol/style/Text";
 import Fill from "ol/style/Fill";
 import Overlay from "ol/Overlay";
 import {MapVehicleInfoComponent} from "../map-vehicle-info/map-vehicle-info.component";
+import {Type} from "../../../data/region/region.domain";
+
+const BUS_ICONS = [
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus07.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/bus14.svg")}),
+];
+
+const TRAM_ICONS = [
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram00.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram07.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram10.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram14.svg")}),
+  new Icon({imgSize: [40, 40], img: loadImage("/assets/images/vehicle/tram14.svg")}),
+];
 
 function loadImage(src: string): HTMLImageElement {
   const img = new Image();
   img.src = src;
   return img;
+}
+
+export function getImage<T>(imgs: T[], value: number, min: number, max: number): T {
+  const v = (value - min) / (max - min);
+  const u = Math.round(v * imgs.length);
+  return imgs[u - 1];
 }
 
 const IMG = loadImage("/assets/icons/vehicle/unknown.svg");
@@ -72,6 +115,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     const popup = new Overlay({
       element: popupComponent.location.nativeElement,
       positioning: "top-center",
+      offset: [0, 15],
       autoPan: {
         animation: {
           duration: 150,
@@ -82,7 +126,9 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     this.map.addOverlay(popup);
 
     this.map.on('click', event => {
+      let found = false;
       this.map.forEachFeatureAtPixel(event.pixel, feature => {
+        found = true;
         const point = feature.getGeometry() as Point;
         popup.setPosition(point.getCoordinates());
         popup.set("feature_id", feature.getId(), true);
@@ -94,6 +140,10 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
           queryParamsHandling: "merge",
         });
       });
+
+      if (!found) {
+        popup.setPosition(undefined);
+      }
     });
 
     regionId.pipe(
@@ -119,25 +169,38 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);
 
+        let icon;
+
+        switch (this.regionService.lookupLine(data.line)?.type) {
+          case Type.TRAM:
+            icon = getImage(TRAM_ICONS, data.delayed, -7,7)
+          break;
+          case Type.BUS:
+            icon = getImage(BUS_ICONS, data.delayed, -7,7)
+            break;
+          default:
+            icon = new Icon({
+              imgSize: [40, 40],
+              img: IMG,
+            });
+        }
+
         if (vehicle) {
           const coords = [data.lon, data.lat];
 
           if (popup.get("feature_id") === id) {
             popup.setPosition(coords);
           }
-
+          (vehicle.getStyle() as Style).setImage(icon);
           vehicle.setGeometry(new Point(coords));
         } else {
           const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
           feature.setId(id);
           feature.setStyle(new Style({
-            image: new Icon({
-              imgSize: [40, 40],
-              img: IMG,
-            }),
+            image:icon,
             text: new Text({
               offsetY: -10,
-              text: id,
+              text: this.regionService.lookupLine(data.line)?.name ?? `(${data.line})`,
               font: 'DM Sans',
               fill: new Fill({color: "#000"}),
             }),

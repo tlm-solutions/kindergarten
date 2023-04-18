@@ -43,7 +43,7 @@ export class NetworkService {
   }
 
   public sub() {
-    return webSocket<Data>("wss://socket.staging.dvb.solutions")
+    return webSocket<Data>("wss://socket.staging.tlm.solutions")
       .pipe(tap(data => {
         const vehicles = this.vehicles.value;
         vehicles.push(data);

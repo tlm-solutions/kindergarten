@@ -6,7 +6,7 @@ mkYarnPackage {
     buildInputs = [ yarn ];
     postPatch = ''
       substituteInPlace src/app/data/api.domain.ts \
-        --replace 'staging.dvb.solutions' '${domain}'
+        --replace 'staging.tlm.solutions' '${domain}'
     '';
 
     buildPhase = ''
