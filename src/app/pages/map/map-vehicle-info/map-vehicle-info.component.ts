@@ -24,6 +24,17 @@ export class MapVehicleInfoComponent {
   ) {
   }
 
+  public type(type: Type): string | undefined {
+    switch (type) {
+      case Type.BUS:
+        return "Bus";
+      case Type.TRAM:
+        return "Tram";
+      default:
+        return undefined;
+    }
+  }
+
   protected lookupLine(line: number): Line | undefined {
     return this.regionService.lookupLine(line);
   }
@@ -35,16 +46,5 @@ export class MapVehicleInfoComponent {
   protected duration(time: number | string): string {
     console.log(time);
     return formatDuration(Number(time));
-  }
-
-  public type(type: Type): string | undefined {
-    switch (type) {
-      case Type.BUS:
-        return "Bus";
-      case Type.TRAM:
-        return "Tram";
-      default:
-        return undefined;
-    }
   }
 }

@@ -174,11 +174,11 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
         switch (this.regionService.lookupLine(data.line)?.type) {
           case Type.TRAM:
-            icon = getImage(TRAM_ICONS, Math.round(data.delayed/60), -7,7);
+            icon = getImage(TRAM_ICONS, Math.round(data.delayed / 60), -7, 7);
             offset = -4;
-          break;
+            break;
           case Type.BUS:
-            icon = getImage(BUS_ICONS, Math.round(data.delayed/60), -7,7);
+            icon = getImage(BUS_ICONS, Math.round(data.delayed / 60), -7, 7);
             offset = -4;
             break;
           default:
@@ -201,7 +201,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
           const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
           feature.setId(id);
           feature.setStyle(new Style({
-            image:icon,
+            image: icon,
             text: new Text({
               offsetY: offset,
               text: this.regionService.lookupLine(data.line)?.name ?? `(${data.line})`,
