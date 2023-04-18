@@ -115,7 +115,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     const popup = new Overlay({
       element: popupComponent.location.nativeElement,
       positioning: "top-center",
-      offset: [0, 15],
+      offset: [0, 22],
       autoPan: {
         animation: {
           duration: 150,
@@ -170,19 +170,23 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         const vehicle = this.vehicles.getFeatureById(id);
 
         let icon;
+        let offset;
 
         switch (this.regionService.lookupLine(data.line)?.type) {
           case Type.TRAM:
-            icon = getImage(TRAM_ICONS, data.delayed, -7,7)
+            icon = getImage(TRAM_ICONS, Math.round(data.delayed/60), -7,7);
+            offset = -4;
           break;
           case Type.BUS:
-            icon = getImage(BUS_ICONS, data.delayed, -7,7)
+            icon = getImage(BUS_ICONS, Math.round(data.delayed/60), -7,7);
+            offset = -4;
             break;
           default:
             icon = new Icon({
               imgSize: [40, 40],
               img: IMG,
             });
+            offset = -10;
         }
 
         if (vehicle) {
@@ -199,7 +203,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
           feature.setStyle(new Style({
             image:icon,
             text: new Text({
-              offsetY: -10,
+              offsetY: offset,
               text: this.regionService.lookupLine(data.line)?.name ?? `(${data.line})`,
               font: 'DM Sans',
               fill: new Fill({color: "#000"}),

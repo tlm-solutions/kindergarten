@@ -3,9 +3,22 @@
 :host {
   display: block;
   background: $background;
-  padding: 0.6rem;
-  border-radius: 0.3rem;
+  padding: 0.4rem;
+  border-radius: 0.6rem;
   gap: 0.6rem;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: rotate(40deg) translateX(-50%);
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: $background;
+    content: '';
+  }
 }
 
 td:first-child {

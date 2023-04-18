@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:ssl": "ng serve --ssl --host local.dvb.solutions",
+    "start:ssl": "ng serve --ssl --host local.tlm.solutions",
     "build": "ng build --output-path=./dist",
     "build:ci": "ng build --output-path=./dist",
     "watch": "ng build --watch --configuration development",

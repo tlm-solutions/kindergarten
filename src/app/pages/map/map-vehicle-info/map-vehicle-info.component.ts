@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs";
 import {formatDuration, formatRelativeTime} from "../../../core/utils";
 import {RegionService} from "../../../data/region/region.service";
-import {Line} from "../../../data/region/region.domain";
+import {Line, Type} from "../../../data/region/region.domain";
 
 @Component({
   selector: 'app-map-vehicle-info',
@@ -35,5 +35,16 @@ export class MapVehicleInfoComponent {
   protected duration(time: number | string): string {
     console.log(time);
     return formatDuration(Number(time));
+  }
+
+  public type(type: Type): string | undefined {
+    switch (type) {
+      case Type.BUS:
+        return "Bus";
+      case Type.TRAM:
+        return "Tram";
+      default:
+        return undefined;
+    }
   }
 }
