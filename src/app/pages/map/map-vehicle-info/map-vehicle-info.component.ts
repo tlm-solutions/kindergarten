@@ -44,7 +44,6 @@ export class MapVehicleInfoComponent {
   }
 
   protected duration(time: number | string): string {
-    console.log(time);
     return formatDuration(Number(time));
   }
 }
