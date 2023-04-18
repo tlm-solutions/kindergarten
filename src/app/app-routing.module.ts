@@ -2,15 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {
+    path: '',
+    loadChildren: () => import('./pages/landingpage/landingpage.module').then(m => m.LandingpageModule),
+    data: {title: 'Kindergarten'}
+  },
   {
     path: 'station', loadChildren: () => import('./pages/station/station.module').then(m => m.StationModule),
     data: {title: 'Stations'}
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-    data: {title: 'Dashboard'}
   },
   {
     path: 'user', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
@@ -31,12 +30,13 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
-    data: {sidebar: false, header: false}
+    data: {title: 'Login', sidebar: false, header: false}
   },
   {
     path: 'map', loadChildren: () => import('./pages/map/map.module').then(m => m.MapModule),
     data: {title: 'Map'}
   },
+  {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,0 +1,36 @@
+@import "vars";
+
+:host {
+  display: flex;
+  padding: 1rem;
+  gap: 0.5rem;
+
+  .overview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 20rem;
+  }
+
+  .images {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    img {
+      border-radius: 0.5rem;
+      height: 20rem;
+      width: auto;
+    }
+  }
+}
+
+@media (screen and max-width: $bp-mobile) {
+  :host {
+    flex-direction: column;
+
+    .overview {
+      grid-template-columns: 1fr;
+    }
+  }
+}

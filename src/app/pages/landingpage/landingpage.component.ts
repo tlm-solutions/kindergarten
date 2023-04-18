@@ -6,12 +6,12 @@ import {RegionService} from "../../data/region/region.service";
 import {TrackService} from "../../data/track/track.service";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-landingpage',
+  templateUrl: './landingpage.component.html',
+  styleUrls: ['./landingpage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent {
+export class LandingpageComponent {
 
   protected readonly stationCount = this.stationService.findAll()
     .pipe(map(stations => String(stations.length)));

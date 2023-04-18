@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {DashboardRoutingModule} from './dashboard-routing.module';
-import {DashboardComponent} from './dashboard.component';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {LandingpageRoutingModule} from './landingpage-routing.module';
+import {LandingpageComponent} from './landingpage.component';
 import {StatisticCardComponent} from "../../core/components/statistic-card/statistic-card.component";
 import {UserIconComponent} from "../../core/icons/user-icon/user-icon.component";
 import {StationIconComponent} from "../../core/icons/station-icon/station-icon.component";
@@ -10,17 +10,18 @@ import {TrackIconComponent} from "../../core/icons/track-icon/track-icon.compone
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    LandingpageComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    LandingpageRoutingModule,
     UserIconComponent,
     StationIconComponent,
     StatisticCardComponent,
     RegionIconComponent,
-    TrackIconComponent
+    TrackIconComponent,
+    NgOptimizedImage
   ]
 })
-export class DashboardModule {
+export class LandingpageModule {
 }
