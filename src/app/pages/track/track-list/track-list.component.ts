@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, filter, map, Observable, share, Subscription, switchMap} from "rxjs";
+import {BehaviorSubject, filter, map, Observable, share, Subscription, switchMap, tap} from "rxjs";
 import {TrackService} from "../../../data/track/track.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {RegionService} from "../../../data/region/region.service";
@@ -26,9 +26,10 @@ export class TrackListComponent implements OnInit, OnDestroy {
 
   private readonly pagination = this.route.queryParams.pipe(
     map(({offset, limit}) => ({
-      offset: offset ?? 15,
-      limit: limit ?? 0
-    }))
+      offset: Number(offset) ?? 15,
+      limit: Number(limit) ?? 0
+    })),
+    tap(value => this.form.setValue(value)),
   );
 
   private readonly trackPages = this.pagination.pipe(
