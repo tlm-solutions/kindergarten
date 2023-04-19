@@ -2,12 +2,12 @@
   <table>
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Email Setting</th>
-      <th>Deactivated</th>
-      <th>Details</th>
-      <th>Edit</th>
+      <th i18n>Name</th>
+      <th i18n>Email</th>
+      <th i18n>Email Setting</th>
+      <th i18n>Deactivated</th>
+      <th i18n>Details</th>
+      <th i18n>Edit</th>
     </tr>
     </thead>
     <tbody>
@@ -16,8 +16,8 @@
       <td>{{user.email}}</td>
       <td>{{user.email_setting}}</td>
       <td>{{user.deactivated}}</td>
-      <td><a [routerLink]="user.id">Details</a></td>
-      <td><a [routerLink]="user.id + '/edit'">Edit</a></td>
+      <td><a [routerLink]="user.id" i18n>Details</a></td>
+      <td><a [routerLink]="user.id + '/edit'" i18n>Edit</a></td>
     </tr>
     </tbody>
   </table>

@@ -1,22 +1,22 @@
 <ng-container *ngIf="user | async as user; else loading">
   <section class="general">
-    <h1>General</h1>
+    <h1 i18n>General</h1>
     <table>
       <tbody>
       <tr>
-        <td>Name</td>
+        <td i18n>Name</td>
         <td>{{user.name}}</td>
       </tr>
       <tr>
-        <td>Email</td>
+        <td i18n>Email</td>
         <td>{{user.email}}</td>
       </tr>
       <tr>
-        <td>Email Setting</td>
+        <td i18n>Email Setting</td>
         <td>{{user.email_setting}}</td>
       </tr>
       <tr>
-        <td>Deactivated</td>
+        <td i18n>Deactivated</td>
         <td>{{user.deactivated}}</td>
       </tr>
       </tbody>
@@ -24,11 +24,11 @@
   </section>
 
   <div class="buttons">
-    <app-button link="edit">Edit</app-button>
-    <app-button link="..">Back to List</app-button>
+    <app-button i18n link="edit">Edit</app-button>
+    <app-button i18n link="..">Back to List</app-button>
   </div>
 </ng-container>
 
 <ng-template #loading>
-  Loading...
+  <span i18n>Loading...</span>
 </ng-template>

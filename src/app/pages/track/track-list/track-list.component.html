@@ -1,23 +1,23 @@
 <section>
   <form [formGroup]="form">
-    <app-text-field formControlName="offset" label="Ofset" type="number"/>
-    <app-text-field formControlName="limit" label="Limit" type="number"/>
-    <app-button (click)="prev()">Previous Page</app-button>
-    <app-button (click)="next()">Next Page</app-button>
+    <app-text-field formControlName="offset" i18n-label label="Ofset" type="number"/>
+    <app-text-field formControlName="limit" i18n-label label="Limit" type="number"/>
+    <app-button (click)="prev()" i18n>Previous Page</app-button>
+    <app-button (click)="next()" i18n>Next Page</app-button>
   </form>
 
   <table>
     <thead>
     <tr>
-      <th>Start</th>
-      <th>Ende</th>
-      <th>Duration</th>
-      <th>Line</th>
-      <th>Run</th>
-      <th>Region</th>
-      <th>Owner</th>
-      <th>Finished</th>
-      <th>Correlated</th>
+      <th i18n>Start</th>
+      <th i18n>Ende</th>
+      <th i18n>Duration</th>
+      <th i18n>Line</th>
+      <th i18n>Run</th>
+      <th i18n>Region</th>
+      <th i18n>Owner</th>
+      <th i18n>Finished</th>
+      <th i18n>Correlated</th>
     </tr>
     </thead>
     <tbody>
@@ -39,7 +39,7 @@
       </td>
       <td>{{track.finished}}</td>
       <td>{{track.correlated}}</td>
-      <td><a [routerLink]="track.id.toString()">Details</a></td>
+      <td><a [routerLink]="track.id.toString()" i18n>Details</a></td>
     </tr>
     </tbody>
   </table>

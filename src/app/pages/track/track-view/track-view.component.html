@@ -1,30 +1,30 @@
 <ng-container *ngIf="track | async as track; else loading">
   <section class="general">
-    <h1>General</h1>
+    <h1 i18n>General</h1>
     <table>
       <tbody>
       <tr>
-        <td>Start</td>
+        <td i18n>Start</td>
         <td>{{track.start_time | date:'short'}}</td>
       </tr>
       <tr>
-        <td>End</td>
+        <td i18n>End</td>
         <td>{{track.end_time | date:'short'}}</td>
       </tr>
       <tr>
-        <td>Duration</td>
+        <td i18n>Duration</td>
         <td>{{duration(track.start_time, track.end_time)}}</td>
       </tr>
       <tr>
-        <td>Line</td>
+        <td i18n>Line</td>
         <td>{{track.line}}</td>
       </tr>
       <tr>
-        <td>Run</td>
+        <td i18n>Run</td>
         <td>{{track.run}}</td>
       </tr>
       <tr>
-        <td>Region</td>
+        <td i18n>Region</td>
         <td>
           <a [routerLink]="'/region/' + track.region">
             {{ (getRegion(track.region) | async)?.name }}
@@ -32,7 +32,7 @@
         </td>
       </tr>
       <tr>
-        <td>Owner</td>
+        <td i18n>Owner</td>
         <td>
           <a [routerLink]="'/user/' + track.owner">
             {{ (getUser(track.owner) | async)?.name }}
@@ -40,15 +40,15 @@
         </td>
       </tr>
       <tr>
-        <td>Finished</td>
+        <td i18n>Finished</td>
         <td>{{track.finished}}</td>
       </tr>
       <tr>
-        <td>Correlated</td>
+        <td i18n>Correlated</td>
         <td>{{track.correlated}}</td>
       </tr>
       <tr>
-        <td>Data points</td>
+        <td i18n>Data points</td>
         <td>{{track.gps.length}}</td>
       </tr>
       </tbody>
@@ -56,10 +56,10 @@
   </section>
 
   <div class="buttons">
-    <app-button link="edit">Edit</app-button>
-    <app-button>Recorrelate</app-button>
-    <app-button flavor="danger">Delete</app-button>
-    <app-button link="..">Back to list</app-button>
+    <app-button i18n link="edit">Edit</app-button>
+    <app-button i18n>Recorrelate</app-button>
+    <app-button flavor="danger" i18n>Delete</app-button>
+    <app-button i18n link="..">Back to list</app-button>
   </div>
 
   <app-map
@@ -71,5 +71,5 @@
 </ng-container>
 
 <ng-template #loading>
-  Loading...
+  <span i18n>Loading...</span>
 </ng-template>
