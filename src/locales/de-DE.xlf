@@ -2,13 +2,6 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="de-DE" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="5813867925497374051" datatype="html">
-        <source>Map</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="1797118132269792224" datatype="html">
         <source>Enhancing openness and promoting access to Dresden public infrastructure data since 2022.</source>
         <context-group purpose="location">
