@@ -2,25 +2,11 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="de-DE" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="4846792506513649213" datatype="html">
-        <source>Stations</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="699590710757792843" datatype="html">
         <source>Regions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
           <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1575810254412583888" datatype="html">
-        <source>Tracks</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5813867925497374051" datatype="html">
@@ -30,13 +16,6 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="598315384553444660" datatype="html">
-        <source>Kindergarten Login</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="9193356394095810014" datatype="html">
         <source> E-Mail is required! </source>
         <context-group purpose="location">
@@ -44,25 +23,11 @@
           <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6570363013146073520" datatype="html">
-        <source>Dashboard</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="1797118132269792224" datatype="html">
         <source>Enhancing openness and promoting access to Dresden public infrastructure data since 2022.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2946606238846263830" datatype="html">
-        <source> Matrix </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6801253915325537992" datatype="html">
