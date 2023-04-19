@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         const title = this.route.root.firstChild?.snapshot?.data?.['title'];
         this.title.next(title);
-        this._title.setTitle(`${title} | Kindergarten`)
+        this._title.setTitle($localize`${title} | Kindergarten`)
       })
     ;
   }
