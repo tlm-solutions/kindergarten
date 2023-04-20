@@ -3,7 +3,6 @@ import {webSocket} from "rxjs/webSocket";
 import {HttpClient} from "@angular/common/http";
 import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
 import {BehaviorSubject, map, Observable, tap} from "rxjs";
-import {formatRelativeTime} from "../../core/utils";
 
 export interface Data {
   id: number,

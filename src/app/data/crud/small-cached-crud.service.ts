@@ -84,19 +84,6 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
     }));
   }
 
-  private receive(id: I, dto: D) {
-    const items = [...this.cache.value];
-    const idx = items.findIndex(item => item.id === id);
-
-    if (idx >= 0) {
-      items[idx] = Object.assign(items[idx], dto);
-    } else {
-      items.push(dto);
-    }
-
-    this.cache.next(items);
-  }
-
   protected updateCache() {
     this.cacheUpdateSubscription = this.http.get<PaginationResponse<S>>(`${DATACARE_BASE_PATH}/${this.apiName}`)
       .pipe(
@@ -122,5 +109,18 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
           this.notificationService.error($localize`The ${this.pluralName} cache could not be updated. See browser console for more details.`);
         }
       })
+  }
+
+  private receive(id: I, dto: D) {
+    const items = [...this.cache.value];
+    const idx = items.findIndex(item => item.id === id);
+
+    if (idx >= 0) {
+      items[idx] = Object.assign(items[idx], dto);
+    } else {
+      items.push(dto);
+    }
+
+    this.cache.next(items);
   }
 }
