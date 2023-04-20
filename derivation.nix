@@ -16,8 +16,6 @@ mkYarnPackage {
       cp -r $FILE/ ./deps/kindergarten/
       cp -r ./node_modules/* ./deps/kindergarten/node_modules/
 
-      ls ./deps/kindergarten/node_modules/
-
       yarn build
     '';
 
