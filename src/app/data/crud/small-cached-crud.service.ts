@@ -59,59 +59,42 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
   }
 
   public override get(id: I): Observable<D> {
-    return super.get(id).pipe(tap(dto => {
-      const items = this.cache.value;
-      const item = items.find(item => item.id === id);
-      if (item) {
-        for (const key in item) {
-          item[key] = dto[key];
-        }
-
-        this.cache.next(items)
-      }
-    }));
+    return super.get(id).pipe(tap(dto => this.receive(id, dto)));
   }
 
   public override add(dto: WithoutId<D>): Observable<D> {
     return super.add(dto).pipe(tap(dto => {
-      const items = this.cache.value;
+      const items = [...this.cache.value];
       items.push(dto);
       this.cache.next(items);
     }));
   }
 
   public override set(id: I, dto: WithoutId<D>): Observable<D> {
-    return super.set(id, dto).pipe(tap(dto => {
-      const items = this.cache.value;
-      const item = items.find(item => item.id === id);
-      if (item) {
-        for (const key in item) {
-          item[key] = dto[key];
-        }
-
-        this.cache.next(items)
-      }
-    }));
+    return super.set(id, dto).pipe(tap(dto => this.receive(id, dto)));
   }
 
   public override update(id: I, dto: Partial<WithoutId<D>>): Observable<D> {
-    return super.update(id, dto).pipe(tap(dto => {
-      const items = this.cache.value;
-      const item = items.find(item => item.id === id);
-      if (item) {
-        for (const key in item) {
-          item[key] = dto[key];
-        }
-
-        this.cache.next(items)
-      }
-    }));
+    return super.update(id, dto).pipe(tap(dto => this.receive(id, dto)));
   }
 
   public override delete(id: I): Observable<void> {
     return super.delete(id).pipe(tap(() => {
       this.cache.next(this.cache.value.filter(item => item.id === id));
     }));
+  }
+
+  private receive(id: I, dto: D) {
+    const items = [...this.cache.value];
+    const idx = items.findIndex(item => item.id === id);
+
+    if (idx >= 0) {
+      items[idx] = Object.assign(items[idx], dto);
+    } else {
+      items.push(dto);
+    }
+
+    this.cache.next(items);
   }
 
   protected updateCache() {

@@ -42,7 +42,7 @@ export class NotificationService implements OnDestroy {
     const initialDuration = DEFAULT_NOTIFICATION_DURATION * 2;
     const notification = {id: Date.now(), text, flavor, remainingDuration: initialDuration, initialDuration};
 
-    const notifications = this.notifications.value;
+    const notifications = [...this.notifications.value];
     notifications.push(notification);
     this.notifications.next(notifications);
 

@@ -35,7 +35,7 @@ export class TrackViewComponent {
     private readonly regionService: RegionService,
     private readonly userService: UserService,
   ) {
-    this.correlation.subscribe(console.log);
+    // this.correlation.subscribe(console.log);
   }
 
   protected getRegion(id: RegionId): Observable<Region | undefined> {

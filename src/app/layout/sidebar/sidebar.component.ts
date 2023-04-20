@@ -16,7 +16,6 @@ export class SidebarComponent {
 
   @HostListener('window:click')
   protected hide(): void {
-    console.log(this.sidebarService.isCurrentlyShown());
     if (this.sidebarService.isCurrentlyShown()) {
       this.sidebarService.hide();
     }
