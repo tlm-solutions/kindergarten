@@ -11,6 +11,7 @@
     <tr>
       <th i18n>Start</th>
       <th i18n>End</th>
+      <th i18n>Age</th>
       <th i18n>Duration</th>
       <th i18n>Line</th>
       <th i18n>Run</th>
@@ -24,6 +25,7 @@
     <tr *ngFor="let track of (tracks | async); trackBy trackBy">
       <td>{{track.start_time | date:'short'}}</td>
       <td>{{track.end_time | date:'short'}}</td>
+      <td>{{age(track.end_time)}}</td>
       <td>{{duration(track.start_time, track.end_time)}}</td>
       <td>{{track.line}}</td>
       <td>{{track.run}}</td>
