@@ -27,9 +27,9 @@ export class MapVehicleInfoComponent {
   public type(type: Type): string | undefined {
     switch (type) {
       case Type.BUS:
-        return "Bus";
+        return $localize`Bus`;
       case Type.TRAM:
-        return "Tram";
+        return $localize`Tram`;
       default:
         return undefined;
     }

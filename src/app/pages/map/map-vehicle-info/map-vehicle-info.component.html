@@ -3,34 +3,34 @@
     <tbody>
     <ng-container *ngIf="lookupLine(vehicle.line) as line; else rawLine">
       <tr>
-        <td>Line</td>
+        <td i18n>Line</td>
         <td>{{line.name}}</td>
       </tr>
       <tr *ngIf="line.description">
-        <td>Description</td>
+        <td i18n>Description</td>
         <td>{{line.description}}</td>
       </tr>
       <tr>
-        <td>Type</td>
+        <td i18n>Type</td>
         <td>{{type(line.type)}}</td>
       </tr>
     </ng-container>
     <ng-template #rawLine>
       <tr>
-        <td>Raw Line</td>
+        <td i18n>Raw Line</td>
         <td>{{vehicle.line}}</td>
       </tr>
     </ng-template>
     <tr>
-      <td>Run</td>
+      <td i18n>Run</td>
       <td>{{vehicle.run}}</td>
     </tr>
     <tr>
-      <td>Delay</td>
+      <td i18n>Delay</td>
       <td>{{duration(vehicle.delayed * 1000)}}</td>
     </tr>
     <tr>
-      <td>Last Seen</td>
+      <td i18n>Last Seen</td>
       <td>{{relativeTime(vehicle.time)}}</td>
     </tr>
     </tbody>

@@ -29,6 +29,6 @@ export class ProfileComponent {
   protected logout(): void {
     this.authService.logout()
       .pipe(switchMap(() => this.router.navigate(['login'])))
-      .subscribe(() => this.notificationService.success("Logout was successful."));
+      .subscribe(() => this.notificationService.success($localize`Logout was successful.`));
   }
 }

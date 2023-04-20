@@ -46,7 +46,7 @@ export class LoginComponent implements OnDestroy {
       .pipe(
         switchMap(response => {
           if (response.success) {
-            this.notificationService.success(`Successfully logged in as ${response.name}.`)
+            this.notificationService.success($localize`Successfully logged in as ${response.name}.`)
             const next = this.route.snapshot.queryParams['next'] ?? 'dashboard';
             return this.router.navigateByUrl(this.router.parseUrl(`/${next}`));
           }

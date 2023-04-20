@@ -1,40 +1,38 @@
 <section>
-  <h1>Details</h1>
+  <h1 i18n>Details</h1>
   <table *ngIf="(user | async) as user; else noAccount">
     <tbody>
     <tr>
-      <td>Id</td>
+      <td i18n>Id</td>
       <td>{{user.id}}</td>
     </tr>
     <tr>
-      <td>Name</td>
+      <td i18n>Name</td>
       <td>{{user.name}}</td>
     </tr>
     <tr>
-      <td>E-Mail</td>
+      <td i18n>E-Mail</td>
       <td>{{user.email}}</td>
     </tr>
     <tr>
-      <td>E-Mail Setting</td>
+      <td i18n>E-Mail Setting</td>
       <td>{{user.email_setting}}</td>
     </tr>
     <tr>
-      <td>Deactivated</td>
+      <td i18n>Deactivated</td>
       <td>{{user.deactivated}}</td>
     </tr>
     </tbody>
   </table>
 
   <ng-template #noAccount>
-    <p>
-      You are not logged in.
-    </p>
+    <p i18n>You are not logged in.</p>
   </ng-template>
 </section>
 
 <div class="buttons">
-  <app-button (click)="logout()" *ngIf="authState | async; else loginBtn" label="Logout"/>
+  <app-button (click)="logout()" *ngIf="authState | async; else loginBtn" i18n-label label="Logout"/>
   <ng-template #loginBtn>
-    <app-button [query]="{next}" label="Login" link="/login"/>
+    <app-button [query]="{next}" i18n-label label="Login" link="/login"/>
   </ng-template>
 </div>

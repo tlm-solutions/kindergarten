@@ -1,52 +1,49 @@
 <form (submit)="save(); $event.preventDefault()" [formGroup]="form">
 
   <section>
-    <h1>General</h1>
-    <app-text-field formControlName="name" label="Name">
-      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">Name is required!
+    <h1 i18n>General</h1>
+    <app-text-field formControlName="name" i18n-label label="Name">
+      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is required!
       </app-error>
     </app-text-field>
 
-    <app-checkbox formControlName="approved" label="Approved"/>
-    <app-checkbox formControlName="deactivated" label="Deactivated"/>
-    <app-checkbox formControlName="public" label="Public"/>
+    <app-checkbox formControlName="approved" i18n-label label="Approved"/>
+    <app-checkbox formControlName="deactivated" i18n-label label="Deactivated"/>
+    <app-checkbox formControlName="public" i18n-label label="Public"/>
 
-    <app-text-field formControlName="notes" label="Notes" type="multiline"/>
+    <app-text-field formControlName="notes" i18n-label label="Notes" type="multiline"/>
   </section>
 
   <section>
     <h1>Location</h1>
-    <app-text-field formControlName="lat" label="Latitude" type="number">
-      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']">Latitude is required!
+    <app-text-field formControlName="lat" i18n-label label="Latitude" type="number">
+      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is required!
       </app-error>
     </app-text-field>
-    <app-text-field formControlName="lon" label="Longitude" type="number">
-      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']">Longitude is required!
+    <app-text-field formControlName="lon" i18n-label label="Longitude" type="number">
+      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is required!
       </app-error>
     </app-text-field>
-    <app-text-field formControlName="elevation" label="Elevation" type="number"/>
-    <app-text-field formControlName="region" label="Region" type="number"/>
+    <app-text-field formControlName="elevation" i18n-label label="Elevation" type="number"/>
+    <app-text-field formControlName="region" i18n-label label="Region" type="number"/>
   </section>
 
   <section>
     <h1>Hardware</h1>
 
-    <app-text-field formControlName="radio" label="Radio"/>
-    <app-text-field formControlName="architecture" label="Architecture"/>
-    <app-text-field formControlName="device" label="Device"/>
-    <app-text-field formControlName="antenna" label="Antenna"/>
+    <app-text-field formControlName="radio" i18n-label label="Radio"/>
+    <app-text-field formControlName="architecture" i18n-label label="Architecture"/>
+    <app-text-field formControlName="device" i18n-label label="Device"/>
+    <app-text-field formControlName="antenna" i18n-label label="Antenna"/>
 
-    <app-text-field formControlName="telegram_decoder_version" label="Telegram Decoder Version"/>
+    <app-text-field formControlName="telegram_decoder_version" i18n-label label="Telegram Decoder Version"/>
   </section>
 
   <div class="buttons">
-    <app-button label="Save"/>
-    <app-button flavor="danger" label="Cancel" link=".."/>
+    <app-button i18n-label label="Save"/>
+    <app-button flavor="danger" i18n-label label="Cancel" link=".."/>
   </div>
 </form>
-
-{{getRegion()|async}}
-{{getRegion() | async|json}}
 
 <app-map
   *ngIf="(getRegion() | async) as region"

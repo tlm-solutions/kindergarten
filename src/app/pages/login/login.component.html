@@ -21,7 +21,7 @@
     </app-text-field>
 
     <div class="controls">
-      <a routerLink="/dashboard" i18n>Dashboard</a>
+      <a i18n routerLink="/dashboard">Dashboard</a>
       <app-button [disabled]="loading | async" class="submit" label="Login"/>
     </div>
   </form>
@@ -34,19 +34,17 @@
     <span i18n>Enhancing openness and promoting access to Dresden public infrastructure data since 2022.</span>
     <br>
     <br>
-    <a href="https://github.com/tlm-solutions?type=source" rel="nofollow noopener noreferrer" target="_blank" i18n>
+    <a href="https://github.com/tlm-solutions?type=source" i18n rel="nofollow noopener noreferrer" target="_blank">
       GitHub
     </a>
     -
-    <a href="https://matrix.to/#/#dump-dvb:matrix.org" rel="nofollow noopener noreferrer" target="_blank" i18n>
+    <a href="https://matrix.to/#/#dump-dvb:matrix.org" i18n rel="nofollow noopener noreferrer" target="_blank">
       Matrix
     </a>
     -
-    <a href="https://map.tlm.solutions/" rel="nofollow noopener noreferrer" target="_blank" i18n>
-      Live Map
-    </a>
+    <a i18n routerLink="/map">Live Map</a>
     -
-    <a href="https://docs.tlm.solutions/" rel="nofollow noopener noreferrer" target="_blank" i18n>
+    <a href="https://docs.tlm.solutions/" i18n rel="nofollow noopener noreferrer" target="_blank">
       Documentation
     </a>
   </p>

@@ -112,10 +112,10 @@ export class StationEditComponent implements OnInit, OnDestroy {
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
       .subscribe({
-        next: station => this.notificationService.success(`Station ${station.name} was successfully updated.`),
+        next: station => this.notificationService.success($localize`Station ${station.name} was successfully updated.`),
         error: err => {
           console.error(err);
-          this.notificationService.error(`Failed to update station ${station.name}: ${err}`)
+          this.notificationService.error($localize`Failed to update station ${station.name}\: ${err}`)
         }
       });
   }

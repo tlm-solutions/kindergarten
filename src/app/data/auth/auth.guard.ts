@@ -18,7 +18,7 @@ export const AUTH_CAN_ACTIVATE: CanActivateFn = (_, state) => {
         const id = user?.id;
 
         if (id === undefined || id === null) {
-          notificationService.info("You need to be logged in.");
+          notificationService.info($localize`You need to be logged in.`);
           return router.createUrlTree(['login'], {queryParams: {next: state.url}});
         } else {
           return true;

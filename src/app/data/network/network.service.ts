@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {webSocket} from "rxjs/webSocket";
 import {HttpClient} from "@angular/common/http";
-import {LIZARD_BASE_PATH} from "../api.domain";
+import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
 import {BehaviorSubject, map, Observable, tap} from "rxjs";
 
 export interface Data {
@@ -43,7 +43,7 @@ export class NetworkService {
   }
 
   public sub() {
-    return webSocket<Data>("wss://socket.staging.tlm.solutions")
+    return webSocket<Data>(SOCKET_BASE_PATH)
       .pipe(tap(data => {
         const vehicles = this.vehicles.value;
         vehicles.push(data);

@@ -99,7 +99,7 @@ export class AuthService implements OnDestroy {
           if (err.status == 401) {
             this.lastUpdate = Date.now();
           } else {
-            this.notificationService.error(`Unable to retrieve login state. See browser console for details.`);
+            this.notificationService.error($localize`Unable to retrieve login state. See browser console for details.`);
             console.error("Error while retrieving login state: ", err);
           }
 

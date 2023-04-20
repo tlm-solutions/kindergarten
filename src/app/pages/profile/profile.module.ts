@@ -4,6 +4,7 @@ import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfileComponent} from './profile.component';
 import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.component";
 import {ButtonComponent} from "../../core/components/button/button.component";
+import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {ButtonComponent} from "../../core/components/button/button.component";
     CommonModule,
     ProfileRoutingModule,
     ProfileIconComponent,
-    ButtonComponent
+    ButtonComponent,
+    TextFieldComponent
   ]
 })
 export class ProfileModule {

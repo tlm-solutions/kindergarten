@@ -136,7 +136,7 @@ export abstract class AbstractSmallCachedCrudService<D extends S, S extends (IdH
           console.info(`Updated ${this.name} cache, loaded ${items.length} ${this.pluralName} with a lifetime of ${MAX_AGE} min.`);
         },
         error: () => {
-          this.notificationService.error(`The ${this.pluralName} cache could not be updated. See browser console for more details.`);
+          this.notificationService.error($localize`The ${this.pluralName} cache could not be updated. See browser console for more details.`);
         }
       })
   }

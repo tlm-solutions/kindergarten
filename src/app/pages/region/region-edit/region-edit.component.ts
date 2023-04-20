@@ -94,10 +94,10 @@ export class RegionEditComponent implements OnInit, OnDestroy {
     })
       .pipe(switchMap(region => this.router.navigate(['..'], {relativeTo: this.route}).then(() => region)))
       .subscribe({
-        next: region => this.notificationService.success(`Region ${region.name} was successfully updated.`),
+        next: region => this.notificationService.success($localize`Region ${region.name} was successfully updated.`),
         error: err => {
           console.error(err);
-          this.notificationService.error(`Failed to update region ${region.name}: ${err}`)
+          this.notificationService.error($localize`Failed to update region ${region.name}\: ${err}`)
         }
       });
   }

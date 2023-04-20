@@ -1,23 +1,23 @@
 <form (submit)="save(); $event.preventDefault()" [formGroup]="form">
   <section class="general">
-    <h1>General</h1>
-    <app-text-field formControlName="name" label="Name"/>
-    <app-text-field formControlName="transport_company" label="Transport Company"/>
-    <app-text-field formControlName="regional_company" label="Regional Company"/>
-    <app-text-field formControlName="frequency" label="Frequency" type="number"/>
-    <app-text-field formControlName="r09_type" label="R09 Type" type="number"/>
-    <app-text-field formControlName="encoding" label="Encoding" type="number"/>
-    <app-text-field formControlName="lat" label="Lat" type="number"/>
-    <app-text-field formControlName="lon" label="Lon" type="number"/>
-    <app-text-field formControlName="zoom" label="Zoom" type="number"/>
+    <h1 i18n>General</h1>
+    <app-text-field formControlName="name" i18n-label label="Name"/>
+    <app-text-field formControlName="transport_company" i18n-label label="Transport Company"/>
+    <app-text-field formControlName="regional_company" i18n-label label="Regional Company"/>
+    <app-text-field formControlName="frequency" i18n-label label="Frequency" type="number"/>
+    <app-text-field formControlName="r09_type" i18n-label label="R09 Type" type="number"/>
+    <app-text-field formControlName="encoding" i18n-label label="Encoding" type="number"/>
+    <app-text-field formControlName="lat" i18n-label label="Lat" type="number"/>
+    <app-text-field formControlName="lon" i18n-label label="Lon" type="number"/>
+    <app-text-field formControlName="zoom" i18n-label label="Zoom" type="number"/>
 
-    <app-checkbox formControlName="work_in_progress" label="Work in Progress"/>
-    <app-checkbox formControlName="deactivated" label="Deactivated"/>
+    <app-checkbox formControlName="work_in_progress" i18n-label label="Work in Progress"/>
+    <app-checkbox formControlName="deactivated" i18n-label label="Deactivated"/>
   </section>
 
   <div class="buttons">
-    <app-button label="Save"/>
-    <app-button flavor="danger" label="Cancel" link=".."/>
+    <app-button i18n-label label="Save"/>
+    <app-button flavor="danger" i18n-label label="Cancel" link=".."/>
   </div>
 
   <app-map

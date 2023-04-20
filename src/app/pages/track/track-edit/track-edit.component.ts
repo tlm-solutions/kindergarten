@@ -123,10 +123,10 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
       .subscribe({
-        next: () => this.notificationService.success(`Track was successfully updated.`),
+        next: () => this.notificationService.success($localize`Track was successfully updated.`),
         error: err => {
           console.error(err);
-          this.notificationService.error(`Failed to update track: ${err}`)
+          this.notificationService.error($localize`Failed to update track: ${err}`)
         }
       });
   }

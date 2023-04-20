@@ -19,7 +19,7 @@ const FN: CanActivateFn = route => {
         if (id === undefined || id === null) {
           return true;
         } else {
-          notificationService.info("You are already logged in.");
+          notificationService.info($localize`You are already logged in.`);
           const next = route.queryParams['next'] ?? 'dashboard';
           return router.parseUrl(`/${next}`);
         }
