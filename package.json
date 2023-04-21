@@ -7,7 +7,7 @@
     "start": "ng serve",
     "start:ssl": "ng serve --ssl --host local.tlm.solutions",
     "build": "ng build --output-path ./dist",
-    "build:ci": "ng build --output-path ./dist",
+    "build:ci": "ng build --output-path ./dist --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
