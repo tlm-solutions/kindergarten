@@ -17,6 +17,8 @@ mkYarnPackage {
       cp -r ./node_modules/* ./deps/kindergarten/node_modules/
 
       yarn run build:ci
+      mv dist/en-US dist/en
+      mv dist/de-DE dist/de
     '';
 
     installPhase = ''
