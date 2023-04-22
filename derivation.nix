@@ -22,8 +22,8 @@ mkYarnPackage {
     installPhase = ''
       mkdir -p $out/bin/en
       mkdir -p $out/bin/de
-      cp -r ./deps/kindergarten/dist/en-US $out/bin/en
-      cp -r ./deps/kindergarten/dist/de-DE $out/bin/de
+      cp -r ./deps/kindergarten/dist/en-US/* $out/bin/en/
+      cp -r ./deps/kindergarten/dist/de-DE/* $out/bin/de/
     '';
 
     doDist = false;
