@@ -17,13 +17,13 @@ mkYarnPackage {
       cp -r ./node_modules/* ./deps/kindergarten/node_modules/
 
       yarn run build:ci
-      mv dist/en-US dist/en
-      mv dist/de-DE dist/de
     '';
 
     installPhase = ''
-      mkdir -p $out/bin
-      cp -r ./deps/kindergarten/dist/* $out/bin
+      mkdir -p $out/bin/en
+      mkdir -p $out/bin/de
+      cp -r ./deps/kindergarten/dist/en-US $out/bin/en
+      cp -r ./deps/kindergarten/dist/de-DE $out/bin/de
     '';
 
     doDist = false;
