@@ -14,7 +14,7 @@ export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
   constructor() {
     super("region", "region", "regions");
 
-    this.http.get<Record<string, Line>>('/assets/data/region/0.json')
+    this.http.get<Record<string, Line>>('assets/data/region/0.json')
       .subscribe(data => this.regionData = data);
   }
 
