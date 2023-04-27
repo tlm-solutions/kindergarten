@@ -828,7 +828,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">79</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/user/user-list/user-list.component.html</context>
@@ -1078,7 +1078,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">94</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/user/user-view/user-view.component.html</context>
@@ -1163,14 +1163,14 @@
         <source>Track was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5851414638365189550" datatype="html">
         <source>Failed to update track: <x id="PH" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3676850495488145564" datatype="html">
@@ -1230,25 +1230,39 @@
           <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3070945081801146031" datatype="html">
+        <source>App Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6396865794537195956" datatype="html">
+        <source>App Commit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4683516283199787368" datatype="html">
         <source>Recorrelate</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7022070615528435141" datatype="html">
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4176542659011926633" datatype="html">
         <source>Back to list</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
     </body>

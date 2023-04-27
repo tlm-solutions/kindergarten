@@ -55,6 +55,22 @@
         <td i18n>Data points</td>
         <td>{{track.gps.length}}</td>
       </tr>
+      <tr>
+        <td i18n>App Name</td>
+        <td>{{track.app_name}}</td>
+      </tr>
+      <tr>
+        <td i18n>App Commit</td>
+        <td>
+          <a *ngIf="getCommitLink(track.app_name, track.app_commit) as commitLink; else withoutLink"
+             [href]="commitLink"
+             target="_blank"
+             rel="noreferrer nofollow noopener">
+            {{renderCommitId(track.app_commit)}}
+          </a>
+          <ng-template #withoutLink>{{renderCommitId(track.app_commit)}}</ng-template>
+        </td>
+      </tr>
       </tbody>
     </table>
   </section>

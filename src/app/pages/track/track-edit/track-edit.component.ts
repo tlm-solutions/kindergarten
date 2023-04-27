@@ -119,6 +119,8 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       region: track.region!,
       run: track.run!,
       start_time: track.start_time!.toISOString(),
+      app_name: "",
+      app_commit: "",
       /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))

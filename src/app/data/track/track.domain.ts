@@ -11,6 +11,8 @@ export interface Track extends IdHolder<TrackId> {
   run: number,
   region: RegionId,
   owner: UserId,
+  app_name: string,
+  app_commit: string,
   finished: boolean,
   correlated: boolean,
   gps: GpsEntry[]

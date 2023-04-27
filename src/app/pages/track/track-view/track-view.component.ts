@@ -79,6 +79,19 @@ export class TrackViewComponent {
   protected age(endTime: string): string {
     return formatRelativeTime(Date.parse(endTime));
   }
+
+  protected getCommitLink(name: string, commit: string): string | null {
+    switch (name) {
+      case 'stasi':
+        return `https://github.com/tlm-solutions/stasi/commit/${commit}`;
+      default:
+        return null;
+    }
+  }
+
+  protected renderCommitId(commit: string): string {
+    return commit.substring(0, 7);
+  }
 }
 
 function formatDuration(ms: number): string {
