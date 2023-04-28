@@ -6,9 +6,9 @@ import {Region, RegionId} from "../../../data/region/region.domain";
 import {User, UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
-import {GpsEntry} from "../../../data/track/track.domain";
+import {GpsEntry, TrackId} from "../../../data/track/track.domain";
 import {Coordinate} from "ol/coordinate";
-import {core} from "@angular/compiler";
+import {NotificationService} from "../../../core/notification/notification.service";
 
 @Component({
   selector: 'app-track-view',
@@ -36,6 +36,7 @@ export class TrackViewComponent {
     private readonly trackService: TrackService,
     private readonly regionService: RegionService,
     private readonly userService: UserService,
+    private readonly notificationService: NotificationService,
   ) {
     // this.correlation.subscribe(console.log);
   }
@@ -88,6 +89,12 @@ export class TrackViewComponent {
 
   protected renderCommitId(commit: string): string {
     return commit.substring(0, 7);
+  }
+
+  protected delete(id: TrackId): void {
+    if (confirm("Confirm?")) {
+      this.trackService.delete(id).subscribe(() => this.notificationService.success($localize`Track was successfully deleted.`))
+    }
   }
 }
 
