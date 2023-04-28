@@ -8,7 +8,6 @@ import {UserService} from "../../../data/user/user.service";
 import {IdHolder} from "../../../data/api.domain";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {formatDuration, formatRelativeTime} from "../../../core/utils";
 
 @Component({
   selector: 'app-track-list',
@@ -85,11 +84,7 @@ export class TrackListComponent implements OnInit, OnDestroy {
     return id;
   }
 
-  protected duration(start: string, end: string): string {
-    return formatDuration(Date.parse(end) - Date.parse(start));
-  }
-
-  protected age(endTime: string): string {
-    return formatRelativeTime(Date.parse(endTime));
+  protected duration(start: string, end: string): number {
+    return Date.parse(end) - Date.parse(start);
   }
 }

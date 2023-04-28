@@ -27,11 +27,11 @@
     </tr>
     <tr>
       <td i18n>Delay</td>
-      <td>{{duration(vehicle.delayed * 1000)}}</td>
+      <td>{{(vehicle.delayed * 1000) | duration}}</td>
     </tr>
     <tr>
       <td i18n>Last Seen</td>
-      <td>{{relativeTime(vehicle.time)}}</td>
+      <td>{{vehicle.time | relativeTime}}</td>
     </tr>
     </tbody>
   </table>

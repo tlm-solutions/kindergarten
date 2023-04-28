@@ -10,6 +10,8 @@ import {TrackEditComponent} from './track-edit/track-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
+import {RelativeTimePipe} from "../../core/pipes/relative-time.pipe";
+import {DurationPipe} from "../../core/pipes/duration.pipe";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {CheckboxComponent} from "../../core/components/checkbox/checkbox.compone
     FormsModule,
     ReactiveFormsModule,
     TextFieldComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    RelativeTimePipe,
+    DurationPipe
   ]
 })
 export class TrackModule {

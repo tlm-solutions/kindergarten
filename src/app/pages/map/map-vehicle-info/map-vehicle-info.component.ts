@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {NetworkService} from "../../../data/network/network.service";
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs";
-import {formatDuration, formatRelativeTime} from "../../../core/utils";
 import {RegionService} from "../../../data/region/region.service";
 import {Line, Type} from "../../../data/region/region.domain";
 
@@ -37,13 +36,5 @@ export class MapVehicleInfoComponent {
 
   protected lookupLine(line: number): Line | undefined {
     return this.regionService.lookupLine(line);
-  }
-
-  protected relativeTime(time: number | string): string {
-    return formatRelativeTime(Number(time));
-  }
-
-  protected duration(time: number | string): string {
-    return formatDuration(Number(time));
   }
 }

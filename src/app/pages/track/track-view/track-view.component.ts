@@ -8,7 +8,6 @@ import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
 import {GpsEntry} from "../../../data/track/track.domain";
 import {Coordinate} from "ol/coordinate";
-import {formatRelativeTime} from "../../../core/utils";
 
 @Component({
   selector: 'app-track-view',
@@ -74,10 +73,6 @@ export class TrackViewComponent {
 
     return gps.filter(gps => parsedTime <= Date.parse(gps.time))
       .map(gps => [gps.lon, gps.lat]);
-  }
-
-  protected age(endTime: string): string {
-    return formatRelativeTime(Date.parse(endTime));
   }
 
   protected getCommitLink(name: string, commit: string): string | null {
