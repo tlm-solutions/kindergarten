@@ -10,6 +10,7 @@ import {TrackEditComponent} from './track-edit/track-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
+import {TrackMapComponent} from "./track-map/track-map.component";
 import {RelativeTimePipe} from "../../core/pipes/relative-time.pipe";
 import {DurationPipe} from "../../core/pipes/duration.pipe";
 
@@ -19,7 +20,8 @@ import {DurationPipe} from "../../core/pipes/duration.pipe";
     TrackComponent,
     TrackListComponent,
     TrackViewComponent,
-    TrackEditComponent
+    TrackEditComponent,
+    TrackMapComponent
   ],
   imports: [
     CommonModule,
