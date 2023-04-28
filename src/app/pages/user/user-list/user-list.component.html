@@ -3,8 +3,6 @@
     <thead>
     <tr>
       <th i18n>Name</th>
-      <th i18n>E-Mail</th>
-      <th i18n>E-Mail Setting</th>
       <th i18n>Deactivated</th>
       <th i18n>Details</th>
       <th i18n>Edit</th>
@@ -13,8 +11,6 @@
     <tbody>
     <tr *ngFor="let user of (users | async); trackBy trackBy">
       <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.email_setting}}</td>
       <td>{{user.deactivated}}</td>
       <td><a [routerLink]="user.id" i18n>Details</a></td>
       <td><a [routerLink]="user.id + '/edit'" i18n>Edit</a></td>
