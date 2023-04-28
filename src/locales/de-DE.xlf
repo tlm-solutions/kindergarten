@@ -602,6 +602,162 @@
           <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4846792506513649213" datatype="html">
+        <source>Stations</source>
+        <target state="translated">Empfänger</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target state="translated">Anmelden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1575810254412583888" datatype="html">
+        <source>Tracks</source>
+        <target state="translated">Aufzeichnung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9092425910991469940" datatype="html">
+        <source>Unable to retrieve login state. See browser console for details.</source>
+        <target state="translated">Profildaten konnten nicht abgefragt werden.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/auth/auth.service.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2603460409287135168" datatype="html">
+        <source>The <x id="PH" equiv-text="this.pluralName"/> cache could not be updated. See browser console for more details.</source>
+        <target state="translated">Server ist nicht erreichbar.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/crud/small-cached-crud.service.ts</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3262644886354897068" datatype="html">
+        <source><x id="PH" equiv-text="title"/> | Kindergarten</source>
+        <target state="translated"><x id="PH" equiv-text="title"/> | Kindergarten</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2083194873229000210" datatype="html">
+        <source>Hi, we are Transit Live Mapping Solutions,</source>
+        <target state="translated">Hallo, wird sind das Transit Live Mapping Solutions Team</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7658073495909471632" datatype="html">
+        <source>years</source>
+        <target state="translated">Jahre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6169402792391433667" datatype="html">
+        <source>months</source>
+        <target state="translated">Monate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5689442636734876664" datatype="html">
+        <source>hour</source>
+        <target state="translated">Stunde</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5405071297219936776" datatype="html">
+        <source>minute</source>
+        <target state="translated">Minute</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7479425239631237410" datatype="html">
+        <source>second</source>
+        <target state="translated">Sekunde</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="227749613426254192" datatype="html">
+        <source>seconds</source>
+        <target state="translated">Sekunden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6479044529603381727" datatype="html">
+        <source>year</source>
+        <target state="translated">Jahr</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7178101913251976451" datatype="html">
+        <source>month</source>
+        <target state="translated">Monat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6320319413541466015" datatype="html">
+        <source>day</source>
+        <target state="translated">Tag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7036284206110282007" datatype="html">
+        <source>days</source>
+        <target state="translated">Tage</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="982745398054129955" datatype="html">
+        <source>minutes</source>
+        <target state="translated">Minuten</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3370839803061654054" datatype="html">
+        <source>hours</source>
+        <target state="translated">Stunden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/utils.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
