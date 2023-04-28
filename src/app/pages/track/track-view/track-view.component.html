@@ -85,6 +85,7 @@
   <app-track-map
     [highlightedLines]="[convertToCoords(track.gps, track.start_time, track.end_time)]"
     [lines]="[convertToCoordsBefore(track.gps, track.start_time),convertToCoordsAfter(track.gps, track.end_time)]"
+    [markers]="(correlation | async) ?? []"
     class="map"
   />
 </ng-container>

@@ -8,6 +8,7 @@ import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
 import {GpsEntry} from "../../../data/track/track.domain";
 import {Coordinate} from "ol/coordinate";
+import {core} from "@angular/compiler";
 
 @Component({
   selector: 'app-track-view',
@@ -26,6 +27,7 @@ export class TrackViewComponent {
   protected readonly correlation = this.route.params.pipe(
     map(({id}) => id),
     switchMap(id => this.trackService.getCorrelation(id)),
+    map(correlation => correlation.map<Coordinate>(correlation => ([correlation.lon, correlation.lat]))),
     share(),
   );
 

@@ -19,6 +19,9 @@ import LineString from "ol/geom/LineString";
 import {Coordinate} from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
 import WebGLTileLayer from "ol/layer/WebGLTile";
+import Point from "ol/geom/Point";
+import Circle from "ol/style/Circle";
+import Fill from "ol/style/Fill";
 
 // const MARKER_STYLE = new Style({
 //   image: new Icon({
@@ -43,6 +46,14 @@ const HIGHLIGHTED_LINE_STYLE = new Style({
   })
 });
 
+const MARKER_STYLE = new Style({
+  image: new Circle({
+    radius: 6,
+    fill: new Fill({color: 'rgba(24,166,19,0.9)'}),
+    stroke: new Stroke({color: '#1cff3b'})
+  }),
+});
+
 @Component({
   selector: 'app-track-map',
   templateUrl: './track-map.component.html',
@@ -55,6 +66,8 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
   public lines: Coordinate[][] = [];
   @Input()
   public highlightedLines: Coordinate[][] = [];
+  @Input()
+  public markers: Coordinate[] = [];
 
   private view?: View;
   private features = new VectorSource();
@@ -91,6 +104,18 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
 
       this.features.addFeatures(this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
       update = true;
+    }
+
+    if (changes["markers"]) {
+      const markers: Coordinate[] = changes["markers"].currentValue;
+
+      this.features.addFeatures(markers.map(marker => {
+        const feature = new Feature({geometry: new Point(marker)});
+        feature.setStyle(MARKER_STYLE);
+        return feature;
+      }));
+
+      this.map?.getView().fit(this.features.getExtent());
     }
 
     if (update) {
