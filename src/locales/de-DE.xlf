@@ -758,6 +758,22 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8765892814796070585" datatype="html">
+        <source>week</source>
+        <target state="translated">Woche</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pipes/duration.pipe.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1381807530861875083" datatype="html">
+        <source>weeks</source>
+        <target state="translated">Wochen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pipes/duration.pipe.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
