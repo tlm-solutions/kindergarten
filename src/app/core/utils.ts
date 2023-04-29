@@ -1,34 +1,22 @@
-// in miliseconds
-const UNITS: Record<string, number> = {
-  year: 24 * 60 * 60 * 1000 * 365,
-  month: 24 * 60 * 60 * 1000 * 365 / 12,
-  day: 24 * 60 * 60 * 1000,
-  hour: 60 * 60 * 1000,
-  minute: 60 * 1000,
-  second: 1000,
-};
+const EARTH_RADIUS = 6371e3; // metres
+const ONE_DEGREE_IN_RAD = Math.PI / 180;
+const ONE_DEGREE_IN_RAD_HALF = ONE_DEGREE_IN_RAD / 2;
 
-export function formatDuration(elapsed: number): string {
-  for (const u in UNITS)
-    if (Math.abs(elapsed) >= UNITS[u] || u === "second") {
-      const number = Math.round(elapsed / UNITS[u]);
+/**
+ * @see https://www.movable-type.co.uk/scripts/latlong.html
+ */
+export function distance(lat1: number, lon1: number, lat2: number, lon2: number): number {
 
-      switch (u) {
-        case "year":
-          return `${number} ${Math.abs(number) === 1 ? $localize`year` : $localize`years`}`
-        case "month":
-          return `${number} ${Math.abs(number) === 1 ? $localize`month` : $localize`months`}`
-        case "day":
-          return `${number} ${Math.abs(number) === 1 ? $localize`day` : $localize`days`}`
-        case "hour":
-          return `${number} ${Math.abs(number) === 1 ? $localize`hour` : $localize`hours`}`
-        case "minute":
-          return `${number} ${Math.abs(number) === 1 ? $localize`minute` : $localize`minutes`}`
-        case "second":
-          return `${number} ${Math.abs(number) === 1 ? $localize`second` : $localize`seconds`}`
-      }
-    }
+  const φ1 = lat1 * ONE_DEGREE_IN_RAD; // φ, λ in radians
+  const φ2 = lat2 * ONE_DEGREE_IN_RAD;
+  const Δφ = (lat2 - lat1) * ONE_DEGREE_IN_RAD_HALF;
+  const Δλ = (lon2 - lon1) * ONE_DEGREE_IN_RAD_HALF;
 
-  // unreachable
-  return '';
+  const x = Math.sin(Δφ);
+  const y = Math.sin(Δλ);
+
+  const a = x * x + Math.cos(φ1) * Math.cos(φ2) * y * y;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return EARTH_RADIUS * c; // in metres
 }

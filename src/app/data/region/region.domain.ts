@@ -1,6 +1,9 @@
 import {IdHolder} from "../api.domain";
+import {TrackId} from "../track/track.domain";
+import {UserId} from "../user/user.domain";
 
 export type RegionId = number;
+export type ReportingPointId = number;
 
 export interface Region extends IdHolder<RegionId> {
   name: string;
@@ -17,12 +20,22 @@ export interface Region extends IdHolder<RegionId> {
 }
 
 export interface ReportingPoint {
-  id: number;
+  id: ReportingPointId;
   region: RegionId;
   reporting_point: number;
   lat: number;
   lon: number;
   ground_truth: boolean;
+}
+
+export interface ReportingPointRaw {
+  id: ReportingPointId,
+  region: RegionId,
+  reporting_point: number;
+  lat: number;
+  lon: number;
+  trekkie_run: TrackId;
+  run_owner: UserId;
 }
 
 export enum Encoding {
