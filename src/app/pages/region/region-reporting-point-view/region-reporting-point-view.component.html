@@ -1,0 +1,6 @@
+<ng-container *ngIf="reportingPointCoordinates | async as reportingPoints">
+  <app-region-map
+    [markers]="reportingPoints"
+    class="map"
+  />
+</ng-container>

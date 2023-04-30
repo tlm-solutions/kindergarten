@@ -19,8 +19,18 @@
     background-color: $background;
     content: '';
   }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      padding: 0.4rem;
+
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+  }
 }
 
-td:first-child {
-  font-weight: bold;
-}

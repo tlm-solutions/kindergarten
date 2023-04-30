@@ -1,38 +1,44 @@
 <ng-container *ngIf="(vehicle | async) as vehicle">
-  <table>
-    <tbody>
-    <ng-container *ngIf="lookupLine(vehicle.line) as line; else rawLine">
-      <tr>
-        <td i18n>Line</td>
-        <td>{{line.name}}</td>
-      </tr>
-      <tr *ngIf="line.description">
-        <td i18n>Description</td>
-        <td>{{line.description}}</td>
-      </tr>
-      <tr>
-        <td i18n>Type</td>
-        <td>{{type(line.type)}}</td>
-      </tr>
-    </ng-container>
-    <ng-template #rawLine>
-      <tr>
-        <td i18n>Raw Line</td>
-        <td>{{vehicle.line}}</td>
-      </tr>
-    </ng-template>
-    <tr>
-      <td i18n>Run</td>
-      <td>{{vehicle.run}}</td>
-    </tr>
-    <tr>
-      <td i18n>Delay</td>
-      <td>{{(vehicle.delayed * 1000) | duration}}</td>
-    </tr>
-    <tr>
-      <td i18n>Last Seen</td>
-      <td>{{vehicle.time | relativeTime}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <ng-container *ngIf="lookupLine(vehicle.line) as line; else rawLine">
+    <div>
+      <span i18n>Line</span>
+      <span>{{line.name}}</span>
+    </div>
+    <div *ngIf="line.description">
+      <span i18n>Description</span>
+      <span>{{line.description}}</span>
+    </div>
+    <div>
+      <span i18n>Type</span>
+      <span>{{type(line.type)}}</span>
+    </div>
+  </ng-container>
+  <ng-template #rawLine>
+    <div>
+      <span i18n>Raw Line</span>
+      <span>{{vehicle.line}}</span>
+    </div>
+  </ng-template>
+  <div>
+    <span i18n>Run</span>
+    <span>{{vehicle.run}}</span>
+  </div>
+  <div>
+    <span i18n>Delay</span>
+    <span>{{(vehicle.delayed * 1000) | duration}}</span>
+  </div>
+  <div>
+    <span i18n>Last Seen</span>
+    <span>{{vehicle.time | relativeTime}}</span>
+  </div>
+  <div>
+    <span i18n>R09 Reporting Point</span>
+    <span><a
+      [routerLink]="'/region/0/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
+    </span>
+  </div>
+  <div>
+    <span i18n>R09 Destination</span>
+    <span>{{vehicle.r09_destination_number}}</span>
+  </div>
 </ng-container>

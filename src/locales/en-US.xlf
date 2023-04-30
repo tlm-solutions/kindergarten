@@ -489,7 +489,7 @@
         <source>Line</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">4</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
@@ -508,28 +508,28 @@
         <source>Description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8650499415827640724" datatype="html">
         <source>Type</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3084496895176221935" datatype="html">
         <source>Raw Line</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3759965007855499397" datatype="html">
         <source>Run</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">26,25</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
@@ -548,14 +548,28 @@
         <source>Delay</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3856193213296741054" datatype="html">
         <source>Last Seen</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="966539158225384026" datatype="html">
+        <source>R09 Reporting Point</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7759700486022123743" datatype="html">
+        <source>R09 Destination</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8931291953507502185" datatype="html">

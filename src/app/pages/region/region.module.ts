@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
 import {RegionMapComponent} from './region-map/region-map.component';
+import {RegionReportingPointViewComponent} from './region-reporting-point-view/region-reporting-point-view.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {RegionMapComponent} from './region-map/region-map.component';
     RegionListComponent,
     RegionViewComponent,
     RegionEditComponent,
-    RegionMapComponent
+    RegionMapComponent,
+    RegionReportingPointViewComponent,
   ],
   imports: [
     CommonModule,

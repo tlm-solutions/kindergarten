@@ -14,6 +14,8 @@ export interface Data {
   line: number,
   run: number,
   delayed: number,
+  r09_reporting_point: number;
+  r09_destination_number: number;
 }
 
 export interface WsData {
@@ -26,6 +28,8 @@ export interface WsData {
   line: number,
   run: number,
   delayed: number,
+  r09_reporting_point: number;
+  r09_destination_number: number;
 }
 
 export interface LizardData {
@@ -38,6 +42,8 @@ export interface LizardData {
   line: number,
   run: number,
   delayed: number,
+  r09_reporting_point: number;
+  r09_destination_number: number;
 }
 
 @Injectable({
@@ -69,6 +75,8 @@ export class NetworkService {
           line: data.line,
           run: data.run,
           delayed: data.delayed,
+          r09_reporting_point: data.r09_reporting_point,
+          r09_destination_number: data.r09_destination_number,
         }))),
         tap(data => data.forEach(data => this.receive(data)))
       );
@@ -86,6 +94,8 @@ export class NetworkService {
           line: data.line,
           run: data.run,
           delayed: data.delayed,
+          r09_reporting_point: data.r09_reporting_point,
+          r09_destination_number: data.r09_destination_number,
         })),
         tap(data => this.receive(data))
       );
