@@ -12,13 +12,9 @@ export class RegionReportingPointViewComponent {
 
   private readonly params = this.route.params.pipe(map(({id, rid}) => ({id, rid})));
 
-  protected reportingPoint = this.params.pipe(
+  protected reportingPoints = this.params.pipe(
     switchMap(({id, rid}) => this.regionService.getReportingPoint(id, rid)),
     share(),
-  );
-
-  protected readonly reportingPointCoordinates = this.reportingPoint.pipe(
-    map(points => points.map(point => ([point.lon, point.lat])))
   );
 
   constructor(

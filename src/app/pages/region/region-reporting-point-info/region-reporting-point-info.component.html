@@ -1,0 +1,30 @@
+<ng-container *ngIf="reportingPointRaw">
+  <div>
+    <span i18n>Reporting Point</span>
+    <span>{{reportingPointRaw.reporting_point}}</span>
+  </div>
+  <div>
+    <span i18n>Lat</span>
+    <span>{{reportingPointRaw.lat}}</span>
+  </div>
+  <div>
+    <span i18n>Lon</span>
+    <span>{{reportingPointRaw.lon}}</span>
+  </div>
+  <div>
+    <span i18n>Run</span>
+    <span>
+      <a [routerLink]="'/track/' + reportingPointRaw.trekkie_run">
+        {{ reportingPointRaw.trekkie_run }}
+      </a>
+    </span>
+  </div>
+  <div>
+    <span i18n>Run Owner</span>
+    <span>
+      <a [routerLink]="'/user/' + reportingPointRaw.run_owner">
+        {{ (getUser(reportingPointRaw.run_owner) | async)?.name }}
+      </a>
+    </span>
+  </div>
+</ng-container>

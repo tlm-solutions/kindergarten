@@ -147,7 +147,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
       setTimeout(() => {
         const extent = this.features.getExtent();
         if (extent.length !== 0) {
-          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20]})
+          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20], maxZoom: 20})
         }
       });
     }

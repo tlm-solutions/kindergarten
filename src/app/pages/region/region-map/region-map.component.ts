@@ -66,7 +66,7 @@ export class RegionMapComponent implements OnChanges {
         view.setCenter(markers[0]);
         view.setZoom(1);
       } else {
-        this.map.getView().fit(this.features.getExtent(), {padding: [10, 10, 10, 10]});
+        this.map.getView().fit(this.features.getExtent(), {padding: [10, 10, 10, 10], maxZoom: 20});
       }
     }
   }

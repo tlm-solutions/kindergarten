@@ -115,14 +115,14 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
         return feature;
       }));
 
-      this.map?.getView().fit(this.features.getExtent());
+      this.map?.getView().fit(this.features.getExtent(), {maxZoom: 20});
     }
 
     if (update) {
       setTimeout(() => {
         const extent = this.features.getExtent();
         if (extent.length !== 0) {
-          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20]})
+          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20], maxZoom: 20})
         }
       });
     }

@@ -13,6 +13,8 @@ import {TextFieldComponent} from "../../core/components/text-field/text-field.co
 import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
 import {RegionMapComponent} from './region-map/region-map.component';
 import {RegionReportingPointViewComponent} from './region-reporting-point-view/region-reporting-point-view.component';
+import { RegionReportingPointViewMapComponent } from './region-reporting-point-view-map/region-reporting-point-view-map.component';
+import { RegionReportingPointInfoComponent } from './region-reporting-point-info/region-reporting-point-info.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {RegionReportingPointViewComponent} from './region-reporting-point-view/r
     RegionEditComponent,
     RegionMapComponent,
     RegionReportingPointViewComponent,
+    RegionReportingPointViewMapComponent,
+    RegionReportingPointInfoComponent,
   ],
   imports: [
     CommonModule,

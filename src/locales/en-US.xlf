@@ -532,6 +532,10 @@
           <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
@@ -830,6 +834,10 @@
           <context context-type="linenumber">12,11</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
           <context context-type="linenumber">7,6</context>
         </context-group>
@@ -847,6 +855,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
           <context context-type="linenumber">13,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -956,6 +968,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/user/user-view/user-view.component.html</context>
           <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3912795977127385572" datatype="html">
+        <source>Reporting Point</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7554537083897958068" datatype="html">
+        <source>Run Owner</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3518484868494312029" datatype="html">
