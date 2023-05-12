@@ -1,21 +1,19 @@
 <ng-container *ngIf="reportingPointRaw">
   <div>
-    <span i18n>Reporting Point</span>
-    <span>{{reportingPointRaw.reporting_point}}</span>
-  </div>
-  <div>
     <span i18n>Lat</span>
-    <span>{{reportingPointRaw.lat}}</span>
+    <span>{{roundLatLon(reportingPointRaw.lat)}}°</span>
   </div>
   <div>
     <span i18n>Lon</span>
-    <span>{{reportingPointRaw.lon}}</span>
+    <span>{{roundLatLon(reportingPointRaw.lon)}}°</span>
   </div>
   <div>
     <span i18n>Run</span>
     <span>
       <a [routerLink]="'/track/' + reportingPointRaw.trekkie_run">
-        {{ reportingPointRaw.trekkie_run }}
+        <ng-container *ngIf="track | async as track">
+          {{track.line}}/{{track.run}} {{track.start_time | date:'short'}}
+        </ng-container>
       </a>
     </span>
   </div>
