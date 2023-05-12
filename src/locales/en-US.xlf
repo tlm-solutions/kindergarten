@@ -221,21 +221,21 @@
         <source> a small group of students, currently consisting of Marenz, Tassilo and 0xA, that ended up getting seriously nerdsniped by something that started off as a small side-project during lockdown. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">6,8</context>
+          <context context-type="linenumber">5,8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="995129051511212178" datatype="html">
         <source> Our aim is to collect reliable real time information about public transport and make it available to everyone in a straightforward way. We are convinced that open data for commonly shared infrastructure will help contribute to a more efficient and safe state of operation. Check out the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/map&quot;&gt;"/>map<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to see what we’ve built so far. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">10,14</context>
+          <context context-type="linenumber">9,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7611673357542102353" datatype="html">
         <source> The data is gathered by a network of radio receivers we have distributed across the city which collect the signals sent out by public transport vehicles. As for now we’ve focused mainly on Dresden for obvious reasons but we’d love to broaden our scope to include further cities in Germany and already have taken this into consideration in our code stack. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">16,22</context>
+          <context context-type="linenumber">15,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1185891688104505134" datatype="html">
@@ -243,7 +243,7 @@
       href=&quot;https://www.amazon.de/hz/wishlist/ls/379ZEGSLTRYWL?ref_=wl_share&quot;&gt;"/>Amazon Wishlist<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. &lt;3 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">24,30</context>
+          <context context-type="linenumber">23,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2043658407758078074" datatype="html">
@@ -251,7 +251,7 @@
       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">32,35</context>
+          <context context-type="linenumber">31,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8502442568515310314" datatype="html">
@@ -328,7 +328,7 @@
         <source> Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/stasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Stasi (Standortverfolgungssystem für Straßenbahnen mit Identifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">73,76</context>
+          <context context-type="linenumber">72,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8467915751983418615" datatype="html">
@@ -426,14 +426,14 @@
         <source> E-Mail is required! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">13,14</context>
+          <context context-type="linenumber">12,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="858387669412276474" datatype="html">
         <source> Password is required! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">19,20</context>
+          <context context-type="linenumber">18,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6570363013146073520" datatype="html">
@@ -454,14 +454,14 @@
         <source> GitHub </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">38,39</context>
+          <context context-type="linenumber">37,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2946606238846263830" datatype="html">
         <source> Matrix </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">42,43</context>
+          <context context-type="linenumber">41,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3110537276391892305" datatype="html">
@@ -475,7 +475,7 @@
         <source> Documentation </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">47,49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1544834877495722288" datatype="html">
@@ -541,11 +541,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
-          <context context-type="linenumber">18,17</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">28,27</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1418101411356139094" datatype="html">
@@ -625,7 +625,7 @@
         <source>Id</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
-          <context context-type="linenumber">7,6</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8953033926734869941" datatype="html">
@@ -636,7 +636,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
-          <context context-type="linenumber">5,4</context>
+          <context context-type="linenumber">4</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
@@ -644,7 +644,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">6,5</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -831,7 +831,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
-          <context context-type="linenumber">12,11</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
@@ -839,11 +839,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
-          <context context-type="linenumber">7,6</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
-          <context context-type="linenumber">53,52</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6081208410504565944" datatype="html">
@@ -854,7 +854,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
-          <context context-type="linenumber">13,12</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
@@ -862,11 +862,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
-          <context context-type="linenumber">8,7</context>
+          <context context-type="linenumber">7</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
-          <context context-type="linenumber">57,56</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6421460271971606186" datatype="html">
@@ -895,15 +895,15 @@
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
-          <context context-type="linenumber">20,19</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">44,43</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
-          <context context-type="linenumber">22,21</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
@@ -1095,7 +1095,7 @@
         <source>Radio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">35,34</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1242,11 +1242,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
-          <context context-type="linenumber">14,13</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">12,11</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="340430316261570792" datatype="html">
@@ -1339,11 +1339,11 @@
         <source>Age</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
-          <context context-type="linenumber">15,14</context>
+          <context context-type="linenumber">14</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
-          <context context-type="linenumber">16,15</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7410432243549869948" datatype="html">
