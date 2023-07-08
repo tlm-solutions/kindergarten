@@ -16,8 +16,8 @@ import Stroke from "ol/style/Stroke";
 const MARKER_STYLE = new Style({
   image: new Circle({
     radius: 6,
-    fill: new Fill({color: 'rgb(117,27,185, 0.9)'}),
-    stroke: new Stroke({color: '#9e32ef'})
+    fill: new Fill({color: '#FFD700'}),
+    stroke: new Stroke({color: '#DAA520'})
   }),
 });
 

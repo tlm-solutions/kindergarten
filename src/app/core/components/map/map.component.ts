@@ -41,7 +41,7 @@ const LINE_STYLE = new Style({
 
 const HIGHLIGHTED_LINE_STYLE = new Style({
   stroke: new Stroke({
-    color: '#9e32ef',
+    color: '#DAA520',
     width: 5
   })
 });

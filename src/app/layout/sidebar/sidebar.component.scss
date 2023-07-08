@@ -29,6 +29,9 @@ nav {
 
     &:hover, &.active {
       background-color: $primary;
+      .icon {
+        fill: $secondary-dark;
+      }
     }
   }
 }

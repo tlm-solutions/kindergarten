@@ -9,7 +9,7 @@
   transition: 150ms transform ease-in-out;
   background: radial-gradient(
       150rem circle at var(--xPos) var(--yPos),
-      rgba(158, 50, 239, 0.4),
+      rgba(255, 215, 0, 0.4),
       transparent 15%
   );
 
@@ -25,7 +25,7 @@
     border-radius: inherit;
     background: radial-gradient(
         60rem circle at var(--xPos) var(--yPos),
-        rgba(158, 50, 239, 0.2),
+        rgba(255, 215, 0, 0.2),
         transparent 35%
     );
     opacity: 0;
