@@ -640,7 +640,7 @@
       </trans-unit>
       <trans-unit id="2603460409287135168" datatype="html">
         <source>The <x id="PH" equiv-text="this.pluralName"/> cache could not be updated. See browser console for more details.</source>
-        <target state="translated">Server ist nicht erreichbar.</target>
+        <target state="translated">Der <x id="PH" equiv-text="this.pluralName"/>-Zwischenspeicher konnte nicht aktualisiert werden. Schaue in die Browser Konsole für mehr Details.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/crud/small-cached-crud.service.ts</context>
           <context context-type="linenumber">139</context>
@@ -1004,6 +1004,394 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
           <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2228755577316312691" datatype="html">
+        <source>Telegram Decoder Version</source>
+        <target state="translated">Telegramdekoderversion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7554537083897958068" datatype="html">
+        <source>Run Owner</source>
+        <target state="translated">Laufbesitzer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8314090883669143391" datatype="html">
+        <source>Latitude</source>
+        <target state="translated">Breitengrad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5017068061369085520" datatype="html">
+        <source>Elevation</source>
+        <target state="translated">Höhe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1005749890439494214" datatype="html">
+        <source>Antenna</source>
+        <target state="translated">Antenne</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3115301038774390300" datatype="html">
+        <source>Track was successfully deleted.</source>
+        <target state="translated">Die Route wurde erfolgreich gelöscht.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3070945081801146031" datatype="html">
+        <source>App Name</source>
+        <target state="translated">App Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2487057515755918351" datatype="html">
+        <source>Data points</source>
+        <target state="translated">Datenpunkte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6396865794537195956" datatype="html">
+        <source>App Commit</source>
+        <target state="needs-translation">App Commit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4683516283199787368" datatype="html">
+        <source>Recorrelate</source>
+        <target state="translated">Rekorrelieren</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2043658407758078074" datatype="html">
+        <source>We also look for people willing to participate in building up the radio receiver-network, so if you would like to own a pretty little window decoration that listens to public broadcasts, shoot us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
+        <target state="translated">Wir suchen aktuell auch Leuten, welche bereit sind, uns beim Ausbau des Radioempfängernetzwerks zu unterstützen. Wenn du also noch eine kleine Fensterdekoration suchst, schreib uns eine Nachricht an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
+          <context context-type="linenumber">31,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4224106337954102965" datatype="html">
+        <source>Latitude is required!</source>
+        <target state="translated">Der Breitengrad muss gesetzt werden!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5174359152122758396" datatype="html">
+        <source>Longitude</source>
+        <target state="translated">Längengrad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8966840175129431170" datatype="html">
+        <source>Longitude is required!</source>
+        <target state="translated">Der Längengrad muss gesetzt werden!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3676850495488145564" datatype="html">
+        <source>Offset</source>
+        <target state="translated">Versatz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <target state="translated">Dashboard</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8904191913870549717" datatype="html">
+        <source>Transit Live Mapping Solutions</source>
+        <target state="translated">Transit Live Mapping Solutions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4148101982802391411" datatype="html">
+        <source>Amazon Wishlist</source>
+        <target state="translated">Amazon Wunschzettel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2382586004651960438" datatype="html">
+        <source>Ko-fi</source>
+        <target state="translated">Ko-fi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="598315384553444660" datatype="html">
+        <source>Kindergarten Login</source>
+        <target state="translated">Kindergarten Anmeldung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5028777105388019087" datatype="html">
+        <source>Details</source>
+        <target state="translated">Details</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/user-list/user-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/user-list/user-list.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6628134530761460903" datatype="html">
+        <source>Transport Company</source>
+        <target state="translated">Verkehrsbetrieb</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5223235322022344945" datatype="html">
+        <source>Encoding</source>
+        <target state="translated">Enkodierung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8973363171099286448" datatype="html">
+        <source>Lat</source>
+        <target state="translated">Lat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6081208410504565944" datatype="html">
+        <source>Lon</source>
+        <target state="translated">Lon</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-reporting-point-info/region-reporting-point-info.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5906272961955453157" datatype="html">
+        <source>Approved</source>
+        <target state="translated">Angenommen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8331204292092693335" datatype="html">
+        <source>Hardware</source>
+        <target state="translated">Hardware</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <target state="translated">Lädt...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/user-view/user-view.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="340430316261570792" datatype="html">
+        <source>Finished</source>
+        <target state="translated">Abgeschlossen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2438106536980758589" datatype="html">
+        <source>Correlated</source>
+        <target state="translated">Korreliert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1321458102106629196" datatype="html">
+        <source>Trim x data points from the start</source>
+        <target state="translated">X Datenpunkte vom Start trimmen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1488926346772772444" datatype="html">
+        <source>Trim x data points from the end</source>
+        <target state="translated">X Datenpunkte vom Ende trimmen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5104021536467408977" datatype="html">
+        <source>Track was successfully updated.</source>
+        <target state="translated">Route wurde erfolgreich aktualisiert.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5851414638365189550" datatype="html">
+        <source>Failed to update track: <x id="PH" equiv-text="err"/></source>
+        <target state="translated">Fehler beim aktualisieren der Route: <x id="PH" equiv-text="err"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2485969382829178841" datatype="html">
+        <source>Limit</source>
+        <target state="translated">Limit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/track/track-list/track-list.component.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
     </body>
