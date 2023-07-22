@@ -1,4 +1,13 @@
-import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewContainerRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewContainerRef
+} from '@angular/core';
 import VectorSource from "ol/source/Vector";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -27,7 +36,8 @@ const MARKER_STYLE = new Style({
 @Component({
   selector: 'app-region-reporting-point-view-map',
   templateUrl: './region-reporting-point-view-map.component.html',
-  styleUrls: ['./region-reporting-point-view-map.component.scss']
+  styleUrls: ['./region-reporting-point-view-map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
 

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NetworkService} from "../../../data/network/network.service";
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs";
@@ -8,7 +8,8 @@ import {Line, Type} from "../../../data/region/region.domain";
 @Component({
   selector: 'app-map-vehicle-info',
   templateUrl: './map-vehicle-info.component.html',
-  styleUrls: ['./map-vehicle-info.component.scss']
+  styleUrls: ['./map-vehicle-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapVehicleInfoComponent {
 

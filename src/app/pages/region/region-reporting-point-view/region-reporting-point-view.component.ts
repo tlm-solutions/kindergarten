@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {RegionService} from "../../../data/region/region.service";
@@ -6,7 +6,8 @@ import {RegionService} from "../../../data/region/region.service";
 @Component({
   selector: 'app-region-reporting-point-view',
   templateUrl: './region-reporting-point-view.component.html',
-  styleUrls: ['./region-reporting-point-view.component.scss']
+  styleUrls: ['./region-reporting-point-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegionReportingPointViewComponent {
 

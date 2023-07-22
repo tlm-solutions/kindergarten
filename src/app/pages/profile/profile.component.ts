@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AuthService} from "../../data/auth/auth.service";
 import {map, share, switchMap} from "rxjs";
 import {NotificationService} from "../../core/notification/notification.service";
@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent {
 

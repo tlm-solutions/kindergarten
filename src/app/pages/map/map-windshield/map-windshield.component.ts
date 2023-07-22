@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
@@ -75,7 +75,8 @@ const MAX_VEHICLE_AGE = 1000 * 60 * 5;
 @Component({
   selector: 'app-map-windshield',
   templateUrl: './map-windshield.component.html',
-  styleUrls: ['./map-windshield.component.scss']
+  styleUrls: ['./map-windshield.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 
