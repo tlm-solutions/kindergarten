@@ -29,4 +29,8 @@ label {
       transform: scale(1);
     }
   }
+
+  &:hover input {
+    background-color: $background-lighter;
+  }
 }
