@@ -35,7 +35,7 @@ $text-inverted: var(--color-text-inverted);
 $text-inverted-dark: var(--color-text-inverted-dark);
 
 $page-padding-tb: 1rem;
-$page-padding-lr: max(0.5rem, 2vw);
+$page-padding-lr: 1rem; //max(0.5rem, 2vw);
 
 
 $bp-mobile: 672px;

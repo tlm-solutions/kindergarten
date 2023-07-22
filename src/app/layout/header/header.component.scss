@@ -5,7 +5,8 @@ $space: 1rem;
 :host {
   display: flex;
   gap: $space;
-  padding: $space $space 0;
+  padding: $space $space #{$space*0.5};
+  border-bottom: 0.1rem solid $background-lighter;
   align-items: center;
 
   button {

@@ -22,6 +22,15 @@
       height: 20rem;
       width: auto;
     }
+
+    @media screen and (max-width: $bp-mobile) {
+      flex-direction: column;
+
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+    }
   }
 }
 
