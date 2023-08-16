@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {webSocket} from "rxjs/webSocket";
 import {HttpClient} from "@angular/common/http";
 import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
-import {BehaviorSubject, map, Observable, tap} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, retry, tap, throwError} from "rxjs";
 
 export interface Data {
   id: number,
@@ -78,13 +78,18 @@ export class NetworkService {
           r09_reporting_point: data.r09_reporting_point,
           r09_destination_number: data.r09_destination_number,
         }))),
-        tap(data => data.forEach(data => this.receive(data)))
+        tap(data => this.receive(...data))
       );
   }
 
   public sub(): Observable<Data> {
     return webSocket<WsData>(SOCKET_BASE_PATH)
       .pipe(
+        catchError(err => {
+          console.error("Websocket Error:", err);
+          return throwError(() => err);
+        }),
+        retry({delay: 1000}),
         map<WsData, Data>(data => ({
           id: Number(data.id),
           time: Number(data.time),
@@ -101,15 +106,18 @@ export class NetworkService {
       );
   }
 
-  private receive(data: Data): void {
+  private receive(...data: Data[]): void {
     const vehicles = [...this.vehicles.value];
-    const idx = vehicles.findIndex(vehicle => vehicle.line === data.line && vehicle.run === data.run);
 
-    if (idx >= 0) {
-      vehicles[idx] = data;
-    } else {
-      vehicles.push(data);
-    }
+    data.forEach(data => {
+      const idx = vehicles.findIndex(vehicle => vehicle.line === data.line && vehicle.run === data.run);
+
+      if (idx >= 0) {
+        vehicles[idx] = data;
+      } else {
+        vehicles.push(data);
+      }
+    });
 
     this.vehicles.next(vehicles);
   }
