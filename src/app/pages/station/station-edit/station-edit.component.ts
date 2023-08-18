@@ -6,7 +6,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
-import {NotificationService} from "../../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {RegionService} from "../../../data/region/region.service";
 
 @Component({

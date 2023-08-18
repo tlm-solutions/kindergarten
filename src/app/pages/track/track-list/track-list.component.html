@@ -1,9 +1,9 @@
 <section>
   <form [formGroup]="form">
-    <app-text-field formControlName="offset" i18n-label label="Offset" type="number"/>
-    <app-text-field formControlName="limit" i18n-label label="Limit" type="number"/>
-    <app-button (click)="prev()" i18n>Previous Page</app-button>
-    <app-button (click)="next()" i18n>Next Page</app-button>
+    <feel-text-field formControlName="offset" i18n-label label="Offset" type="number"/>
+    <feel-text-field formControlName="limit" i18n-label label="Limit" type="number"/>
+    <feel-button (click)="prev()" i18n>Previous Page</feel-button>
+    <feel-button (click)="next()" i18n>Next Page</feel-button>
   </form>
 
   <table>

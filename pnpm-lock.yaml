@@ -32,6 +32,15 @@ dependencies:
   '@angular/router':
     specifier: ^16.2.0
     version: 16.2.0(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/platform-browser@16.2.0)(rxjs@7.8.1)
+  '@feel/form':
+    specifier: ^0.0.1
+    version: 0.0.1(@angular/cdk@16.2.0)(@angular/common@16.2.0)(@angular/core@16.2.0)(@feel/style@0.0.1)
+  '@feel/notification':
+    specifier: ^0.0.1
+    version: 0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0)(@feel/style@0.0.1)
+  '@feel/style':
+    specifier: ^0.0.1
+    version: 0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0)
   '@fontsource/dm-sans':
     specifier: ^5.0.9
     version: 5.0.9
@@ -2126,6 +2135,45 @@ packages:
     resolution: {integrity: sha512-P6omY1zv5MItm93kLM8s2vr1HICJH8v0dvddDhysbIuZ+vcjOHg5Zbkf1mTkcmi2JA9oBG2anOkRnW8WJTS8Og==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@feel/form@0.0.1(@angular/cdk@16.2.0)(@angular/common@16.2.0)(@angular/core@16.2.0)(@feel/style@0.0.1):
+    resolution: {integrity: sha512-avbedqqK4D8GnsQ77mosWuLSSHiMfsiSOjKWL0BNrZHmxkFz8GWDq6JfodaxxfYU9CVjoZ8oh3Gc0gW5u0onAQ==, tarball: https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fform/-/0.0.1/form-0.0.1.tgz}
+    peerDependencies:
+      '@angular/cdk': ^16.0.0
+      '@angular/common': ^16.0.0
+      '@angular/core': ^16.0.0
+      '@feel/style': 0.0.1
+    dependencies:
+      '@angular/cdk': 16.2.0(@angular/common@16.2.0)(@angular/core@16.2.0)(rxjs@7.8.1)
+      '@angular/common': 16.2.0(@angular/core@16.2.0)(rxjs@7.8.1)
+      '@angular/core': 16.2.0(rxjs@7.8.1)(zone.js@0.13.1)
+      '@feel/style': 0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0)
+      tslib: 2.6.1
+    dev: false
+
+  /@feel/notification@0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0)(@feel/style@0.0.1):
+    resolution: {integrity: sha512-AqPiJxjS5gqd+CyrBIcnf1GwZBQEtp/goo1OeCDzCpgDsY7Ar6mR5pcsARXlVhpusyc0jj8o/IhpL8oqgoEwdw==, tarball: https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fnotification/-/0.0.1/notification-0.0.1.tgz}
+    peerDependencies:
+      '@angular/common': ^16.0.0
+      '@angular/core': ^16.0.0
+      '@feel/style': 0.0.1
+    dependencies:
+      '@angular/common': 16.2.0(@angular/core@16.2.0)(rxjs@7.8.1)
+      '@angular/core': 16.2.0(rxjs@7.8.1)(zone.js@0.13.1)
+      '@feel/style': 0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0)
+      tslib: 2.6.1
+    dev: false
+
+  /@feel/style@0.0.1(@angular/common@16.2.0)(@angular/core@16.2.0):
+    resolution: {integrity: sha512-K1QlJpbH6lmnC2Qmq1y0UJfu3JoqOHpS1CPTx//e3rGFb9Wacz2zxUuhC6rQMHy1T6Ubd/pX7Ahkls33diWX2Q==, tarball: https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fstyle/-/0.0.1/style-0.0.1.tgz}
+    peerDependencies:
+      '@angular/common': ^16.0.0
+      '@angular/core': ^16.0.0
+    dependencies:
+      '@angular/common': 16.2.0(@angular/core@16.2.0)(rxjs@7.8.1)
+      '@angular/core': 16.2.0(rxjs@7.8.1)(zone.js@0.13.1)
+      tslib: 2.6.1
+    dev: false
 
   /@fontsource/dm-sans@5.0.9:
     resolution: {integrity: sha512-DdnfTba2Xsk0cQSKiJCiUmrdfLtP/rT/pfb66FxzI+jq4tXNc74oHNTvBgHaZ19gvuxo3Pr/YnPrtDQjsnj6kw==}

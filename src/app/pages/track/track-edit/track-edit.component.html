@@ -1,25 +1,25 @@
 <form (submit)="save(); $event.preventDefault()" [formGroup]="form">
   <section>
     <h1 i18n>General</h1>
-    <app-text-field formControlName="start_time" i18n-label label="Start" type="datetime-local"/>
-    <app-text-field formControlName="end_time" i18n-label label="End" type="datetime-local"/>
-    <app-text-field formControlName="line" i18n-label label="Line" type="number"/>
-    <app-text-field formControlName="run" i18n-label label="Run" type="number"/>
-    <app-text-field formControlName="region" i18n-label label="Region" type="number"/>
+    <feel-text-field formControlName="start_time" i18n-label label="Start" type="datetime-local"/>
+    <feel-text-field formControlName="end_time" i18n-label label="End" type="datetime-local"/>
+    <feel-text-field formControlName="line" i18n-label label="Line" type="number"/>
+    <feel-text-field formControlName="run" i18n-label label="Run" type="number"/>
+    <feel-text-field formControlName="region" i18n-label label="Region" type="number"/>
 
-    <app-checkbox formControlName="finished" i18n-label label="Finished"/>
-    <app-checkbox formControlName="correlated" i18n-label label="Correlated"/>
+    <feel-checkbox formControlName="finished" i18n-label label="Finished"/>
+    <feel-checkbox formControlName="correlated" i18n-label label="Correlated"/>
   </section>
 
   <section>
     <h1>Trim</h1>
-    <app-text-field formControlName="trim_start" i18n-label label="Trim x data points from the start" type="number"/>
-    <app-text-field formControlName="trim_end" i18n-label label="Trim x data points from the end" type="number"/>
+    <feel-text-field formControlName="trim_start" i18n-label label="Trim x data points from the start" type="number"/>
+    <feel-text-field formControlName="trim_end" i18n-label label="Trim x data points from the end" type="number"/>
   </section>
 
   <div class="buttons">
-    <app-button i18n-label label="Save"/>
-    <app-button flavor="danger" i18n-label label="Cancel" link=".."/>
+    <feel-button i18n-label label="Save"/>
+    <feel-button flavor="danger" i18n-label label="Cancel" link=".."/>
   </div>
 </form>
 

@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BehaviorSubject, combineLatest, filter, map, share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NotificationService} from "../../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {TrackService} from "../../../data/track/track.service";
 import {Coordinate} from "ol/coordinate";
 import {GpsEntry} from "../../../data/track/track.domain";

@@ -8,7 +8,7 @@ import {RegionService} from "../../../data/region/region.service";
 import {UserService} from "../../../data/user/user.service";
 import {GpsEntry, TrackId} from "../../../data/track/track.domain";
 import {Coordinate} from "ol/coordinate";
-import {NotificationService} from "../../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 
 @Component({
   selector: 'app-track-view',

@@ -8,21 +8,21 @@
   <span *ngIf="(loading | async) === false && (wrongCredentials | async)" class="error" i18n>Wrong credentials</span>
 
   <form (submit)="login(); $event.preventDefault()" [formGroup]="form">
-    <app-text-field formControlName="email" label="E-Mail">
-      <app-error *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']" i18n>
+    <feel-text-field formControlName="email" label="E-Mail">
+      <feel-form-error *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']" i18n>
         E-Mail is required!
-      </app-error>
-    </app-text-field>
+      </feel-form-error>
+    </feel-text-field>
 
-    <app-text-field formControlName="password" label="Password" type="password">
-      <app-error *ngIf="form.controls.password.touched && form.controls.password.errors?.['required']" i18n>
+    <feel-text-field formControlName="password" label="Password" type="password">
+      <feel-form-error *ngIf="form.controls.password.touched && form.controls.password.errors?.['required']" i18n>
         Password is required!
-      </app-error>
-    </app-text-field>
+      </feel-form-error>
+    </feel-text-field>
 
     <div class="controls">
       <a i18n routerLink="/dashboard">Dashboard</a>
-      <app-button [disabled]="loading | async" class="submit" label="Login"/>
+      <feel-button [disabled]="loading | async" class="submit" label="Login"/>
     </div>
   </form>
 </section>

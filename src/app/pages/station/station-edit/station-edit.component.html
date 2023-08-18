@@ -2,46 +2,46 @@
 
   <section>
     <h1 i18n>General</h1>
-    <app-text-field formControlName="name" i18n-label label="Name">
-      <app-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is required!
-      </app-error>
-    </app-text-field>
+    <feel-text-field formControlName="name" i18n-label label="Name">
+      <feel-form-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is required!
+      </feel-form-error>
+    </feel-text-field>
 
-    <app-checkbox formControlName="approved" i18n-label label="Approved"/>
-    <app-checkbox formControlName="deactivated" i18n-label label="Deactivated"/>
-    <app-checkbox formControlName="public" i18n-label label="Public"/>
+    <feel-checkbox formControlName="approved" i18n-label label="Approved"/>
+    <feel-checkbox formControlName="deactivated" i18n-label label="Deactivated"/>
+    <feel-checkbox formControlName="public" i18n-label label="Public"/>
 
-    <app-text-field formControlName="notes" i18n-label label="Notes" type="multiline"/>
+    <feel-text-field formControlName="notes" i18n-label label="Notes" type="multiline"/>
   </section>
 
   <section>
     <h1>Location</h1>
-    <app-text-field formControlName="lat" i18n-label label="Latitude" type="number">
-      <app-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is required!
-      </app-error>
-    </app-text-field>
-    <app-text-field formControlName="lon" i18n-label label="Longitude" type="number">
-      <app-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is required!
-      </app-error>
-    </app-text-field>
-    <app-text-field formControlName="elevation" i18n-label label="Elevation" type="number"/>
-    <app-text-field formControlName="region" i18n-label label="Region" type="number"/>
+    <feel-text-field formControlName="lat" i18n-label label="Latitude" type="number">
+      <feel-form-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is required!
+      </feel-form-error>
+    </feel-text-field>
+    <feel-text-field formControlName="lon" i18n-label label="Longitude" type="number">
+      <feel-form-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is required!
+      </feel-form-error>
+    </feel-text-field>
+    <feel-text-field formControlName="elevation" i18n-label label="Elevation" type="number"/>
+    <feel-text-field formControlName="region" i18n-label label="Region" type="number"/>
   </section>
 
   <section>
     <h1>Hardware</h1>
 
-    <app-text-field formControlName="radio" i18n-label label="Radio"/>
-    <app-text-field formControlName="architecture" i18n-label label="Architecture"/>
-    <app-text-field formControlName="device" i18n-label label="Device"/>
-    <app-text-field formControlName="antenna" i18n-label label="Antenna"/>
+    <feel-text-field formControlName="radio" i18n-label label="Radio"/>
+    <feel-text-field formControlName="architecture" i18n-label label="Architecture"/>
+    <feel-text-field formControlName="device" i18n-label label="Device"/>
+    <feel-text-field formControlName="antenna" i18n-label label="Antenna"/>
 
-    <app-text-field formControlName="telegram_decoder_version" i18n-label label="Telegram Decoder Version"/>
+    <feel-text-field formControlName="telegram_decoder_version" i18n-label label="Telegram Decoder Version"/>
   </section>
 
   <div class="buttons">
-    <app-button i18n-label label="Save"/>
-    <app-button flavor="danger" i18n-label label="Cancel" link=".."/>
+    <feel-button i18n-label label="Save"/>
+    <feel-button flavor="danger" i18n-label label="Cancel" link=".."/>
   </div>
 </form>
 

@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../data/auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BehaviorSubject, EMPTY, switchMap, take} from "rxjs";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 
 @Component({
   selector: 'app-login',

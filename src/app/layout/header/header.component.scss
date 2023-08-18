@@ -1,4 +1,4 @@
-@import "vars";
+@import "vars", "local-vars";
 
 $space: 1rem;
 
@@ -6,7 +6,7 @@ $space: 1rem;
   display: flex;
   gap: $space;
   padding: $space $space #{$space*0.5};
-  border-bottom: 0.1rem solid $background-lighter;
+  border-bottom: 0.1rem solid $c-card-secondary;
   align-items: center;
 
   button {

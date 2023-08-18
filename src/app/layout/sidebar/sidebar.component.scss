@@ -1,4 +1,4 @@
-@import "vars";
+@import "vars", "local-vars";
 
 .background {
   display: none;
@@ -9,7 +9,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  border-right: 0.1rem solid $background-lighter;
+  border-right: 0.1rem solid $c-card-secondary;
 
   ul {
     display: flex;
@@ -29,9 +29,10 @@ nav {
     }
 
     &:hover, &.active {
-      background-color: $primary;
+      background-color: $c-primary;
+
       .icon {
-        fill: $secondary-dark;
+        fill: $c-secondary-d;
       }
     }
   }
@@ -52,6 +53,6 @@ nav {
   nav {
     z-index: 100;
     position: relative;
-    background-color: $background;
+    background-color: $c-page;
   }
 }

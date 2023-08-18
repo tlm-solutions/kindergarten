@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RegionService} from "../../../data/region/region.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Encoding, RegionId} from "../../../data/region/region.domain";
-import {NotificationService} from "../../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 
 @Component({
   selector: 'app-region-edit',

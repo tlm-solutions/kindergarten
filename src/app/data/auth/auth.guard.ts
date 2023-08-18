@@ -2,7 +2,7 @@ import {CanActivateFn, Router} from "@angular/router";
 import {inject} from "@angular/core";
 import {AuthService} from "./auth.service";
 import {map, skip} from "rxjs";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 
 export const AUTH_CAN_ACTIVATE: CanActivateFn = (_, state) => {
   console.debug("Checking can activate, because of auth status.");

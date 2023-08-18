@@ -7,11 +7,8 @@ import {StationEditComponent} from './station-edit/station-edit.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {StationViewComponent} from './station-view/station-view.component';
 import {MapComponent} from "../../core/components/map/map.component";
-import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
-import {ButtonComponent} from "../../core/components/button/button.component";
-import {ErrorComponent} from "../../core/components/error/error.component";
 import {StationIconComponent} from "../../core/icons/station-icon/station-icon.component";
-import {CheckboxComponent} from "../../core/components/checkbox/checkbox.component";
+import {ButtonComponent, CheckboxComponent, FormErrorComponent, TextFieldComponent} from "@feel/form";
 
 @NgModule({
   declarations: [
@@ -26,9 +23,9 @@ import {CheckboxComponent} from "../../core/components/checkbox/checkbox.compone
     StationIconComponent,
     ReactiveFormsModule,
     MapComponent,
-    TextFieldComponent,
     ButtonComponent,
-    ErrorComponent,
+    TextFieldComponent,
+    FormErrorComponent,
     CheckboxComponent,
   ]
 })

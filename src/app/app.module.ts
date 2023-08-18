@@ -11,10 +11,10 @@ import {StationIconComponent} from "./core/icons/station-icon/station-icon.compo
 import {UserIconComponent} from "./core/icons/user-icon/user-icon.component";
 import {TrackIconComponent} from "./core/icons/track-icon/track-icon.component";
 import {ProfileIconComponent} from "./core/icons/profile-icon/profile-icon.component";
-import {NotificationModule} from "./core/notification/notification.module";
 import {MapIconComponent} from "./core/icons/map-icon/map-icon.component";
 import {HeaderComponent} from './layout/header/header.component';
 import {MenuIconComponent} from "./core/icons/menu-icon/menu-icon.component";
+import {NotificationListComponent} from "@feel/notification";
 
 @NgModule({
   declarations: [
@@ -33,9 +33,9 @@ import {MenuIconComponent} from "./core/icons/menu-icon/menu-icon.component";
     UserIconComponent,
     TrackIconComponent,
     ProfileIconComponent,
-    NotificationModule,
     MapIconComponent,
     MenuIconComponent,
+    NotificationListComponent,
   ],
   bootstrap: [AppComponent]
 })
