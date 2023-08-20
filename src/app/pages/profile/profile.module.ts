@@ -3,8 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfileComponent} from './profile.component';
 import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.component";
-import {ButtonComponent} from "../../core/components/button/button.component";
-import {TextFieldComponent} from "../../core/components/text-field/text-field.component";
+import {ButtonComponent} from "@feel/form";
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import {TextFieldComponent} from "../../core/components/text-field/text-field.co
     ProfileRoutingModule,
     ProfileIconComponent,
     ButtonComponent,
-    TextFieldComponent
   ]
 })
 export class ProfileModule {

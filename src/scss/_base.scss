@@ -7,7 +7,7 @@ a {
 }
 
 a:not(.not) {
-  border-bottom: 0.15rem solid $primary;
+  border-bottom: 0.15rem solid $c-primary;
   transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
 
   svg {
@@ -15,11 +15,11 @@ a:not(.not) {
   }
 
   &:hover {
-    background-color: $primary;
-    color: $secondary;
+    background-color: $c-primary;
+    color: $c-secondary;
 
     svg {
-      fill: $secondary;
+      fill: $c-secondary;
     }
   }
 }
@@ -27,8 +27,8 @@ a:not(.not) {
 section {
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 0.1rem solid $background-lighter;
-  background-color: $background-light;
+  border: 0.1rem solid $c-card-secondary;
+  background-color: $c-card;
 
   .header {
     display: flex;
@@ -42,39 +42,6 @@ h1, h2, h3, h4, h5, h6, p, .section {
   &:last-child {
     margin: 0;
   }
-}
-
-fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-
-  &:not(.not) {
-    $border: 0.125rem;
-
-    border: $border solid $background-dark;
-    padding: 1rem;
-    border-radius: 0.5rem;
-
-    > label {
-      position: absolute;
-      top: 0;
-      transform: translateY(calc(-50% - $border));
-      background: $background-light;
-      padding: 0 0.3rem;
-    }
-  }
-
-  > label {
-    font-weight: $font-weight-bold;
-  }
-}
-
-blockquote {
-  margin: 0;
-  padding-left: 0.5rem;
-  border-left: 0.15rem solid $text;
 }
 
 ul, ol {
@@ -93,7 +60,7 @@ table {
   }
 
   td {
-    border-top: 0.1rem solid $background-lighter;
+    border-top: 0.1rem solid $c-card-secondary;
 
     &:last-of-type {
       text-align: right;

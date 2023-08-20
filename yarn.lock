@@ -187,17 +187,17 @@
     "@angular-eslint/bundled-angular-compiler" "16.1.0"
     "@typescript-eslint/utils" "5.62.0"
 
-"@angular/animations@^16.2.0":
+"@angular/animations@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-16.2.1.tgz#cf50ebcedb63d4f043ed529042aa74aec6ce02aa"
   integrity sha512-XVabK9fRKJaYPhW5wn8ySL4KL45N5Np+xOssWhLPDRDBdZjl62MExfpvMkamdkos6E1n1IGsy9wSemjnR4WKhg==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.2.0.tgz#30931dbe1cfca2764f9e4b63d2b9d20029008db8"
-  integrity sha512-pOIXP15uQkl3bf7t0i25+0uBjkHkVmBgwOMlqE9imY4gGq7UswbZRYHaGudJITin2ASFqKDgKvwNRCBqfmjO4A==
+"@angular/cdk@16.2.1":
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.2.1.tgz#f191e16d36881a9d53e0ba461104457c68f36324"
+  integrity sha512-rRVdAdfuQ34Eq7na/q2SIO6Me2p/rtU2zeQOW6wrNf6KJfWSTbU6RvNw09cDygAQLp/WmwQvWLhkjWNWGDSf0w==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -227,14 +227,14 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^16.2.0":
+"@angular/common@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-16.2.1.tgz#ed475c55cf3c21360f6561cdc0794480c7e0d258"
   integrity sha512-druackA5JQpvfS8cD8DFtPRXGRKbhx3mQ778t1n6x3fXpIdGaAX+nSAgAKhIoF7fxWmu0KuHGzb+3BFlZRyTXw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/compiler-cli@^16.2.0":
+"@angular/compiler-cli@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-16.2.1.tgz#e55647004d23ff23a3cda547bfdfe01cdde17073"
   integrity sha512-A5SyNZTZnXSCL5JVXHKbYj9p2dRYoeFnb6hGQFt2AuCcpUjVIIdwHtre3YzkKe5sFwepPctdoRe2fRXlTfTRjA==
@@ -248,51 +248,51 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@^16.2.0":
+"@angular/compiler@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-16.2.1.tgz#26849828e9292d1833e95bb4e0b41ccbdbbb0b4a"
   integrity sha512-dPauu+ESn79d66U9nBvnunNuBk/UMqnm7iL9Q31J8OKYN/4vrKbsO57pmULOft/GRAYsE3FdLBH0NkocFZKIMQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^16.2.0":
+"@angular/core@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-16.2.1.tgz#a108bcf5bc500753aec03867a495840d72220698"
   integrity sha512-Y+0jssQnJPovxMv9cDKYlp6BBHeFBLOHd/+FPv5IIGD1c7NwBP/TImJxCaIV78a57xnO8L0SFacDg/kULzvKrg==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^16.2.0":
+"@angular/forms@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-16.2.1.tgz#d9223151cc2f7bad05baaba134bb793c4e5cb4be"
   integrity sha512-cCygiLfBAsVHdtKmNptlk2IgXu0wjRc8kSiiSnJkfK6U/NiNg8ADMiN7iYgKW2TD1ZRw+7dYZV856lxEy2n0+A==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/localize@16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-16.2.0.tgz#8dc70ff7518d1d74ca403b8ce845ddd23aeb8334"
-  integrity sha512-moFXa8WA71NH3mz5u7eNti+j/sgTWsI0V1ViaXDQeoB7YFMlkU6RwDIb4BzBa5irmsap3LoQA8QYm4R+kgYpTA==
+"@angular/localize@16.2.1":
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-16.2.1.tgz#f397070b98f291f195089176f8e40d93cd09a4c0"
+  integrity sha512-IMlDEuDNYtVTZ135ATm+YAksdCaFjkOsrtTPu3aIg08Dsyqw7awZ1lEmmmSpiflOqEfPjgHScLWhUMhER70aUg==
   dependencies:
     "@babel/core" "7.22.5"
     fast-glob "3.3.0"
     yargs "^17.2.1"
 
-"@angular/platform-browser-dynamic@^16.2.0":
+"@angular/platform-browser-dynamic@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-16.2.1.tgz#46804d112d210c5317972954a5f3db3ff9275363"
   integrity sha512-dKMCSrbD/joOMXM1mhDOKNDZ1BxwO9r9uu5ZxY0L/fWm/ousgMucNikLr38vBudgWM8CN6BuabzkxWKcqi3k4g==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^16.2.0":
+"@angular/platform-browser@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-16.2.1.tgz#c15de68d4d0675a2247c1e8eb2da11ff20eb8cee"
   integrity sha512-SH8zRiRAcw0B5/tVlEc5U/lN5F8g+JizSuu7BQvpCAQEDkM6IjF9LP36Bjav7JuadItbWLfT6peWYa1sJvax2w==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@^16.2.0":
+"@angular/router@^16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-16.2.1.tgz#26658d5af1dbce81ac32a3c1ddda93273c11e7eb"
   integrity sha512-C0WfcktsC25G37unxdH/5I7PbkVBSEB1o+0DJK9/HG97r1yzEkptF6fbRIzDBTS7dX0NfWN/PTAKF0ep7YlHvA==
@@ -1580,6 +1580,27 @@
   version "8.47.0"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.47.0.tgz#5478fdf443ff8158f9de171c704ae45308696c7d"
   integrity sha512-P6omY1zv5MItm93kLM8s2vr1HICJH8v0dvddDhysbIuZ+vcjOHg5Zbkf1mTkcmi2JA9oBG2anOkRnW8WJTS8Og==
+
+"@feel/form@^0.0.1":
+  version "0.0.1"
+  resolved "https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fform/-/0.0.1/form-0.0.1.tgz#c56861688128d3019ef9269dea62991148d19033"
+  integrity sha512-avbedqqK4D8GnsQ77mosWuLSSHiMfsiSOjKWL0BNrZHmxkFz8GWDq6JfodaxxfYU9CVjoZ8oh3Gc0gW5u0onAQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@feel/notification@^0.0.1":
+  version "0.0.1"
+  resolved "https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fnotification/-/0.0.1/notification-0.0.1.tgz#bcf7d21402101aef6f0e96d6374b2ed7f1289d61"
+  integrity sha512-AqPiJxjS5gqd+CyrBIcnf1GwZBQEtp/goo1OeCDzCpgDsY7Ar6mR5pcsARXlVhpusyc0jj8o/IhpL8oqgoEwdw==
+  dependencies:
+    tslib "^2.3.0"
+
+"@feel/style@^0.0.1":
+  version "0.0.1"
+  resolved "https://git.offsetting.dev/api/packages/offsetting/npm/%40feel%2Fstyle/-/0.0.1/style-0.0.1.tgz#f85d0800a5122208840d2f9ea4fa7d9b6efe651d"
+  integrity sha512-K1QlJpbH6lmnC2Qmq1y0UJfu3JoqOHpS1CPTx//e3rGFb9Wacz2zxUuhC6rQMHy1T6Ubd/pX7Ahkls33diWX2Q==
+  dependencies:
+    tslib "^2.3.0"
 
 "@fontsource/dm-sans@^5.0.9":
   version "5.0.9"
@@ -3554,9 +3575,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.477:
-  version "1.4.494"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.494.tgz#588f7a3d19d32a31f3a7e05d81b61d95d25b1555"
-  integrity sha512-KF7wtsFFDu4ws1ZsSOt4pdmO1yWVNWCFtijVYZPUeW4SV7/hy/AESjLn/+qIWgq7mHscNOKAwN5AIM1+YAy+Ww==
+  version "1.4.495"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.495.tgz#d72d2eddc05d07c538275a00f2619b113848bff6"
+  integrity sha512-mwknuemBZnoOCths4GtpU/SDuVMp3uQHKa2UNJT9/aVD6WVRjGpXOxRGX7lm6ILIenTdGXPSTCTDaWos5tEU8Q==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -5079,9 +5100,9 @@ jest-worker@^27.4.5:
     supports-color "^8.0.0"
 
 jiti@^1.18.2:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.19.1.tgz#fa99e4b76a23053e0e7cde098efe1704a14c16f1"
-  integrity sha512-oVhqoRDaBXf7sjkll95LHVS6Myyyb1zaunVwk4Z0+WPSW4gjS0pl01zYKHScTuyEhQsFxV5L4DR5r+YqSyqyyg==
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.19.3.tgz#ef554f76465b3c2b222dc077834a71f0d4a37569"
+  integrity sha512-5eEbBDQT/jF1xg6l36P+mWGGoH9Spuy0PCdSr2dtWRDGC6ph/w9ZCL4lmESW8f8F7MwT3XKescfP0wnZWAKL9w==
 
 js-tokens@^4.0.0:
   version "4.0.0"

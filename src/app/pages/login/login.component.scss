@@ -12,7 +12,7 @@
     display: block;
     width: 5rem;
     height: 5rem;
-    fill: $primary;
+    fill: $c-primary;
   }
 
   section {
@@ -30,7 +30,7 @@
     }
 
     .error {
-      color: $danger;
+      color: $c-danger;
       text-align: center;
       margin-bottom: 0.5rem;
       margin-top: -0.5rem;

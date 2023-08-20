@@ -2,7 +2,7 @@ import {inject, NgModule} from '@angular/core';
 import {CanActivateFn, Router, RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login.component';
 import {AuthService} from "../../data/auth/auth.service";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {map, skip} from "rxjs";
 
 const FN: CanActivateFn = route => {

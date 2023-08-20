@@ -2,7 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {BehaviorSubject, Observable, Subscription, tap} from "rxjs";
 import {AuthResponse, LoginResponse} from "./auth.data";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {RegionService} from "../region/region.service";
 import {StationService} from "../station/station.service";
 import {TrackService} from "../track/track.service";

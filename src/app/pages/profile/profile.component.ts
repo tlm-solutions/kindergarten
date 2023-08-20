@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AuthService} from "../../data/auth/auth.service";
 import {map, share, switchMap} from "rxjs";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {Router} from "@angular/router";
 
 @Component({

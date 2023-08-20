@@ -48,11 +48,13 @@
               "node_modules/@fontsource/dm-sans/700-italic.css",
               "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/ol/ol.css",
+              "node_modules/@feel/style/main.scss",
               "src/styles.scss"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "node_modules/@feel/style/global",
                 "src/scss/global"
               ]
             }
@@ -96,8 +98,8 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "sslCert": "G:\\Work\\tools\\scripts\\local_dvb_solutions.cer",
-            "sslKey": "G:\\Work\\tools\\scripts\\local_dvb_solutions.key"
+            "sslCert": "/home/marcel/IdeaProjects/scripts/local_dvb_solutions.cer",
+            "sslKey": "/home/marcel/IdeaProjects/scripts/local_dvb_solutions.key"
           }
         },
         "extract-i18n": {
@@ -126,8 +128,15 @@
               "node_modules/@fontsource/dm-sans/700-italic.css",
               "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/ol/ol.css",
+              "node_modules/@feel/style/main.scss",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/@feel/style/global",
+                "src/scss/global"
+              ]
+            },
             "scripts": []
           }
         },

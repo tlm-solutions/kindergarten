@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {inject} from "@angular/core";
 import {catchError, Observable, retry} from "rxjs";
 import {handleHttpError, toPascalCase} from "../api.utils";
-import {NotificationService} from "../../core/notification/notification.service";
+import {NotificationService} from "@feel/notification";
 import {PaginationResponse} from "./crud.domain";
 
 export abstract class AbstractCrudService<D extends IdHolder<I>, I> implements CrudService<D, I> {

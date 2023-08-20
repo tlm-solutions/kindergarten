@@ -31,8 +31,8 @@
 </section>
 
 <div class="buttons">
-  <app-button (click)="logout()" *ngIf="authState | async; else loginBtn" i18n-label label="Logout"/>
+  <feel-button (click)="logout()" *ngIf="authState | async; else loginBtn" i18n-label label="Logout"/>
   <ng-template #loginBtn>
-    <app-button [query]="{next}" i18n-label label="Login" link="/login"/>
+    <feel-button [query]="{next}" i18n-label label="Login" link="/login"/>
   </ng-template>
 </div>

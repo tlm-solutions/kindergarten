@@ -46,7 +46,7 @@
     justify-content: space-between;
     padding: 1rem;
     cursor: pointer;
-    background-color: $background-light;
+    background-color: $c-card;
     border-radius: inherit;
     height: calc(100% - 0.15rem);
     width: calc(100% - 0.15rem);
@@ -59,11 +59,11 @@
 
       .value {
         font-weight: bold;
-        font-size: $font-size;
+        font-size: $f-size;
       }
 
       .name {
-        font-size: $font-size-small;
+        font-size: $f-size-small;
       }
     }
 
