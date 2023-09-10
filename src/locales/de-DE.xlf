@@ -1386,6 +1386,50 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6421460271971606186" datatype="html">
+        <source>Zoom</source>
+        <target state="translated">Zoom</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6443796989343635806" datatype="html">
+        <source>Regional Company</source>
+        <target state="needs-translation">Regionales Unternehmen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/region/region-list/region-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3084496895176221935" datatype="html">
+        <source>Raw Line</source>
+        <target state="translated">Raw Linie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9211622862549874220" datatype="html">
+        <source>E-Mail Setting</source>
+        <target state="needs-translation">E-Mail-Einstellung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/user-view/user-view.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
