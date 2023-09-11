@@ -21,39 +21,39 @@ import {MapVehicleInfoComponent} from "../map-vehicle-info/map-vehicle-info.comp
 import {Type} from "../../../data/region/region.domain";
 
 const BUS_ICONS = [
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus07.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/bus14.svg")}),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus00.svg"),
+  loadImage("assets/icons/vehicle/bus07.svg"),
+  loadImage("assets/icons/vehicle/bus10.svg"),
+  loadImage("assets/icons/vehicle/bus10.svg"),
+  loadImage("assets/icons/vehicle/bus10.svg"),
+  loadImage("assets/icons/vehicle/bus14.svg"),
+  loadImage("assets/icons/vehicle/bus14.svg"),
+  loadImage("assets/icons/vehicle/bus14.svg"),
+  loadImage("assets/icons/vehicle/bus14.svg"),
 ];
 
 const TRAM_ICONS = [
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram00.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram07.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram10.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram14.svg")}),
-  new Icon({imgSize: [40, 40], img: loadImage("assets/icons/vehicle/tram14.svg")}),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram00.svg"),
+  loadImage("assets/icons/vehicle/tram07.svg"),
+  loadImage("assets/icons/vehicle/tram10.svg"),
+  loadImage("assets/icons/vehicle/tram10.svg"),
+  loadImage("assets/icons/vehicle/tram10.svg"),
+  loadImage("assets/icons/vehicle/tram14.svg"),
+  loadImage("assets/icons/vehicle/tram14.svg"),
+  loadImage("assets/icons/vehicle/tram14.svg"),
+  loadImage("assets/icons/vehicle/tram14.svg"),
 ];
 
 function loadImage(src: string): HTMLImageElement {
@@ -175,16 +175,22 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
         switch (this.regionService.lookupLine(data.line)?.type) {
           case Type.TRAM:
-            icon = getImage(TRAM_ICONS, Math.round(data.delayed / 60), -7, 7);
+            icon = new Icon({
+              size: [40, 40],
+              img: getImage(TRAM_ICONS, Math.round(data.delayed / 60), -7, 7),
+            });
             offset = -4;
             break;
           case Type.BUS:
-            icon = getImage(BUS_ICONS, Math.round(data.delayed / 60), -7, 7);
+            icon = new Icon({
+              size: [40, 40],
+              img: getImage(BUS_ICONS, Math.round(data.delayed / 60), -7, 7),
+            });
             offset = -4;
             break;
           default:
             icon = new Icon({
-              imgSize: [40, 40],
+              size: [40, 40],
               img: IMG,
             });
             offset = -10;
