@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Line, Region, RegionId, ReportingPoint, ReportingPointId, ReportingPointRaw} from "./region.domain";
 import {AbstractCachedCrudService} from "../crud/cached-crud.service";
-import {Observable} from "rxjs";
+import {map, Observable, tap} from "rxjs";
 import {DATACARE_BASE_PATH} from "../api.domain";
 
 @Injectable({
@@ -13,9 +13,6 @@ export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
 
   constructor() {
     super("region", "region", "regions");
-
-    this.http.get<Record<string, Line>>('assets/data/region/0.json')
-      .subscribe(data => this.regionData = data);
   }
 
   public getReportingPoints(regionId: RegionId): Observable<ReportingPoint[]> {
@@ -24,6 +21,14 @@ export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
 
   public getReportingPoint(regionId: RegionId, id: ReportingPointId): Observable<ReportingPointRaw[]> {
     return this.http.get<ReportingPointRaw[]>(`${DATACARE_BASE_PATH}/${this.apiName}/${regionId}/reporting_point/${id}`);
+  }
+
+  public loadRegion(id: number): Observable<void> {
+   return this.http.get<Record<string, Line>>(`assets/data/region/${id}.json`)
+      .pipe(
+        tap(data => this.regionData = data),
+        map(() => void 0),
+      );
   }
 
   public lookupLine(line: number): Line | undefined {
