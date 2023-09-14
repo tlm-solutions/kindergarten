@@ -64,8 +64,8 @@ function loadImage(src: string): HTMLImageElement {
 
 export function getImage<T>(imgs: T[], value: number, min: number, max: number): T {
   const v = (value - min) / (max - min);
-  const u = Math.round(v * imgs.length);
-  return imgs[u - 1];
+  const u = Math.round(v * (imgs.length - 1));
+  return imgs[u];
 }
 
 const IMG = loadImage("assets/icons/vehicle/unknown.svg");
@@ -161,11 +161,14 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         this.map.addInteraction(new Link());
       });
 
-    concat(
-      this.networkService.sync(0).pipe(switchMap(data => from(data))),
-      this.networkService.sub(),
-    )
-      .pipe(takeUntil(this.destroy))
+    this.regionService.loadRegion(0)
+      .pipe(
+        switchMap(() => concat(
+          this.networkService.sync(0).pipe(switchMap(data => from(data))),
+          this.networkService.sub(),
+        )),
+        takeUntil(this.destroy)
+      )
       .subscribe(data => {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);
@@ -173,7 +176,9 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         let icon;
         let offset;
 
-        switch (this.regionService.lookupLine(data.line)?.type) {
+        const line = this.regionService.lookupLine(data.line);
+
+        switch (line?.type) {
           case Type.TRAM:
             icon = new Icon({
               size: [40, 40],
@@ -211,7 +216,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
             image: icon,
             text: new Text({
               offsetY: offset,
-              text: this.regionService.lookupLine(data.line)?.name ?? `(${data.line})`,
+              text: line?.name ?? `(${data.line})`,
               font: 'DM Sans',
               fill: new Fill({color: "#000"}),
             }),
