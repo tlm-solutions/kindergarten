@@ -13,7 +13,9 @@ mkYarnPackage {
       FILE=$(readlink ./deps/kindergarten/node_modules)
       rm ./deps/kindergarten/node_modules
       mkdir ./deps/kindergarten/node_modules
+
       cp -r $FILE/ ./deps/kindergarten/
+      chmod -R 777 ./deps/kindergarten
       cp -r ./node_modules/* ./deps/kindergarten/node_modules/
 
       yarn run build:ci
