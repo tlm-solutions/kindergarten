@@ -1,5 +1,5 @@
 function buildBasePath(service: string, version: number): string {
-  return `https://${service}.tlm.solutions/v${version}`;
+  return `https://${service}.staging.tlm.solutions/v${version}`;
 }
 
 export const DATACARE_BASE_PATH = buildBasePath("datacare", 1);
