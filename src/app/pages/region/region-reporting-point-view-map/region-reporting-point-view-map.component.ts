@@ -89,7 +89,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
         popup.setPosition(point.getCoordinates());
         popup.set("feature_id", feature.getId(), true);
         const reporting_point = feature.getId();
-const reportingPointRaw = this.markers.find(point =>point.reporting_point === reporting_point);
+        const reportingPointRaw = this.markers.find(point => point.reporting_point === reporting_point);
 
         popupComponent.setInput("reportingPointRaw", reportingPointRaw)
 
@@ -120,8 +120,8 @@ const reportingPointRaw = this.markers.find(point =>point.reporting_point === re
 
       if (markers.length === 1) {
         const view = this.map.getView();
-        view.setCenter([markers[0].lon, markers[1].lat]);
-        view.setZoom(1);
+        view.setCenter([markers[0].lon, markers[0].lat]);
+        view.setZoom(15);
       } else {
         this.map.getView().fit(this.features.getExtent(), {padding: [10, 10, 10, 10], maxZoom: 20});
       }
