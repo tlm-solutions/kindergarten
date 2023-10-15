@@ -3,7 +3,7 @@ import {webSocket} from "rxjs/webSocket";
 import {HttpClient} from "@angular/common/http";
 import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
 import {BehaviorSubject, catchError, map, Observable, retry, tap, throwError} from "rxjs";
-import {Data} from "./network.domain";
+import {Data, Source} from "./network.domain";
 
 export interface WsData {
   id: string,
@@ -14,9 +14,9 @@ export interface WsData {
   lon: number,
   line: number,
   run: number,
-  delayed: number,
-  r09_reporting_point: number;
-  r09_destination_number: number;
+  delayed: number|undefined,
+  r09_reporting_point: number|undefined;
+  r09_destination_number: number|undefined;
 }
 
 export interface LizardData {
@@ -28,9 +28,9 @@ export interface LizardData {
   lon: number,
   line: number,
   run: number,
-  delayed: number,
-  r09_reporting_point: number;
-  r09_destination_number: number;
+  delayed: number | null,
+  r09_reporting_point: number | null;
+  r09_destination_number: number | null;
 }
 
 @Injectable({
@@ -55,6 +55,7 @@ export class NetworkService {
       .pipe(
         map(data => data.map<Data>(data => ({
           id: data.id,
+          source: getSource(data.source),
           time: data.time,
           region: data.region,
           lat: data.lat,
@@ -79,15 +80,16 @@ export class NetworkService {
         retry({delay: 1000}),
         map<WsData, Data>(data => ({
           id: Number(data.id),
+          source: data.source,
           time: Number(data.time),
           region: Number(data.region),
           lat: data.lat,
           lon: data.lon,
           line: data.line,
           run: data.run,
-          delayed: data.delayed,
-          r09_reporting_point: data.r09_reporting_point,
-          r09_destination_number: data.r09_destination_number,
+          delayed: data.delayed ?? null,
+          r09_reporting_point: data.r09_reporting_point ?? null,
+          r09_destination_number: data.r09_destination_number ?? null,
         })),
         tap(data => this.receive(data))
       );
@@ -107,5 +109,19 @@ export class NetworkService {
     });
 
     this.vehicles.next(vehicles);
+  }
+}
+
+function getSource(name: string): number {
+  switch (name) {
+    case "UnknownSource":
+      return Source.UnknownSource;
+    case "R09Telegram":
+      return Source.R09Telegram;
+    case "TrekkieGPS":
+      return Source.TrekkieGPS;
+    default:
+      console.error(`Unknown source type: ${name}`);
+      return 999;
   }
 }

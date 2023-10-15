@@ -19,6 +19,7 @@ import Fill from "ol/style/Fill";
 import Overlay from "ol/Overlay";
 import {MapVehicleInfoComponent} from "../map-vehicle-info/map-vehicle-info.component";
 import {Type} from "../../../data/region/region.domain";
+import {Source} from "../../../data/network/network.domain";
 
 const BUS_ICONS = [
   loadImage("assets/icons/vehicle/bus00.svg"),
@@ -178,18 +179,20 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
         const line = this.regionService.lookupLine(data.line);
 
+        const delay = data.delayed ?? 0;
+
         switch (line?.type) {
           case Type.TRAM:
             icon = new Icon({
               size: [40, 40],
-              img: getImage(TRAM_ICONS, Math.round(data.delayed / 60), -7, 7),
+              img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
             });
             offset = -4;
             break;
           case Type.BUS:
             icon = new Icon({
               size: [40, 40],
-              img: getImage(BUS_ICONS, Math.round(data.delayed / 60), -7, 7),
+              img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
             });
             offset = -4;
             break;
@@ -209,6 +212,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
           }
           (vehicle.getStyle() as Style).setImage(icon);
           vehicle.setGeometry(new Point(coords));
+          // @ts-ignore
+          vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
         } else {
           const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
           feature.setId(id);
@@ -217,8 +222,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
             text: new Text({
               offsetY: offset,
               text: line?.name ?? `(${data.line})`,
-              font: 'DM Sans',
-              fill: new Fill({color: "#000"}),
+              font: '500 11px "DM Sans"',
+              fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
             }),
           }));
 

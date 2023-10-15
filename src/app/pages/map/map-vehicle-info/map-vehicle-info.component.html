@@ -23,7 +23,7 @@
     <span i18n>Run</span>
     <span>{{vehicle.run}}</span>
   </div>
-  <div>
+  <div *ngIf="vehicle.delayed">
     <span i18n>Delay</span>
     <span>{{(vehicle.delayed * 1000) | duration}}</span>
   </div>
@@ -32,12 +32,16 @@
     <span>{{vehicle.time | relativeTime}}</span>
   </div>
   <div>
+    <span i18n>Source</span>
+    <span>{{getSourceDisplayName(vehicle.source)}}</span>
+  </div>
+  <div *ngIf="vehicle.r09_destination_number">
     <span i18n>R09 Reporting Point</span>
     <span><a
       [routerLink]="'/region/0/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
     </span>
   </div>
-  <div>
+  <div *ngIf="vehicle.r09_destination_number">
     <span i18n>R09 Destination</span>
     <span>{{vehicle.r09_destination_number}}</span>
   </div>

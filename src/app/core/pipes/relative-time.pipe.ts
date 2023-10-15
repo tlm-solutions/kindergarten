@@ -38,6 +38,10 @@ export class RelativeTimePipe implements PipeTransform {
 
     const absDiffInSecs = Math.abs(diffInSecs)
 
+    if (absDiffInSecs < 5) {
+      return $localize`now`;
+    }
+
     if (absDiffInSecs < 60) {
       return this.formatter.format(diffInSecs, "second")
     }

@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs";
 import {RegionService} from "../../../data/region/region.service";
 import {Line, Type} from "../../../data/region/region.domain";
+import {Source} from "../../../data/network/network.domain";
 
 @Component({
   selector: 'app-map-vehicle-info',
@@ -37,5 +38,18 @@ export class MapVehicleInfoComponent {
 
   protected lookupLine(line: number): Line | undefined {
     return this.regionService.lookupLine(line);
+  }
+
+  protected getSourceDisplayName(source: Source): string {
+    switch (source) {
+      case Source.UnknownSource:
+        return $localize`Unknown`;
+      case Source.R09Telegram:
+        return $localize`Telegram`;
+      case Source.TrekkieGPS:
+        return $localize`Realtime GPS`;
+      default:
+        return $localize`Other`;
+    }
   }
 }
