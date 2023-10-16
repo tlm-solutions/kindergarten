@@ -57,31 +57,38 @@ export class TrackEditComponent implements OnInit, OnDestroy {
         region: track.region,
         run: track.run,
         start_time: new Date(track.start_time),
-        trim_start: track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.start_time)),
-        trim_end: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > Date.parse(track.end_time)),
+        trim_start: track.gps.findIndex(entry => Date.parse(entry.time) >= Date.parse(track.start_time)),
+        trim_end: track.gps.length - track.gps.findLastIndex(entry => Date.parse(entry.time) <= Date.parse(track.end_time)) - 1
       });
     })
 
-    combineLatest([this.form.controls.trim_start.valueChanges, this.track]).subscribe(([start, track]) => {
-      this.form.controls.start_time.setValue(new Date(track.gps[(start ?? 0) - 1].time));
-    });
+    combineLatest([this.form.controls.trim_start.valueChanges, this.track])
+      .pipe(map(([num, track]) => ({start: Number.isFinite(num) ? num! : 0, track})))
+      .subscribe(({start, track}) =>
+        this.form.controls.start_time.setValue(new Date(track.gps[(start ?? 0)].time), {emitEvent: false})
+      );
 
-    combineLatest([this.form.controls.trim_end.valueChanges, this.track]).subscribe(([end, track]) => {
-      this.form.controls.end_time.setValue(new Date(track.gps[track.gps.length - (end ?? 0) - 1].time));
-    });
+    combineLatest([this.form.controls.trim_end.valueChanges, this.track])
+      .pipe(map(([num, track]) => ({end: Number.isFinite(num) ? num! : 0, track})))
+      .subscribe(({end, track}) =>
+        this.form.controls.end_time.setValue(new Date(track.gps[track.gps.length - (end ?? 0) - 1].time), {emitEvent: false})
+      );
 
     combineLatest([this.form.controls.start_time.valueChanges, this.form.controls.end_time.valueChanges, this.track])
-      .pipe(filter(([start, end]) => !!start && !!end), map(([start, end, track]) => ({
-        /* eslint-disable @typescript-eslint/no-non-null-assertion */
-        start: start!.getTime(),
-        end: end!.getTime(),
-        /* eslint-enable @typescript-eslint/no-non-null-assertion */
-        track
-      })))
+      .pipe(
+        filter(([start, end]) => !!start && !!end),
+        map(([start, end, track]) => ({
+          /* eslint-disable @typescript-eslint/no-non-null-assertion */
+          start: start!.getTime(),
+          end: end!.getTime(),
+          /* eslint-enable @typescript-eslint/no-non-null-assertion */
+          track
+        }))
+      )
       .subscribe(({start, end, track}) => {
         this.form.patchValue({
-          trim_start: track.gps.findIndex(entry => Date.parse(entry.time) > start),
-          trim_end: track.gps.length - track.gps.findIndex(entry => Date.parse(entry.time) > end)
+          trim_start: track.gps.findIndex(entry => Date.parse(entry.time) >= start),
+          trim_end: track.gps.length - track.gps.findLastIndex(entry => Date.parse(entry.time) <= end) - 1
         }, {emitEvent: false});
 
         this.highlightedLines.next([this.convertToCoords(track.gps, start, end)]);

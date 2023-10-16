@@ -10,7 +10,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TrackMapComponent} from "./track-map/track-map.component";
 import {RelativeTimePipe} from "../../core/pipes/relative-time.pipe";
 import {DurationPipe} from "../../core/pipes/duration.pipe";
-import {ButtonComponent} from "@feel/form";
+import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,9 @@ import {ButtonComponent} from "@feel/form";
     ReactiveFormsModule,
     RelativeTimePipe,
     DurationPipe,
-    ButtonComponent
+    ButtonComponent,
+    TextFieldComponent,
+    CheckboxComponent
   ]
 })
 export class TrackModule {
