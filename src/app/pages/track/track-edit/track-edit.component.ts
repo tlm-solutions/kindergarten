@@ -65,13 +65,13 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     combineLatest([this.form.controls.trim_start.valueChanges, this.track])
       .pipe(map(([num, track]) => ({start: Number.isFinite(num) ? num! : 0, track})))
       .subscribe(({start, track}) =>
-        this.form.controls.start_time.setValue(new Date(track.gps[(start ?? 0)].time), {emitEvent: false})
+        this.form.controls.start_time.setValue(new Date(track.gps[(start ?? 0)].time))
       );
 
     combineLatest([this.form.controls.trim_end.valueChanges, this.track])
       .pipe(map(([num, track]) => ({end: Number.isFinite(num) ? num! : 0, track})))
       .subscribe(({end, track}) =>
-        this.form.controls.end_time.setValue(new Date(track.gps[track.gps.length - (end ?? 0) - 1].time), {emitEvent: false})
+        this.form.controls.end_time.setValue(new Date(track.gps[track.gps.length - (end ?? 0) - 1].time))
       );
 
     combineLatest([this.form.controls.start_time.valueChanges, this.form.controls.end_time.valueChanges, this.track])
