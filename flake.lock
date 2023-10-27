@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698436624,
+        "lastModified": 1698439321,
         "narHash": "sha256-2tMvX/9Vozsh3thu4D3vBA8GX4I/VB/ykJGngILLX9o=",
         "owner": "MarcelCoding",
         "repo": "pnpm2nix-nzbr",
-        "rev": "de447226f30d1a532cb93dff3b5ae6e6180eb337",
+        "rev": "6e70950b084db6055cb0ef4821eecefd3cb31ffa",
         "type": "github"
       },
       "original": {
