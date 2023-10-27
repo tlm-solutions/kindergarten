@@ -105,12 +105,12 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     this.map.addOverlay(new Overlay({}))
 
     const regionId = this.route.params.pipe(
-      filter(data => {
+      filter(({regionId}) => {
         const view = this.map.getView();
         const center = view.getCenter();
-        return data["regionId"] && center?.[0] === 0 && center?.[1] === 0;
+        return regionId && center?.[0] === 0 && center?.[1] === 0;
       }),
-      map(data => Number(data["regionId"])),
+      map(({regionId}) => Number(regionId)),
     );
 
     const popupComponent = this.viewContainerRef.createComponent(MapVehicleInfoComponent);
@@ -162,14 +162,14 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         this.map.addInteraction(new Link());
       });
 
-    this.regionService.loadRegion(0)
-      .pipe(
-        switchMap(() => concat(
-          this.networkService.sync(0).pipe(switchMap(data => from(data))),
-          this.networkService.sub(),
-        )),
-        takeUntil(this.destroy)
-      )
+    regionId.pipe(
+      switchMap(regionId => this.regionService.loadRegion(regionId)),
+      switchMap(() => concat(
+        this.networkService.sync(0).pipe(switchMap(data => from(data))),
+        this.networkService.sub(),
+      )),
+      takeUntil(this.destroy)
+    )
       .subscribe(data => {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);

@@ -7,7 +7,6 @@ import {MapVehicleInfoComponent} from './map-vehicle-info/map-vehicle-info.compo
 import {DurationPipe} from "../../core/pipes/duration.pipe";
 import {RelativeTimePipe} from "../../core/pipes/relative-time.pipe";
 
-
 @NgModule({
   declarations: [
     MapComponent,

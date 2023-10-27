@@ -38,7 +38,7 @@
   <div *ngIf="vehicle.r09_destination_number">
     <span i18n>R09 Reporting Point</span>
     <span><a
-      [routerLink]="'/region/0/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
+      [routerLink]="'/region/' + vehicle.region + '/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
     </span>
   </div>
   <div *ngIf="vehicle.r09_destination_number">
