@@ -10,7 +10,7 @@ describe('RegionReportingPointViewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ RegionReportingPointViewComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegionReportingPointViewComponent);
     component = fixture.componentInstance;

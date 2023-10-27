@@ -10,7 +10,7 @@ describe('TrackMapComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrackMapComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TrackMapComponent);
     component = fixture.componentInstance;

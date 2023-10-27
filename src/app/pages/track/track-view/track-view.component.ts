@@ -80,10 +80,10 @@ export class TrackViewComponent {
 
   protected getCommitLink(name: string, commit: string): string | null {
     switch (name) {
-      case 'stasi':
-        return `https://github.com/tlm-solutions/stasi/commit/${commit}`;
-      default:
-        return null;
+    case 'stasi':
+      return `https://github.com/tlm-solutions/stasi/commit/${commit}`;
+    default:
+      return null;
     }
   }
 

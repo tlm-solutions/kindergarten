@@ -10,7 +10,7 @@ describe('RegionReportingPointInfoComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ RegionReportingPointInfoComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegionReportingPointInfoComponent);
     component = fixture.componentInstance;

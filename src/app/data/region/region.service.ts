@@ -24,7 +24,7 @@ export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
   }
 
   public loadRegion(id: number): Observable<void> {
-   return this.http.get<Record<string, Line>>(`assets/data/region/${id}.json`)
+    return this.http.get<Record<string, Line>>(`assets/data/region/${id}.json`)
       .pipe(
         tap(data => this.regionData = data),
         map(() => void 0),

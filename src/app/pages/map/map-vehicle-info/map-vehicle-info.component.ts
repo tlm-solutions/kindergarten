@@ -27,12 +27,12 @@ export class MapVehicleInfoComponent {
 
   public type(type: Type): string | undefined {
     switch (type) {
-      case Type.BUS:
-        return $localize`Bus`;
-      case Type.TRAM:
-        return $localize`Tram`;
-      default:
-        return undefined;
+    case Type.BUS:
+      return $localize`Bus`;
+    case Type.TRAM:
+      return $localize`Tram`;
+    default:
+      return undefined;
     }
   }
 
@@ -42,14 +42,14 @@ export class MapVehicleInfoComponent {
 
   protected getSourceDisplayName(source: Source): string {
     switch (source) {
-      case Source.UnknownSource:
-        return $localize`Unknown`;
-      case Source.R09Telegram:
-        return $localize`Telegram`;
-      case Source.TrekkieGPS:
-        return $localize`Realtime GPS`;
-      default:
-        return $localize`Other`;
+    case Source.UnknownSource:
+      return $localize`Unknown`;
+    case Source.R09Telegram:
+      return $localize`Telegram`;
+    case Source.TrekkieGPS:
+      return $localize`Realtime GPS`;
+    default:
+      return $localize`Other`;
     }
   }
 }

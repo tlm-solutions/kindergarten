@@ -3,7 +3,7 @@ import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
 import {ActivatedRoute, Router} from "@angular/router";
-import {concat, filter, from, interval, map, Subject, switchMap, takeUntil} from "rxjs";
+import {concat, filter, forkJoin, from, interval, map, Subject, switchMap, takeUntil} from "rxjs";
 import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
@@ -88,12 +88,12 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
   private readonly destroy = new Subject<void>();
 
   constructor(
-    private readonly hostElement: ElementRef<HTMLElement>,
-    private readonly route: ActivatedRoute,
-    private readonly regionService: RegionService,
-    private readonly networkService: NetworkService,
-    private readonly viewContainerRef: ViewContainerRef,
-    private readonly router: Router
+        private readonly hostElement: ElementRef<HTMLElement>,
+        private readonly route: ActivatedRoute,
+        private readonly regionService: RegionService,
+        private readonly networkService: NetworkService,
+        private readonly viewContainerRef: ViewContainerRef,
+        private readonly router: Router
   ) {
   }
 
@@ -163,14 +163,16 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
       });
 
     regionId.pipe(
-      switchMap(regionId => this.regionService.loadRegion(regionId)),
-      switchMap(() => concat(
-        this.networkService.sync(0).pipe(switchMap(data => from(data))),
-        this.networkService.sub(),
-      )),
+      switchMap(regionId => forkJoin({
+        _: this.regionService.loadRegion(regionId),
+        data: concat(
+          this.networkService.sync(regionId).pipe(switchMap(data => from(data))),
+          this.networkService.sub(),
+        )
+      })),
       takeUntil(this.destroy)
     )
-      .subscribe(data => {
+      .subscribe(({data}) => {
         const id = `${data.line}_${data.run}`;
         const vehicle = this.vehicles.getFeatureById(id);
 
@@ -182,26 +184,26 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         const delay = data.delayed ?? 0;
 
         switch (line?.type) {
-          case Type.TRAM:
-            icon = new Icon({
-              size: [40, 40],
-              img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
-            });
-            offset = -4;
-            break;
-          case Type.BUS:
-            icon = new Icon({
-              size: [40, 40],
-              img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
-            });
-            offset = -4;
-            break;
-          default:
-            icon = new Icon({
-              size: [40, 40],
-              img: IMG,
-            });
-            offset = -10;
+        case Type.TRAM:
+          icon = new Icon({
+            size: [40, 40],
+            img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
+          });
+          offset = -4;
+          break;
+        case Type.BUS:
+          icon = new Icon({
+            size: [40, 40],
+            img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
+          });
+          offset = -4;
+          break;
+        default:
+          icon = new Icon({
+            size: [40, 40],
+            img: IMG,
+          });
+          offset = -10;
         }
 
         if (vehicle) {

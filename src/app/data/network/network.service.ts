@@ -114,14 +114,14 @@ export class NetworkService {
 
 function getSource(name: string): number {
   switch (name) {
-    case "UnknownSource":
-      return Source.UnknownSource;
-    case "R09Telegram":
-      return Source.R09Telegram;
-    case "TrekkieGPS":
-      return Source.TrekkieGPS;
-    default:
-      console.error(`Unknown source type: ${name}`);
-      return 999;
+  case "UnknownSource":
+    return Source.UnknownSource;
+  case "R09Telegram":
+    return Source.R09Telegram;
+  case "TrekkieGPS":
+    return Source.TrekkieGPS;
+  default:
+    console.error(`Unknown source type: ${name}`);
+    return 999;
   }
 }
