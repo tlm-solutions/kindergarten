@@ -1,32 +1,21 @@
-{ pkgs, lib, config, domain, mkYarnPackage, yarn }:
-mkYarnPackage {
-    name = "kindergarten";
+{ domain, mkPnpmPackage }:
+
+mkPnpmPackage {
     src = ./.;
 
-    buildInputs = [ yarn ];
+    installInPlace = true;
+
     postPatch = ''
       substituteInPlace src/app/data/api.domain.ts \
         --replace 'staging.tlm.solutions' '${domain}'
     '';
 
-    buildPhase = ''
-      FILE=$(readlink ./deps/kindergarten/node_modules)
-      rm ./deps/kindergarten/node_modules
-      mkdir ./deps/kindergarten/node_modules
-
-      cp -r $FILE/ ./deps/kindergarten/
-      chmod -R 777 ./deps/kindergarten
-      cp -r ./node_modules/* ./deps/kindergarten/node_modules/
-
-      yarn run build:ci
-    '';
+    script = "build:ci";
 
     installPhase = ''
-      mkdir -p $out/bin/en
-      mkdir -p $out/bin/de
-      cp -r ./deps/kindergarten/dist/en-US/* $out/bin/en/
-      cp -r ./deps/kindergarten/dist/de-DE/* $out/bin/de/
+      mkdir -p $out/en
+      mkdir -p $out/de
+      cp -r ./dist/en-US/* $out/en/
+      cp -r ./dist/de-DE/* $out/de/
     '';
-
-    doDist = false;
 }

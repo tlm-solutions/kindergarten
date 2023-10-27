@@ -1,20 +1,27 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    pnpm2nix = {
+      url = "github:MarcelCoding/pnpm2nix-nzbr";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
 
-    utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, utils, ... }:
-    utils.lib.eachDefaultSystem
+  outputs = { self, nixpkgs, pnpm2nix, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem
       (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           package-production = pkgs.callPackage ./derivation.nix {
             domain = "tlm.solutions";
+            mkPnpmPackage = pnpm2nix.packages."${system}".mkPnpmPackage;
           };
           package-staging = pkgs.callPackage ./derivation.nix {
             domain = "staging.tlm.solutions";
+            mkPnpmPackage = pnpm2nix.packages."${system}".mkPnpmPackage;
           };
         in
         rec {

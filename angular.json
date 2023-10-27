@@ -100,8 +100,8 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "sslCert": "G:\\Work\\tools\\scripts\\tlm.cer",
-            "sslKey": "G:\\Work\\tools\\scripts\\tlm.key"
+            "sslCert": "/home/marcel/OneDrive/Backup/Daten_G/tools/scripts/tlm.cer",
+            "sslKey": "/home/marcel/OneDrive/Backup/Daten_G/tools/scripts/tlm.key"
           }
         },
         "extract-i18n": {
