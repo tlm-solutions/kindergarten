@@ -3,7 +3,7 @@ import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
 import {ActivatedRoute, Router} from "@angular/router";
-import {concat, filter, forkJoin, from, interval, map, Subject, switchMap, takeUntil} from "rxjs";
+import {concat, filter, forkJoin, from, interval, map, share, Subject, switchMap, takeUntil, tap} from "rxjs";
 import {RegionService} from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import {NetworkService} from "../../../data/network/network.service";
@@ -104,15 +104,6 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
     this.map.addLayer(vectorLayer);
     this.map.addOverlay(new Overlay({}))
 
-    const regionId = this.route.params.pipe(
-      filter(({regionId}) => {
-        const view = this.map.getView();
-        const center = view.getCenter();
-        return regionId && center?.[0] === 0 && center?.[1] === 0;
-      }),
-      map(({regionId}) => Number(regionId)),
-    );
-
     const popupComponent = this.viewContainerRef.createComponent(MapVehicleInfoComponent);
     const popup = new Overlay({
       element: popupComponent.location.nativeElement,
@@ -148,90 +139,97 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
       }
     });
 
-    regionId.pipe(
-      switchMap(regionId => this.regionService.getCached(regionId)),
-      filter(region => !!region),
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      map(region => region!),
-      takeUntil(this.destroy)
-    )
-      .subscribe(region => {
+    const regionId = this.route.params.pipe(
+      filter(({regionId}) => {
         const view = this.map.getView();
-        view.setCenter([region.lon, region.lat]);
-        view.setZoom(region.zoom);
-        this.map.addInteraction(new Link());
-      });
+        const center = view.getCenter();
+        return regionId && center?.[0] === 0 && center?.[1] === 0;
+      }),
+      map(({regionId}) => Number(regionId)),
+      share(),
+    );
 
     regionId.pipe(
       switchMap(regionId => forkJoin({
-        _: this.regionService.loadRegion(regionId),
-        data: concat(
+        _a: this.regionService.getCached(regionId)
+          .pipe(
+            filter(region => !!region),
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            map(region => region!),
+            tap(region => {
+              const view = this.map.getView();
+              view.setCenter([region.lon, region.lat]);
+              view.setZoom(region.zoom);
+              this.map.addInteraction(new Link());
+            }),
+          ),
+        _b: this.regionService.loadRegion(regionId),
+        _c: concat(
           this.networkService.sync(regionId).pipe(switchMap(data => from(data))),
           this.networkService.sub(),
-        )
-      })),
-      takeUntil(this.destroy)
-    )
-      .subscribe(({data}) => {
-        const id = `${data.line}_${data.run}`;
-        const vehicle = this.vehicles.getFeatureById(id);
+        ).pipe(tap(data => {
+          const id = `${data.line}_${data.run}`;
+          const vehicle = this.vehicles.getFeatureById(id);
 
-        let icon;
-        let offset;
+          let icon;
+          let offset;
 
-        const line = this.regionService.lookupLine(data.line);
+          const line = this.regionService.lookupLine(data.line);
 
-        const delay = data.delayed ?? 0;
+          const delay = data.delayed ?? 0;
 
-        switch (line?.type) {
-        case Type.TRAM:
-          icon = new Icon({
-            size: [40, 40],
-            img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
-          });
-          offset = -4;
-          break;
-        case Type.BUS:
-          icon = new Icon({
-            size: [40, 40],
-            img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
-          });
-          offset = -4;
-          break;
-        default:
-          icon = new Icon({
-            size: [40, 40],
-            img: IMG,
-          });
-          offset = -10;
-        }
-
-        if (vehicle) {
-          const coords = [data.lon, data.lat];
-
-          if (popup.get("feature_id") === id) {
-            popup.setPosition(coords);
+          switch (line?.type) {
+          case Type.TRAM:
+            icon = new Icon({
+              size: [40, 40],
+              img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
+            });
+            offset = -4;
+            break;
+          case Type.BUS:
+            icon = new Icon({
+              size: [40, 40],
+              img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
+            });
+            offset = -4;
+            break;
+          default:
+            icon = new Icon({
+              size: [40, 40],
+              img: IMG,
+            });
+            offset = -10;
           }
-          (vehicle.getStyle() as Style).setImage(icon);
-          vehicle.setGeometry(new Point(coords));
-          // @ts-ignore
-          vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
-        } else {
-          const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
-          feature.setId(id);
-          feature.setStyle(new Style({
-            image: icon,
-            text: new Text({
-              offsetY: offset,
-              text: line?.name ?? `(${data.line})`,
-              font: '500 11px "DM Sans"',
-              fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
-            }),
-          }));
 
-          this.vehicles.addFeature(feature)
-        }
-      });
+          if (vehicle) {
+            const coords = [data.lon, data.lat];
+
+            if (popup.get("feature_id") === id) {
+              popup.setPosition(coords);
+            }
+            (vehicle.getStyle() as Style).setImage(icon);
+            vehicle.setGeometry(new Point(coords));
+            // @ts-ignore
+            vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
+          } else {
+            const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
+            feature.setId(id);
+            feature.setStyle(new Style({
+              image: icon,
+              text: new Text({
+                offsetY: offset,
+                text: line?.name ?? `(${data.line})`,
+                font: '500 11px "DM Sans"',
+                fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
+              }),
+            }));
+
+            this.vehicles.addFeature(feature)
+          }
+        }))
+      })),
+      takeUntil(this.destroy),
+    ).subscribe();
 
     interval(1000)
       .pipe(takeUntil(this.destroy))
