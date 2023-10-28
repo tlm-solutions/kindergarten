@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
 import {BehaviorSubject, catchError, map, Observable, retry, tap, throwError} from "rxjs";
 import {Data, Source} from "./network.domain";
+import {NotificationService} from "@feel/notification";
 
 export interface WsData {
   id: string,
@@ -42,6 +43,7 @@ export class NetworkService {
 
   constructor(
     private readonly http: HttpClient,
+    private readonly notificationService: NotificationService,
   ) {
   }
 
@@ -53,6 +55,11 @@ export class NetworkService {
     console.log(`Syncing ${regionId}`)
     return this.http.get<LizardData[]>(`${LIZARD_BASE_PATH}/vehicles/${regionId}`)
       .pipe(
+        retry(2),
+        catchError(() => {
+          this.notificationService.error("Current vehicle positions could not be loaded.");
+          return [];
+        }),
         map(data => data.map<Data>(data => ({
           id: data.id,
           source: getSource(data.source),

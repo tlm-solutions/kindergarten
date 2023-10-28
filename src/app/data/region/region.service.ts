@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Line, Region, RegionId, ReportingPoint, ReportingPointId, ReportingPointRaw} from "./region.domain";
 import {AbstractCachedCrudService} from "../crud/cached-crud.service";
-import {map, Observable, tap} from "rxjs";
+import {catchError, map, Observable, of, tap} from "rxjs";
 import {DATACARE_BASE_PATH} from "../api.domain";
 
 @Injectable({
@@ -26,6 +26,11 @@ export class RegionService extends AbstractCachedCrudService<Region, RegionId> {
   public loadRegion(id: number): Observable<void> {
     return this.http.get<Record<string, Line>>(`assets/data/region/${id}.json`)
       .pipe(
+        // hack to prevent everything from crashing when region file could not be found
+        catchError(() => {
+          this.notificationService.error("Region metadata could not be loaded.");
+          return of({});
+        }),
         tap(data => this.regionData = data),
         map(() => void 0),
       );

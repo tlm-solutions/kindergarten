@@ -1,0 +1,12 @@
+<div class="typography">
+  <h1>Regions</h1>
+  <nav>
+    <ul>
+      <li *ngFor="let region of (regions | async)">
+        <a [routerLink]="'/map/' + region.id">
+          {{region.name}}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

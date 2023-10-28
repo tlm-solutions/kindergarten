@@ -1,7 +1,7 @@
 :host {
   display: grid;
-  grid-template-areas: "map";
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr auto;
   padding: 1rem;
+  gap: 1rem;
   height: 100%;
 }

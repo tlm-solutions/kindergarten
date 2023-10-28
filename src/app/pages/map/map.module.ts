@@ -6,12 +6,14 @@ import {MapWindshieldComponent} from './map-windshield/map-windshield.component'
 import {MapVehicleInfoComponent} from './map-vehicle-info/map-vehicle-info.component';
 import {DurationPipe} from "../../core/pipes/duration.pipe";
 import {RelativeTimePipe} from "../../core/pipes/relative-time.pipe";
+import {MapRegionSelectorComponent} from './map-region-selector/map-region-selector.component';
 
 @NgModule({
   declarations: [
     MapComponent,
     MapWindshieldComponent,
-    MapVehicleInfoComponent
+    MapVehicleInfoComponent,
+    MapRegionSelectorComponent
   ],
   imports: [
     CommonModule,
