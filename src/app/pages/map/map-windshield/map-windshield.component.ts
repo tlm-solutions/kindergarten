@@ -88,12 +88,12 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
   private readonly destroy = new Subject<void>();
 
   constructor(
-        private readonly hostElement: ElementRef<HTMLElement>,
-        private readonly route: ActivatedRoute,
-        private readonly regionService: RegionService,
-        private readonly networkService: NetworkService,
-        private readonly viewContainerRef: ViewContainerRef,
-        private readonly router: Router
+    private readonly hostElement: ElementRef<HTMLElement>,
+    private readonly route: ActivatedRoute,
+    private readonly regionService: RegionService,
+    private readonly networkService: NetworkService,
+    private readonly viewContainerRef: ViewContainerRef,
+    private readonly router: Router
   ) {
   }
 
@@ -163,70 +163,73 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
               this.map.addInteraction(new Link());
             }),
           ),
-        _b: this.regionService.loadRegion(regionId),
-        _c: concat(
-          this.networkService.sync(regionId).pipe(switchMap(data => from(data))),
-          this.networkService.sub(),
-        ).pipe(tap(data => {
-          const id = `${data.line}_${data.run}`;
-          const vehicle = this.vehicles.getFeatureById(id);
+        _b: this.regionService.loadRegion(regionId)
+          .pipe(
+            switchMap(() => concat(
+              this.networkService.sync(regionId).pipe(switchMap(data => from(data))),
+              this.networkService.sub(),
+            )),
+            tap(data => {
+              const id = `${data.line}_${data.run}`;
+              const vehicle = this.vehicles.getFeatureById(id);
 
-          let icon;
-          let offset;
+              let icon;
+              let offset;
 
-          const line = this.regionService.lookupLine(data.line);
+              const line = this.regionService.lookupLine(data.line);
 
-          const delay = data.delayed ?? 0;
+              const delay = data.delayed ?? 0;
 
-          switch (line?.type) {
-          case Type.TRAM:
-            icon = new Icon({
-              size: [40, 40],
-              img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
-            });
-            offset = -4;
-            break;
-          case Type.BUS:
-            icon = new Icon({
-              size: [40, 40],
-              img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
-            });
-            offset = -4;
-            break;
-          default:
-            icon = new Icon({
-              size: [40, 40],
-              img: IMG,
-            });
-            offset = -10;
-          }
+              switch (line?.type) {
+              case Type.TRAM:
+                icon = new Icon({
+                  size: [40, 40],
+                  img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
+                });
+                offset = -4;
+                break;
+              case Type.BUS:
+                icon = new Icon({
+                  size: [40, 40],
+                  img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
+                });
+                offset = -4;
+                break;
+              default:
+                icon = new Icon({
+                  size: [40, 40],
+                  img: IMG,
+                });
+                offset = -10;
+              }
 
-          if (vehicle) {
-            const coords = [data.lon, data.lat];
+              if (vehicle) {
+                const coords = [data.lon, data.lat];
 
-            if (popup.get("feature_id") === id) {
-              popup.setPosition(coords);
-            }
-            (vehicle.getStyle() as Style).setImage(icon);
-            vehicle.setGeometry(new Point(coords));
-            // @ts-ignore
-            vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
-          } else {
-            const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
-            feature.setId(id);
-            feature.setStyle(new Style({
-              image: icon,
-              text: new Text({
-                offsetY: offset,
-                text: line?.name ?? `(${data.line})`,
-                font: '500 11px "DM Sans"',
-                fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
-              }),
-            }));
+                if (popup.get("feature_id") === id) {
+                  popup.setPosition(coords);
+                }
+                (vehicle.getStyle() as Style).setImage(icon);
+                vehicle.setGeometry(new Point(coords));
+                // @ts-ignore
+                vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
+              } else {
+                const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
+                feature.setId(id);
+                feature.setStyle(new Style({
+                  image: icon,
+                  text: new Text({
+                    offsetY: offset,
+                    text: line?.name ?? `(${data.line})`,
+                    font: '500 11px "DM Sans"',
+                    fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
+                  }),
+                }));
 
-            this.vehicles.addFeature(feature)
-          }
-        }))
+                this.vehicles.addFeature(feature)
+              }
+            })
+          )
       })),
       takeUntil(this.destroy),
     ).subscribe();
