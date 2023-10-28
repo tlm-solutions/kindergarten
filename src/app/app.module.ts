@@ -15,12 +15,14 @@ import {MapIconComponent} from "./core/icons/map-icon/map-icon.component";
 import {HeaderComponent} from './layout/header/header.component';
 import {MenuIconComponent} from "./core/icons/menu-icon/menu-icon.component";
 import {NotificationListComponent} from "@feel/notification";
+import {HeaderHostDirective} from './layout/header/header-host.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     HeaderComponent,
+    HeaderHostDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,3 @@
-<div class="typography">
-  <h1 i18n>Regions</h1>
-  <nav>
-    <ul>
-      <li *ngFor="let region of (regions | async)">
-        <a [routerLink]="'/map/' + region.id">
-          {{region.name}}
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+<select [formControl]="region">
+  <option [value]="region.id" *ngFor="let region of (regions | async)">{{region.name}}</option>
+</select>

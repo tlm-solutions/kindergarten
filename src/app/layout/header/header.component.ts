@@ -1,9 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, filter, Subscription} from "rxjs";
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, Type, ViewChild} from '@angular/core';
+import {BehaviorSubject, filter, map, Subscription, switchMap, tap} from "rxjs";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {routingAnimation} from "../../core/animation/routing.animation";
 import {SidebarService} from "../sidebar/sidebar.service";
+import {HeaderHostDirective} from "./header-host.directive";
 
 @Component({
   selector: 'app-header',
@@ -12,10 +13,13 @@ import {SidebarService} from "../sidebar/sidebar.service";
   animations: [routingAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  protected readonly title = new BehaviorSubject<string>(this.route.root.firstChild?.snapshot?.data['title'])
+  protected readonly title = new BehaviorSubject<string | undefined>(this.route.root.firstChild?.snapshot?.data['title'])
   private subscription: Subscription | undefined;
+
+  @ViewChild(HeaderHostDirective, {static: false})
+  private readonly host?: HeaderHostDirective;
 
   constructor(
     private readonly router: Router,
@@ -25,14 +29,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {
   }
 
+  public ngAfterViewInit(): void {
+    // @ts-ignore
+    this.route.root.firstChild?.snapshot?.data['headerElement']?.().then(headerElement =>
+      this.host?.viewContainerRef.createComponent(headerElement).changeDetectorRef.markForCheck()
+    );
+  }
+
   public ngOnInit(): void {
-    this.subscription = this.router.events.pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const title = this.route.root.firstChild?.snapshot?.data?.['title'];
+    this.subscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => {
+        // @ts-ignore
+        const data: {
+          title?: string,
+          headerElement?: () => Promise<Type<unknown>>
+        } = this.route.root.firstChild?.snapshot?.data;
+        return {title: data?.['title'], headerElement: data?.['headerElement']};
+      }),
+      tap(({title}) => {
         this.title.next(title);
-        this._title.setTitle($localize`${title} | Kindergarten`)
-      })
-    ;
+        this._title.setTitle($localize`${title} | Kindergarten`);
+        this.host?.viewContainerRef.clear();
+      }),
+      filter(({headerElement}) => !!headerElement),
+      map(({headerElement}) => headerElement!),
+      switchMap(headerElement => headerElement())
+    )
+      .subscribe(headerElement => this.host?.viewContainerRef.createComponent(headerElement).changeDetectorRef.markForCheck());
   }
 
   public ngOnDestroy(): void {

@@ -1,5 +1,9 @@
-<button (click)="showSidebar(); $event.preventDefault()">
-  <app-menu-icon></app-menu-icon>
-</button>
+<div class="left">
+  <button (click)="showSidebar(); $event.preventDefault()">
+    <app-menu-icon></app-menu-icon>
+  </button>
 
-<h1>{{title | async}}</h1>
+  <h1>{{title | async}}</h1>
+</div>
+
+<ng-template appHeaderHost/>

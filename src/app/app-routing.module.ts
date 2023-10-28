@@ -34,7 +34,10 @@ const routes: Routes = [
   },
   {
     path: 'map', loadChildren: () => import('./pages/map/map.module').then(m => m.MapModule),
-    data: {title: $localize`Map`}
+    data: {
+      title: $localize`Map`,
+      headerElement: () => import('./pages/map/map-region-selector/map-region-selector.component').then(c => c.MapRegionSelectorComponent)
+    }
   },
   {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
