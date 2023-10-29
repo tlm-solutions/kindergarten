@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     pnpm2nix = {
-      url = "github:MarcelCoding/pnpm2nix-nzbr";
+      url = "github:nzbr/pnpm2nix-nzbr";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

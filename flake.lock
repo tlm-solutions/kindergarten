@@ -44,15 +44,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1698439321,
-        "narHash": "sha256-2tMvX/9Vozsh3thu4D3vBA8GX4I/VB/ykJGngILLX9o=",
-        "owner": "MarcelCoding",
+        "lastModified": 1698555566,
+        "narHash": "sha256-gIBby8y6F+VU/DEDqKW0WYl8ItzBwussDWSAQMc0W0o=",
+        "owner": "nzbr",
         "repo": "pnpm2nix-nzbr",
-        "rev": "6e70950b084db6055cb0ef4821eecefd3cb31ffa",
+        "rev": "704a1bf66578127229b6f58998339d7d48ad33d1",
         "type": "github"
       },
       "original": {
-        "owner": "MarcelCoding",
+        "owner": "nzbr",
         "repo": "pnpm2nix-nzbr",
         "type": "github"
       }
