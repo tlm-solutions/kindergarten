@@ -3,12 +3,15 @@
 $space: 1rem;
 
 :host {
-  display: flex;
-  gap: $space;
   padding: $space $space #{$space*0.5};
   border-bottom: 0.1rem solid $c-card-secondary;
-  align-items: center;
   justify-content: space-between;
+
+  &, .left {
+    display: flex;
+    gap: $space;
+    align-items: center;
+  }
 
   .left {
 

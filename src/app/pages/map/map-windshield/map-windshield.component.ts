@@ -157,6 +157,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
               const view = this.map.getView();
               view.setCenter([region.lon, region.lat]);
               view.setZoom(region.zoom);
+              view.setRotation(0);
               this.map.addInteraction(new Link());
             }),
           ),
