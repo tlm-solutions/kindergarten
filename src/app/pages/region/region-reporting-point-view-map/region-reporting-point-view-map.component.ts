@@ -22,7 +22,6 @@ import Fill from "ol/style/Fill";
 import Stroke from "ol/style/Stroke";
 import Overlay from "ol/Overlay";
 import {RegionReportingPointInfoComponent} from "../region-reporting-point-info/region-reporting-point-info.component";
-import {ActivatedRoute, Router} from "@angular/router";
 import {ReportingPointRaw} from "../../../data/region/region.domain";
 
 const MARKER_STYLE = new Style({
@@ -61,8 +60,6 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
   constructor(
     private readonly hostElement: ElementRef<HTMLElement>,
     private readonly viewContainerRef: ViewContainerRef,
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
   ) {
   }
 
@@ -92,12 +89,6 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
         const reportingPointRaw = this.markers.find(point => point.reporting_point === reporting_point);
 
         popupComponent.setInput("reportingPointRaw", reportingPointRaw)
-
-        this.router.navigate([], {
-          relativeTo: this.route,
-          queryParams: {reporting_point},
-          queryParamsHandling: "merge",
-        });
       });
 
       if (!found) {

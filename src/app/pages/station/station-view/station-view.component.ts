@@ -4,7 +4,7 @@ import {map, Observable, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
-import {User, UserId} from "../../../data/user/user.domain";
+import {UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 
 @Component({
@@ -33,7 +33,15 @@ export class StationViewComponent {
     return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<User | undefined> {
-    return this.userService.getCached(id);
+  protected getUserName(id: UserId): Observable<string | undefined> {
+    return this.userService.getCached(id).pipe(map(user => {
+      if (!user) {
+        return undefined;
+      } else if (!user.name || user.name.length === 0) {
+        return '<empty name>';
+      } else {
+        return user.name
+      }
+    }));
   }
 }

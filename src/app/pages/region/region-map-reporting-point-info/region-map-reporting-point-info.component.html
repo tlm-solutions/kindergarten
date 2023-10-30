@@ -1,0 +1,18 @@
+<ng-container *ngIf="reportingPoint">
+  <div>
+    <span i18n>Reporting Point</span>
+    <span>
+      <a [routerLink]="'reporting_point/' + reportingPoint.reporting_point">
+        {{ reportingPoint.reporting_point }}
+      </a>
+    </span>
+  </div>
+  <div>
+    <span i18n>Lat</span>
+    <span>{{roundLatLon(reportingPoint.lat)}}°</span>
+  </div>
+  <div>
+    <span i18n>Lon</span>
+    <span>{{roundLatLon(reportingPoint.lon)}}°</span>
+  </div>
+</ng-container>

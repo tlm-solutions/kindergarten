@@ -3,7 +3,7 @@ import {BehaviorSubject, filter, map, Observable, share, Subscription, switchMap
 import {TrackService} from "../../../data/track/track.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {RegionService} from "../../../data/region/region.service";
-import {User, UserId} from "../../../data/user/user.domain";
+import {UserId} from "../../../data/user/user.domain";
 import {UserService} from "../../../data/user/user.service";
 import {IdHolder} from "../../../data/api.domain";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -76,8 +76,16 @@ export class TrackListComponent implements OnInit, OnDestroy {
     return this.regionService.getCached(id);
   }
 
-  protected getUser(id: UserId): Observable<User | undefined> {
-    return this.userService.getCached(id);
+  protected getUserName(id: UserId): Observable<string | undefined> {
+    return this.userService.getCached(id).pipe(map(user => {
+      if (!user) {
+        return undefined;
+      } else if (!user.name || user.name.length === 0) {
+        return '<empty name>';
+      } else {
+        return user.name
+      }
+    }));
   }
 
   protected trackBy<T>(_: number, {id}: IdHolder<T>): T {

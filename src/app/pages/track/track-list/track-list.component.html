@@ -36,7 +36,7 @@
       </td>
       <td>
         <a [routerLink]="'/user/' + track.owner">
-          {{ (getUser(track.owner) | async)?.name }}
+          {{ getUserName(track.owner) | async }}
         </a>
       </td>
       <td>{{track.finished}}</td>

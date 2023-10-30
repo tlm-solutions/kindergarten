@@ -21,7 +21,7 @@
     <span i18n>Run Owner</span>
     <span>
       <a [routerLink]="'/user/' + reportingPointRaw.run_owner">
-        {{ (getUser(reportingPointRaw.run_owner) | async)?.name }}
+        {{ (getUserName(reportingPointRaw.run_owner) | async) }}
       </a>
     </span>
   </div>

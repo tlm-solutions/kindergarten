@@ -20,7 +20,6 @@ export class RegionViewComponent {
 
   protected readonly reportingPoints = this.regionId.pipe(
     switchMap(id => this.regionService.getReportingPoints(id)),
-    map(reportingPoints => reportingPoints.map(reportingPoint => [reportingPoint.lon, reportingPoint.lat])),
     share(),
   );
 

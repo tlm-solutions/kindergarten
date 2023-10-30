@@ -11,7 +11,7 @@
         <td i18n>Owner</td>
         <td>
           <a [routerLink]="'/user/' + station.owner">
-            {{ (getUser(station.owner) | async)?.name }}
+            {{ getUserName(station.owner) | async }}
           </a>
         </td>
       </tr>

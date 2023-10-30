@@ -15,6 +15,7 @@ import {
 } from './region-reporting-point-view-map/region-reporting-point-view-map.component';
 import {RegionReportingPointInfoComponent} from './region-reporting-point-info/region-reporting-point-info.component';
 import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form";
+import { RegionMapReportingPointInfoComponent } from './region-map-reporting-point-info/region-map-reporting-point-info.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form
     RegionReportingPointViewComponent,
     RegionReportingPointViewMapComponent,
     RegionReportingPointInfoComponent,
+    RegionMapReportingPointInfoComponent,
   ],
   imports: [
     CommonModule,
