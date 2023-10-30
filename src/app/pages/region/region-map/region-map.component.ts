@@ -32,6 +32,13 @@ export class RegionMapComponent implements OnChanges {
   @Input()
   public markers: Coordinate[] = [];
 
+  @Input()
+  public lat = 0;
+  @Input()
+  public lon = 0;
+  @Input()
+  public zoom = 0;
+
   private features = new VectorSource();
 
   private map = new Map({
@@ -52,6 +59,29 @@ export class RegionMapComponent implements OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
+    const view = this.map.getView();
+
+    if (changes["lat"]) {
+      const lat = changes["lat"].currentValue;
+      view.setCenter([this.lon, lat]);
+
+      const markerFeature = this.features.getFeatureById("marker");
+      markerFeature?.setGeometry(new Point([this.lon, lat]));
+    }
+
+    if (changes["lon"]) {
+      const lon = changes["lon"].currentValue;
+      view.setCenter([lon, this.lat]);
+
+      const markerFeature = this.features.getFeatureById("marker");
+      markerFeature?.setGeometry(new Point([lon, this.lat]));
+    }
+
+    if (changes["zoom"]) {
+      const zoom = changes["zoom"].currentValue;
+      view.setZoom(zoom);
+    }
+
     if (changes["markers"]) {
       const markers: Coordinate[] = changes["markers"].currentValue;
 
@@ -60,14 +90,6 @@ export class RegionMapComponent implements OnChanges {
         feature.setStyle(MARKER_STYLE);
         return feature;
       }));
-
-      if (markers.length === 1) {
-        const view = this.map.getView();
-        view.setCenter(markers[0]);
-        view.setZoom(1);
-      } else {
-        this.map.getView().fit(this.features.getExtent(), {padding: [10, 10, 10, 10], maxZoom: 20});
-      }
     }
   }
 }

@@ -55,15 +55,18 @@
     <feel-button link="edit">Edit</feel-button>
     <feel-button link="..">Back to List</feel-button>
   </div>
+
+  <ng-container *ngIf="reportingPoints | async as reportingPoints">
+    <app-region-map
+      [markers]="reportingPoints"
+      [lat]="region.lat"
+      [lon]="region.lon"
+      [zoom]="region.zoom"
+      class="map"
+    />
+  </ng-container>
 </ng-container>
 
 <ng-template #loading>
   Loading...
 </ng-template>
-
-<ng-container *ngIf="reportingPoints | async as reportingPoints">
-  <app-region-map
-    [markers]="reportingPoints"
-    class="map"
-  />
-</ng-container>
