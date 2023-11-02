@@ -84,8 +84,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
         found = true;
         const point = feature.getGeometry() as Point;
         popup.setPosition(point.getCoordinates());
-        popup.set("feature_id", feature.getId(), true);
-        const reporting_point = feature.getId();
+        const reporting_point = feature.get('reporting_point');
         const reportingPointRaw = this.markers.find(point => point.reporting_point === reporting_point);
 
         popupComponent.setInput("reportingPointRaw", reportingPointRaw)
@@ -104,7 +103,8 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
 
       this.features.addFeatures(markers.map(marker => {
         const feature = new Feature({geometry: new Point([marker.lon, marker.lat])});
-        feature.setId(marker.reporting_point)
+        feature.setId(marker.id)
+        feature.set("reporting_point", marker.reporting_point);
         feature.setStyle(MARKER_STYLE);
         return feature;
       }));
