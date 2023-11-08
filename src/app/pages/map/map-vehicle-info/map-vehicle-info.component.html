@@ -35,13 +35,13 @@
     <span i18n>Source</span>
     <span>{{getSourceDisplayName(vehicle.source)}}</span>
   </div>
-  <div *ngIf="vehicle.r09_destination_number">
+  <div *ngIf="vehicle.r09_destination_number !== null">
     <span i18n>R09 Reporting Point</span>
     <span><a
       [routerLink]="'/region/' + vehicle.region + '/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
     </span>
   </div>
-  <div *ngIf="vehicle.r09_destination_number">
+  <div *ngIf="vehicle.r09_destination_number !== null">
     <span i18n>R09 Destination</span>
     <span>{{vehicle.r09_destination_number}}</span>
   </div>
