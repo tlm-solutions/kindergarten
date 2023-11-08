@@ -53,51 +53,51 @@
     "description": "Museums Fahrt"
   },
   "101": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV1"
   },
   "102": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV2"
   },
   "103": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV3"
   },
   "104": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV4"
   },
   "106": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV6"
   },
   "107": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV7"
   },
   "108": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV8"
   },
   "109": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV9"
   },
   "110": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV10"
   },
   "111": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV11"
   },
   "112": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV12"
   },
   "113": {
-    "type": "tram",
+    "type": "bus",
     "name": "EV13"
   },
   "61": {
