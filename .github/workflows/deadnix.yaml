@@ -1,0 +1,17 @@
+name: "deadnix"
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ '*' ]
+  pull_request:
+
+jobs:
+  deadnix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v23
+      - uses: astro/deadnix-action@main
+        with:
+          flags: "-l"
