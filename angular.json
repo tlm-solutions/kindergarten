@@ -92,10 +92,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kindergarten:build:production"
+              "buildTarget": "kindergarten:build:production"
             },
             "development": {
-              "browserTarget": "kindergarten:build:development"
+              "buildTarget": "kindergarten:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -107,7 +107,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kindergarten:build"
+            "buildTarget": "kindergarten:build"
           }
         },
         "test": {
