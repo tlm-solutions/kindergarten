@@ -209,7 +209,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
                 }
                 (vehicle.getStyle() as Style).setImage(icon);
                 vehicle.setGeometry(new Point(coords));
-                // @ts-ignore
+                // @ts-expect-error strange typing
                 vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
               } else {
                 const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});

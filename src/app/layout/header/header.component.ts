@@ -5,9 +5,13 @@ import {Title} from "@angular/platform-browser";
 import {routingAnimation} from "../../core/animation/routing.animation";
 import {SidebarService} from "../sidebar/sidebar.service";
 import {HeaderHostDirective} from "./header-host.directive";
+import {CommonModule} from "@angular/common";
+import {MenuIconComponent} from "../../core/icons/menu-icon/menu-icon.component";
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, MenuIconComponent, HeaderHostDirective],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   animations: [routingAnimation],
@@ -30,7 +34,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngAfterViewInit(): void {
-    // @ts-ignore
+    // @ts-expect-error because of any
     this.route.root.firstChild?.snapshot?.data['headerElement']?.().then(headerElement =>
       this.host?.viewContainerRef.createComponent(headerElement).changeDetectorRef.markForCheck()
     );
@@ -40,11 +44,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => {
-        // @ts-ignore
         const data: {
           title?: string,
           headerElement?: () => Promise<Type<unknown>>
-        } = this.route.root.firstChild?.snapshot?.data;
+        } | undefined = this.route.root.firstChild?.snapshot?.data;
         return {title: data?.['title'], headerElement: data?.['headerElement']};
       }),
       tap(({title}) => {

@@ -1,11 +1,17 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {CommonModule} from '@angular/common';
+import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {filter, map} from "rxjs";
-import {routingAnimation} from "./core/animation/routing.animation";
 import {SidebarService} from "./layout/sidebar/sidebar.service";
+import {SidebarComponent} from "./layout/sidebar/sidebar.component";
+import {HeaderComponent} from "./layout/header/header.component";
+import {NotificationListComponent} from "@feel/notification";
+import {routingAnimation} from "./core/animation/routing.animation";
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, NotificationListComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

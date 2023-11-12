@@ -27,11 +27,11 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/kindergarten",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -48,7 +48,6 @@
               "node_modules/@fontsource/dm-sans/500-italic.css",
               "node_modules/@fontsource/dm-sans/700.css",
               "node_modules/@fontsource/dm-sans/700-italic.css",
-              "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/ol/ol.css",
               "node_modules/@feel/style/main.scss",
               "src/styles.scss"
@@ -78,12 +77,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -128,7 +124,6 @@
               "node_modules/@fontsource/dm-sans/400-italic.css",
               "node_modules/@fontsource/dm-sans/700.css",
               "node_modules/@fontsource/dm-sans/700-italic.css",
-              "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/ol/ol.css",
               "node_modules/@feel/style/main.scss",
               "src/styles.scss"
@@ -158,6 +153,7 @@
     "analytics": false,
     "packageManager": "pnpm",
     "schematicCollections": [
+      "@angular-eslint/schematics",
       "@angular-eslint/schematics"
     ]
   }
