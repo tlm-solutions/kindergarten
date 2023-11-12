@@ -3,6 +3,7 @@ import {inject} from "@angular/core";
 import {AuthService} from "./data/auth/auth.service";
 import {NotificationService} from "@feel/notification";
 import {map, skip} from "rxjs";
+import mapRoutes from "./pages/map/map.routes";
 
 const FN: CanActivateFn = route => {
   const authService = inject(AuthService);
@@ -59,7 +60,8 @@ export const routes: Routes = [
     canActivate: [FN]
   },
   {
-    path: 'map', loadChildren: () => import('./pages/map/map.routes'),
+    path: 'map',
+    children: mapRoutes,
     data: {
       title: $localize`Map`,
       headerElement: () => import('./pages/map/map-region-selector/map-region-selector.component').then(c => c.MapRegionSelectorComponent)

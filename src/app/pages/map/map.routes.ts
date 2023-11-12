@@ -1,9 +1,8 @@
 import {Routes} from '@angular/router';
-import {MapComponent} from './map.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '0', pathMatch: 'full'},
-  {path: ':regionId', component: MapComponent}
+  {path: ':regionId', loadComponent: () => import("./map.component").then(c => c.MapComponent)}
 ];
 
 export default routes;
