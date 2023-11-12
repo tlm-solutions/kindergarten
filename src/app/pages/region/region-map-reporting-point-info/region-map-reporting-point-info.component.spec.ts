@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegionMapReportingPointInfoComponent } from './region-map-reporting-point-info.component';
+import {RegionMapReportingPointInfoComponent} from './region-map-reporting-point-info.component';
 
 describe('RegionMapReportingPointInfoComponent', () => {
   let component: RegionMapReportingPointInfoComponent;

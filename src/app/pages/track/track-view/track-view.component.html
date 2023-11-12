@@ -64,8 +64,8 @@
         <td>
           <a *ngIf="getCommitLink(track.app_name, track.app_commit) as commitLink; else withoutLink"
              [href]="commitLink"
-             target="_blank"
-             rel="noreferrer nofollow noopener">
+             rel="noreferrer nofollow noopener"
+             target="_blank">
             {{renderCommitId(track.app_commit)}}
           </a>
           <ng-template #withoutLink>{{renderCommitId(track.app_commit)}}</ng-template>
@@ -78,7 +78,7 @@
   <div class="buttons">
     <feel-button i18n link="edit">Edit</feel-button>
     <feel-button i18n>Recorrelate</feel-button>
-    <feel-button flavor="danger" i18n (click)="delete(track.id)">Delete</feel-button>
+    <feel-button (click)="delete(track.id)" flavor="danger" i18n>Delete</feel-button>
     <feel-button i18n link="..">Back to List</feel-button>
   </div>
 

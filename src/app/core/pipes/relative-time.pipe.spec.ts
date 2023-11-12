@@ -1,4 +1,4 @@
-import { RelativeTimePipe } from './relative-time.pipe';
+import {RelativeTimePipe} from './relative-time.pipe';
 
 describe('RelativeTimePipe', () => {
   it('create an instance', () => {

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegionReportingPointInfoComponent } from './region-reporting-point-info.component';
+import {RegionReportingPointInfoComponent} from './region-reporting-point-info.component';
 
 describe('RegionReportingPointInfoComponent', () => {
   let component: RegionReportingPointInfoComponent;
@@ -8,7 +8,7 @@ describe('RegionReportingPointInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegionReportingPointInfoComponent ]
+      declarations: [RegionReportingPointInfoComponent]
     })
       .compileComponents();
 

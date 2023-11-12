@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapRegionSelectorComponent } from './map-region-selector.component';
+import {MapRegionSelectorComponent} from './map-region-selector.component';
 
 describe('MapRegionSelectorComponent', () => {
   let component: MapRegionSelectorComponent;

@@ -1,4 +1,4 @@
-import { HeaderHostDirective } from './header-host.directive';
+import {HeaderHostDirective} from './header-host.directive';
 
 describe('HeaderHostDirective', () => {
   it('should create an instance', () => {

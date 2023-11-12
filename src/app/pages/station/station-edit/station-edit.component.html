@@ -3,7 +3,8 @@
   <section>
     <h1 i18n>General</h1>
     <feel-text-field formControlName="name" i18n-label label="Name">
-      <feel-form-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is required!
+      <feel-form-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is
+        required!
       </feel-form-error>
     </feel-text-field>
 
@@ -17,11 +18,13 @@
   <section>
     <h1>Location</h1>
     <feel-text-field formControlName="lat" i18n-label label="Latitude" type="number">
-      <feel-form-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is required!
+      <feel-form-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is
+        required!
       </feel-form-error>
     </feel-text-field>
     <feel-text-field formControlName="lon" i18n-label label="Longitude" type="number">
-      <feel-form-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is required!
+      <feel-form-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is
+        required!
       </feel-form-error>
     </feel-text-field>
     <feel-text-field formControlName="elevation" i18n-label label="Elevation" type="number"/>

@@ -58,9 +58,9 @@
 
   <ng-container *ngIf="reportingPoints | async as reportingPoints">
     <app-region-map
-      [markers]="reportingPoints"
       [lat]="region.lat"
       [lon]="region.lon"
+      [markers]="reportingPoints"
       [zoom]="region.zoom"
       class="map"
     />

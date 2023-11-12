@@ -15,9 +15,9 @@ export interface WsData {
   lon: number,
   line: number,
   run: number,
-  delayed: number|undefined,
-  r09_reporting_point: number|undefined;
-  r09_destination_number: number|undefined;
+  delayed: number | undefined,
+  r09_reporting_point: number | undefined;
+  r09_destination_number: number | undefined;
 }
 
 export interface LizardData {

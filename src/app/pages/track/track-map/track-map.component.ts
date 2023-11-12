@@ -141,7 +141,7 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
 
     this.map = new Map({
       view: this.view = new View({
-        center: [0,0],
+        center: [0, 0],
         zoom: 0
       }),
       layers,
