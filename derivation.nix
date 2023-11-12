@@ -15,7 +15,7 @@ mkPnpmPackage {
     installPhase = ''
       mkdir -p $out/en
       mkdir -p $out/de
-      cp -r ./dist/en-US/* $out/en/
-      cp -r ./dist/de-DE/* $out/de/
+      cp -r ./dist/browser/en-US/* $out/en/
+      cp -r ./dist/browser/de-DE/* $out/de/
     '';
 }
