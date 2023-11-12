@@ -7,7 +7,7 @@ describe('MapIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapIconComponent]
+      imports: [MapIconComponent]
     })
       .compileComponents();
 

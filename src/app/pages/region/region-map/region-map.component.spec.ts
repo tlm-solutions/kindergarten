@@ -7,7 +7,7 @@ describe('RegionMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegionMapComponent]
+      imports: [RegionMapComponent]
     })
       .compileComponents();
 

@@ -7,7 +7,7 @@ describe('RegionIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegionIconComponent]
+      imports: [RegionIconComponent]
     })
       .compileComponents();
 

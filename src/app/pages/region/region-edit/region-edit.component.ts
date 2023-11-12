@@ -2,15 +2,20 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RegionService} from "../../../data/region/region.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Encoding, RegionId} from "../../../data/region/region.domain";
 import {NotificationService} from "@feel/notification";
+import {CommonModule} from '@angular/common';
+import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form";
+import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
   selector: 'app-region-edit',
   templateUrl: './region-edit.component.html',
   styleUrls: ['./region-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, CheckboxComponent, ButtonComponent, MapComponent],
 })
 export class RegionEditComponent implements OnInit, OnDestroy {
 

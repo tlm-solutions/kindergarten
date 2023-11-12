@@ -8,7 +8,7 @@ describe('RegionReportingPointViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegionReportingPointViewComponent]
+      imports: [RegionReportingPointViewComponent]
     })
       .compileComponents();
 

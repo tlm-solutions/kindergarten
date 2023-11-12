@@ -8,7 +8,7 @@ describe('MapRegionSelectorComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MapRegionSelectorComponent]
+      imports: [MapRegionSelectorComponent]
     });
     fixture = TestBed.createComponent(MapRegionSelectorComponent);
     component = fixture.componentInstance;

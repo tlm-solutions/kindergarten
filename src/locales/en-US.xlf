@@ -2,53 +2,60 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="2489604628795070296" datatype="html">
+        <source>You are already logged in.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8563215417047104608" datatype="html">
         <source>Kindergarten</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4846792506513649213" datatype="html">
         <source>Stations</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4555457172864212828" datatype="html">
         <source>Users</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="699590710757792843" datatype="html">
         <source>Regions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4915431133669985304" datatype="html">
         <source>Profile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1575810254412583888" datatype="html">
         <source>Tracks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">58</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
@@ -59,7 +66,7 @@
         <source>Map</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7479425239631237410" datatype="html">
@@ -203,7 +210,7 @@
         <source><x id="PH" equiv-text="title"/> | Kindergarten</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2083194873229000210" datatype="html">
@@ -408,13 +415,6 @@
           <context context-type="linenumber">115,116</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2489604628795070296" datatype="html">
-        <source>You are already logged in.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/login/login-routing.module.ts</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="598315384553444660" datatype="html">
         <source>Kindergarten Login</source>
         <context-group purpose="location">
@@ -489,7 +489,7 @@
         <source>Successfully logged in as <x id="PH" equiv-text="response.name"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8543119714580512727" datatype="html">
@@ -594,42 +594,42 @@
         <source>Bus</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4914160533637488212" datatype="html">
         <source>Tram</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4467323362722952678" datatype="html">
         <source>Unknown</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3618113761309540743" datatype="html">
         <source>Telegram</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6173761415494797723" datatype="html">
         <source>Realtime GPS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8693603235657020323" datatype="html">
         <source>Other</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/map/map-vehicle-info/map-vehicle-info.component.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5028777105388019087" datatype="html">
@@ -743,7 +743,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">11,12</context>
+          <context context-type="linenumber">12,13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -780,7 +780,7 @@
         <source>Logout was successful.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/profile/profile.component.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6439365426343089851" datatype="html">
@@ -949,7 +949,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
@@ -964,7 +964,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.html</context>
@@ -975,14 +975,14 @@
         <source>Region <x id="PH" equiv-text="region.name"/> was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.ts</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4658949179460438495" datatype="html">
         <source>Failed to update region <x id="PH" equiv-text="region.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.ts</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
@@ -1038,14 +1038,14 @@
         <source>Name is required! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">6,7</context>
+          <context context-type="linenumber">7,8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5906272961955453157" datatype="html">
         <source>Approved</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">10,11</context>
+          <context context-type="linenumber">11,12</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -1060,7 +1060,7 @@
         <source>Public</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">12,14</context>
+          <context context-type="linenumber">13,15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -1075,7 +1075,7 @@
         <source>Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1086,35 +1086,35 @@
         <source>Latitude</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4224106337954102965" datatype="html">
         <source>Latitude is required! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">21,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5174359152122758396" datatype="html">
         <source>Longitude</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8966840175129431170" datatype="html">
         <source>Longitude is required! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">26,28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5017068061369085520" datatype="html">
         <source>Elevation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1125,7 +1125,7 @@
         <source>Region</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-list/station-list.component.html</context>
@@ -1152,7 +1152,7 @@
         <source>Radio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1163,7 +1163,7 @@
         <source>Architecture</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">38,39</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1174,7 +1174,7 @@
         <source>Device</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">36,37</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1185,7 +1185,7 @@
         <source>Antenna</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">37,39</context>
+          <context context-type="linenumber">40,42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1196,7 +1196,7 @@
         <source>Telegram Decoder Version</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
@@ -1207,14 +1207,14 @@
         <source>Station <x id="PH" equiv-text="station.name"/> was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.ts</context>
-          <context context-type="linenumber">115</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5910481702687935078" datatype="html">
         <source>Failed to update station <x id="PH" equiv-text="station.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.ts</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3715596725146409911" datatype="html">
@@ -1358,14 +1358,14 @@
         <source>Track was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">135</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5851414638365189550" datatype="html">
         <source>Failed to update track: <x id="PH" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">138</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3676850495488145564" datatype="html">
@@ -1457,7 +1457,7 @@
         <source>Track was successfully deleted.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-view/track-view.component.ts</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">110</context>
         </context-group>
       </trans-unit>
     </body>

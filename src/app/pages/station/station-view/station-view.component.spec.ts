@@ -7,7 +7,7 @@ describe('StationViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StationViewComponent]
+      imports: [StationViewComponent]
     })
       .compileComponents();
 

@@ -3,12 +3,16 @@ import {AuthService} from "../../data/auth/auth.service";
 import {map, share, switchMap} from "rxjs";
 import {NotificationService} from "@feel/notification";
 import {Router} from "@angular/router";
+import {CommonModule} from '@angular/common';
+import {ButtonComponent} from "@feel/form";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ButtonComponent],
 })
 export class ProfileComponent {
 

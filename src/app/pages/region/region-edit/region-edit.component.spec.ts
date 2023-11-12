@@ -7,7 +7,7 @@ describe('RegionEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegionEditComponent]
+      imports: [RegionEditComponent]
     })
       .compileComponents();
 

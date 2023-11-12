@@ -7,7 +7,7 @@ describe('StationSidebarComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StationEditComponent]
+      imports: [StationEditComponent]
     })
       .compileComponents();
 

@@ -1,17 +1,22 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {StationService} from "../../../data/station/station.service";
 import {map, Observable, share, switchMap} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
+import {CommonModule} from '@angular/common';
+import {ButtonComponent} from "@feel/form";
+import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
   selector: 'app-station-view',
   templateUrl: './station-view.component.html',
   styleUrls: ['./station-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, RouterLink, ButtonComponent, MapComponent],
 })
 export class StationViewComponent {
 

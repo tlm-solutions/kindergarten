@@ -20,6 +20,7 @@ import Overlay from "ol/Overlay";
 import {MapVehicleInfoComponent} from "../map-vehicle-info/map-vehicle-info.component";
 import {Type} from "../../../data/region/region.domain";
 import {Source} from "../../../data/network/network.domain";
+import {CommonModule} from "@angular/common";
 
 const BUS_ICONS = [
   loadImage("assets/icons/vehicle/bus00.svg"),
@@ -78,6 +79,8 @@ const MAX_VEHICLE_AGE = 1000 * 60 * 5;
   templateUrl: './map-windshield.component.html',
   styleUrls: ['./map-windshield.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
 })
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 

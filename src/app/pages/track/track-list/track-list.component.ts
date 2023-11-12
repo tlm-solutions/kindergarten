@@ -6,14 +6,20 @@ import {RegionService} from "../../../data/region/region.service";
 import {UserId} from "../../../data/user/user.domain";
 import {UserService} from "../../../data/user/user.service";
 import {IdHolder} from "../../../data/api.domain";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {CommonModule} from "@angular/common";
+import {ButtonComponent, TextFieldComponent} from "@feel/form";
+import {RelativeTimePipe} from "../../../core/pipes/relative-time.pipe";
+import {DurationPipe} from "../../../core/pipes/duration.pipe";
 
 @Component({
   selector: 'app-track-list',
   templateUrl: './track-list.component.html',
   styleUrls: ['./track-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, ButtonComponent, RelativeTimePipe, DurationPipe, RouterLink],
 })
 export class TrackListComponent implements OnInit, OnDestroy {
 

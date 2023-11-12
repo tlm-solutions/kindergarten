@@ -7,7 +7,7 @@ describe('TrackListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TrackListComponent]
+      imports: [TrackListComponent]
     })
       .compileComponents();
 

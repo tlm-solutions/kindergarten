@@ -5,11 +5,15 @@ import {map, Observable} from "rxjs";
 import {UserService} from "../../../data/user/user.service";
 import {TrackService} from "../../../data/track/track.service";
 import {Track} from "../../../data/track/track.domain";
+import {CommonModule} from '@angular/common';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-region-reporting-point-info',
   templateUrl: './region-reporting-point-info.component.html',
-  styleUrls: ['./region-reporting-point-info.component.scss']
+  styleUrls: ['./region-reporting-point-info.component.scss'],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
 })
 export class RegionReportingPointInfoComponent implements OnChanges {
 

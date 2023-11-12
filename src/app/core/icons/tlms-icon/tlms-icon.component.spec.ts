@@ -7,7 +7,7 @@ describe('IconTlmsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TlmsIconComponent]
+      imports: [TlmsIconComponent]
     })
       .compileComponents();
 

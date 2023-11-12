@@ -7,7 +7,7 @@ describe('MapWindshieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapWindshieldComponent]
+      imports: [MapWindshieldComponent]
     })
       .compileComponents();
 

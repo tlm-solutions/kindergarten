@@ -25,6 +25,7 @@ import {
   RegionMapReportingPointInfoComponent
 } from "../region-map-reporting-point-info/region-map-reporting-point-info.component";
 import {ReportingPoint} from "../../../data/region/region.domain";
+import {CommonModule} from "@angular/common";
 
 const MARKER_STYLE = new Style({
   image: new Circle({
@@ -39,6 +40,8 @@ const MARKER_STYLE = new Style({
   templateUrl: './region-map.component.html',
   styleUrls: ['./region-map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
 })
 export class RegionMapComponent implements OnInit, OnChanges {
 

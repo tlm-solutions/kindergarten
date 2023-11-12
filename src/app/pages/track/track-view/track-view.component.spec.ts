@@ -7,7 +7,7 @@ describe('TrackViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TrackViewComponent]
+      imports: [TrackViewComponent]
     })
       .compileComponents();
 

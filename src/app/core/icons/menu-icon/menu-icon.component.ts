@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-menu-icon',
@@ -6,6 +7,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   styleUrls: ['./menu-icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [CommonModule],
 })
 export class MenuIconComponent {
 }

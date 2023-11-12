@@ -1,17 +1,22 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BehaviorSubject, combineLatest, filter, map, share, Subscription, switchMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NotificationService} from "@feel/notification";
 import {TrackService} from "../../../data/track/track.service";
 import {Coordinate} from "ol/coordinate";
 import {GpsEntry} from "../../../data/track/track.domain";
+import {CommonModule} from "@angular/common";
+import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form";
+import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
   selector: 'app-track-edit',
   templateUrl: './track-edit.component.html',
   styleUrls: ['./track-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, CheckboxComponent, ButtonComponent, MapComponent],
 })
 export class TrackEditComponent implements OnInit, OnDestroy {
 
@@ -25,7 +30,6 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     owner: new FormControl<string | null>(null, [Validators.required]),
     finished: new FormControl<boolean | null>(null, [Validators.required]),
     correlated: new FormControl<boolean | null>(null, [Validators.required]),
-
     trim_start: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
     trim_end: new FormControl<number>(0, [Validators.required, Validators.min(0)]),
   });

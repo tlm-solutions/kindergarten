@@ -8,7 +8,7 @@ describe('RegionMapReportingPointInfoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RegionMapReportingPointInfoComponent]
+      imports: [RegionMapReportingPointInfoComponent]
     });
     fixture = TestBed.createComponent(RegionMapReportingPointInfoComponent);
     component = fixture.componentInstance;

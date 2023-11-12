@@ -7,7 +7,7 @@ describe('UserViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserViewComponent]
+      imports: [UserViewComponent]
     })
       .compileComponents();
 

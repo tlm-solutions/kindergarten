@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, Observable, share, switchMap} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {TrackService} from "../../../data/track/track.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
@@ -9,12 +9,18 @@ import {UserService} from "../../../data/user/user.service";
 import {GpsEntry, TrackId} from "../../../data/track/track.domain";
 import {Coordinate} from "ol/coordinate";
 import {NotificationService} from "@feel/notification";
+import {CommonModule} from "@angular/common";
+import {RelativeTimePipe} from "../../../core/pipes/relative-time.pipe";
+import {ButtonComponent} from "@feel/form";
+import {TrackMapComponent} from "../track-map/track-map.component";
 
 @Component({
   selector: 'app-track-view',
   templateUrl: './track-view.component.html',
   styleUrls: ['./track-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, RelativeTimePipe, RouterLink, ButtonComponent, TrackMapComponent],
 })
 export class TrackViewComponent {
 

@@ -6,12 +6,16 @@ import {UserId} from "../../../data/user/user.domain";
 import {RegionService} from "../../../data/region/region.service";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {IdHolder} from "../../../data/api.domain";
+import {CommonModule} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-station-list',
   templateUrl: './station-list.component.html',
   styleUrls: ['./station-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, RouterLink],
 })
 export class StationListComponent {
 

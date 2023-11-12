@@ -2,18 +2,23 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable, of, share, Subscription, switchMap} from "rxjs";
 import {StationService} from "../../../data/station/station.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Antenna, Architecture, Device, Radio, StationId} from "../../../data/station/station.domain";
 import {Region, RegionId} from "../../../data/region/region.domain";
 import {UserId} from "../../../data/user/user.domain";
 import {NotificationService} from "@feel/notification";
 import {RegionService} from "../../../data/region/region.service";
+import {CommonModule} from "@angular/common";
+import {ButtonComponent, CheckboxComponent, FormErrorComponent, TextFieldComponent} from "@feel/form";
+import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
   selector: 'app-station-edit',
   templateUrl: './station-edit.component.html',
   styleUrls: ['./station-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, FormErrorComponent, CheckboxComponent, ButtonComponent, MapComponent],
 })
 export class StationEditComponent implements OnInit, OnDestroy {
 

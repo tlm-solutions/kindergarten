@@ -2,12 +2,16 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, share, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../data/user/user.service";
+import {CommonModule} from '@angular/common';
+import {ButtonComponent} from "@feel/form";
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ButtonComponent],
 })
 export class UserViewComponent {
 

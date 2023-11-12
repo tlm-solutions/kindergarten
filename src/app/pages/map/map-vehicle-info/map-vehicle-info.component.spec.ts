@@ -7,7 +7,7 @@ describe('MapVehicleInfComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapVehicleInfoComponent]
+      imports: [MapVehicleInfoComponent]
     })
       .compileComponents();
 

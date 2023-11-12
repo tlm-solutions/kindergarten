@@ -1,5 +1,4 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 import {StationComponent} from './station.component';
 import {StationEditComponent} from "./station-edit/station-edit.component";
 import {StationViewComponent} from "./station-view/station-view.component";
@@ -15,9 +14,4 @@ const routes: Routes = [{
   ]
 }];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class StationRoutingModule {
-}
+export default routes;

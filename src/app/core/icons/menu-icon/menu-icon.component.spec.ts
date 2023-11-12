@@ -7,7 +7,7 @@ describe('MenuIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MenuIconComponent]
+      imports: [MenuIconComponent]
     })
       .compileComponents();
 

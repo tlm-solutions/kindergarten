@@ -3,15 +3,15 @@ import {CommonModule} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {filter, map} from "rxjs";
 import {SidebarService} from "./layout/sidebar/sidebar.service";
+import {routingAnimation} from "./core/animation/routing.animation";
 import {SidebarComponent} from "./layout/sidebar/sidebar.component";
 import {HeaderComponent} from "./layout/header/header.component";
 import {NotificationListComponent} from "@feel/notification";
-import {routingAnimation} from "./core/animation/routing.animation";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, NotificationListComponent],
+  imports: [CommonModule, SidebarComponent, HeaderComponent, RouterOutlet, NotificationListComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

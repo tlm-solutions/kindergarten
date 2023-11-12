@@ -1,15 +1,20 @@
 import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../data/auth/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {BehaviorSubject, EMPTY, switchMap, take} from "rxjs";
 import {NotificationService} from "@feel/notification";
+import {CommonModule} from '@angular/common';
+import {TlmsIconComponent} from "../../core/icons/tlms-icon/tlms-icon.component";
+import {ButtonComponent, FormErrorComponent, TextFieldComponent} from "@feel/form";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, TlmsIconComponent, TextFieldComponent, FormErrorComponent, ReactiveFormsModule, RouterLink, ButtonComponent],
 })
 export class LoginComponent implements OnDestroy {
 
