@@ -1,4 +1,5 @@
 import {Inject, LOCALE_ID, Pipe, PipeTransform} from '@angular/core';
+import {map, Observable, timer} from "rxjs";
 
 @Pipe({
   name: 'relativeTime',
@@ -23,7 +24,7 @@ export class RelativeTimePipe implements PipeTransform {
    * @returns {string} The formatted string.
    * @memberof RelativeTimePipe
    */
-  public transform(value: string | number | Date): string {
+  public transform(value: string | number | Date): Observable<string> {
     let date: number;
     if (typeof value === 'number') {
       date = value;
@@ -33,49 +34,54 @@ export class RelativeTimePipe implements PipeTransform {
       date = value.getTime();
     }
 
-    const diffInMS = date - Date.now();
-    const diffInSecs = Math.trunc(diffInMS / 1000)
+    return timer(0, 1000)
+      .pipe(
+        map(() => {
+          const diffInMS = date - Date.now();
+          const diffInSecs = Math.trunc(diffInMS / 1000)
 
-    const absDiffInSecs = Math.abs(diffInSecs)
+          const absDiffInSecs = Math.abs(diffInSecs)
 
-    if (absDiffInSecs < 5) {
-      return $localize`now`;
-    }
+          if (absDiffInSecs < 5) {
+            return $localize`now`;
+          }
 
-    if (absDiffInSecs < 60) {
-      return this.formatter.format(diffInSecs, "second")
-    }
+          if (absDiffInSecs < 60) {
+            return this.formatter.format(diffInSecs, "second")
+          }
 
-    if (absDiffInSecs >= 60 && absDiffInSecs < 3600) {
-      const minutes = Math.trunc(diffInSecs / 60)
-      return this.formatter.format(minutes, "minute")
-    }
+          if (absDiffInSecs >= 60 && absDiffInSecs < 3600) {
+            const minutes = Math.trunc(diffInSecs / 60)
+            return this.formatter.format(minutes, "minute")
+          }
 
-    if (absDiffInSecs > 3600 && absDiffInSecs < 86400) {
-      const hours = Math.trunc(diffInSecs / 3600)
-      return this.formatter.format(hours, "hour")
-    }
+          if (absDiffInSecs > 3600 && absDiffInSecs < 86400) {
+            const hours = Math.trunc(diffInSecs / 3600)
+            return this.formatter.format(hours, "hour")
+          }
 
-    if (absDiffInSecs >= 86400 && absDiffInSecs < 604800) {
-      const days = Math.trunc(diffInSecs / 86400)
-      return this.formatter.format(days, "day")
-    }
+          if (absDiffInSecs >= 86400 && absDiffInSecs < 604800) {
+            const days = Math.trunc(diffInSecs / 86400)
+            return this.formatter.format(days, "day")
+          }
 
-    if (absDiffInSecs >= 604800 && absDiffInSecs < 2592000) {
-      const weeks = Math.trunc(diffInSecs / 604800)
-      return this.formatter.format(weeks, "week")
-    }
+          if (absDiffInSecs >= 604800 && absDiffInSecs < 2592000) {
+            const weeks = Math.trunc(diffInSecs / 604800)
+            return this.formatter.format(weeks, "week")
+          }
 
-    if (absDiffInSecs >= 2592000 && absDiffInSecs < 31536000) {
-      const months = Math.trunc(diffInSecs / 2592000)
-      return this.formatter.format(months, "month")
-    }
+          if (absDiffInSecs >= 2592000 && absDiffInSecs < 31536000) {
+            const months = Math.trunc(diffInSecs / 2592000)
+            return this.formatter.format(months, "month")
+          }
 
-    if (absDiffInSecs >= 31536000) {
-      const years = Math.trunc(diffInSecs / 31536000)
-      return this.formatter.format(years, "year")
-    }
+          if (absDiffInSecs >= 31536000) {
+            const years = Math.trunc(diffInSecs / 31536000)
+            return this.formatter.format(years, "year")
+          }
 
-    return $localize`invalid data`;
+          return $localize`invalid data`;
+        })
+      );
   }
 }

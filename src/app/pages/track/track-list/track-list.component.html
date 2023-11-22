@@ -25,7 +25,7 @@
     <tr *ngFor="let track of (tracks | async); trackBy trackBy">
       <td>{{track.start_time | date:'short'}}</td>
       <td>{{track.end_time | date:'short'}}</td>
-      <td>{{track.end_time | relativeTime}}</td>
+      <td>{{track.end_time | relativeTime | async}}</td>
       <td>{{duration(track.start_time, track.end_time) | duration}}</td>
       <td>{{track.line}}</td>
       <td>{{track.run}}</td>
