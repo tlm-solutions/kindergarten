@@ -1,3 +1,5 @@
-<select [formControl]="region">
-  <option *ngFor="let region of (regions | async)" [value]="region.id">{{region.name}}</option>
-</select>
+<form [formGroup]="form">
+  <feel-dropdown formControlName="region">
+    <option *ngFor="let region of (regions | async)" [value]="region.id">{{region.name}}</option>
+  </feel-dropdown>
+</form>

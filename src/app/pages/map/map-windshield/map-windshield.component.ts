@@ -173,6 +173,9 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
             tap(data => {
               const id = `${data.line}_${data.run}`;
               const vehicle = this.vehicles.getFeatureById(id);
+              if (vehicle && !(vehicle instanceof Feature)) {
+                throw new Error("new openlayers features are not implemented in kindergarten");
+              }
 
               let icon;
               let offset;
@@ -210,6 +213,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
                 if (popup.get("feature_id") === id) {
                   popup.setPosition(coords);
                 }
+
                 (vehicle.getStyle() as Style).setImage(icon);
                 vehicle.setGeometry(new Point(coords));
                 // @ts-expect-error strange typing

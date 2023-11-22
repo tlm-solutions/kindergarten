@@ -118,6 +118,10 @@ export class RegionMapComponent implements OnInit, OnChanges {
       view.setCenter([this.lon, lat]);
 
       const markerFeature = this.features.getFeatureById("marker");
+      if (markerFeature && !(markerFeature instanceof Feature)) {
+        throw new Error("new openlayers features are not implemented in kindergarten");
+      }
+
       markerFeature?.setGeometry(new Point([this.lon, lat]));
     }
 
@@ -126,6 +130,10 @@ export class RegionMapComponent implements OnInit, OnChanges {
       view.setCenter([lon, this.lat]);
 
       const markerFeature = this.features.getFeatureById("marker");
+      if (markerFeature && !(markerFeature instanceof Feature)) {
+        throw new Error("new openlayers features are not implemented in kindergarten");
+      }
+
       markerFeature?.setGeometry(new Point([lon, this.lat]));
     }
 

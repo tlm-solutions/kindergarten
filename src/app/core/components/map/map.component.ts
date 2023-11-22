@@ -89,6 +89,10 @@ export class MapComponent implements OnChanges, AfterViewInit {
       this.view?.setCenter([this.lon, lat]);
 
       const markerFeature = this.features.getFeatureById("marker");
+      if (markerFeature && !(markerFeature instanceof Feature)) {
+        throw new Error("new openlayers features are not implemented in kindergarten");
+      }
+
       markerFeature?.setGeometry(new Point([this.lon, lat]));
     }
 
@@ -97,6 +101,10 @@ export class MapComponent implements OnChanges, AfterViewInit {
       this.view?.setCenter([lon, this.lat]);
 
       const markerFeature = this.features.getFeatureById("marker");
+      if (markerFeature && !(markerFeature instanceof Feature)) {
+        throw new Error("new openlayers features are not implemented in kindergarten");
+      }
+
       markerFeature?.setGeometry(new Point([lon, this.lat]));
     }
 
@@ -110,6 +118,10 @@ export class MapComponent implements OnChanges, AfterViewInit {
 
       if (marker.previousValue && !marker.currentValue) {
         const feature = this.features.getFeatureById("marker");
+        if (feature&& !(feature instanceof Feature)) {
+          throw new Error("new openlayers features are not implemented in kindergarten");
+        }
+
         if (feature) {
           this.features.removeFeature(feature);
         }
