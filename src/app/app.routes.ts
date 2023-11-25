@@ -67,5 +67,14 @@ export const routes: Routes = [
       headerElement: () => import('./pages/map/map-region-selector/map-region-selector.component').then(c => c.MapRegionSelectorComponent)
     }
   },
+  {
+    path: 'embed',
+    children: mapRoutes,
+    data: {
+      title: $localize`Map`,
+      sidebar: false,
+      header: false,
+    },
+  },
   {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
