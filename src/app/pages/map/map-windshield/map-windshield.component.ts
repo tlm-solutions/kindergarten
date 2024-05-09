@@ -156,6 +156,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
       });
 
       if (!found) {
+        popup.set("feature_id", undefined);
         popup.setPosition(undefined);
 
         if (oldFeatureId) {
