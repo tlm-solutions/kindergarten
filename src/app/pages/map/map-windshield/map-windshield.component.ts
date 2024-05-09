@@ -190,26 +190,26 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
               const delay = data.delayed ?? 0;
 
               switch (line?.type) {
-              case Type.TRAM:
-                icon = new Icon({
-                  size: [40, 40],
-                  img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
-                });
-                offset = -4;
-                break;
-              case Type.BUS:
-                icon = new Icon({
-                  size: [40, 40],
-                  img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
-                });
-                offset = -4;
-                break;
-              default:
-                icon = new Icon({
-                  size: [40, 40],
-                  img: IMG,
-                });
-                offset = -10;
+                case Type.TRAM:
+                  icon = new Icon({
+                    size: [40, 40],
+                    img: getImage(TRAM_ICONS, Math.round(delay / 60), -7, 7),
+                  });
+                  offset = -4;
+                  break;
+                case Type.BUS:
+                  icon = new Icon({
+                    size: [40, 40],
+                    img: getImage(BUS_ICONS, Math.round(delay / 60), -7, 7),
+                  });
+                  offset = -4;
+                  break;
+                default:
+                  icon = new Icon({
+                    size: [40, 40],
+                    img: IMG,
+                  });
+                  offset = -10;
               }
 
               if (vehicle) {
@@ -276,6 +276,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
           }
 
           this.vehicles.removeFeature(feature)
+          this.vehicleHistory.removeFeature(this.vehicleHistory.getFeatureById(feature.getId()!)!);
         });
       })
   }
