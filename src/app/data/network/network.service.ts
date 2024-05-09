@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {webSocket} from "rxjs/webSocket";
-import {HttpClient} from "@angular/common/http";
-import {LIZARD_BASE_PATH, SOCKET_BASE_PATH} from "../api.domain";
-import {BehaviorSubject, catchError, map, Observable, retry, tap, throwError} from "rxjs";
-import {Data, Source} from "./network.domain";
-import {NotificationService} from "@feel/notification";
+import { Injectable } from '@angular/core';
+import { webSocket } from "rxjs/webSocket";
+import { HttpClient } from "@angular/common/http";
+import { LIZARD_BASE_PATH, SOCKET_BASE_PATH } from "../api.domain";
+import { BehaviorSubject, catchError, map, Observable, retry, tap, throwError } from "rxjs";
+import { Data, Source } from "./network.domain";
+import { NotificationService } from "@feel/notification";
+import { distance } from '../../core/utils';
 
 export interface WsData {
   id: string,
@@ -65,13 +66,13 @@ export class NetworkService {
           source: getSource(data.source),
           time: data.time,
           region: data.region,
-          lat: data.lat,
-          lon: data.lon,
+          coordinate: [data.lon, data.lat],
           line: data.line,
           run: data.run,
           delayed: data.delayed,
           r09_reporting_point: data.r09_reporting_point,
           r09_destination_number: data.r09_destination_number,
+          history: [],
         }))),
         tap(data => this.receive(...data))
       );
@@ -84,19 +85,19 @@ export class NetworkService {
           console.error("Websocket Error:", err);
           return throwError(() => err);
         }),
-        retry({delay: 1000}),
+        retry({ delay: 1000 }),
         map<WsData, Data>(data => ({
           id: Number(data.id),
           source: data.source,
           time: Number(data.time),
           region: Number(data.region),
-          lat: data.lat,
-          lon: data.lon,
+          coordinate: [data.lon, data.lat],
           line: data.line,
           run: data.run,
           delayed: data.delayed ?? null,
           r09_reporting_point: data.r09_reporting_point ?? null,
           r09_destination_number: data.r09_destination_number ?? null,
+          history: [],
         })),
         tap(data => this.receive(data))
       );
@@ -109,6 +110,9 @@ export class NetworkService {
       const idx = vehicles.findIndex(vehicle => vehicle.line === data.line && vehicle.run === data.run);
 
       if (idx >= 0) {
+        const history = vehicles[idx].history;
+        history.push(data.coordinate);
+        data.history = history.filter(pos => distance(pos, data.coordinate) < 200);
         vehicles[idx] = data;
       } else {
         vehicles.push(data);

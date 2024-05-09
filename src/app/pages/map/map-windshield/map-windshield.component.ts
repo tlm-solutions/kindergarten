@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
-import {ActivatedRoute, Router} from "@angular/router";
-import {concat, distinct, filter, forkJoin, from, interval, map, Subject, switchMap, takeUntil, tap} from "rxjs";
-import {RegionService} from "../../../data/region/region.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { concat, distinct, filter, forkJoin, from, interval, map, Subject, switchMap, takeUntil, tap } from "rxjs";
+import { RegionService } from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
-import {NetworkService} from "../../../data/network/network.service";
+import { NetworkService } from "../../../data/network/network.service";
 import VectorSource from "ol/source/Vector";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 import VectorLayer from "ol/layer/Vector";
@@ -17,10 +17,13 @@ import Icon from "ol/style/Icon";
 import Text from "ol/style/Text";
 import Fill from "ol/style/Fill";
 import Overlay from "ol/Overlay";
-import {MapVehicleInfoComponent} from "../map-vehicle-info/map-vehicle-info.component";
-import {Type} from "../../../data/region/region.domain";
-import {Source} from "../../../data/network/network.domain";
-import {CommonModule} from "@angular/common";
+import { MapVehicleInfoComponent } from "../map-vehicle-info/map-vehicle-info.component";
+import { Type } from "../../../data/region/region.domain";
+import { Source } from "../../../data/network/network.domain";
+import { CommonModule } from "@angular/common";
+import { LineString } from 'ol/geom';
+import Stroke from 'ol/style/Stroke';
+import { smooth } from '../../../core/utils';
 
 const BUS_ICONS = [
   loadImage("assets/icons/vehicle/bus00.svg"),
@@ -84,8 +87,9 @@ const MAX_VEHICLE_AGE = 1000 * 60 * 5;
 })
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 
-  private readonly map = new Map({view: new View({center: [0, 0], zoom: 0})});
+  private readonly map = new Map({ view: new View({ center: [0, 0], zoom: 0 }) });
 
+  private readonly vehicleHistory = new VectorSource();
   private readonly vehicles = new VectorSource();
 
   private readonly destroy = new Subject<void>();
@@ -102,9 +106,10 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.map.setTarget(this.hostElement.nativeElement);
-    this.map.addLayer(new WebGLTileLayer({source: new OSM()}));
-    const vectorLayer = new VectorLayer({source: this.vehicles});
-    this.map.addLayer(vectorLayer);
+    this.map.addLayer(new WebGLTileLayer({ source: new OSM() }));
+
+    this.map.addLayer(new VectorLayer({ source: this.vehicleHistory }));
+    this.map.addLayer(new VectorLayer({ source: this.vehicles }));
     this.map.addOverlay(new Overlay({}))
 
     const popupComponent = this.viewContainerRef.createComponent(MapVehicleInfoComponent);
@@ -132,7 +137,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
         this.router.navigate([], {
           relativeTo: this.route,
-          queryParams: {line, run},
+          queryParams: { line, run },
           queryParamsHandling: "merge",
         });
       });
@@ -149,7 +154,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
       // return regionId && center?.[0] === 0 && center?.[1] === 0;
       // }),
       distinct(),
-      map(({regionId}) => Number(regionId)),
+      map(({ regionId }) => Number(regionId)),
       switchMap(regionId => forkJoin({
         _a: this.regionService.getCached(regionId)
           .pipe(
@@ -208,18 +213,23 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
               }
 
               if (vehicle) {
-                const coords = [data.lon, data.lat];
-
                 if (popup.get("feature_id") === id) {
-                  popup.setPosition(coords);
+                  popup.setPosition(data.coordinate);
                 }
 
+                vehicle.setGeometry(new Point(data.coordinate));
                 (vehicle.getStyle() as Style).setImage(icon);
-                vehicle.setGeometry(new Point(coords));
                 // @ts-expect-error strange typing
                 vehicle.getStyle().getText().getFill().setColor(data.source === Source.TrekkieGPS ? "#ef2149" : "#000");
+
+                const vehicleHistory = this.vehicleHistory.getFeatureById(id);
+                (vehicleHistory!.getGeometry() as LineString).setCoordinates(smooth(data.history, 10));
+
               } else {
-                const feature = new Feature({geometry: new Point([data.lon, data.lat]), last: Number(data.time)});
+                const feature = new Feature({
+                  geometry: new Point(data.coordinate),
+                  last: Number(data.time),
+                });
                 feature.setId(id);
                 feature.setStyle(new Style({
                   image: icon,
@@ -227,11 +237,24 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
                     offsetY: offset,
                     text: line?.name ?? `(${data.line})`,
                     font: '500 11px "DM Sans"',
-                    fill: new Fill({color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000"}),
+                    fill: new Fill({ color: data.source === Source.TrekkieGPS ? "#ef2149" : "#000" }),
                   }),
                 }));
 
                 this.vehicles.addFeature(feature)
+
+                const historyFeature = new Feature({
+                  geometry: new LineString(smooth(data.history, 10)),
+                });
+                historyFeature.setId(id);
+                historyFeature.setStyle(new Style({
+                  stroke: new Stroke({
+                    color: '#ffcc33',
+                    width: 4,
+                  }),
+                }),);
+
+                this.vehicleHistory.addFeature(historyFeature);
               }
             })
           )
