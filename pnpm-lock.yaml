@@ -42,8 +42,8 @@ dependencies:
     specifier: ^5.0.21
     version: 5.0.21
   ol:
-    specifier: ^8.2.0
-    version: 8.2.0
+    specifier: ^9.1.0
+    version: 9.1.0
   rxjs:
     specifier: ~7.8.1
     version: 7.8.1
@@ -6651,8 +6651,8 @@ packages:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
     dev: true
 
-  /ol@8.2.0:
-    resolution: {integrity: sha512-/m1ddd7Jsp4Kbg+l7+ozR5aKHAZNQOBAoNZ5pM9Jvh4Etkf0WGkXr9qXd7PnhmwiC1Hnc2Toz9XjCzBBvexfXw==}
+  /ol@9.1.0:
+    resolution: {integrity: sha512-nDrkJ2tzZNpo/wzN/PpHV5zdxbnXZaFktoMaD2cFLEc6gCwlgLY21Yd8wnt/4FjaVYwLBnbN9USXSwIBGcyksQ==}
     dependencies:
       color-rgba: 3.0.0
       color-space: 2.0.1
