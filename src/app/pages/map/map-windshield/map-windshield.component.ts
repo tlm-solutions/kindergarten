@@ -128,12 +128,25 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
     this.map.on('click', event => {
       let found = false;
+
+      const oldFeatureId = popup.get("feature_id");
+
       this.map.forEachFeatureAtPixel(event.pixel, feature => {
         found = true;
         const point = feature.getGeometry() as Point;
         popup.setPosition(point.getCoordinates());
         popup.set("feature_id", feature.getId(), true);
         const [line, run] = String(feature.getId()).split("_");
+
+        if (oldFeatureId !== feature.getId()) {
+          if (oldFeatureId) {
+            const historyFeature = this.vehicleHistory.getFeatureById(oldFeatureId);
+            if (historyFeature)
+              (historyFeature.getStyle() as Style).getStroke()!.setColor("#ae8319");
+          }
+          (this.vehicleHistory.getFeatureById(feature.getId()!)!.getStyle() as Style).getStroke()!.setColor('#FFD700')
+          this.vehicleHistory.changed();
+        }
 
         this.router.navigate([], {
           relativeTo: this.route,
@@ -144,6 +157,14 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
       if (!found) {
         popup.setPosition(undefined);
+
+        if (oldFeatureId) {
+          const historyFeature = this.vehicleHistory.getFeatureById(oldFeatureId);
+          if (historyFeature) {
+            (historyFeature.getStyle() as Style).getStroke()!.setColor("#ae8319");
+            this.vehicleHistory.changed();
+          }
+        }
       }
     });
 
@@ -249,7 +270,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
                 historyFeature.setId(id);
                 historyFeature.setStyle(new Style({
                   stroke: new Stroke({
-                    color: '#ffcc33',
+                    color: '#DAA520',
                     width: 4,
                   }),
                 }),);
