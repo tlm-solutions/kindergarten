@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="de-DE" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="8563215417047104608" datatype="html">
+      <trans-unit id="8563215417047104608" datatype="html" xml:space="preserve">
         <source>Kindergarten</source>
         <target state="translated">Kindergarten</target>
         <context-group purpose="location">
@@ -10,7 +10,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4998266049903241768" datatype="html">
+      <trans-unit id="4998266049903241768" datatype="html" xml:space="preserve">
         <source>Wrong credentials</source>
         <target state="translated">Falsche Zugangsdaten</target>
         <context-group purpose="location">
@@ -18,7 +18,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9193356394095810014" datatype="html">
+      <trans-unit id="9193356394095810014" datatype="html" xml:space="preserve">
         <source>E-Mail is required!</source>
         <target state="translated">Eine E-Mail wird benötigt!</target>
         <context-group purpose="location">
@@ -26,7 +26,7 @@
           <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5813867925497374051" datatype="html">
+      <trans-unit id="5813867925497374051" datatype="html" xml:space="preserve">
         <source>Map</source>
         <target state="translated">Karte</target>
         <context-group purpose="location">
@@ -34,7 +34,7 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="699590710757792843" datatype="html">
+      <trans-unit id="699590710757792843" datatype="html" xml:space="preserve">
         <source>Regions</source>
         <target state="translated">Regionen</target>
         <context-group purpose="location">
@@ -42,7 +42,7 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5453179079862122867" datatype="html">
+      <trans-unit id="5453179079862122867" datatype="html" xml:space="preserve">
         <source>GitHub</source>
         <target state="translated">GitHub</target>
         <context-group purpose="location">
@@ -50,7 +50,7 @@
           <context context-type="linenumber">38,39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8259379942698709844" datatype="html">
+      <trans-unit id="8259379942698709844" datatype="html" xml:space="preserve">
         <source>You need to be logged in.</source>
         <target state="translated">Dafür musst du angemeldet sein.</target>
         <context-group purpose="location">
@@ -58,7 +58,7 @@
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4895326106573044490" datatype="html">
+      <trans-unit id="4895326106573044490" datatype="html" xml:space="preserve">
         <source>Documentation</source>
         <target state="translated">Dokumentation</target>
         <context-group purpose="location">
@@ -66,7 +66,7 @@
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1402259037791190585" datatype="html">
+      <trans-unit id="1402259037791190585" datatype="html" xml:space="preserve">
         <source>Matrix Room</source>
         <target state="translated">Matrix Raum</target>
         <context-group purpose="location">
@@ -74,7 +74,7 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8213217030288828738" datatype="html">
+      <trans-unit id="8213217030288828738" datatype="html" xml:space="preserve">
         <source>GitHub Organisation</source>
         <target state="translated">GitHub Organisation</target>
         <context-group purpose="location">
@@ -82,7 +82,7 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8543119714580512727" datatype="html">
+      <trans-unit id="8543119714580512727" datatype="html" xml:space="preserve">
         <source>Line</source>
         <target state="translated">Linie</target>
         <context-group purpose="location">
@@ -102,7 +102,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4902817035128594900" datatype="html">
+      <trans-unit id="4902817035128594900" datatype="html" xml:space="preserve">
         <source>Description</source>
         <target state="translated">Beschreibung</target>
         <context-group purpose="location">
@@ -110,7 +110,7 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8650499415827640724" datatype="html">
+      <trans-unit id="8650499415827640724" datatype="html" xml:space="preserve">
         <source>Type</source>
         <target state="translated">Art</target>
         <context-group purpose="location">
@@ -118,7 +118,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3759965007855499397" datatype="html">
+      <trans-unit id="3759965007855499397" datatype="html" xml:space="preserve">
         <source>Run</source>
         <target state="translated">Laufnummer</target>
         <context-group purpose="location">
@@ -138,7 +138,7 @@
           <context context-type="linenumber">24,23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8931291953507502185" datatype="html">
+      <trans-unit id="8931291953507502185" datatype="html" xml:space="preserve">
         <source>Bus</source>
         <target state="translated">Bus</target>
         <context-group purpose="location">
@@ -146,7 +146,7 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4914160533637488212" datatype="html">
+      <trans-unit id="4914160533637488212" datatype="html" xml:space="preserve">
         <source>Tram</source>
         <target state="translated">Straßenbahn</target>
         <context-group purpose="location">
@@ -154,7 +154,7 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7286430803380181008" datatype="html">
+      <trans-unit id="7286430803380181008" datatype="html" xml:space="preserve">
         <source>Id</source>
         <target state="translated">Id</target>
         <context-group purpose="location">
@@ -162,7 +162,7 @@
           <context context-type="linenumber">7,6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8953033926734869941" datatype="html">
+      <trans-unit id="8953033926734869941" datatype="html" xml:space="preserve">
         <source>Name</source>
         <target state="translated">Name</target>
         <context-group purpose="location">
@@ -198,7 +198,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8115083664628466958" datatype="html">
+      <trans-unit id="8115083664628466958" datatype="html" xml:space="preserve">
         <source>E-Mail</source>
         <target state="translated">E-Mail</target>
         <context-group purpose="location">
@@ -206,7 +206,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8004893392098645060" datatype="html">
+      <trans-unit id="8004893392098645060" datatype="html" xml:space="preserve">
         <source>Deactivated</source>
         <target state="translated">Deaktiviert</target>
         <context-group purpose="location">
@@ -242,7 +242,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="276791482480581557" datatype="html">
+      <trans-unit id="276791482480581557" datatype="html" xml:space="preserve">
         <source>You are not logged in.</source>
         <target state="translated">Du bist nicht angemeldet.</target>
         <context-group purpose="location">
@@ -250,7 +250,7 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3797778920049399855" datatype="html">
+      <trans-unit id="3797778920049399855" datatype="html" xml:space="preserve">
         <source>Logout</source>
         <target state="translated">Abmelden</target>
         <context-group purpose="location">
@@ -258,7 +258,7 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1954753683843608746" datatype="html">
+      <trans-unit id="1954753683843608746" datatype="html" xml:space="preserve">
         <source>Logout was successful.</source>
         <target state="translated">Du bist nun abgemeldet.</target>
         <context-group purpose="location">
@@ -266,7 +266,7 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6122030973291308530" datatype="html">
+      <trans-unit id="6122030973291308530" datatype="html" xml:space="preserve">
         <source>Frequency</source>
         <target state="translated">Frequenz</target>
         <context-group purpose="location">
@@ -278,7 +278,7 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3768927257183755959" datatype="html">
+      <trans-unit id="3768927257183755959" datatype="html" xml:space="preserve">
         <source>Save</source>
         <target state="translated">Speichern</target>
         <context-group purpose="location">
@@ -294,7 +294,7 @@
           <context context-type="linenumber">22,21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2159130950882492111" datatype="html">
+      <trans-unit id="2159130950882492111" datatype="html" xml:space="preserve">
         <source>Cancel</source>
         <target state="translated">Abbrechen</target>
         <context-group purpose="location">
@@ -310,7 +310,7 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1908824100521253175" datatype="html">
+      <trans-unit id="1908824100521253175" datatype="html" xml:space="preserve">
         <source>Region <x id="PH" equiv-text="region.name"/> was successfully updated.</source>
         <target state="translated">Die Region <x id="PH" equiv-text="region.name"/> wurde erfolgreich aktualisiert.</target>
         <context-group purpose="location">
@@ -318,7 +318,7 @@
           <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7585826646011739428" datatype="html">
+      <trans-unit id="7585826646011739428" datatype="html" xml:space="preserve">
         <source>Edit</source>
         <target state="translated">Bearbeiten</target>
         <context-group purpose="location">
@@ -354,7 +354,7 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3518484868494312029" datatype="html">
+      <trans-unit id="3518484868494312029" datatype="html" xml:space="preserve">
         <source>Name is required!</source>
         <target state="translated">Ein Name wird benötigt!</target>
         <context-group purpose="location">
@@ -362,7 +362,7 @@
           <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8104421162933956065" datatype="html">
+      <trans-unit id="8104421162933956065" datatype="html" xml:space="preserve">
         <source>Notes</source>
         <target state="translated">Notizen</target>
         <context-group purpose="location">
@@ -374,7 +374,7 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2702200797962830082" datatype="html">
+      <trans-unit id="2702200797962830082" datatype="html" xml:space="preserve">
         <source>Region</source>
         <target state="translated">Region</target>
         <context-group purpose="location">
@@ -402,7 +402,7 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4764104020334215003" datatype="html">
+      <trans-unit id="4764104020334215003" datatype="html" xml:space="preserve">
         <source>Architecture</source>
         <target state="translated">Architektur</target>
         <context-group purpose="location">
@@ -414,7 +414,7 @@
           <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4915431133669985304" datatype="html">
+      <trans-unit id="4915431133669985304" datatype="html" xml:space="preserve">
         <source>Profile</source>
         <target state="translated">Profil</target>
         <context-group purpose="location">
@@ -422,7 +422,7 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4555457172864212828" datatype="html">
+      <trans-unit id="4555457172864212828" datatype="html" xml:space="preserve">
         <source>Users</source>
         <target state="translated">Nutzer</target>
         <context-group purpose="location">
@@ -430,7 +430,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8467915751983418615" datatype="html">
+      <trans-unit id="8467915751983418615" datatype="html" xml:space="preserve">
         <source>Support the Project</source>
         <target state="translated">Das Projekt unterstützen</target>
         <context-group purpose="location">
@@ -438,7 +438,7 @@
           <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2489604628795070296" datatype="html">
+      <trans-unit id="2489604628795070296" datatype="html" xml:space="preserve">
         <source>You are already logged in.</source>
         <target state="translated">Du bist bereits angemeldet.</target>
         <context-group purpose="location">
@@ -446,7 +446,7 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="858387669412276474" datatype="html">
+      <trans-unit id="858387669412276474" datatype="html" xml:space="preserve">
         <source>Password is required!</source>
         <target state="translated">Ein Passwort wird benötigt!</target>
         <context-group purpose="location">
@@ -454,7 +454,7 @@
           <context context-type="linenumber">19,20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6801253915325537992" datatype="html">
+      <trans-unit id="6801253915325537992" datatype="html" xml:space="preserve">
         <source>Documentation</source>
         <target state="translated">Dokumentation</target>
         <context-group purpose="location">
@@ -462,7 +462,7 @@
           <context context-type="linenumber">48,49</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2946606238846263830" datatype="html">
+      <trans-unit id="2946606238846263830" datatype="html" xml:space="preserve">
         <source>Matrix</source>
         <target state="translated">Matrix</target>
         <context-group purpose="location">
@@ -470,7 +470,7 @@
           <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3856193213296741054" datatype="html">
+      <trans-unit id="3856193213296741054" datatype="html" xml:space="preserve">
         <source>Last Seen</source>
         <target state="translated">Zuletzt gesehen</target>
         <context-group purpose="location">
@@ -478,7 +478,7 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1241348629231510663" datatype="html">
+      <trans-unit id="1241348629231510663" datatype="html" xml:space="preserve">
         <source>End</source>
         <target state="translated">Ende</target>
         <context-group purpose="location">
@@ -490,7 +490,7 @@
           <context context-type="linenumber">12,11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1418101411356139094" datatype="html">
+      <trans-unit id="1418101411356139094" datatype="html" xml:space="preserve">
         <source>Delay</source>
         <target state="translated">Verspätung</target>
         <context-group purpose="location">
@@ -498,7 +498,7 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7292902857194439444" datatype="html">
+      <trans-unit id="7292902857194439444" datatype="html" xml:space="preserve">
         <source>Device</source>
         <target state="translated">Gerät</target>
         <context-group purpose="location">
@@ -510,7 +510,7 @@
           <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="471816275243265264" datatype="html">
+      <trans-unit id="471816275243265264" datatype="html" xml:space="preserve">
         <source>Location</source>
         <target state="translated">Standort</target>
         <context-group purpose="location">
@@ -518,7 +518,7 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2586960843611477059" datatype="html">
+      <trans-unit id="2586960843611477059" datatype="html" xml:space="preserve">
         <source>Station <x id="PH" equiv-text="station.name"/> was successfully updated.</source>
         <target state="translated">Die Station <x id="PH" equiv-text="station.name"/> wurde erfolgreich aktualisiert.</target>
         <context-group purpose="location">
@@ -526,7 +526,7 @@
           <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3715596725146409911" datatype="html">
+      <trans-unit id="3715596725146409911" datatype="html" xml:space="preserve">
         <source>Owner</source>
         <target state="translated">Besitzer</target>
         <context-group purpose="location">
@@ -546,7 +546,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="273129603496739892" datatype="html">
+      <trans-unit id="273129603496739892" datatype="html" xml:space="preserve">
         <source>Back to List</source>
         <target state="translated">Zurück zur Liste</target>
         <context-group purpose="location">
@@ -558,7 +558,7 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5162686434580248853" datatype="html">
+      <trans-unit id="5162686434580248853" datatype="html" xml:space="preserve">
         <source>Start</source>
         <target state="translated">Start</target>
         <context-group purpose="location">
@@ -574,7 +574,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7410432243549869948" datatype="html">
+      <trans-unit id="7410432243549869948" datatype="html" xml:space="preserve">
         <source>Duration</source>
         <target state="translated">Dauer</target>
         <context-group purpose="location">
@@ -586,7 +586,7 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7022070615528435141" datatype="html">
+      <trans-unit id="7022070615528435141" datatype="html" xml:space="preserve">
         <source>Delete</source>
         <target state="translated">Löschen</target>
         <context-group purpose="location">
@@ -594,7 +594,7 @@
           <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4846792506513649213" datatype="html">
+      <trans-unit id="4846792506513649213" datatype="html" xml:space="preserve">
         <source>Stations</source>
         <target state="translated">Empfänger</target>
         <context-group purpose="location">
@@ -602,7 +602,7 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2454050363478003966" datatype="html">
+      <trans-unit id="2454050363478003966" datatype="html" xml:space="preserve">
         <source>Login</source>
         <target state="translated">Anmelden</target>
         <context-group purpose="location">
@@ -614,7 +614,7 @@
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1575810254412583888" datatype="html">
+      <trans-unit id="1575810254412583888" datatype="html" xml:space="preserve">
         <source>Tracks</source>
         <target state="translated">Aufzeichnung</target>
         <context-group purpose="location">
@@ -622,7 +622,7 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9092425910991469940" datatype="html">
+      <trans-unit id="9092425910991469940" datatype="html" xml:space="preserve">
         <source>Unable to retrieve login state. See browser console for details.</source>
         <target state="translated">Profildaten konnten nicht abgefragt werden.</target>
         <context-group purpose="location">
@@ -630,7 +630,7 @@
           <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2603460409287135168" datatype="html">
+      <trans-unit id="2603460409287135168" datatype="html" xml:space="preserve">
         <source>The <x id="PH" equiv-text="this.pluralName"/> cache could not be updated. See browser console for more details.</source>
         <target state="translated">Der <x id="PH" equiv-text="this.pluralName"/>-Zwischenspeicher konnte nicht aktualisiert werden. Schaue in die Browser Konsole für mehr Details.</target>
         <context-group purpose="location">
@@ -638,7 +638,7 @@
           <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3262644886354897068" datatype="html">
+      <trans-unit id="3262644886354897068" datatype="html" xml:space="preserve">
         <source><x id="PH" equiv-text="title"/> | Kindergarten</source>
         <target state="translated"><x id="PH" equiv-text="title"/> | Kindergarten</target>
         <context-group purpose="location">
@@ -646,7 +646,7 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2083194873229000210" datatype="html">
+      <trans-unit id="2083194873229000210" datatype="html" xml:space="preserve">
         <source>Hi, we are Transit Live Mapping Solutions,</source>
         <target state="translated">Hallo, wird sind das Transit Live Mapping Solutions Team</target>
         <context-group purpose="location">
@@ -654,7 +654,7 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7658073495909471632" datatype="html">
+      <trans-unit id="7658073495909471632" datatype="html" xml:space="preserve">
         <source>years</source>
         <target state="translated">Jahre</target>
         <context-group purpose="location">
@@ -662,7 +662,7 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6169402792391433667" datatype="html">
+      <trans-unit id="6169402792391433667" datatype="html" xml:space="preserve">
         <source>months</source>
         <target state="translated">Monate</target>
         <context-group purpose="location">
@@ -670,7 +670,7 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5689442636734876664" datatype="html">
+      <trans-unit id="5689442636734876664" datatype="html" xml:space="preserve">
         <source>hour</source>
         <target state="translated">Stunde</target>
         <context-group purpose="location">
@@ -678,7 +678,7 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5405071297219936776" datatype="html">
+      <trans-unit id="5405071297219936776" datatype="html" xml:space="preserve">
         <source>minute</source>
         <target state="translated">Minute</target>
         <context-group purpose="location">
@@ -686,7 +686,7 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7479425239631237410" datatype="html">
+      <trans-unit id="7479425239631237410" datatype="html" xml:space="preserve">
         <source>second</source>
         <target state="translated">Sekunde</target>
         <context-group purpose="location">
@@ -694,7 +694,7 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="227749613426254192" datatype="html">
+      <trans-unit id="227749613426254192" datatype="html" xml:space="preserve">
         <source>seconds</source>
         <target state="translated">Sekunden</target>
         <context-group purpose="location">
@@ -702,7 +702,7 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6479044529603381727" datatype="html">
+      <trans-unit id="6479044529603381727" datatype="html" xml:space="preserve">
         <source>year</source>
         <target state="translated">Jahr</target>
         <context-group purpose="location">
@@ -710,7 +710,7 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7178101913251976451" datatype="html">
+      <trans-unit id="7178101913251976451" datatype="html" xml:space="preserve">
         <source>month</source>
         <target state="translated">Monat</target>
         <context-group purpose="location">
@@ -718,7 +718,7 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6320319413541466015" datatype="html">
+      <trans-unit id="6320319413541466015" datatype="html" xml:space="preserve">
         <source>day</source>
         <target state="translated">Tag</target>
         <context-group purpose="location">
@@ -726,7 +726,7 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7036284206110282007" datatype="html">
+      <trans-unit id="7036284206110282007" datatype="html" xml:space="preserve">
         <source>days</source>
         <target state="translated">Tage</target>
         <context-group purpose="location">
@@ -734,7 +734,7 @@
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="982745398054129955" datatype="html">
+      <trans-unit id="982745398054129955" datatype="html" xml:space="preserve">
         <source>minutes</source>
         <target state="translated">Minuten</target>
         <context-group purpose="location">
@@ -742,7 +742,7 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3370839803061654054" datatype="html">
+      <trans-unit id="3370839803061654054" datatype="html" xml:space="preserve">
         <source>hours</source>
         <target state="translated">Stunden</target>
         <context-group purpose="location">
@@ -750,7 +750,7 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8765892814796070585" datatype="html">
+      <trans-unit id="8765892814796070585" datatype="html" xml:space="preserve">
         <source>week</source>
         <target state="translated">Woche</target>
         <context-group purpose="location">
@@ -758,7 +758,7 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1381807530861875083" datatype="html">
+      <trans-unit id="1381807530861875083" datatype="html" xml:space="preserve">
         <source>weeks</source>
         <target state="translated">Wochen</target>
         <context-group purpose="location">
@@ -766,7 +766,7 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8928816882866356838" datatype="html">
+      <trans-unit id="8928816882866356838" datatype="html" xml:space="preserve">
         <source>Public</source>
         <target state="translated">Öffentlich</target>
         <context-group purpose="location">
@@ -782,7 +782,7 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4900796010431190714" datatype="html">
+      <trans-unit id="4900796010431190714" datatype="html" xml:space="preserve">
         <source>invalid data</source>
         <target state="translated">Invalide Daten</target>
         <context-group purpose="location">
@@ -794,7 +794,7 @@
           <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6140935031251148569" datatype="html">
+      <trans-unit id="6140935031251148569" datatype="html" xml:space="preserve">
         <source>Vehicles are shown on the map with their current location.</source>
         <target state="translated">Auf der Karte werden die Fahrzeuge an ihrem aktuellen Standort angezeigt.</target>
         <context-group purpose="location">
@@ -802,15 +802,7 @@
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5273918992078801284" datatype="html">
-        <source>Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/stasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Stasi (Standortverfolgungssystem für Straßenbahnen mit Identifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
-        <target state="translated">Nutze <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/stasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Stasi (Standortverfolgungssystem für Straßenbahnen mit Identifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, um gemeinsam neue Wegpunkte zu entdecken. </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
-          <context context-type="linenumber">72,76</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8502442568515310314" datatype="html">
+      <trans-unit id="8502442568515310314" datatype="html" xml:space="preserve">
         <source>Any Questions? Chat us up!?</source>
         <target state="translated">Noch Fragen? Schreib mit uns!?</target>
         <context-group purpose="location">
@@ -818,7 +810,7 @@
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1151950927952084840" datatype="html">
+      <trans-unit id="1151950927952084840" datatype="html" xml:space="preserve">
         <source>hello@tlm.solutions</source>
         <target state="translated">hello@tlm.solutions</target>
         <context-group purpose="location">
@@ -826,7 +818,7 @@
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4465335499811746408" datatype="html">
+      <trans-unit id="4465335499811746408" datatype="html" xml:space="preserve">
         <source>Depending on their delay, the color of the icon changes from orange (delayed) to blue (ahead of schedule).</source>
         <target state="translated">Abhängig ihrer Verspätung, verändert sich die Farbe des Icons von orange (verspätet) bis blau (verfrüht).</target>
         <context-group purpose="location">
@@ -834,7 +826,7 @@
           <context context-type="linenumber">57,59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5659111901529423789" datatype="html">
+      <trans-unit id="5659111901529423789" datatype="html" xml:space="preserve">
         <source>You can click a vehicle to see other information.</source>
         <target state="translated">Du kannst auf ein Fahrzeug klicken um mehr Informationen zu sehen.</target>
         <context-group purpose="location">
@@ -842,7 +834,7 @@
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8459316583458175015" datatype="html">
+      <trans-unit id="8459316583458175015" datatype="html" xml:space="preserve">
         <source>Every dot is a currently known waypoint.</source>
         <target state="translated">Jeder Punkt ist ein zur Zeit bekannter Wegpunkt.</target>
         <context-group purpose="location">
@@ -850,7 +842,7 @@
           <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5524075522741029481" datatype="html">
+      <trans-unit id="5524075522741029481" datatype="html" xml:space="preserve">
         <source>We currently need all the support we can get.</source>
         <target state="translated">Aktuell benötigen wir alle Unterstützung, die wir bekommen können.</target>
         <context-group purpose="location">
@@ -858,7 +850,7 @@
           <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7850449208404662279" datatype="html">
+      <trans-unit id="7850449208404662279" datatype="html" xml:space="preserve">
         <source>Collaboration</source>
         <target state="translated">Mitmachen</target>
         <context-group purpose="location">
@@ -866,7 +858,7 @@
           <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3930005770734775371" datatype="html">
+      <trans-unit id="3930005770734775371" datatype="html" xml:space="preserve">
         <source>Setup a Receiver</source>
         <target state="translated">Einen Empfänger installieren</target>
         <context-group purpose="location">
@@ -874,7 +866,7 @@
           <context context-type="linenumber">106</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="16613272019843159" datatype="html">
+      <trans-unit id="16613272019843159" datatype="html" xml:space="preserve">
         <source>Contribute Data</source>
         <target state="translated">Daten beisteuern</target>
         <context-group purpose="location">
@@ -882,7 +874,7 @@
           <context context-type="linenumber">107</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3097725565524951500" datatype="html">
+      <trans-unit id="3097725565524951500" datatype="html" xml:space="preserve">
         <source>Contribute Code</source>
         <target state="translated">Programmieren</target>
         <context-group purpose="location">
@@ -890,7 +882,7 @@
           <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3752422147713738299" datatype="html">
+      <trans-unit id="3752422147713738299" datatype="html" xml:space="preserve">
         <source>Financially</source>
         <target state="translated">Finanzielle</target>
         <context-group purpose="location">
@@ -898,7 +890,7 @@
           <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3110537276391892305" datatype="html">
+      <trans-unit id="3110537276391892305" datatype="html" xml:space="preserve">
         <source>Live Map</source>
         <target state="translated">Live Karte</target>
         <context-group purpose="location">
@@ -906,7 +898,7 @@
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1544834877495722288" datatype="html">
+      <trans-unit id="1544834877495722288" datatype="html" xml:space="preserve">
         <source>Successfully logged in as <x id="PH" equiv-text="response.name"/>.</source>
         <target state="translated">Erfolgreich ala <x id="PH" equiv-text="response.name"/> eingeloggt.</target>
         <context-group purpose="location">
@@ -914,7 +906,7 @@
           <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6439365426343089851" datatype="html">
+      <trans-unit id="6439365426343089851" datatype="html" xml:space="preserve">
         <source>General</source>
         <target state="translated">Allgemeines</target>
         <context-group purpose="location">
@@ -942,7 +934,7 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="893220972535966372" datatype="html">
+      <trans-unit id="893220972535966372" datatype="html" xml:space="preserve">
         <source>Work in Progress</source>
         <target state="translated">In Arbeit</target>
         <context-group purpose="location">
@@ -954,7 +946,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4658949179460438495" datatype="html">
+      <trans-unit id="4658949179460438495" datatype="html" xml:space="preserve">
         <source>Failed to update region <x id="PH" equiv-text="region.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <target state="translated">Die Region <x id="PH" equiv-text="region.name"/> konnte nicht gespeichert werden: <x id="PH_1" equiv-text="err"/></target>
         <context-group purpose="location">
@@ -962,7 +954,7 @@
           <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5910481702687935078" datatype="html">
+      <trans-unit id="5910481702687935078" datatype="html" xml:space="preserve">
         <source>Failed to update station <x id="PH" equiv-text="station.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <target state="translated">Die Station <x id="PH" equiv-text="station.name"/> konnte nicht gespeichert werden: <x id="PH_1" equiv-text="err"/></target>
         <context-group purpose="location">
@@ -970,7 +962,7 @@
           <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7708583428094273381" datatype="html">
+      <trans-unit id="7708583428094273381" datatype="html" xml:space="preserve">
         <source>Previous Page</source>
         <target state="translated">Vorherige Seite</target>
         <context-group purpose="location">
@@ -978,7 +970,7 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6900799038363597616" datatype="html">
+      <trans-unit id="6900799038363597616" datatype="html" xml:space="preserve">
         <source>Next Page</source>
         <target state="translated">Nächste Seite</target>
         <context-group purpose="location">
@@ -986,7 +978,7 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1130652265542107236" datatype="html">
+      <trans-unit id="1130652265542107236" datatype="html" xml:space="preserve">
         <source>Age</source>
         <target state="translated">Alter</target>
         <context-group purpose="location">
@@ -998,7 +990,7 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2228755577316312691" datatype="html">
+      <trans-unit id="2228755577316312691" datatype="html" xml:space="preserve">
         <source>Telegram Decoder Version</source>
         <target state="translated">Telegramdekoderversion</target>
         <context-group purpose="location">
@@ -1010,7 +1002,7 @@
           <context context-type="linenumber">86</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7554537083897958068" datatype="html">
+      <trans-unit id="7554537083897958068" datatype="html" xml:space="preserve">
         <source>Run Owner</source>
         <target state="translated">Laufbesitzer</target>
         <context-group purpose="location">
@@ -1018,7 +1010,7 @@
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8314090883669143391" datatype="html">
+      <trans-unit id="8314090883669143391" datatype="html" xml:space="preserve">
         <source>Latitude</source>
         <target state="translated">Breitengrad</target>
         <context-group purpose="location">
@@ -1026,7 +1018,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5017068061369085520" datatype="html">
+      <trans-unit id="5017068061369085520" datatype="html" xml:space="preserve">
         <source>Elevation</source>
         <target state="translated">Höhe</target>
         <context-group purpose="location">
@@ -1038,7 +1030,7 @@
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1005749890439494214" datatype="html">
+      <trans-unit id="1005749890439494214" datatype="html" xml:space="preserve">
         <source>Antenna</source>
         <target state="translated">Antenne</target>
         <context-group purpose="location">
@@ -1050,7 +1042,7 @@
           <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3115301038774390300" datatype="html">
+      <trans-unit id="3115301038774390300" datatype="html" xml:space="preserve">
         <source>Track was successfully deleted.</source>
         <target state="translated">Die Route wurde erfolgreich gelöscht.</target>
         <context-group purpose="location">
@@ -1058,7 +1050,7 @@
           <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3070945081801146031" datatype="html">
+      <trans-unit id="3070945081801146031" datatype="html" xml:space="preserve">
         <source>App Name</source>
         <target state="translated">App Name</target>
         <context-group purpose="location">
@@ -1066,7 +1058,7 @@
           <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2487057515755918351" datatype="html">
+      <trans-unit id="2487057515755918351" datatype="html" xml:space="preserve">
         <source>Data points</source>
         <target state="translated">Datenpunkte</target>
         <context-group purpose="location">
@@ -1074,7 +1066,7 @@
           <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6396865794537195956" datatype="html">
+      <trans-unit id="6396865794537195956" datatype="html" xml:space="preserve">
         <source>App Commit</source>
         <target state="translated">App Revision</target>
         <context-group purpose="location">
@@ -1082,7 +1074,7 @@
           <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4683516283199787368" datatype="html">
+      <trans-unit id="4683516283199787368" datatype="html" xml:space="preserve">
         <source>Recorrelate</source>
         <target state="translated">Rekorrelieren</target>
         <context-group purpose="location">
@@ -1090,7 +1082,7 @@
           <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2043658407758078074" datatype="html">
+      <trans-unit id="2043658407758078074" datatype="html" xml:space="preserve">
         <source>We also look for people willing to participate in building up the radio receiver-network, so if you would like to own a pretty little window decoration that listens to public broadcasts, shoot us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
         <target state="translated">Wir suchen aktuell auch Leuten, welche bereit sind, uns beim Ausbau des Radioempfängernetzwerks zu unterstützen. Wenn du also noch eine kleine Fensterdekoration suchst, schreib uns eine Nachricht an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>! </target>
         <context-group purpose="location">
@@ -1098,7 +1090,7 @@
           <context context-type="linenumber">31,35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4224106337954102965" datatype="html">
+      <trans-unit id="4224106337954102965" datatype="html" xml:space="preserve">
         <source>Latitude is required!</source>
         <target state="translated">Der Breitengrad muss gesetzt werden!</target>
         <context-group purpose="location">
@@ -1106,7 +1098,7 @@
           <context context-type="linenumber">20,21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5174359152122758396" datatype="html">
+      <trans-unit id="5174359152122758396" datatype="html" xml:space="preserve">
         <source>Longitude</source>
         <target state="translated">Längengrad</target>
         <context-group purpose="location">
@@ -1114,7 +1106,7 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8966840175129431170" datatype="html">
+      <trans-unit id="8966840175129431170" datatype="html" xml:space="preserve">
         <source>Longitude is required!</source>
         <target state="translated">Der Längengrad muss gesetzt werden!</target>
         <context-group purpose="location">
@@ -1122,7 +1114,7 @@
           <context context-type="linenumber">24,25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3676850495488145564" datatype="html">
+      <trans-unit id="3676850495488145564" datatype="html" xml:space="preserve">
         <source>Offset</source>
         <target state="translated">Versatz</target>
         <context-group purpose="location">
@@ -1130,7 +1122,7 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6570363013146073520" datatype="html">
+      <trans-unit id="6570363013146073520" datatype="html" xml:space="preserve">
         <source>Dashboard</source>
         <target state="translated">Dashboard</target>
         <context-group purpose="location">
@@ -1138,7 +1130,7 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8904191913870549717" datatype="html">
+      <trans-unit id="8904191913870549717" datatype="html" xml:space="preserve">
         <source>Transit Live Mapping Solutions</source>
         <target state="translated">Transit Live Mapping Solutions</target>
         <context-group purpose="location">
@@ -1146,7 +1138,7 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4148101982802391411" datatype="html">
+      <trans-unit id="4148101982802391411" datatype="html" xml:space="preserve">
         <source>Amazon Wishlist</source>
         <target state="translated">Amazon Wunschzettel</target>
         <context-group purpose="location">
@@ -1154,7 +1146,7 @@
           <context context-type="linenumber">113</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2382586004651960438" datatype="html">
+      <trans-unit id="2382586004651960438" datatype="html" xml:space="preserve">
         <source>Ko-fi</source>
         <target state="translated">Ko-fi</target>
         <context-group purpose="location">
@@ -1162,7 +1154,7 @@
           <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="598315384553444660" datatype="html">
+      <trans-unit id="598315384553444660" datatype="html" xml:space="preserve">
         <source>Kindergarten Login</source>
         <target state="translated">Kindergarten Anmeldung</target>
         <context-group purpose="location">
@@ -1170,7 +1162,7 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5028777105388019087" datatype="html">
+      <trans-unit id="5028777105388019087" datatype="html" xml:space="preserve">
         <source>Details</source>
         <target state="translated">Details</target>
         <context-group purpose="location">
@@ -1202,7 +1194,7 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6628134530761460903" datatype="html">
+      <trans-unit id="6628134530761460903" datatype="html" xml:space="preserve">
         <source>Transport Company</source>
         <target state="translated">Verkehrsbetrieb</target>
         <context-group purpose="location">
@@ -1214,7 +1206,7 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5223235322022344945" datatype="html">
+      <trans-unit id="5223235322022344945" datatype="html" xml:space="preserve">
         <source>Encoding</source>
         <target state="translated">Enkodierung</target>
         <context-group purpose="location">
@@ -1226,7 +1218,7 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8973363171099286448" datatype="html">
+      <trans-unit id="8973363171099286448" datatype="html" xml:space="preserve">
         <source>Lat</source>
         <target state="translated">Lat</target>
         <context-group purpose="location">
@@ -1250,7 +1242,7 @@
           <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6081208410504565944" datatype="html">
+      <trans-unit id="6081208410504565944" datatype="html" xml:space="preserve">
         <source>Lon</source>
         <target state="translated">Lon</target>
         <context-group purpose="location">
@@ -1274,7 +1266,7 @@
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5906272961955453157" datatype="html">
+      <trans-unit id="5906272961955453157" datatype="html" xml:space="preserve">
         <source>Approved</source>
         <target state="translated">Angenommen</target>
         <context-group purpose="location">
@@ -1290,7 +1282,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8331204292092693335" datatype="html">
+      <trans-unit id="8331204292092693335" datatype="html" xml:space="preserve">
         <source>Hardware</source>
         <target state="translated">Hardware</target>
         <context-group purpose="location">
@@ -1298,7 +1290,7 @@
           <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3894950702316166331" datatype="html">
+      <trans-unit id="3894950702316166331" datatype="html" xml:space="preserve">
         <source>Loading...</source>
         <target state="translated">Lädt...</target>
         <context-group purpose="location">
@@ -1314,7 +1306,7 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="340430316261570792" datatype="html">
+      <trans-unit id="340430316261570792" datatype="html" xml:space="preserve">
         <source>Finished</source>
         <target state="translated">Abgeschlossen</target>
         <context-group purpose="location">
@@ -1330,7 +1322,7 @@
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2438106536980758589" datatype="html">
+      <trans-unit id="2438106536980758589" datatype="html" xml:space="preserve">
         <source>Correlated</source>
         <target state="translated">Korreliert</target>
         <context-group purpose="location">
@@ -1346,7 +1338,7 @@
           <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1321458102106629196" datatype="html">
+      <trans-unit id="1321458102106629196" datatype="html" xml:space="preserve">
         <source>Trim x data points from the start</source>
         <target state="translated">X Datenpunkte vom Start trimmen</target>
         <context-group purpose="location">
@@ -1354,7 +1346,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1488926346772772444" datatype="html">
+      <trans-unit id="1488926346772772444" datatype="html" xml:space="preserve">
         <source>Trim x data points from the end</source>
         <target state="translated">X Datenpunkte vom Ende trimmen</target>
         <context-group purpose="location">
@@ -1362,7 +1354,7 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5104021536467408977" datatype="html">
+      <trans-unit id="5104021536467408977" datatype="html" xml:space="preserve">
         <source>Track was successfully updated.</source>
         <target state="translated">Route wurde erfolgreich aktualisiert.</target>
         <context-group purpose="location">
@@ -1370,7 +1362,7 @@
           <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5851414638365189550" datatype="html">
+      <trans-unit id="5851414638365189550" datatype="html" xml:space="preserve">
         <source>Failed to update track: <x id="PH" equiv-text="err"/></source>
         <target state="translated">Fehler beim aktualisieren der Route: <x id="PH" equiv-text="err"/></target>
         <context-group purpose="location">
@@ -1378,7 +1370,7 @@
           <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2485969382829178841" datatype="html">
+      <trans-unit id="2485969382829178841" datatype="html" xml:space="preserve">
         <source>Limit</source>
         <target state="translated">Limit</target>
         <context-group purpose="location">
@@ -1386,7 +1378,7 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6421460271971606186" datatype="html">
+      <trans-unit id="6421460271971606186" datatype="html" xml:space="preserve">
         <source>Zoom</source>
         <target state="translated">Zoom</target>
         <context-group purpose="location">
@@ -1398,7 +1390,7 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6443796989343635806" datatype="html">
+      <trans-unit id="6443796989343635806" datatype="html" xml:space="preserve">
         <source>Regional Company</source>
         <target state="needs-translation">Regionales Unternehmen</target>
         <context-group purpose="location">
@@ -1410,7 +1402,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3084496895176221935" datatype="html">
+      <trans-unit id="3084496895176221935" datatype="html" xml:space="preserve">
         <source>Raw Line</source>
         <target state="translated">Raw Linie</target>
         <context-group purpose="location">
@@ -1418,7 +1410,7 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9211622862549874220" datatype="html">
+      <trans-unit id="9211622862549874220" datatype="html" xml:space="preserve">
         <source>E-Mail Setting</source>
         <target state="needs-translation">E-Mail-Einstellung</target>
         <context-group purpose="location">
@@ -1430,7 +1422,7 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9155608366859514313" datatype="html">
+      <trans-unit id="9155608366859514313" datatype="html" xml:space="preserve">
         <source>Source</source>
         <target state="translated">Quelle</target>
         <context-group purpose="location">
@@ -1438,7 +1430,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6052766076365105714" datatype="html">
+      <trans-unit id="6052766076365105714" datatype="html" xml:space="preserve">
         <source>now</source>
         <target state="translated">jetzt</target>
         <context-group purpose="location">
@@ -1446,7 +1438,7 @@
           <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4467323362722952678" datatype="html">
+      <trans-unit id="4467323362722952678" datatype="html" xml:space="preserve">
         <source>Unknown</source>
         <target state="translated">Unbekannt</target>
         <context-group purpose="location">
@@ -1454,7 +1446,7 @@
           <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6173761415494797723" datatype="html">
+      <trans-unit id="6173761415494797723" datatype="html" xml:space="preserve">
         <source>Realtime GPS</source>
         <target state="translated">Echtzeit GPS</target>
         <context-group purpose="location">
@@ -1462,7 +1454,7 @@
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8693603235657020323" datatype="html">
+      <trans-unit id="8693603235657020323" datatype="html" xml:space="preserve">
         <source>Other</source>
         <target state="translated">Andere</target>
         <context-group purpose="location">
@@ -1470,7 +1462,7 @@
           <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1976051995418616841" datatype="html">
+      <trans-unit id="1976051995418616841" datatype="html" xml:space="preserve">
         <source>R09 Type</source>
         <target state="translated">R09 Typ</target>
         <context-group purpose="location">
@@ -1482,7 +1474,7 @@
           <context context-type="linenumber">9,10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="517306723032038373" datatype="html">
+      <trans-unit id="517306723032038373" datatype="html" xml:space="preserve">
         <source>Showcase</source>
         <target state="translated">Schaufenster</target>
         <context-group purpose="location">
@@ -1490,7 +1482,7 @@
           <context context-type="linenumber">46,47</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1797118132269792224" datatype="html">
+      <trans-unit id="1797118132269792224" datatype="html" xml:space="preserve">
         <source>Enhancing openness and promoting access to Dresden public infrastructure data since 2022.</source>
         <target state="translated">Verbesserung der Zugänglichkeit zu öffentlichen Infrastrukturdaten in Dresden seit 2022.</target>
         <context-group purpose="location">
@@ -1502,7 +1494,7 @@
           <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6179740094236907584" datatype="html">
+      <trans-unit id="6179740094236907584" datatype="html" xml:space="preserve">
         <source>Github Sponsors Soon TM</source>
         <target state="translated">Github Sponsors Soon TM</target>
         <context-group purpose="location">
