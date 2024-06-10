@@ -89,8 +89,8 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   private readonly map = new Map({ view: new View({ center: [0, 0], zoom: 0 }) });
 
-  private readonly vehicleHistory = new VectorSource();
-  private readonly vehicles = new VectorSource();
+  private readonly vehicleHistory = new VectorSource<Feature<LineString>>();
+  private readonly vehicles = new VectorSource<Feature<Point>>();
 
   private readonly destroy = new Subject<void>();
 

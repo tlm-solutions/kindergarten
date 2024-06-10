@@ -21,15 +21,15 @@ import Circle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
 import Stroke from "ol/style/Stroke";
 import Overlay from "ol/Overlay";
-import {RegionReportingPointInfoComponent} from "../region-reporting-point-info/region-reporting-point-info.component";
-import {ReportingPointRaw} from "../../../data/region/region.domain";
-import {CommonModule} from "@angular/common";
+import { RegionReportingPointInfoComponent } from "../region-reporting-point-info/region-reporting-point-info.component";
+import { ReportingPointRaw } from "../../../data/region/region.domain";
+import { CommonModule } from "@angular/common";
 
 const MARKER_STYLE = new Style({
   image: new Circle({
     radius: 6,
-    fill: new Fill({color: '#FFD700'}),
-    stroke: new Stroke({color: '#DAA520'})
+    fill: new Fill({ color: '#FFD700' }),
+    stroke: new Stroke({ color: '#DAA520' })
   }),
 });
 
@@ -46,7 +46,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
   @Input()
   public markers: ReportingPointRaw[] = [];
 
-  private features = new VectorSource();
+  private features = new VectorSource<Feature<Point>>();
 
   private map = new Map({
     view: new View({
@@ -54,8 +54,8 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
       zoom: 1,
     }),
     layers: [
-      new WebGLTileLayer({source: new OSM()}),
-      new VectorLayer({source: this.features}),
+      new WebGLTileLayer({ source: new OSM() }),
+      new VectorLayer({ source: this.features }),
     ],
     target: this.hostElement.nativeElement
   });
@@ -105,7 +105,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
       const markers: ReportingPointRaw[] = changes["markers"].currentValue;
 
       this.features.addFeatures(markers.map(marker => {
-        const feature = new Feature({geometry: new Point([marker.lon, marker.lat])});
+        const feature = new Feature({ geometry: new Point([marker.lon, marker.lat]) });
         feature.setId(marker.id)
         feature.set("reporting_point", marker.reporting_point);
         feature.setStyle(MARKER_STYLE);
@@ -117,7 +117,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
         view.setCenter([markers[0].lon, markers[0].lat]);
         view.setZoom(15);
       } else {
-        this.map.getView().fit(this.features.getExtent(), {padding: [10, 10, 10, 10], maxZoom: 20});
+        this.map.getView().fit(this.features.getExtent(), { padding: [10, 10, 10, 10], maxZoom: 20 });
       }
     }
   }

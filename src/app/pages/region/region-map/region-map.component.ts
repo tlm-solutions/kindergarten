@@ -55,7 +55,7 @@ export class RegionMapComponent implements OnInit, OnChanges {
   @Input()
   public zoom = 0;
 
-  private features = new VectorSource();
+  private features = new VectorSource<Feature<Point>>();
 
   private map = new Map({
     view: new View({

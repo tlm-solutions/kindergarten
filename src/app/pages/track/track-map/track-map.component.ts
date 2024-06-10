@@ -16,13 +16,13 @@ import BaseLayer from "ol/layer/Base";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import LineString from "ol/geom/LineString";
-import {Coordinate} from "ol/coordinate";
+pnpimport { Coordinate } from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 import Point from "ol/geom/Point";
 import Circle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
-import {CommonModule} from "@angular/common";
+import { CommonModule } from "@angular/common";
 
 // const MARKER_STYLE = new Style({
 //   image: new Icon({
@@ -50,8 +50,8 @@ const HIGHLIGHTED_LINE_STYLE = new Style({
 const MARKER_STYLE = new Style({
   image: new Circle({
     radius: 6,
-    fill: new Fill({color: 'rgba(24,166,19,0.9)'}),
-    stroke: new Stroke({color: '#1cff3b'})
+    fill: new Fill({ color: 'rgba(24,166,19,0.9)' }),
+    stroke: new Stroke({ color: '#1cff3b' })
   }),
 });
 
@@ -73,7 +73,8 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
   public markers: Coordinate[] = [];
 
   private view?: View;
-  private features = new VectorSource();
+  private features = new VectorSource<Feature<Point>>();
+  private lineFeatures = new VectorSource<Feature<LineString>>();
 
   private map?: Map;
 
@@ -89,11 +90,11 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
       const lines = changes["lines"].currentValue;
 
       let feature;
-      while ((feature = this.features.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('line'))) !== undefined) {
-        this.features.removeFeature(feature);
+      while ((feature = this.lineFeatures.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('line'))) !== undefined) {
+        this.lineFeatures.removeFeature(feature);
       }
 
-      this.features.addFeatures(this.createLines("line", lines, LINE_STYLE));
+      this.lineFeatures.addFeatures(this.createLines("line", lines, LINE_STYLE));
       update = true;
     }
 
@@ -101,11 +102,11 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
       const highlightedLines = changes["highlightedLines"].currentValue;
 
       let feature;
-      while ((feature = this.features.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('highlightedLine'))) !== undefined) {
-        this.features.removeFeature(feature);
+      while ((feature = this.lineFeatures.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('highlightedLine'))) !== undefined) {
+        this.lineFeatures.removeFeature(feature);
       }
 
-      this.features.addFeatures(this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
+      this.lineFeatures.addFeatures(this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
       update = true;
     }
 
@@ -113,19 +114,19 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
       const markers: Coordinate[] = changes["markers"].currentValue;
 
       this.features.addFeatures(markers.map(marker => {
-        const feature = new Feature({geometry: new Point(marker)});
+        const feature = new Feature({ geometry: new Point(marker) });
         feature.setStyle(MARKER_STYLE);
         return feature;
       }));
 
-      this.map?.getView().fit(this.features.getExtent(), {maxZoom: 20});
+      this.map?.getView().fit(this.features.getExtent(), { maxZoom: 20 });
     }
 
     if (update) {
       setTimeout(() => {
         const extent = this.features.getExtent();
         if (extent.length !== 0) {
-          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20], maxZoom: 20})
+          this.map?.getView().fit(extent, { padding: [20, 20, 20, 20], maxZoom: 20 })
         }
       });
     }
@@ -136,11 +137,12 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
   }
 
   private initMap(): void {
-    const layers: BaseLayer[] = [new WebGLTileLayer({source: new OSM()})];
+    const layers: BaseLayer[] = [new WebGLTileLayer({ source: new OSM() })];
 
-    const layer = new VectorLayer({source: this.features});
-
-    layers.push(layer);
+    layers.push(
+      new VectorLayer({ source: this.lineFeatures }),
+      new VectorLayer({ source: this.features }),
+    );
 
     this.map = new Map({
       view: this.view = new View({
@@ -154,7 +156,7 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
 
   private createLines(name: string, lines: Coordinate[][], style: Style): Feature<LineString>[] {
     return lines.map((line, idx) => {
-      const feature = new Feature({id: `${name}-${idx}`, geometry: new LineString(line)});
+      const feature = new Feature({ id: `${name}-${idx}`, geometry: new LineString(line) });
       feature.setStyle(style);
 
       return feature;

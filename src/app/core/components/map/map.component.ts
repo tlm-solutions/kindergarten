@@ -7,7 +7,7 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
@@ -19,7 +19,7 @@ import Icon from "ol/style/Icon";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import LineString from "ol/geom/LineString";
-import {Coordinate} from "ol/coordinate";
+import { Coordinate } from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 
@@ -72,7 +72,8 @@ export class MapComponent implements OnChanges, AfterViewInit {
   public putLinesInCenter = false;
 
   private view?: View;
-  private features = new VectorSource();
+  private lineFeatures = new VectorSource<Feature<LineString>>();
+  private features = new VectorSource<Feature<Point>>();
 
   private map?: Map;
 
@@ -118,7 +119,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
 
       if (marker.previousValue && !marker.currentValue) {
         const feature = this.features.getFeatureById("marker");
-        if (feature&& !(feature instanceof Feature)) {
+        if (feature && !(feature instanceof Feature)) {
           throw new Error("new openlayers features are not implemented in kindergarten");
         }
 
@@ -135,11 +136,11 @@ export class MapComponent implements OnChanges, AfterViewInit {
       const lines = changes["lines"].currentValue;
 
       let feature;
-      while ((feature = this.features.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('line'))) !== undefined) {
-        this.features.removeFeature(feature);
+      while ((feature = this.lineFeatures.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('line'))) !== undefined) {
+        this.lineFeatures.removeFeature(feature);
       }
 
-      this.features.addFeatures(this.createLines("line", lines, LINE_STYLE));
+      this.lineFeatures.addFeatures(this.createLines("line", lines, LINE_STYLE));
       update = true;
     }
 
@@ -147,19 +148,19 @@ export class MapComponent implements OnChanges, AfterViewInit {
       const highlightedLines = changes["highlightedLines"].currentValue;
 
       let feature;
-      while ((feature = this.features.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('highlightedLine'))) !== undefined) {
-        this.features.removeFeature(feature);
+      while ((feature = this.lineFeatures.getFeaturesCollection()?.getArray().find(feature => String(feature.getId()).startsWith('highlightedLine'))) !== undefined) {
+        this.lineFeatures.removeFeature(feature);
       }
 
-      this.features.addFeatures(this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
+      this.lineFeatures.addFeatures(this.createLines("highlightedLine", highlightedLines, HIGHLIGHTED_LINE_STYLE));
       update = true;
     }
 
     if (update && this.putLinesInCenter) {
       setTimeout(() => {
-        const extent = this.features.getExtent();
+        const extent = this.lineFeatures.getExtent();
         if (extent.length !== 0) {
-          this.map?.getView().fit(extent, {padding: [20, 20, 20, 20], maxZoom: 20})
+          this.map?.getView().fit(extent, { padding: [20, 20, 20, 20], maxZoom: 20 })
         }
       });
     }
@@ -170,11 +171,12 @@ export class MapComponent implements OnChanges, AfterViewInit {
   }
 
   private initMap(): void {
-    const layers: BaseLayer[] = [new WebGLTileLayer({source: new OSM()})];
+    const layers: BaseLayer[] = [new WebGLTileLayer({ source: new OSM() })];
 
-    const layer = new VectorLayer({source: this.features});
-
-    layers.push(layer);
+    layers.push(
+      new VectorLayer({ source: this.lineFeatures }),
+      new VectorLayer({ source: this.features }),
+    );
 
     this.map = new Map({
       view: this.view = new View({
@@ -199,7 +201,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
 
   private createLines(name: string, lines: Coordinate[][], style: Style): Feature<LineString>[] {
     return lines.map((line, idx) => {
-      const feature = new Feature({id: `${name}-${idx}`, geometry: new LineString(line)});
+      const feature = new Feature({ id: `${name}-${idx}`, geometry: new LineString(line) });
       feature.setStyle(style);
 
       return feature;
