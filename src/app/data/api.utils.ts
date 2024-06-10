@@ -1,4 +1,4 @@
-import {HttpErrorResponse} from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 
 export function handleHttpError(operation: string): (error: HttpErrorResponse) => Observable<never> {

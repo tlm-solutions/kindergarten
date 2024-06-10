@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import {BehaviorSubject, Observable, Subscription, tap} from "rxjs";
 import {AuthResponse, LoginResponse} from "./auth.data";
 import {NotificationService} from "@feel/notification";

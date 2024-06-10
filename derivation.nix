@@ -1,21 +1,24 @@
-{ domain, mkPnpmPackage }:
+{ lib
+, mkPnpmPackage
+, domain ? "tlm.solutions"
+}:
 
 mkPnpmPackage {
-    src = ./.;
+  src = lib.cleanSource ./.;
 
-    installInPlace = true;
+  installInPlace = true;
 
-    postPatch = ''
-      substituteInPlace src/app/data/api.domain.ts \
-        --replace 'staging.tlm.solutions' '${domain}'
-    '';
+  postPatch = ''
+    substituteInPlace src/app/data/api.domain.ts \
+      --replace 'staging.tlm.solutions' '${domain}'
+  '';
 
-    script = "build:ci";
+  script = "build:ci";
 
-    installPhase = ''
-      mkdir -p $out/en
-      mkdir -p $out/de
-      cp -r ./dist/browser/en-US/* $out/en/
-      cp -r ./dist/browser/de-DE/* $out/de/
-    '';
+  installPhase = ''
+    mkdir -p $out/en
+    mkdir -p $out/de
+    cp -r ./dist/browser/en-US/* $out/en/
+    cp -r ./dist/browser/de-DE/* $out/de/
+  '';
 }

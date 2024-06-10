@@ -1,13 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     pnpm2nix = {
       url = "github:nzbr/pnpm2nix-nzbr";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
-
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, pnpm2nix, flake-utils, ... }:
@@ -15,28 +12,19 @@
       (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          package-production = pkgs.callPackage ./derivation.nix {
-            domain = "tlm.solutions";
-            mkPnpmPackage = pnpm2nix.packages."${system}".mkPnpmPackage;
-          };
-          package-staging = pkgs.callPackage ./derivation.nix {
-            domain = "staging.tlm.solutions";
-            mkPnpmPackage = pnpm2nix.packages."${system}".mkPnpmPackage;
-          };
         in
-        rec {
-          checks = packages;
-          packages = {
-            kindergarten = package-production;
-            kindergarten-staging = package-staging;
-            default = package-production;
+        {
+          packages = rec {
+            kindergarten = pkgs.callPackage ./derivation.nix {
+              mkPnpmPackage = pnpm2nix.packages."${system}".mkPnpmPackage;
+            };
+            default = kindergarten;
           };
         }
       ) // {
       overlays.default = final: prev: {
         inherit (self.packages.${prev.system})
-          kindergarten
-          kindergarten-staging;
+          kindergarten;
       };
     };
 }

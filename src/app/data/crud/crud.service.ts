@@ -1,6 +1,6 @@
 import {CrudService} from "./crud.service.interface";
 import {DATACARE_BASE_PATH, IdHolder, WithoutId} from "../api.domain";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {inject} from "@angular/core";
 import {catchError, Observable, retry} from "rxjs";
 import {handleHttpError, toPascalCase} from "../api.utils";
