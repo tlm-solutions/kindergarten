@@ -52,6 +52,14 @@
     "name": "M",
     "description": "Museums Fahrt"
   },
+  "44": {
+    "type": "tram",
+    "name": "44"
+  },
+  "46": {
+    "type": "tram",
+    "name": "46"
+  },
   "101": {
     "type": "bus",
     "name": "EV1"
@@ -213,5 +221,37 @@
   "92": {
     "type": "bus",
     "name": "92"
+  },
+  "164": {
+    "type": "bus",
+    "name": "164"
+  },
+  "166": {
+    "type": "bus",
+    "name": "166"
+  },
+  "333": {
+    "type": "bus",
+    "name": "333"
+  },
+  "360": {
+    "type": "bus",
+    "name": "360"
+  },
+  "366": {
+    "type": "bus",
+    "name": "366"
+  },
+  "386": {
+    "type": "bus",
+    "name": "386"
+  },
+  "477": {
+    "type": "bus",
+    "name": "477"
+  },
+  "478": {
+    "type": "bus",
+    "name": "478"
   }
 }
