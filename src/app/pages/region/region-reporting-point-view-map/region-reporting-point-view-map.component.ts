@@ -87,8 +87,8 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
         found = true;
         const point = feature.getGeometry() as Point;
         popup.setPosition(point.getCoordinates());
-        const reporting_point = feature.get('reporting_point');
-        const reportingPointRaw = this.markers.find(point => point.reporting_point === reporting_point);
+        const markerId = feature.getId();
+        const reportingPointRaw = this.markers.find(point => point.id === markerId);
 
         popupComponent.setInput("reportingPointRaw", reportingPointRaw)
       });
