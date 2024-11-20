@@ -4,14 +4,14 @@ import {map, Subscription, switchMap} from "rxjs";
 import {CommonModule} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
-import {DropdownComponent, OptionComponent} from "@feel/form";
+import {DropdownComponent} from "@feel/form";
 
 @Component({
   selector: 'app-map-region-selector',
   templateUrl: './map-region-selector.component.html',
   styleUrls: ['./map-region-selector.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DropdownComponent, OptionComponent],
+  imports: [CommonModule, ReactiveFormsModule, DropdownComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapRegionSelectorComponent implements OnInit, OnDestroy {

@@ -97,7 +97,6 @@ export class StationEditComponent implements OnInit, OnDestroy {
     }
 
     this.stationService.set(id, {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       antenna: station.antenna,
       approved: station.approved!,
       architecture: station.architecture,
@@ -113,7 +112,6 @@ export class StationEditComponent implements OnInit, OnDestroy {
       radio: station.radio,
       region: station.region!,
       telegram_decoder_version: station.telegram_decoder_version,
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
       .subscribe({

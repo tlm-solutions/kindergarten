@@ -181,7 +181,6 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
         _a: this.regionService.getCached(regionId)
           .pipe(
             filter(region => !!region),
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             map(region => region!),
             tap(region => {
               const view = this.map.getView();

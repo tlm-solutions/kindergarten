@@ -83,7 +83,6 @@ export class RegionEditComponent implements OnInit, OnDestroy {
     }
 
     this.regionService.set(id, {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       deactivated: region.deactivated!,
       encoding: region.encoding,
       frequency: region.frequency,
@@ -95,7 +94,6 @@ export class RegionEditComponent implements OnInit, OnDestroy {
       transport_company: region.transport_company!,
       work_in_progress: region.work_in_progress!,
       zoom: region.zoom!,
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(region => this.router.navigate(['..'], {relativeTo: this.route}).then(() => region)))
       .subscribe({

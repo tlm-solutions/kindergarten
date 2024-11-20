@@ -82,10 +82,8 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       .pipe(
         filter(([start, end]) => !!start && !!end),
         map(([start, end, track]) => ({
-          /* eslint-disable @typescript-eslint/no-non-null-assertion */
           start: start!.getTime(),
           end: end!.getTime(),
-          /* eslint-enable @typescript-eslint/no-non-null-assertion */
           track
         }))
       )
@@ -120,7 +118,6 @@ export class TrackEditComponent implements OnInit, OnDestroy {
     }
 
     this.trackService.set(id, {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       correlated: track.correlated!,
       end_time: track.end_time!.toISOString(),
       finished: track.finished!,
@@ -132,7 +129,6 @@ export class TrackEditComponent implements OnInit, OnDestroy {
       start_time: track.start_time!.toISOString(),
       app_name: "",
       app_commit: "",
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
     })
       .pipe(switchMap(station => this.router.navigate(['..'], {relativeTo: this.route}).then(() => station)))
       .subscribe({

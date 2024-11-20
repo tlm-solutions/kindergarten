@@ -4,7 +4,7 @@ let
   manifest = lib.importJSON ./package.json;
 in
 stdenv.mkDerivation (finalAttrs: {
-  pname = "website";
+  pname = "kindergarten";
   inherit (manifest) version;
 
   src = lib.cleanSource ./.;
@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = pnpm.fetchDeps {
     inherit (finalAttrs) pname version src;
-    hash = "sha256-AdTHpm4HPoXbdSpF6QNboqFJchpRoLCvBk8xOpaxWkc=";
+    hash = "sha256-IwMKu5i1wPFhcmPsJOHznPfbcNVk46oafQ5Ct3o/bnQ=";
   };
 
   nativeBuildInputs = [ nodejs pnpm.configHook ];
