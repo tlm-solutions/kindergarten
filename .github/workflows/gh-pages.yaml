@@ -1,0 +1,48 @@
+name: "pages"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  pages: write
+  id-token: write
+  deployments: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v8
+        with:
+          diagnostic-endpoint: false
+          use-flakehub: false
+
+      - name: Build search
+        run: nix build -L .
+
+      - name: Publish to Cloudflare Pages
+        if: "github.repository_owner == 'tlm-solutions'"
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 2a09613716e511a8fe8ca74abc084762
+          projectName: tlms
+          directory: result
+          gitHubToken: ${{ github.token }}
