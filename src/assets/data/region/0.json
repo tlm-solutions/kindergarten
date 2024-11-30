@@ -52,6 +52,14 @@
     "name": "M",
     "description": "Museums Fahrt"
   },
+  "20": {
+    "type": "tram",
+    "name": "20"
+  },
+  "41": {
+    "type": "tram",
+    "name": "41"
+  },
   "44": {
     "type": "tram",
     "name": "44"
