@@ -391,7 +391,7 @@
           <context context-type="linenumber">109,110</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6179740094236907584" datatype="html">
+      <trans-unit id="1316227401896598974" datatype="html">
         <source>Github Sponsors</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
@@ -965,14 +965,14 @@
         <source>Region <x id="PH" equiv-text="region.name"/> was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.ts</context>
-          <context context-type="linenumber">102</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4658949179460438495" datatype="html">
         <source>Failed to update region <x id="PH" equiv-text="region.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/region/region-edit/region-edit.component.ts</context>
-          <context context-type="linenumber">105</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
@@ -1197,14 +1197,14 @@
         <source>Station <x id="PH" equiv-text="station.name"/> was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.ts</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5910481702687935078" datatype="html">
         <source>Failed to update station <x id="PH" equiv-text="station.name"/>: <x id="PH_1" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.ts</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3715596725146409911" datatype="html">
@@ -1348,14 +1348,14 @@
         <source>Track was successfully updated.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">135</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5851414638365189550" datatype="html">
         <source>Failed to update track: <x id="PH" equiv-text="err"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/track/track-edit/track-edit.component.ts</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3676850495488145564" datatype="html">
