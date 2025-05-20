@@ -7,12 +7,11 @@ import {ButtonComponent} from "@feel/form";
 import {RegionMapComponent} from "../region-map/region-map.component";
 
 @Component({
-  selector: 'app-region-view',
-  templateUrl: './region-view.component.html',
-  styleUrls: ['./region-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ButtonComponent, RegionMapComponent],
+    selector: 'app-region-view',
+    templateUrl: './region-view.component.html',
+    styleUrls: ['./region-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ButtonComponent, RegionMapComponent]
 })
 export class RegionViewComponent {
 

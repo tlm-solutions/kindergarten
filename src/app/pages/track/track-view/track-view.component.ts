@@ -15,12 +15,11 @@ import {ButtonComponent} from "@feel/form";
 import {TrackMapComponent} from "../track-map/track-map.component";
 
 @Component({
-  selector: 'app-track-view',
-  templateUrl: './track-view.component.html',
-  styleUrls: ['./track-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RelativeTimePipe, RouterLink, ButtonComponent, TrackMapComponent],
+    selector: 'app-track-view',
+    templateUrl: './track-view.component.html',
+    styleUrls: ['./track-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RelativeTimePipe, RouterLink, ButtonComponent, TrackMapComponent]
 })
 export class TrackViewComponent {
 

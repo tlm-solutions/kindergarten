@@ -5,12 +5,11 @@ import {CommonModule} from '@angular/common';
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-region-list',
-  templateUrl: './region-list.component.html',
-  styleUrls: ['./region-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+    selector: 'app-region-list',
+    templateUrl: './region-list.component.html',
+    styleUrls: ['./region-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RouterLink]
 })
 export class RegionListComponent {
 

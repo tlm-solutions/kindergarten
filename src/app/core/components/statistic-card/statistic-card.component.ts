@@ -3,11 +3,10 @@ import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-statistic-card',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './statistic-card.component.html',
-  styleUrls: ['./statistic-card.component.scss']
+    selector: 'app-statistic-card',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './statistic-card.component.html',
+    styleUrls: ['./statistic-card.component.scss']
 })
 export class StatisticCardComponent {
 

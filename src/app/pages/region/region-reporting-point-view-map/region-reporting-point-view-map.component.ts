@@ -11,7 +11,7 @@ import {
 import VectorSource from "ol/source/Vector";
 import Map from "ol/Map";
 import View from "ol/View";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import VectorLayer from "ol/layer/Vector";
 import Feature from "ol/Feature";
@@ -34,12 +34,11 @@ const MARKER_STYLE = new Style({
 });
 
 @Component({
-  selector: 'app-region-reporting-point-view-map',
-  templateUrl: './region-reporting-point-view-map.component.html',
-  styleUrls: ['./region-reporting-point-view-map.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule],
+    selector: 'app-region-reporting-point-view-map',
+    templateUrl: './region-reporting-point-view-map.component.html',
+    styleUrls: ['./region-reporting-point-view-map.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
 
@@ -54,7 +53,7 @@ export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
       zoom: 1,
     }),
     layers: [
-      new WebGLTileLayer({ source: new OSM() }),
+      new TileLayer({ source: new OSM() }),
       new VectorLayer({ source: this.features }),
     ],
     target: this.hostElement.nativeElement

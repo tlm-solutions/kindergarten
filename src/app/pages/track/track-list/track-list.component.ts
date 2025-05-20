@@ -14,12 +14,11 @@ import {RelativeTimePipe} from "../../../core/pipes/relative-time.pipe";
 import {DurationPipe} from "../../../core/pipes/duration.pipe";
 
 @Component({
-  selector: 'app-track-list',
-  templateUrl: './track-list.component.html',
-  styleUrls: ['./track-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, ButtonComponent, RelativeTimePipe, DurationPipe, RouterLink],
+    selector: 'app-track-list',
+    templateUrl: './track-list.component.html',
+    styleUrls: ['./track-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, ButtonComponent, RelativeTimePipe, DurationPipe, RouterLink]
 })
 export class TrackListComponent implements OnInit, OnDestroy {
 

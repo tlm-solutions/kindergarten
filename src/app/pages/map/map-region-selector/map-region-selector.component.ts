@@ -7,12 +7,11 @@ import {Router} from "@angular/router";
 import {DropdownComponent} from "@feel/form";
 
 @Component({
-  selector: 'app-map-region-selector',
-  templateUrl: './map-region-selector.component.html',
-  styleUrls: ['./map-region-selector.component.scss'],
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DropdownComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-map-region-selector',
+    templateUrl: './map-region-selector.component.html',
+    styleUrls: ['./map-region-selector.component.scss'],
+    imports: [CommonModule, ReactiveFormsModule, DropdownComponent],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapRegionSelectorComponent implements OnInit, OnDestroy {
 

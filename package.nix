@@ -7,19 +7,22 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "kindergarten";
   inherit (manifest) version;
 
-  src = lib.cleanSource ./.;
+  src = lib.cleanSourceWith {
+    filter = name: type: ((!lib.hasSuffix ".nix" name) && (builtins.dirOf name) != "node_modules");
+    src = lib.cleanSource ./.;
+  };
+
+  pnpmDeps = pnpm.fetchDeps {
+    inherit (finalAttrs) pname version src;
+    hash = "sha256-UIfCiKyTgS8dNDpcXJDtXcULowHHpIV3snUIukuM3Vc=";
+  };
+
+  nativeBuildInputs = [ nodejs pnpm.configHook ];
 
   postPatch = ''
     substituteInPlace src/app/data/api.domain.ts \
       --replace 'staging.tlm.solutions' '${domain}'
   '';
-
-  pnpmDeps = pnpm.fetchDeps {
-    inherit (finalAttrs) pname version src;
-    hash = "sha256-IwMKu5i1wPFhcmPsJOHznPfbcNVk46oafQ5Ct3o/bnQ=";
-  };
-
-  nativeBuildInputs = [ nodejs pnpm.configHook ];
 
   buildPhase = ''
     pnpm run build:ci

@@ -11,12 +11,11 @@ import {TrackIconComponent} from "../../core/icons/track-icon/track-icon.compone
 import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.component";
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
-  imports: [CommonModule, RouterLink, DashboardIconComponent, MapIconComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent, ProfileIconComponent],
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-sidebar',
+    imports: [CommonModule, RouterLink, DashboardIconComponent, MapIconComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent, ProfileIconComponent],
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
 

@@ -9,13 +9,12 @@ import {HeaderComponent} from "./layout/header/header.component";
 import {NotificationListComponent} from "@feel/notification";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, SidebarComponent, HeaderComponent, RouterOutlet, NotificationListComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [routingAnimation]
+    selector: 'app-root',
+    imports: [CommonModule, SidebarComponent, HeaderComponent, RouterOutlet, NotificationListComponent],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [routingAnimation]
 })
 export class AppComponent {
 

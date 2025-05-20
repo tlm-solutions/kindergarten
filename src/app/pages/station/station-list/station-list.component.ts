@@ -10,12 +10,11 @@ import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-station-list',
-  templateUrl: './station-list.component.html',
-  styleUrls: ['./station-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+    selector: 'app-station-list',
+    templateUrl: './station-list.component.html',
+    styleUrls: ['./station-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RouterLink]
 })
 export class StationListComponent {
 

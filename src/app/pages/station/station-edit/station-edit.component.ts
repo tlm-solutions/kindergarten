@@ -13,12 +13,11 @@ import {ButtonComponent, CheckboxComponent, FormErrorComponent, TextFieldCompone
 import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
-  selector: 'app-station-edit',
-  templateUrl: './station-edit.component.html',
-  styleUrls: ['./station-edit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, FormErrorComponent, CheckboxComponent, ButtonComponent, MapComponent],
+    selector: 'app-station-edit',
+    templateUrl: './station-edit.component.html',
+    styleUrls: ['./station-edit.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, FormErrorComponent, CheckboxComponent, ButtonComponent, MapComponent]
 })
 export class StationEditComponent implements OnInit, OnDestroy {
 

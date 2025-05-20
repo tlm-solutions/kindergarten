@@ -9,12 +9,11 @@ import {TlmsIconComponent} from "../../core/icons/tlms-icon/tlms-icon.component"
 import {ButtonComponent, FormErrorComponent, TextFieldComponent} from "@feel/form";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, TlmsIconComponent, TextFieldComponent, FormErrorComponent, ReactiveFormsModule, RouterLink, ButtonComponent],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, TlmsIconComponent, TextFieldComponent, FormErrorComponent, ReactiveFormsModule, RouterLink, ButtonComponent]
 })
 export class LoginComponent implements OnDestroy {
 

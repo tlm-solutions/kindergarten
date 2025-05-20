@@ -8,7 +8,7 @@ import { RegionService } from "../../../data/region/region.service";
 import Link from "ol/interaction/Link";
 import { NetworkService } from "../../../data/network/network.service";
 import VectorSource from "ol/source/Vector";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import TileLayer from "ol/layer/Tile";
 import VectorLayer from "ol/layer/Vector";
 import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
@@ -78,12 +78,11 @@ const IMG = loadImage("assets/icons/vehicle/unknown.svg");
 const MAX_VEHICLE_AGE = 1000 * 60 * 5;
 
 @Component({
-  selector: 'app-map-windshield',
-  templateUrl: './map-windshield.component.html',
-  styleUrls: ['./map-windshield.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule],
+    selector: 'app-map-windshield',
+    templateUrl: './map-windshield.component.html',
+    styleUrls: ['./map-windshield.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 
@@ -106,7 +105,7 @@ export class MapWindshieldComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.map.setTarget(this.hostElement.nativeElement);
-    this.map.addLayer(new WebGLTileLayer({ source: new OSM() }));
+    this.map.addLayer(new TileLayer({ source: new OSM() }));
 
     this.map.addLayer(new VectorLayer({ source: this.vehicleHistory }));
     this.map.addLayer(new VectorLayer({ source: this.vehicles }));

@@ -11,12 +11,11 @@ import {ButtonComponent} from "@feel/form";
 import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
-  selector: 'app-station-view',
-  templateUrl: './station-view.component.html',
-  styleUrls: ['./station-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RouterLink, ButtonComponent, MapComponent],
+    selector: 'app-station-view',
+    templateUrl: './station-view.component.html',
+    styleUrls: ['./station-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RouterLink, ButtonComponent, MapComponent]
 })
 export class StationViewComponent {
 

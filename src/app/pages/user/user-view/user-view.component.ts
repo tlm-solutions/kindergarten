@@ -6,12 +6,11 @@ import {CommonModule} from '@angular/common';
 import {ButtonComponent} from "@feel/form";
 
 @Component({
-  selector: 'app-user-view',
-  templateUrl: './user-view.component.html',
-  styleUrls: ['./user-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ButtonComponent],
+    selector: 'app-user-view',
+    templateUrl: './user-view.component.html',
+    styleUrls: ['./user-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ButtonComponent]
 })
 export class UserViewComponent {
 

@@ -5,12 +5,11 @@ import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+    selector: 'app-user-list',
+    templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RouterLink]
 })
 export class UserListComponent {
 

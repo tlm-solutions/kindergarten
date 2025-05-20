@@ -8,12 +8,11 @@ import {
 } from "../region-reporting-point-view-map/region-reporting-point-view-map.component";
 
 @Component({
-  selector: 'app-region-reporting-point-view',
-  templateUrl: './region-reporting-point-view.component.html',
-  styleUrls: ['./region-reporting-point-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RegionReportingPointViewMapComponent],
+    selector: 'app-region-reporting-point-view',
+    templateUrl: './region-reporting-point-view.component.html',
+    styleUrls: ['./region-reporting-point-view.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RegionReportingPointViewMapComponent]
 })
 export class RegionReportingPointViewComponent {
 

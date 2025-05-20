@@ -4,11 +4,10 @@ import {CommonModule} from '@angular/common';
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-region-map-reporting-point-info',
-  templateUrl: './region-map-reporting-point-info.component.html',
-  styleUrls: ['./region-map-reporting-point-info.component.scss'],
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+    selector: 'app-region-map-reporting-point-info',
+    templateUrl: './region-map-reporting-point-info.component.html',
+    styleUrls: ['./region-map-reporting-point-info.component.scss'],
+    imports: [CommonModule, RouterLink]
 })
 export class RegionMapReportingPointInfoComponent {
 

@@ -11,12 +11,11 @@ import {ButtonComponent, CheckboxComponent, TextFieldComponent} from "@feel/form
 import {MapComponent} from "../../../core/components/map/map.component";
 
 @Component({
-  selector: 'app-track-edit',
-  templateUrl: './track-edit.component.html',
-  styleUrls: ['./track-edit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, CheckboxComponent, ButtonComponent, MapComponent],
+    selector: 'app-track-edit',
+    templateUrl: './track-edit.component.html',
+    styleUrls: ['./track-edit.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ReactiveFormsModule, TextFieldComponent, CheckboxComponent, ButtonComponent, MapComponent]
 })
 export class TrackEditComponent implements OnInit, OnDestroy {
 

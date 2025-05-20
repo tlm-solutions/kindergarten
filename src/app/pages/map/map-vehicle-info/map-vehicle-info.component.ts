@@ -10,12 +10,11 @@ import {RelativeTimePipe} from "../../../core/pipes/relative-time.pipe";
 import {DurationPipe} from "../../../core/pipes/duration.pipe";
 
 @Component({
-  selector: 'app-map-vehicle-info',
-  templateUrl: './map-vehicle-info.component.html',
-  styleUrls: ['./map-vehicle-info.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RelativeTimePipe, DurationPipe, RouterLink],
+    selector: 'app-map-vehicle-info',
+    templateUrl: './map-vehicle-info.component.html',
+    styleUrls: ['./map-vehicle-info.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RelativeTimePipe, DurationPipe, RouterLink]
 })
 export class MapVehicleInfoComponent {
 

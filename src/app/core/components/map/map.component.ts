@@ -21,7 +21,7 @@ import VectorSource from "ol/source/Vector";
 import LineString from "ol/geom/LineString";
 import { Coordinate } from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import TileLayer from "ol/layer/Tile";
 
 const MARKER_STYLE = new Style({
   image: new Icon({
@@ -47,12 +47,11 @@ const HIGHLIGHTED_LINE_STYLE = new Style({
 });
 
 @Component({
-  selector: 'app-map',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-map',
+    imports: [CommonModule],
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnChanges, AfterViewInit {
 
@@ -171,7 +170,7 @@ export class MapComponent implements OnChanges, AfterViewInit {
   }
 
   private initMap(): void {
-    const layers: BaseLayer[] = [new WebGLTileLayer({ source: new OSM() })];
+    const layers: BaseLayer[] = [new TileLayer({ source: new OSM() })];
 
     layers.push(
       new VectorLayer({ source: this.lineFeatures }),

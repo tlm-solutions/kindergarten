@@ -9,11 +9,10 @@ import {CommonModule} from '@angular/common';
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-region-reporting-point-info',
-  templateUrl: './region-reporting-point-info.component.html',
-  styleUrls: ['./region-reporting-point-info.component.scss'],
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+    selector: 'app-region-reporting-point-info',
+    templateUrl: './region-reporting-point-info.component.html',
+    styleUrls: ['./region-reporting-point-info.component.scss'],
+    imports: [CommonModule, RouterLink]
 })
 export class RegionReportingPointInfoComponent implements OnChanges {
 

@@ -18,7 +18,7 @@ import VectorSource from "ol/source/Vector";
 import LineString from "ol/geom/LineString";
 import { Coordinate } from "ol/coordinate";
 import Stroke from "ol/style/Stroke";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import TileLayer from "ol/layer/Tile";
 import Point from "ol/geom/Point";
 import Circle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
@@ -56,12 +56,11 @@ const MARKER_STYLE = new Style({
 });
 
 @Component({
-  selector: 'app-track-map',
-  templateUrl: './track-map.component.html',
-  styleUrls: ['./track-map.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule],
+    selector: 'app-track-map',
+    templateUrl: './track-map.component.html',
+    styleUrls: ['./track-map.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class TrackMapComponent implements OnChanges, AfterViewInit {
 
@@ -137,7 +136,7 @@ export class TrackMapComponent implements OnChanges, AfterViewInit {
   }
 
   private initMap(): void {
-    const layers: BaseLayer[] = [new WebGLTileLayer({ source: new OSM() })];
+    const layers: BaseLayer[] = [new TileLayer({ source: new OSM() })];
 
     layers.push(
       new VectorLayer({ source: this.lineFeatures }),

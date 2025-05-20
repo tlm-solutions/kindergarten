@@ -13,12 +13,11 @@ import {UserIconComponent} from "../../core/icons/user-icon/user-icon.component"
 import {TrackIconComponent} from "../../core/icons/track-icon/track-icon.component";
 
 @Component({
-  selector: 'app-landingpage',
-  templateUrl: './landingpage.component.html',
-  styleUrls: ['./landingpage.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, RouterLink, NgOptimizedImage, StatisticCardComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent],
+    selector: 'app-landingpage',
+    templateUrl: './landingpage.component.html',
+    styleUrls: ['./landingpage.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, RouterLink, NgOptimizedImage, StatisticCardComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent]
 })
 export class LandingpageComponent {
 

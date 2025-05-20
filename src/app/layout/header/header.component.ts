@@ -9,13 +9,12 @@ import {CommonModule} from "@angular/common";
 import {MenuIconComponent} from "../../core/icons/menu-icon/menu-icon.component";
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, MenuIconComponent, HeaderHostDirective],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  animations: [routingAnimation],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-header',
+    imports: [CommonModule, MenuIconComponent, HeaderHostDirective],
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    animations: [routingAnimation],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 

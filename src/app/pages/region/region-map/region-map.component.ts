@@ -11,7 +11,7 @@ import {
 import Style from "ol/style/Style";
 import VectorSource from "ol/source/Vector";
 import Map from "ol/Map";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import View from "ol/View";
 import VectorLayer from "ol/layer/Vector";
@@ -36,12 +36,11 @@ const MARKER_STYLE = new Style({
 });
 
 @Component({
-  selector: 'app-region-map',
-  templateUrl: './region-map.component.html',
-  styleUrls: ['./region-map.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule],
+    selector: 'app-region-map',
+    templateUrl: './region-map.component.html',
+    styleUrls: ['./region-map.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class RegionMapComponent implements OnInit, OnChanges {
 
@@ -63,7 +62,7 @@ export class RegionMapComponent implements OnInit, OnChanges {
       zoom: 1,
     }),
     layers: [
-      new WebGLTileLayer({source: new OSM()}),
+      new TileLayer({source: new OSM()}),
       new VectorLayer({source: this.features}),
     ],
     target: this.hostElement.nativeElement
