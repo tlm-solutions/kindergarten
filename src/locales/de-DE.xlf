@@ -648,7 +648,7 @@
       </trans-unit>
       <trans-unit id="2083194873229000210" datatype="html" xml:space="preserve">
         <source>Hi, we are Transit Live Mapping Solutions,</source>
-        <target state="translated">Hallo, wird sind das Transit Live Mapping Solutions Team</target>
+        <target state="translated">Hallo, wir sind das Transit Live Mapping Solutions Team</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1084,7 +1084,7 @@
       </trans-unit>
       <trans-unit id="2043658407758078074" datatype="html" xml:space="preserve">
         <source>We also look for people willing to participate in building up the radio receiver-network, so if you would like to own a pretty little window decoration that listens to public broadcasts, shoot us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
-        <target state="translated">Wir suchen aktuell auch Leuten, welche bereit sind, uns beim Ausbau des Radioempfängernetzwerks zu unterstützen. Wenn du also noch eine kleine Fensterdekoration suchst, schreib uns eine Nachricht an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>! </target>
+        <target state="translated">Wir suchen aktuell auch nach Leuten, welche bereit sind, uns beim Ausbau des Radioempfängernetzwerks zu unterstützen. Wenn du also noch eine kleine Fensterdekoration suchst, schreib uns eine Nachricht an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a       href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>! </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">31,35</context>
