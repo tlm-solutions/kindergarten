@@ -226,9 +226,17 @@
     "type": "bus",
     "name": "90"
   },
+  "91": {
+    "type": "bus",
+    "name": "91"
+  },
   "92": {
     "type": "bus",
     "name": "92"
+  },
+  "160": {
+    "type": "bus",
+    "name": "160"
   },
   "164": {
     "type": "bus",
@@ -245,6 +253,18 @@
   "333": {
     "type": "bus",
     "name": "333"
+  },
+  "337": {
+    "type": "bus",
+    "name": "337"
+  },
+  "349": {
+    "type": "bus",
+    "name": "162"
+  },
+  "352": {
+    "type": "bus",
+    "name": "352"
   },
   "360": {
     "type": "bus",
@@ -265,5 +285,10 @@
   "478": {
     "type": "bus",
     "name": "478"
+  },
+  "725": {
+    "type": "bus",
+    "name": "T",
+    "description": "Technische Überprüfungsfahrt"
   }
 }
