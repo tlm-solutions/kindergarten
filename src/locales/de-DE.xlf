@@ -1495,8 +1495,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6179740094236907584" datatype="html" xml:space="preserve">
-        <source>Github Sponsors Soon TM</source>
-        <target state="translated">Github Sponsors Soon TM</target>
+        <source>Github Sponsors</source>
+        <target state="translated">Github Sponsors</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">114,115</context>
