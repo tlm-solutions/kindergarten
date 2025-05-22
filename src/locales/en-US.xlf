@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="2489604628795070296" datatype="html">
@@ -236,37 +236,35 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3674903722506177557" datatype="html">
-        <source> a small group of students, currently consisting of Marenz, Tassilo and 0xA, that ended up getting seriously nerdsniped by something that started off as a small side-project during lockdown. </source>
+        <source>a small group of students, currently consisting of Marenz, Tassilo and 0xA, that ended up getting seriously nerdsniped by something that started off as a small side-project during lockdown.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="995129051511212178" datatype="html">
-        <source> Our aim is to collect reliable real time information about public transport and make it available to everyone in a straightforward way. We are convinced that open data for commonly shared infrastructure will help contribute to a more efficient and safe state of operation. Check out the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/map&quot;&gt;"/>map<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to see what we’ve built so far. </source>
+        <source>Our aim is to collect reliable real time information about public transport and make it available to everyone in a straightforward way. We are convinced that open data for commonly shared infrastructure will help contribute to a more efficient and safe state of operation. Check out the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/map&quot;&gt;"/>map<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to see what we’ve built so far. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">10,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7611673357542102353" datatype="html">
-        <source> The data is gathered by a network of radio receivers we have distributed across the city which collect the signals sent out by public transport vehicles. As for now we’ve focused mainly on Dresden for obvious reasons but we’d love to broaden our scope to include further cities in Germany and already have taken this into consideration in our code stack. </source>
+        <source>The data is gathered by a network of radio receivers we have distributed across the city which collect the signals sent out by public transport vehicles. As for now we’ve focused mainly on Dresden for obvious reasons but we’d love to broaden our scope to include further cities in Germany and already have taken this into consideration in our code stack.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">16,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1185891688104505134" datatype="html">
-        <source> In order to scale appropriately, help is highly appreciated! We are urgently looking for front-end developers that are able to turn this into something truly useful and testers of the software stack to ensure overall quality. Further, we are currently paying everything from our own budget, so financial support is also of great help! You can either donate directly (via <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://ko-fi.com/dumpdvb&quot;&gt;"/>Ko-fi<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) or click us something from our <x id="START_LINK_1" equiv-text="&lt;a
-        href=&quot;https://www.amazon.de/hz/wishlist/ls/379ZEGSLTRYWL?ref_=wl_share&quot;&gt;"/>Amazon Wishlist<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. &lt;3 </source>
+        <source>In order to scale appropriately, help is highly appreciated! We are urgently looking for front-end developers that are able to turn this into something truly useful and testers of the software stack to ensure overall quality. Further, we are currently paying everything from our own budget, so financial support is also of great help! You can either donate directly (via <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://ko-fi.com/dumpdvb&quot;&gt;"/>Ko-fi<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) or click us something from our <x id="START_LINK_1" equiv-text="&lt;a         href=&quot;https://www.amazon.de/hz/wishlist/ls/379ZEGSLTRYWL?ref_=wl_share&quot;&gt;"/>Amazon Wishlist<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. &lt;3 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">24,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2043658407758078074" datatype="html">
-        <source> We also look for people willing to participate in building up the radio receiver-network, so if you would like to own a pretty little window decoration that listens to public broadcasts, shoot us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a
-        href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
+        <source>We also look for people willing to participate in building up the radio receiver-network, so if you would like to own a pretty little window decoration that listens to public broadcasts, shoot us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a         href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">32,36</context>
@@ -322,7 +320,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4465335499811746408" datatype="html">
-        <source>Depending on their delay, the color of the icon changes from orange (delayed) to blue (ahead of schedule). </source>
+        <source>Depending on their delay, the color of the icon changes from orange (delayed) to blue (ahead of schedule).</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">55,56</context>
@@ -343,7 +341,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5654580826467194273" datatype="html">
-        <source> Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/strasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Strasi (<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>tandortverfolgungssystem für <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>T<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>rams und <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>egionalbusse mit <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>a<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>utomatisierter <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>atelliten<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>i<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>dentifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
+        <source>Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/strasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Strasi (<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>tandortverfolgungssystem für <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>T<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>rams und <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>egionalbusse mit <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>a<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>utomatisierter <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>atelliten<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>i<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>dentifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">69,73</context>
@@ -420,14 +418,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="9193356394095810014" datatype="html">
-        <source> E-Mail is required! </source>
+        <source>E-Mail is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="858387669412276474" datatype="html">
-        <source> Password is required! </source>
+        <source>Password is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">19,20</context>
@@ -448,14 +446,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5453179079862122867" datatype="html">
-        <source> GitHub </source>
+        <source>GitHub</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">38,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2946606238846263830" datatype="html">
-        <source> Matrix </source>
+        <source>Matrix</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">42,43</context>
@@ -469,7 +467,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6801253915325537992" datatype="html">
-        <source> Documentation </source>
+        <source>Documentation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">48,49</context>
@@ -1025,7 +1023,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3518484868494312029" datatype="html">
-        <source>Name is required! </source>
+        <source>Name is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">7,8</context>
@@ -1080,7 +1078,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4224106337954102965" datatype="html">
-        <source>Latitude is required! </source>
+        <source>Latitude is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">21,23</context>
@@ -1094,7 +1092,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8966840175129431170" datatype="html">
-        <source>Longitude is required! </source>
+        <source>Longitude is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">26,28</context>
@@ -1255,8 +1253,9 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3894950702316166331" datatype="html">
+      <trans-unit id="3894950702316166331" datatype="html" xml:space="preserve">
         <source>Loading...</source>
+        <target state="needs-translation">Loading...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
           <context context-type="linenumber">107,108</context>
