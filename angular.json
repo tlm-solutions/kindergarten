@@ -163,58 +163,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "kindergarten:build:production"
-            },
-            "development": {
-              "buildTarget": "kindergarten:build:development"
-            }
-          },
-          "defaultConfiguration": "development",
-          "options": {
-            "sslCert": "/home/marcel/OneDrive/Backup/Daten_G/tools/scripts/tlm.cer",
-            "sslKey": "/home/marcel/OneDrive/Backup/Daten_G/tools/scripts/tlm.key"
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "kindergarten:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "node_modules/@fontsource/dm-sans/400.css",
-              "node_modules/@fontsource/dm-sans/400-italic.css",
-              "node_modules/@fontsource/dm-sans/700.css",
-              "node_modules/@fontsource/dm-sans/700-italic.css",
-              "node_modules/ol/ol.css",
-              "node_modules/@feel/style/main.scss",
-              "src/styles.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "node_modules/@feel/style/global",
-                "src/scss/global"
-              ]
-            },
-            "scripts": []
-          }
         }
       }
     }
