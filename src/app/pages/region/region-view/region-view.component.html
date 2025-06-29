@@ -1,72 +1,69 @@
-<ng-container *ngIf="region | async as region; else loading">
+@if (region | async; as region) {
   <section class="general">
     <h1>General</h1>
     <table>
       <tbody>
-      <tr>
-        <td>Name</td>
-        <td>{{region.name}}</td>
-      </tr>
-      <tr>
-        <td>Transport Company</td>
-        <td>{{region.transport_company}}</td>
-      </tr>
-      <tr>
-        <td>Regional Company</td>
-        <td>{{region.regional_company}}</td>
-      </tr>
-      <tr>
-        <td>Frequency</td>
-        <td>{{region.frequency}}</td>
-      </tr>
-      <tr>
-        <td>R09 Type</td>
-        <td>{{region.r09_type}}</td>
-      </tr>
-      <tr>
-        <td>Encoding</td>
-        <td>{{region.encoding}}</td>
-      </tr>
-      <tr>
-        <td>Lat</td>
-        <td>{{region.lat}}°</td>
-      </tr>
-      <tr>
-        <td>Lon</td>
-        <td>{{region.lon}}°</td>
-      </tr>
-      <tr>
-        <td>Zoom</td>
-        <td>{{region.zoom}}</td>
-      </tr>
-      <tr>
-        <td>Work in Progress</td>
-        <td>{{region.work_in_progress}}</td>
-      </tr>
-      <tr>
-        <td>Deactivated</td>
-        <td>{{region.deactivated}}</td>
-      </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{region.name}}</td>
+        </tr>
+        <tr>
+          <td>Transport Company</td>
+          <td>{{region.transport_company}}</td>
+        </tr>
+        <tr>
+          <td>Regional Company</td>
+          <td>{{region.regional_company}}</td>
+        </tr>
+        <tr>
+          <td>Frequency</td>
+          <td>{{region.frequency}}</td>
+        </tr>
+        <tr>
+          <td>R09 Type</td>
+          <td>{{region.r09_type}}</td>
+        </tr>
+        <tr>
+          <td>Encoding</td>
+          <td>{{region.encoding}}</td>
+        </tr>
+        <tr>
+          <td>Lat</td>
+          <td>{{region.lat}}°</td>
+        </tr>
+        <tr>
+          <td>Lon</td>
+          <td>{{region.lon}}°</td>
+        </tr>
+        <tr>
+          <td>Zoom</td>
+          <td>{{region.zoom}}</td>
+        </tr>
+        <tr>
+          <td>Work in Progress</td>
+          <td>{{region.work_in_progress}}</td>
+        </tr>
+        <tr>
+          <td>Deactivated</td>
+          <td>{{region.deactivated}}</td>
+        </tr>
       </tbody>
     </table>
   </section>
-
   <div class="buttons">
     <feel-button link="edit">Edit</feel-button>
     <feel-button link="..">Back to List</feel-button>
   </div>
-
-  <ng-container *ngIf="reportingPoints | async as reportingPoints">
+  @if (reportingPoints | async; as reportingPoints) {
     <app-region-map
       [lat]="region.lat"
       [lon]="region.lon"
       [markers]="reportingPoints"
       [zoom]="region.zoom"
       class="map"
-    />
-  </ng-container>
-</ng-container>
-
-<ng-template #loading>
+      />
+  }
+} @else {
   Loading...
-</ng-template>
+}
+

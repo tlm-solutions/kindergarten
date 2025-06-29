@@ -1,34 +1,32 @@
-<ng-container *ngIf="user | async as user; else loading">
+@if (user | async; as user) {
   <section class="general">
     <h1 i18n>General</h1>
     <table>
       <tbody>
-      <tr>
-        <td i18n>Name</td>
-        <td>{{user.name}}</td>
-      </tr>
-      <tr>
-        <td i18n>E-Mail</td>
-        <td>{{user.email}}</td>
-      </tr>
-      <tr>
-        <td i18n>E-Mail Setting</td>
-        <td>{{user.email_setting}}</td>
-      </tr>
-      <tr>
-        <td i18n>Deactivated</td>
-        <td>{{user.deactivated}}</td>
-      </tr>
+        <tr>
+          <td i18n>Name</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td i18n>E-Mail</td>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td i18n>E-Mail Setting</td>
+          <td>{{user.email_setting}}</td>
+        </tr>
+        <tr>
+          <td i18n>Deactivated</td>
+          <td>{{user.deactivated}}</td>
+        </tr>
       </tbody>
     </table>
   </section>
-
   <div class="buttons">
     <feel-button i18n link="edit">Edit</feel-button>
     <feel-button i18n link="..">Back to List</feel-button>
   </div>
-</ng-container>
-
-<ng-template #loading>
+} @else {
   <span i18n>Loading...</span>
-</ng-template>
+}
+

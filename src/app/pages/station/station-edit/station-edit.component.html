@@ -3,9 +3,11 @@
   <section>
     <h1 i18n>General</h1>
     <feel-text-field formControlName="name" i18n-label label="Name">
-      <feel-form-error *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']" i18n>Name is
+      @if (form.controls.name.touched && form.controls.name.errors?.['required']) {
+        <feel-form-error i18n>Name is
         required!
       </feel-form-error>
+      }
     </feel-text-field>
 
     <feel-checkbox formControlName="approved" i18n-label label="Approved"/>
@@ -18,14 +20,18 @@
   <section>
     <h1>Location</h1>
     <feel-text-field formControlName="lat" i18n-label label="Latitude" type="number">
-      <feel-form-error *ngIf="form.controls.lat.touched && form.controls.lat.errors?.['required']" i18n>Latitude is
+      @if (form.controls.lat.touched && form.controls.lat.errors?.['required']) {
+        <feel-form-error i18n>Latitude is
         required!
       </feel-form-error>
+      }
     </feel-text-field>
     <feel-text-field formControlName="lon" i18n-label label="Longitude" type="number">
-      <feel-form-error *ngIf="form.controls.lon.touched && form.controls.lon.errors?.['required']" i18n>Longitude is
+      @if (form.controls.lon.touched && form.controls.lon.errors?.['required']) {
+        <feel-form-error i18n>Longitude is
         required!
       </feel-form-error>
+      }
     </feel-text-field>
     <feel-text-field formControlName="elevation" i18n-label label="Elevation" type="number"/>
     <feel-text-field formControlName="region" i18n-label label="Region" type="number"/>
@@ -48,11 +54,12 @@
   </div>
 </form>
 
-<app-map
-  *ngIf="(getRegion() | async) as region"
-  [lat]="(form.controls.lat.valueChanges | async) ?? 0"
-  [lon]="(form.controls.lon.valueChanges | async) ?? 0"
-  [marker]="true"
-  [zoom]="region.zoom"
-  class="map"
-/>
+@if ((getRegion() | async); as region) {
+  <app-map
+    [lat]="(form.controls.lat.valueChanges | async) ?? 0"
+    [lon]="(form.controls.lon.valueChanges | async) ?? 0"
+    [marker]="true"
+    [zoom]="region.zoom"
+    class="map"
+    />
+}

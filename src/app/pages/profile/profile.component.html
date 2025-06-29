@@ -1,38 +1,40 @@
 <section>
   <h1 i18n>Details</h1>
-  <table *ngIf="(user | async) as user; else noAccount">
-    <tbody>
-    <tr>
-      <td i18n>Id</td>
-      <td>{{user.id}}</td>
-    </tr>
-    <tr>
-      <td i18n>Name</td>
-      <td>{{user.name}}</td>
-    </tr>
-    <tr>
-      <td i18n>E-Mail</td>
-      <td>{{user.email}}</td>
-    </tr>
-    <tr>
-      <td i18n>E-Mail Setting</td>
-      <td>{{user.email_setting}}</td>
-    </tr>
-    <tr>
-      <td i18n>Deactivated</td>
-      <td>{{user.deactivated}}</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <ng-template #noAccount>
+  @if ((user | async); as user) {
+    <table>
+      <tbody>
+        <tr>
+          <td i18n>Id</td>
+          <td>{{user.id}}</td>
+        </tr>
+        <tr>
+          <td i18n>Name</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td i18n>E-Mail</td>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td i18n>E-Mail Setting</td>
+          <td>{{user.email_setting}}</td>
+        </tr>
+        <tr>
+          <td i18n>Deactivated</td>
+          <td>{{user.deactivated}}</td>
+        </tr>
+      </tbody>
+    </table>
+  } @else {
     <p i18n>You are not logged in.</p>
-  </ng-template>
+  }
+
 </section>
 
 <div class="buttons">
-  <feel-button (click)="logout()" *ngIf="authState | async; else loginBtn" i18n-label label="Logout"/>
-  <ng-template #loginBtn>
+  @if (authState | async) {
+    <feel-button (click)="logout()" i18n-label label="Logout"/>
+  } @else {
     <feel-button [query]="{next}" i18n-label label="Login" link="/login"/>
-  </ng-template>
+  }
 </div>

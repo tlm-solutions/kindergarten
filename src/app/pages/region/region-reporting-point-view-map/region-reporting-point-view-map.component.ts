@@ -23,7 +23,7 @@ import Stroke from "ol/style/Stroke";
 import Overlay from "ol/Overlay";
 import { RegionReportingPointInfoComponent } from "../region-reporting-point-info/region-reporting-point-info.component";
 import { ReportingPointRaw } from "../../../data/region/region.domain";
-import { CommonModule } from "@angular/common";
+
 
 const MARKER_STYLE = new Style({
   image: new Circle({
@@ -38,7 +38,7 @@ const MARKER_STYLE = new Style({
     templateUrl: './region-reporting-point-view-map.component.html',
     styleUrls: ['./region-reporting-point-view-map.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule]
+    imports: []
 })
 export class RegionReportingPointViewMapComponent implements OnInit, OnChanges {
 

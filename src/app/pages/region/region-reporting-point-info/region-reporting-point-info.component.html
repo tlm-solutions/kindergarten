@@ -1,4 +1,4 @@
-<ng-container *ngIf="reportingPointRaw">
+@if (reportingPointRaw) {
   <div>
     <span i18n>Lat</span>
     <span>{{roundLatLon(reportingPointRaw.lat)}}°</span>
@@ -11,9 +11,9 @@
     <span i18n>Run</span>
     <span>
       <a [routerLink]="'/track/' + reportingPointRaw.trekkie_run">
-        <ng-container *ngIf="track | async as track">
+        @if (track | async; as track) {
           {{track.line}}/{{track.run}} {{track.start_time | date:'short'}}
-        </ng-container>
+        }
       </a>
     </span>
   </div>
@@ -25,4 +25,4 @@
       </a>
     </span>
   </div>
-</ng-container>
+}

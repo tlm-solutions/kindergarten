@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, HostListener} from '@angular/core';
 import {SidebarService} from "./sidebar.service";
-import {CommonModule} from "@angular/common";
+
 import {RouterLink} from "@angular/router";
 import {DashboardIconComponent} from "../../core/icons/dashboard-icon/dashboard-icon.component";
 import {MapIconComponent} from "../../core/icons/map-icon/map-icon.component";
@@ -12,7 +12,7 @@ import {ProfileIconComponent} from "../../core/icons/profile-icon/profile-icon.c
 
 @Component({
     selector: 'app-sidebar',
-    imports: [CommonModule, RouterLink, DashboardIconComponent, MapIconComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent, ProfileIconComponent],
+    imports: [RouterLink, DashboardIconComponent, MapIconComponent, RegionIconComponent, StationIconComponent, UserIconComponent, TrackIconComponent, ProfileIconComponent],
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush

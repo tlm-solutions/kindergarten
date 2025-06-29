@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {routingAnimation} from "../../core/animation/routing.animation";
-import {CommonModule} from "@angular/common";
+
 import {MapWindshieldComponent} from "./map-windshield/map-windshield.component";
 
 @Component({
@@ -9,7 +9,7 @@ import {MapWindshieldComponent} from "./map-windshield/map-windshield.component"
     styleUrls: ['./map.component.scss'],
     animations: [routingAnimation],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, MapWindshieldComponent]
+    imports: [MapWindshieldComponent]
 })
 export class MapComponent {
 

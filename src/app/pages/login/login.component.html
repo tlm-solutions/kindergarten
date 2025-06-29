@@ -5,19 +5,25 @@
   <app-tlms-icon class="icon"></app-tlms-icon>
   <h1 i18n>Kindergarten Login</h1>
 
-  <span *ngIf="(loading | async) === false && (wrongCredentials | async)" class="error" i18n>Wrong credentials</span>
+  @if ((loading | async) === false && (wrongCredentials | async)) {
+    <span class="error" i18n>Wrong credentials</span>
+  }
 
   <form (submit)="login(); $event.preventDefault()" [formGroup]="form">
     <feel-text-field formControlName="email" label="E-Mail">
-      <feel-form-error *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']" i18n>
+      @if (form.controls.email.touched && form.controls.email.errors?.['required']) {
+        <feel-form-error i18n>
         E-Mail is required!
       </feel-form-error>
+      }
     </feel-text-field>
 
     <feel-text-field formControlName="password" label="Password" type="password">
-      <feel-form-error *ngIf="form.controls.password.touched && form.controls.password.errors?.['required']" i18n>
+      @if (form.controls.password.touched && form.controls.password.errors?.['required']) {
+        <feel-form-error i18n>
         Password is required!
       </feel-form-error>
+      }
     </feel-text-field>
 
     <div class="controls">
@@ -33,19 +39,19 @@
     -
     <span i18n>Enhancing openness and promoting access to Dresden public infrastructure data since 2022.</span>
     <br>
-    <br>
-    <a href="https://github.com/tlm-solutions?type=source" i18n rel="nofollow noopener noreferrer" target="_blank">
+      <br>
+        <a href="https://github.com/tlm-solutions?type=source" i18n rel="nofollow noopener noreferrer" target="_blank">
       GitHub
     </a>
-    -
-    <a href="https://matrix.to/#/#dump-dvb:matrix.org" i18n rel="nofollow noopener noreferrer" target="_blank">
+        -
+        <a href="https://matrix.to/#/#dump-dvb:matrix.org" i18n rel="nofollow noopener noreferrer" target="_blank">
       Matrix
     </a>
-    -
-    <a i18n routerLink="/map">Live Map</a>
-    -
-    <a href="https://docs.tlm.solutions/" i18n rel="nofollow noopener noreferrer" target="_blank">
+        -
+        <a i18n routerLink="/map">Live Map</a>
+        -
+        <a href="https://docs.tlm.solutions/" i18n rel="nofollow noopener noreferrer" target="_blank">
       Documentation
     </a>
-  </p>
-</footer>
+      </p>
+    </footer>

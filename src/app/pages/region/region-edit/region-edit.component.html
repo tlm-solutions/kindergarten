@@ -20,12 +20,13 @@
     <feel-button flavor="danger" i18n-label label="Cancel" link=".."/>
   </div>
 
-  <app-map
-    *ngIf="(form.valueChanges | async) as value"
-    [lat]="value.lat ?? 0"
-    [lon]="value.lon ?? 0"
-    [marker]="true"
-    [zoom]="value.zoom ?? 0"
-    class="map"
-  />
+  @if ((form.valueChanges | async); as value) {
+    <app-map
+      [lat]="value.lat ?? 0"
+      [lon]="value.lon ?? 0"
+      [marker]="true"
+      [zoom]="value.zoom ?? 0"
+      class="map"
+      />
+  }
 </form>

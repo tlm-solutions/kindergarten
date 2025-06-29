@@ -1,4 +1,4 @@
-<ng-container *ngIf="reportingPoint">
+@if (reportingPoint) {
   <div>
     <span i18n>Reporting Point</span>
     <span>
@@ -15,4 +15,4 @@
     <span i18n>Lon</span>
     <span>{{roundLatLon(reportingPoint.lon)}}°</span>
   </div>
-</ng-container>
+}

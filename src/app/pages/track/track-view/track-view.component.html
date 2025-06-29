@@ -1,95 +1,95 @@
-<ng-container *ngIf="track | async as track; else loading">
+@if (track | async; as track) {
   <section class="general">
     <h1 i18n>General</h1>
     <table>
       <tbody>
-      <tr>
-        <td i18n>Start</td>
-        <td>{{track.start_time | date:'short'}}</td>
-      </tr>
-      <tr>
-        <td i18n>End</td>
-        <td>{{track.end_time | date:'short'}}</td>
-      </tr>
-      <tr>
-        <td i18n>Age</td>
-        <td>{{track.end_time | relativeTime | async}}</td>
-      </tr>
-      <tr>
-        <td i18n>Duration</td>
-        <td>{{duration(track.start_time, track.end_time)}}</td>
-      </tr>
-      <tr>
-        <td i18n>Line</td>
-        <td>{{track.line}}</td>
-      </tr>
-      <tr>
-        <td i18n>Run</td>
-        <td>{{track.run}}</td>
-      </tr>
-      <tr>
-        <td i18n>Region</td>
-        <td>
-          <a [routerLink]="'/region/' + track.region">
-            {{ (getRegion(track.region) | async)?.name }}
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td i18n>Owner</td>
-        <td>
-          <a [routerLink]="'/user/' + track.owner">
-            {{ getUserName(track.owner) | async }}
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td i18n>Finished</td>
-        <td>{{track.finished}}</td>
-      </tr>
-      <tr>
-        <td i18n>Correlated</td>
-        <td>{{track.correlated}}</td>
-      </tr>
-      <tr>
-        <td i18n>Data points</td>
-        <td>{{track.gps.length}}</td>
-      </tr>
-      <tr>
-        <td i18n>App Name</td>
-        <td>{{track.app_name}}</td>
-      </tr>
-      <tr>
-        <td i18n>App Commit</td>
-        <td>
-          <a *ngIf="getCommitLink(track.app_name, track.app_commit) as commitLink; else withoutLink"
-             [href]="commitLink"
-             rel="noreferrer nofollow noopener"
-             target="_blank">
-            {{renderCommitId(track.app_commit)}}
-          </a>
-          <ng-template #withoutLink>{{renderCommitId(track.app_commit)}}</ng-template>
-        </td>
-      </tr>
+        <tr>
+          <td i18n>Start</td>
+          <td>{{track.start_time | date:'short'}}</td>
+        </tr>
+        <tr>
+          <td i18n>End</td>
+          <td>{{track.end_time | date:'short'}}</td>
+        </tr>
+        <tr>
+          <td i18n>Age</td>
+          <td>{{track.end_time | relativeTime | async}}</td>
+        </tr>
+        <tr>
+          <td i18n>Duration</td>
+          <td>{{duration(track.start_time, track.end_time)}}</td>
+        </tr>
+        <tr>
+          <td i18n>Line</td>
+          <td>{{track.line}}</td>
+        </tr>
+        <tr>
+          <td i18n>Run</td>
+          <td>{{track.run}}</td>
+        </tr>
+        <tr>
+          <td i18n>Region</td>
+          <td>
+            <a [routerLink]="'/region/' + track.region">
+              {{ (getRegion(track.region) | async)?.name }}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td i18n>Owner</td>
+          <td>
+            <a [routerLink]="'/user/' + track.owner">
+              {{ getUserName(track.owner) | async }}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td i18n>Finished</td>
+          <td>{{track.finished}}</td>
+        </tr>
+        <tr>
+          <td i18n>Correlated</td>
+          <td>{{track.correlated}}</td>
+        </tr>
+        <tr>
+          <td i18n>Data points</td>
+          <td>{{track.gps.length}}</td>
+        </tr>
+        <tr>
+          <td i18n>App Name</td>
+          <td>{{track.app_name}}</td>
+        </tr>
+        <tr>
+          <td i18n>App Commit</td>
+          <td>
+            @if (getCommitLink(track.app_name, track.app_commit); as commitLink) {
+              <a
+                [href]="commitLink"
+                rel="noreferrer nofollow noopener"
+                target="_blank">
+                {{renderCommitId(track.app_commit)}}
+              </a>
+            } @else {
+              {{renderCommitId(track.app_commit)}}
+            }
+          </td>
+        </tr>
       </tbody>
     </table>
   </section>
-
   <div class="buttons">
     <feel-button i18n link="edit">Edit</feel-button>
     <feel-button i18n>Recorrelate</feel-button>
     <feel-button (click)="delete(track.id)" flavor="danger" i18n>Delete</feel-button>
     <feel-button i18n link="..">Back to List</feel-button>
   </div>
-
   <app-track-map
     [highlightedLines]="[convertToCoords(track.gps, track.start_time, track.end_time)]"
     [lines]="[convertToCoordsBefore(track.gps, track.start_time),convertToCoordsAfter(track.gps, track.end_time)]"
     [markers]="(correlation | async) ?? []"
     class="map"
-  />
-</ng-container>
-
-<ng-template #loading>
+    />
+} @else {
   <span i18n>Loading...</span>
-</ng-template>
+}
+

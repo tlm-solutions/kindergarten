@@ -20,7 +20,7 @@ import Overlay from "ol/Overlay";
 import { MapVehicleInfoComponent } from "../map-vehicle-info/map-vehicle-info.component";
 import { Type } from "../../../data/region/region.domain";
 import { Source } from "../../../data/network/network.domain";
-import { CommonModule } from "@angular/common";
+
 import { LineString } from 'ol/geom';
 import Stroke from 'ol/style/Stroke';
 import { smooth } from '../../../core/utils';
@@ -82,7 +82,7 @@ const MAX_VEHICLE_AGE = 1000 * 60 * 5;
     templateUrl: './map-windshield.component.html',
     styleUrls: ['./map-windshield.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule]
+    imports: []
 })
 export class MapWindshieldComponent implements OnInit, OnDestroy {
 

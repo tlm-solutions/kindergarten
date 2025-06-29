@@ -4,7 +4,7 @@ import {map} from "rxjs";
 import {UserService} from "../../data/user/user.service";
 import {RegionService} from "../../data/region/region.service";
 import {TrackService} from "../../data/track/track.service";
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {RouterLink} from "@angular/router";
 import {StatisticCardComponent} from "../../core/components/statistic-card/statistic-card.component";
 import {RegionIconComponent} from "../../core/icons/region-icon/region-icon.component";

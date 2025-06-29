@@ -1,40 +1,42 @@
 <section>
   <table>
     <thead>
-    <tr>
-      <th i18n>Name</th>
-      <th i18n>Lat</th>
-      <th i18n>Lon</th>
-      <th i18n>Region</th>
-      <th i18n>Owner</th>
-      <th i18n>Approved</th>
-      <th i18n>Deactivated</th>
-      <th i18n>Public</th>
-      <th i18n>Details</th>
-      <th i18n>Edit</th>
-    </tr>
+      <tr>
+        <th i18n>Name</th>
+        <th i18n>Lat</th>
+        <th i18n>Lon</th>
+        <th i18n>Region</th>
+        <th i18n>Owner</th>
+        <th i18n>Approved</th>
+        <th i18n>Deactivated</th>
+        <th i18n>Public</th>
+        <th i18n>Details</th>
+        <th i18n>Edit</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let station of (stations | async); trackBy trackBy">
-      <td>{{station.name}}</td>
-      <td>{{station.lat}}°</td>
-      <td>{{station.lon}}°</td>
-      <td>
-        <a [routerLink]="'/region/' + station.region">
-          {{ (getRegion(station.region) | async)?.name }}
-        </a>
-      </td>
-      <td>
-        <a [routerLink]="'/user/' + station.owner">
-          {{ getUserName(station.owner) | async }}
-        </a>
-      </td>
-      <td>{{station.approved}}</td>
-      <td>{{station.deactivated}}</td>
-      <td>{{station.public}}</td>
-      <td><a [routerLink]="station.id" i18n>Details</a></td>
-      <td><a [routerLink]="station.id + '/edit'" i18n>Edit</a></td>
-    </tr>
+      @for (station of (stations | async); track station) {
+        <tr>
+          <td>{{station.name}}</td>
+          <td>{{station.lat}}°</td>
+          <td>{{station.lon}}°</td>
+          <td>
+            <a [routerLink]="'/region/' + station.region">
+              {{ (getRegion(station.region) | async)?.name }}
+            </a>
+          </td>
+          <td>
+            <a [routerLink]="'/user/' + station.owner">
+              {{ getUserName(station.owner) | async }}
+            </a>
+          </td>
+          <td>{{station.approved}}</td>
+          <td>{{station.deactivated}}</td>
+          <td>{{station.public}}</td>
+          <td><a [routerLink]="station.id" i18n>Details</a></td>
+          <td><a [routerLink]="station.id + '/edit'" i18n>Edit</a></td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>

@@ -7,7 +7,7 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import Map from "ol/Map";
 import View from "ol/View";
 import OSM from "ol/source/OSM";
@@ -48,7 +48,7 @@ const HIGHLIGHTED_LINE_STYLE = new Style({
 
 @Component({
     selector: 'app-map',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush

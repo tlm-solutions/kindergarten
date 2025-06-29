@@ -1,108 +1,104 @@
-<ng-container *ngIf="station | async as station; else loading">
+@if (station | async; as station) {
   <section class="general">
     <h1 i18n>General</h1>
     <table>
       <tbody>
-      <tr>
-        <td i18n>Name</td>
-        <td>{{station.name}}</td>
-      </tr>
-      <tr>
-        <td i18n>Owner</td>
-        <td>
-          <a [routerLink]="'/user/' + station.owner">
-            {{ getUserName(station.owner) | async }}
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td i18n>Approved</td>
-        <td>{{station.approved}}</td>
-      </tr>
-      <tr>
-        <td i18n>Deactivated</td>
-        <td>{{station.deactivated}}</td>
-      </tr>
-      <tr>
-        <td i18n>Public</td>
-        <td>{{station.public}}</td>
-      </tr>
-      <tr>
-        <td i18n>Notes</td>
-        <td>{{station.notes}}</td>
-      </tr>
+        <tr>
+          <td i18n>Name</td>
+          <td>{{station.name}}</td>
+        </tr>
+        <tr>
+          <td i18n>Owner</td>
+          <td>
+            <a [routerLink]="'/user/' + station.owner">
+              {{ getUserName(station.owner) | async }}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td i18n>Approved</td>
+          <td>{{station.approved}}</td>
+        </tr>
+        <tr>
+          <td i18n>Deactivated</td>
+          <td>{{station.deactivated}}</td>
+        </tr>
+        <tr>
+          <td i18n>Public</td>
+          <td>{{station.public}}</td>
+        </tr>
+        <tr>
+          <td i18n>Notes</td>
+          <td>{{station.notes}}</td>
+        </tr>
       </tbody>
     </table>
   </section>
-
   <section class="location">
     <h1 i18n>Location</h1>
     <table>
       <tbody>
-      <tr>
-      <tr>
-        <td i18n>Region</td>
-        <td>
-          <a [routerLink]="'/region/' + station.region">
-            {{ (getRegion(station.region) | async)?.name }}
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td i18n>Lat</td>
-        <td>{{station.lat}}°</td>
-      </tr>
-      <tr>
-        <td i18n>Lon</td>
-        <td>{{station.lon}}°</td>
-      </tr>
-      <tr>
-        <td i18n>Elevation</td>
-        <td>{{station.elevation}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="hardware">
-    <h1 i18n>Hardware</h1>
-    <table>
-      <tr>
-        <td i18n>Radio</td>
-        <td>{{station.radio ?? "Unknown"}}</td>
-      </tr>
-      <tr>
-        <td i18n>Architecture</td>
-        <td>{{station.architecture ?? "Unknown"}}</td>
-      </tr>
-      <tr>
-        <td i18n>Device</td>
-        <td>{{station.device ?? "Unknown"}}</td>
-      </tr>
-      <tr>
-        <td i18n>Antenna</td>
-        <td>{{station.antenna ?? "Unknown"}}</td>
-      </tr>
-      <tr>
-        <td i18n>Telegram Decoder Version</td>
-        <td>{{station.telegram_decoder_version ?? "Unknown"}}</td>
-      </tr>
-    </table>
-  </section>
+        <tr>
+          <tr>
+            <td i18n>Region</td>
+            <td>
+              <a [routerLink]="'/region/' + station.region">
+                {{ (getRegion(station.region) | async)?.name }}
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td i18n>Lat</td>
+            <td>{{station.lat}}°</td>
+          </tr>
+          <tr>
+            <td i18n>Lon</td>
+            <td>{{station.lon}}°</td>
+          </tr>
+          <tr>
+            <td i18n>Elevation</td>
+            <td>{{station.elevation}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="hardware">
+      <h1 i18n>Hardware</h1>
+      <table>
+        <tr>
+          <td i18n>Radio</td>
+          <td>{{station.radio ?? "Unknown"}}</td>
+        </tr>
+        <tr>
+          <td i18n>Architecture</td>
+          <td>{{station.architecture ?? "Unknown"}}</td>
+        </tr>
+        <tr>
+          <td i18n>Device</td>
+          <td>{{station.device ?? "Unknown"}}</td>
+        </tr>
+        <tr>
+          <td i18n>Antenna</td>
+          <td>{{station.antenna ?? "Unknown"}}</td>
+        </tr>
+        <tr>
+          <td i18n>Telegram Decoder Version</td>
+          <td>{{station.telegram_decoder_version ?? "Unknown"}}</td>
+        </tr>
+      </table>
+    </section>
+    <div class="buttons">
+      <feel-button i18n link="edit">Edit</feel-button>
+      <feel-button i18n link="..">Back to List</feel-button>
+    </div>
+    <app-map
+      [lat]="station.lat"
+      [lon]="station.lon"
+      [marker]="true"
+      [zoom]="(getRegion(station.region) | async)?.zoom ?? 11"
+      class="map"
+      />
+  } @else {
+    <span i18n>Loading...</span>
+  }
 
-  <div class="buttons">
-    <feel-button i18n link="edit">Edit</feel-button>
-    <feel-button i18n link="..">Back to List</feel-button>
-  </div>
-
-  <app-map
-    [lat]="station.lat"
-    [lon]="station.lon"
-    [marker]="true"
-    [zoom]="(getRegion(station.region) | async)?.zoom ?? 11"
-    class="map"
-  />
-</ng-container>
-
-<ng-template #loading>
-  <span i18n>Loading...</span>
-</ng-template>

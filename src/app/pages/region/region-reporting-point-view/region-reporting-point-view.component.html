@@ -1,6 +1,6 @@
-<ng-container *ngIf="reportingPoints | async as reportingPoints">
+@if (reportingPoints | async; as reportingPoints) {
   <app-region-reporting-point-view-map
     [markers]="reportingPoints"
     class="map"
-  />
-</ng-container>
+    />
+}

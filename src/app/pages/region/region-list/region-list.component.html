@@ -1,36 +1,38 @@
 <section>
   <table>
     <thead>
-    <tr>
-      <th i18n>Name</th>
-      <th i18n>Transport Company</th>
-      <th i18n>Regional Company</th>
-      <th i18n>Frequency</th>
-      <th i18n>R09 Type</th>
-      <th i18n>Encoding</th>
-      <th i18n>Lat</th>
-      <th i18n>Lon</th>
-      <th i18n>Zoom</th>
-      <th i18n>Work in Progress</th>
-      <th i18n>Deactivated</th>
-    </tr>
+      <tr>
+        <th i18n>Name</th>
+        <th i18n>Transport Company</th>
+        <th i18n>Regional Company</th>
+        <th i18n>Frequency</th>
+        <th i18n>R09 Type</th>
+        <th i18n>Encoding</th>
+        <th i18n>Lat</th>
+        <th i18n>Lon</th>
+        <th i18n>Zoom</th>
+        <th i18n>Work in Progress</th>
+        <th i18n>Deactivated</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let region of (regions | async); trackBy trackBy">
-      <td>{{region.name}}</td>
-      <td>{{region.transport_company}}</td>
-      <td>{{region.regional_company}}</td>
-      <td>{{region.frequency}}</td>
-      <td>{{region.r09_type}}</td>
-      <td>{{region.encoding}}</td>
-      <td>{{region.lat}}°</td>
-      <td>{{region.lon}}°</td>
-      <td>{{region.zoom}}°</td>
-      <td>{{region.work_in_progress}}</td>
-      <td>{{region.deactivated}}</td>
-      <td><a [routerLink]="region.id.toString()" i18n>Details</a></td>
-      <td><a [routerLink]="[region.id.toString(), 'edit']" i18n>Edit</a></td>
-    </tr>
+      @for (region of (regions | async); track region) {
+        <tr>
+          <td>{{region.name}}</td>
+          <td>{{region.transport_company}}</td>
+          <td>{{region.regional_company}}</td>
+          <td>{{region.frequency}}</td>
+          <td>{{region.r09_type}}</td>
+          <td>{{region.encoding}}</td>
+          <td>{{region.lat}}°</td>
+          <td>{{region.lon}}°</td>
+          <td>{{region.zoom}}°</td>
+          <td>{{region.work_in_progress}}</td>
+          <td>{{region.deactivated}}</td>
+          <td><a [routerLink]="region.id.toString()" i18n>Details</a></td>
+          <td><a [routerLink]="[region.id.toString(), 'edit']" i18n>Edit</a></td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>

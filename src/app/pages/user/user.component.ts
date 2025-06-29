@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {routingAnimation} from "../../core/animation/routing.animation";
 import {RouterOutlet} from '@angular/router';
-import {CommonModule} from "@angular/common";
+
 
 @Component({
     selector: 'app-user',
@@ -9,7 +9,7 @@ import {CommonModule} from "@angular/common";
     styleUrls: ['./user.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [routingAnimation],
-    imports: [CommonModule, RouterOutlet]
+    imports: [RouterOutlet]
 })
 export class UserComponent {
 

@@ -1,32 +1,35 @@
-<ng-container *ngIf="(vehicle | async) as vehicle">
-  <ng-container *ngIf="lookupLine(vehicle.line) as line; else rawLine">
+@if ((vehicle | async); as vehicle) {
+  @if (lookupLine(vehicle.line); as line) {
     <div>
       <span i18n>Line</span>
       <span>{{line.name}}</span>
     </div>
-    <div *ngIf="line.description">
-      <span i18n>Description</span>
-      <span>{{line.description}}</span>
-    </div>
+    @if (line.description) {
+      <div>
+        <span i18n>Description</span>
+        <span>{{line.description}}</span>
+      </div>
+    }
     <div>
       <span i18n>Type</span>
       <span>{{type(line.type)}}</span>
     </div>
-  </ng-container>
-  <ng-template #rawLine>
+  } @else {
     <div>
       <span i18n>Raw Line</span>
       <span>{{vehicle.line}}</span>
     </div>
-  </ng-template>
+  }
   <div>
     <span i18n>Run</span>
     <span>{{vehicle.run}}</span>
   </div>
-  <div *ngIf="vehicle.delayed">
-    <span i18n>Delay</span>
-    <span>{{(vehicle.delayed * 1000) | duration}}</span>
-  </div>
+  @if (vehicle.delayed) {
+    <div>
+      <span i18n>Delay</span>
+      <span>{{(vehicle.delayed * 1000) | duration}}</span>
+    </div>
+  }
   <div>
     <span i18n>Last Seen</span>
     <span>{{vehicle.time | relativeTime | async}}</span>
@@ -35,14 +38,18 @@
     <span i18n>Source</span>
     <span>{{getSourceDisplayName(vehicle.source)}}</span>
   </div>
-  <div *ngIf="vehicle.r09_destination_number !== null">
-    <span i18n>R09 Reporting Point</span>
-    <span><a
+  @if (vehicle.r09_destination_number !== null) {
+    <div>
+      <span i18n>R09 Reporting Point</span>
+      <span><a
       [routerLink]="'/region/' + vehicle.region + '/reporting_point/' + vehicle.r09_reporting_point">{{vehicle.r09_reporting_point}}</a>
     </span>
   </div>
-  <div *ngIf="vehicle.r09_destination_number !== null">
+}
+@if (vehicle.r09_destination_number !== null) {
+  <div>
     <span i18n>R09 Destination</span>
     <span>{{vehicle.r09_destination_number}}</span>
   </div>
-</ng-container>
+}
+}

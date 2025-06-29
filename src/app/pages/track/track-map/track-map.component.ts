@@ -22,7 +22,7 @@ import TileLayer from "ol/layer/Tile";
 import Point from "ol/geom/Point";
 import Circle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
-import { CommonModule } from "@angular/common";
+
 
 // const MARKER_STYLE = new Style({
 //   image: new Icon({
@@ -60,7 +60,7 @@ const MARKER_STYLE = new Style({
     templateUrl: './track-map.component.html',
     styleUrls: ['./track-map.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule]
+    imports: []
 })
 export class TrackMapComponent implements OnChanges, AfterViewInit {
 
