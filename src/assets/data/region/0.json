@@ -266,6 +266,10 @@
     "type": "bus",
     "name": "352"
   },
+  "353": {
+    "type": "bus",
+    "name": "353"
+  },
   "360": {
     "type": "bus",
     "name": "360"
@@ -290,5 +294,9 @@
     "type": "bus",
     "name": "T",
     "description": "Technische Überprüfungsfahrt"
+  },
+  "928": {
+    "type": "bus",
+    "name": "H/S"
   }
 }
