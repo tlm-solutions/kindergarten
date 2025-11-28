@@ -1,3 +1,4 @@
+import { provideZoneChangeDetection } from "@angular/core";
 /// <reference types="@angular/localize" />
 
 import {bootstrapApplication} from '@angular/platform-browser';
@@ -8,5 +9,5 @@ import {useGeographic} from "ol/proj";
 // use lon/lat
 useGeographic();
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(AppComponent, {...appConfig, providers: [provideZoneChangeDetection(), ...appConfig.providers]})
   .catch((err) => console.error(err));

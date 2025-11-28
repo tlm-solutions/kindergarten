@@ -4,24 +4,21 @@ let
   manifest = lib.importJSON ./package.json;
 in
 stdenv.mkDerivation (finalAttrs: {
-  pname = "kindergarten";
+  pname = manifest.name;
   inherit (manifest) version;
 
-  src = lib.cleanSourceWith {
-    filter = name: type: ((!lib.hasSuffix ".nix" name) && (builtins.dirOf name) != "node_modules");
-    src = lib.cleanSource ./.;
-  };
+  src = lib.cleanSource ./.;
 
   pnpmDeps = pnpm.fetchDeps {
     inherit (finalAttrs) pname version src;
-    hash = "sha256-I/h9jbmLxC5WaVN62d0oBpTykaSGKtKcexfRxx/M0VQ=";
+    hash = "sha256-p/84qht5m0EF5JgUsmMxb33gnIB9rKf/IrsTobE1ahE=";
   };
 
   nativeBuildInputs = [ nodejs pnpm.configHook ];
 
   postPatch = ''
     substituteInPlace src/app/data/api.domain.ts \
-      --replace 'staging.tlm.solutions' '${domain}'
+      --replace 'tlm.solutions' '${domain}'
   '';
 
   buildPhase = ''

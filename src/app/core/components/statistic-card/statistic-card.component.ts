@@ -25,7 +25,7 @@ export class StatisticCardComponent {
   }
 
   @HostListener('window:mousemove', ["$event"])
-  private onMouseMove(event: MouseEvent): void {
+  protected onMouseMove(event: MouseEvent): void {
     const rect = this.elementRef.nativeElement.getBoundingClientRect();
 
     this.elementRef.nativeElement.style.setProperty('--xPos', `${Math.round(event.clientX - rect.left)}px`);
