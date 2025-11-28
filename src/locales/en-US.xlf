@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="2489604628795070296" datatype="html">
@@ -236,44 +236,42 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4274463076773249266" datatype="html">
-        <source> a group of students that ended up getting seriously nerdsniped by a humble side-project started during lockdown. </source>
+        <source>a group of students that ended up getting seriously nerdsniped by a humble side-project started during lockdown.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">7,8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4233057043543293848" datatype="html">
-        <source> Our aim is and has always been to collect reliable real-time information about public transport in order to make it available in a straightforward, open manner. We believe that transparency regarding public infrastructure contributes to better understanding and thus better informed public discussions. Check out the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a
-        routerLink=&quot;/map&quot;&gt;"/>map<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to see what we’ve built. </source>
+        <source>Our aim is and has always been to collect reliable real-time information about public transport in order to make it available in a straightforward, open manner. We believe that transparency regarding public infrastructure contributes to better understanding and thus better informed public discussions. Check out the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a         routerLink=&quot;/map&quot;&gt;"/>map<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to see what we’ve built. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">11,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="77533091505197442" datatype="html">
-        <source> The data is gathered by a network of radio receivers distributed across the city, collecting signals sent out by public transport vehicles. By now we have reached particularly good coverage, thanks to many contributors who helped to expand and maintain this receiver network. </source>
+        <source>The data is gathered by a network of radio receivers distributed across the city, collecting signals sent out by public transport vehicles. By now we have reached particularly good coverage, thanks to many contributors who helped to expand and maintain this receiver network.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="800119647872706008" datatype="html">
-        <source> With the project now concluded, active feature development has ended. However, we will continue to provide regular security updates to keep the platform stable and safe to use. </source>
+        <source>With the project now concluded, active feature development has ended. However, we will continue to provide regular security updates to keep the platform stable and safe to use.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="33243842441336930" datatype="html">
-        <source> We would like to express our sincere thanks to our supporters — all of you that contributed data, tested software, or hosted receivers. This project would not have been possible without your enthusiasm and dedication! </source>
+        <source>We would like to express our sincere thanks to our supporters — all of you that contributed data, tested software, or hosted receivers. This project would not have been possible without your enthusiasm and dedication!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4124493963915316223" datatype="html">
-        <source> If you have questions or would like to get in touch regarding past work, feel free to send us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a
-        href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <source>If you have questions or would like to get in touch regarding past work, feel free to send us an <x id="START_LINK" ctype="x-a" equiv-text="&lt;a         href=&quot;mailto:hello@tlm.solutions&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">35,38</context>
@@ -333,7 +331,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4465335499811746408" datatype="html">
-        <source>Depending on their delay, the color of the icon changes from orange (delayed) to blue (ahead of schedule). </source>
+        <source>Depending on their delay, the color of the icon changes from orange (delayed) to blue (ahead of schedule).</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">58,59</context>
@@ -354,7 +352,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5654580826467194273" datatype="html">
-        <source> Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/strasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Strasi (<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>tandortverfolgungssystem für <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>T<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>rams und <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>egionalbusse mit <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>a<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>utomatisierter <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>atelliten<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>i<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>dentifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
+        <source>Use <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/tlm-solutions/strasi&quot; rel=&quot;noopener&quot; target=&quot;blank&quot;&gt;"/>Strasi (<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>tandortverfolgungssystem für <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>T<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>rams und <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>egionalbusse mit <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>a<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>utomatisierter <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>S<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>atelliten<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>i<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>dentifikation)<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to help us discover now waypoints. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/landingpage/landingpage.component.html</context>
           <context context-type="linenumber">72,76</context>
@@ -382,14 +380,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="9193356394095810014" datatype="html">
-        <source> E-Mail is required! </source>
+        <source>E-Mail is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="858387669412276474" datatype="html">
-        <source> Password is required! </source>
+        <source>Password is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">24,25</context>
@@ -410,14 +408,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5453179079862122867" datatype="html">
-        <source> GitHub </source>
+        <source>GitHub</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">44,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2946606238846263830" datatype="html">
-        <source> Matrix </source>
+        <source>Matrix</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">48,49</context>
@@ -431,7 +429,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6801253915325537992" datatype="html">
-        <source> Documentation </source>
+        <source>Documentation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
           <context context-type="linenumber">54,55</context>
@@ -987,7 +985,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3518484868494312029" datatype="html">
-        <source>Name is required! </source>
+        <source>Name is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">8,9</context>
@@ -1042,7 +1040,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4224106337954102965" datatype="html">
-        <source>Latitude is required! </source>
+        <source>Latitude is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">24,26</context>
@@ -1056,7 +1054,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8966840175129431170" datatype="html">
-        <source>Longitude is required! </source>
+        <source>Longitude is required!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-edit/station-edit.component.html</context>
           <context context-type="linenumber">31,33</context>
@@ -1217,8 +1215,9 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3894950702316166331" datatype="html">
+      <trans-unit id="3894950702316166331" datatype="html" xml:space="preserve">
         <source>Loading...</source>
+        <target state="needs-translation">Loading...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/station/station-view/station-view.component.html</context>
           <context context-type="linenumber">102,103</context>
